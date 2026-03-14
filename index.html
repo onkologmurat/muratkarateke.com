@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<meta name="description" content="Manisa Şehir Hastanesi Tıbbi Onkoloji Uzmanı Dr. Murat Karateke. Yenilikçi kanser tedavileri, akıllı ilaçlar ve immünoterapi hakkında bilgiler ve randevu." />
+<meta name="description" content="Manisa Şehir Hastanesi Tıbbi Onkoloji Uzmanı Dr. Murat Karateke. Yenilikçi kanser tedavileri, akıllı ilaçlar ve immünoterapi hakkında bilgiler." />
 <title>Dr. Murat Karateke — Tıbbi Onkoloji</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
@@ -15,9 +15,9 @@
   --bg:      #f9f8f6;
   --bg2:     #f3f1ee;
   --line:    #e8e4de;
-  --text:    #1c1c1c;
+  /* Metin rengi saf siyahtan, çok koyu antrasit/yeşil tonuna yumuşatıldı */
+  --text:    #2c332e; 
   --muted:   #6b6662;
-  /* Logo Renkleri */
   --accent:  #5c7a52;   /* Zeytin yeşili */
   --purple:  #812990;   /* Lavanta moru */
   --serif:   'Playfair Display', Georgia, serif;
@@ -43,8 +43,7 @@ nav {
   display: flex; justify-content: space-between; align-items: center;
   padding: 1rem 4rem;
 }
-.nav-logo-link { display: flex; align-items: center; }
-.nav-logo-img { height: 44px; width: auto; object-fit: contain; }
+.nav-logo-link { display: flex; align-items: center; text-decoration: none; }
 
 .nav-links { display: flex; gap: 2.5rem; list-style: none; }
 .nav-links a {
@@ -75,14 +74,14 @@ nav {
   transition: 0.3s;
 }
 
-/* ── HERO (Yenilendi) ── */
+/* ── HERO (Profesyonel, Tek Satır ve Yumuşatılmış Tasarım) ── */
 .hero {
   min-height: 100vh;
   display: flex; flex-direction: column;
   justify-content: center; align-items: center;
   text-align: center;
   padding: 8rem 2rem 4rem;
-  background: var(--bg); /* Daha yumuşak bir arka plan */
+  background: var(--bg); 
   position: relative;
 }
 .hero-tag {
@@ -97,15 +96,24 @@ nav {
 }
 .hero-name {
   font-family: var(--serif);
-  font-size: clamp(2.8rem, 6vw, 4.5rem);
-  font-weight: 600; /* Daha otoriter bir kalınlık */
-  line-height: 1.15;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 600; 
   color: var(--text);
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.8rem;
   opacity: 0;
   animation: rise .8s .25s forwards;
 }
-.hero-name span {
-  color: var(--purple); /* Soyisim logodaki mor renk ile vurgulandı */
+.hero-name .title {
+  font-size: 0.6em;
+  color: var(--muted);
+  font-weight: 500;
+}
+.hero-name .surname {
+  color: var(--purple); 
 }
 .hero-divider {
   width: 60px; height: 3px;
@@ -162,7 +170,7 @@ nav {
 .section { padding: 6rem 4rem; }
 .section-inner { max-width: 950px; margin: 0 auto; }
 .section-inner.wide { max-width: 1100px; }
-.section-alt { background: var(--bg); }
+.section-alt { background: var(--white); } /* Arka plan dengelendi */
 
 .eyebrow {
   font-size: .7rem;
@@ -188,7 +196,7 @@ nav {
   color: var(--text);
 }
 
-/* ── HAKKIMDA & ÖZGEÇMİŞ (Birleştirildi) ── */
+/* ── HAKKIMDA & ÖZGEÇMİŞ ── */
 .about-grid {
   display: grid;
   grid-template-columns: 240px 1fr;
@@ -199,33 +207,41 @@ nav {
   position: relative;
   width: 100%;
   aspect-ratio: 3/4;
-  background: var(--line); 
+  background: var(--bg2); 
   border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  font-size: 0.8rem;
+  text-align: center;
+  padding: 1rem;
 }
 .about-photo-img {
   width: 100%; height: 100%;
   object-fit: cover;
   border-radius: 4px;
-  position: relative;
+  position: absolute;
+  top: 0; left: 0;
   z-index: 2;
 }
 .about-photo-wrap::after {
   content: '';
   position: absolute; top: 15px; left: 15px; right: -15px; bottom: -15px;
-  background: var(--bg2);
+  background: var(--bg);
   border: 1px solid var(--accent); 
   border-radius: 4px;
   z-index: 1;
 }
 .about-text p {
   font-size: 1rem;
-  font-weight: 300;
-  color: var(--muted);
+  font-weight: 400;
+  color: var(--text);
   line-height: 1.8;
   margin-bottom: 1.5rem;
 }
 
-/* Birleştirilmiş CV (Özgeçmiş) Alanı */
+/* Özgeçmiş (Ferahlatıldı) */
 .cv-integrated {
   margin-top: 4rem;
   padding-top: 3rem;
@@ -245,8 +261,8 @@ nav {
 }
 .cv-box {
   background: var(--bg);
-  padding: 2rem;
-  border-radius: 6px;
+  padding: 2.5rem;
+  border-radius: 8px;
   border: 1px solid var(--line);
 }
 .cv-box h4 {
@@ -255,20 +271,20 @@ nav {
   text-transform: uppercase;
   color: var(--accent);
   letter-spacing: 0.1em;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 }
 .cv-item {
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem; /* Maddeler arası boşluk artırıldı */
 }
 .cv-item:last-child { margin-bottom: 0; }
 .cv-item-title {
-  font-weight: 500;
+  font-weight: 600;
   color: var(--text);
   font-size: 1.05rem;
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.4rem;
 }
 .cv-item-desc {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   color: var(--muted);
 }
 
@@ -284,7 +300,7 @@ nav {
   text-decoration: none;
   color: var(--text);
   border: 1px solid var(--line);
-  border-radius: 6px;
+  border-radius: 8px;
   transition: all .3s ease;
   display: flex; flex-direction: column;
 }
@@ -314,15 +330,25 @@ nav {
   color: var(--muted);
   line-height: 1.6;
 }
+.post-footer {
+  margin-top: 1.5rem;
+  font-size: .75rem;
+  font-weight: 500;
+  color: var(--purple);
+  text-transform: uppercase;
+  display: flex; justify-content: space-between;
+  border-top: 1px solid var(--line);
+  padding-top: 1rem;
+}
 
 /* ── RANDEVU ── */
 .randevu-container {
-  background: var(--white);
+  background: var(--bg);
   border: 1px solid var(--line);
   border-radius: 8px;
   padding: 4rem;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1.6fr;
   gap: 4rem;
   align-items: center;
 }
@@ -334,32 +360,34 @@ nav {
 }
 .randevu-info p {
   font-size: 1rem;
-  color: var(--muted);
+  color: var(--text);
   margin-bottom: 1.5rem;
 }
 .randevu-steps { list-style: none; margin-top: 2rem; }
 .randevu-steps li {
   font-size: .95rem;
+  font-weight: 500;
   color: var(--text);
   padding: .8rem 0;
-  border-bottom: 1px solid var(--bg2);
+  border-bottom: 1px solid var(--line);
   display: flex; gap: 1rem; align-items: center;
 }
 .randevu-steps li::before {
   content: attr(data-n);
   font-size: .8rem;
-  font-weight: 600;
-  background: var(--bg2);
-  color: var(--purple);
+  font-weight: 700;
+  background: var(--purple);
+  color: var(--white);
   padding: 0.3rem 0.6rem;
   border-radius: 4px;
 }
 .randevu-embed-card {
   text-align: center;
-  background: var(--bg);
+  background: var(--white);
   border: 1px solid var(--line);
   border-radius: 8px;
   padding: 3rem 2rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.03);
 }
 .randevu-embed-title {
   font-family: var(--serif);
@@ -381,7 +409,7 @@ nav {
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
   align-items: start;
-  margin-bottom: 4rem; /* Form ile araya boşluk */
+  margin-bottom: 4rem; 
 }
 .contact-group { margin-bottom: 2.5rem; }
 .contact-group-label {
@@ -399,7 +427,7 @@ nav {
   padding: .8rem 0; border-bottom: 1px solid var(--bg2);
 }
 .contact-key { font-weight: 500; color: var(--text); }
-.contact-val { color: var(--muted); text-decoration: none; }
+.contact-val { color: var(--muted); text-decoration: none; font-weight: 500;}
 .contact-val:hover { color: var(--purple); }
 
 .contact-map {
@@ -411,9 +439,9 @@ nav {
 }
 .contact-map iframe { width: 100%; height: 100%; }
 
-/* Geri Bildirim Formu (Google Forms) */
+/* Geri Bildirim Formu (Scrollbar gizlendi) */
 .form-container {
-  background: var(--white);
+  background: var(--bg);
   border: 1px solid var(--line);
   border-radius: 8px;
   padding: 3rem;
@@ -431,11 +459,10 @@ nav {
 }
 .form-iframe-wrapper {
   width: 100%;
-  height: 600px; /* Form uzunluğuna göre ayarlayabilirsiniz */
-  border-radius: 6px;
+  height: 800px; /* Form yüksekliği artırıldı, kaydırma çubuğu gizlendi */
+  border-radius: 8px;
   overflow: hidden;
-  border: 1px solid var(--line);
-  background: var(--bg);
+  background: transparent;
 }
 
 /* ── FOOTER ── */
@@ -443,7 +470,7 @@ footer {
   padding: 3rem 4rem;
   border-top: 1px solid var(--line);
   display: flex; justify-content: space-between; align-items: center;
-  background: var(--white);
+  background: var(--bg);
 }
 .footer-left { font-size: .85rem; color: var(--muted); }
 .footer-right {
@@ -464,7 +491,7 @@ footer {
 }
 .reveal.visible { opacity: 1; transform: none; }
 
-/* ── MOBİL UYUM (RESPONSIVE) ── */
+/* ── MOBİL UYUM ── */
 @media (max-width: 900px) {
   nav { padding: 1rem 1.5rem; }
   .hamburger { display: flex; }
@@ -485,7 +512,7 @@ footer {
     grid-template-columns: 1fr; 
     gap: 3rem; 
   }
-  .about-photo-wrap { width: 200px; margin: 0 auto; }
+  .about-photo-wrap { width: 220px; margin: 0 auto; }
   .randevu-container { padding: 2rem; }
   .form-container { padding: 1.5rem; }
   footer { flex-direction: column; gap: 1rem; text-align: center; }
@@ -495,8 +522,12 @@ footer {
 <body>
 
 <nav>
-  <a class="nav-logo-link" href="#">
-    <img src="logo.png" alt="Dr. Murat Karateke Logo" class="nav-logo-img" />
+  <a class="nav-logo-link" href="#" aria-label="Ana Sayfa">
+    <svg width="220" height="40" viewBox="0 0 220 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <text x="0" y="30" font-family="'Playfair Display', serif" font-size="32" font-weight="700" fill="#812990" letter-spacing="-0.05em">M<tspan fill="#5c7a52">K</tspan></text>
+      <text x="60" y="20" font-family="'Inter', sans-serif" font-size="14" font-weight="600" fill="#2c332e" letter-spacing="0.02em">Dr. Murat Karateke</text>
+      <text x="61" y="35" font-family="'Inter', sans-serif" font-size="10" font-weight="500" fill="#5c7a52" letter-spacing="0.15em">TIBBİ ONKOLOJİ</text>
+    </svg>
   </a>
   <button class="hamburger" aria-label="Menüyü Aç/Kapat">
     <span></span>
@@ -513,7 +544,7 @@ footer {
 
 <section class="hero">
   <p class="hero-tag">Tıbbi Onkoloji Uzmanı</p>
-  <h1 class="hero-name">Dr. Murat <span>Karateke</span></h1>
+  <h1 class="hero-name"><span class="title">Dr.</span> Murat <span class="surname">Karateke</span></h1>
   <div class="hero-divider"></div>
   <p class="hero-sub">Güncel tıbbi yaklaşımlar, multidisipliner değerlendirme ve her hastaya özel planlanmış güvenilir tedavi süreçleri.</p>
   <div class="hero-cta">
@@ -522,14 +553,14 @@ footer {
   </div>
 </section>
 
-<section class="section section-alt" id="hakkimda">
+<section class="section" id="hakkimda">
   <div class="section-inner">
     <p class="eyebrow reveal">Hakkımda</p>
     
     <div class="about-grid mb-5">
       <div class="about-photo-wrap reveal">
-        <img src="portre.jpg" alt="Dr. Murat Karateke" class="about-photo-img" />
-      </div>
+        Fotoğraf Alanı
+        </div>
       <div class="about-text reveal">
         <h2 class="section-title" style="margin-bottom:1.5rem">Kansere Karşı<br/>Bilimle ve Güvenle</h2>
         <p>
@@ -550,7 +581,6 @@ footer {
     <div class="cv-integrated reveal">
       <h3>Eğitim & Kariyer</h3>
       <div class="cv-grid-layout">
-        
         <div class="cv-box">
           <h4>Deneyim & Eğitim</h4>
           <div class="cv-item">
@@ -586,14 +616,12 @@ footer {
             <div class="cv-item-desc">American Society of Clinical Oncology</div>
           </div>
         </div>
-
       </div>
     </div>
-
   </div>
 </section>
 
-<section class="section" id="yazilar">
+<section class="section section-alt" id="yazilar">
   <div class="section-inner wide">
     <p class="eyebrow reveal">Yazılarım</p>
     <h2 class="section-title reveal">Onkoloji & Sağlık Üzerine</h2>
@@ -608,20 +636,24 @@ footer {
       <a class="post-card reveal" href="#">
         <span class="post-tag">Tedavi</span>
         <h3 class="post-title">Akıllı İlaçlar ve İmmünoterapi: Tedavide Yeni Çağ</h3>
-        <p class="post-excerpt">Geleneksel kemoterapinin ötesine geçen hedefe yönelik tedaviler ve immünoterapi süreçlerinin nasıl çalıştığını sade bir dille anlatıyorum.</p>
+        <p class="post-excerpt">Geleneksel kemoterapinin ötesine geçen hedefe yönelik tedaviler ve immünoterapi süreçlerinin nasıl çalışır?</p>
         <div class="post-footer"><span>Okumaya Devam Et</span><span>→</span></div>
       </a>
       <a class="post-card reveal" href="#">
-        <span class="post-tag">Beslenme & Onkoloji</span>
+        <span class="post-tag">Beslenme</span>
         <h3 class="post-title">Kemoterapi Sürecinde Beslenme: Neyi, Nasıl Tüketmeli?</h3>
-        <p class="post-excerpt">Tedavi sürecinde beslenmeyi nasıl düzenleyeceğinizi, hangi besinlerin öncelikli olduğunu ve ASCO kılavuzlarına dayanan pratik önerileri paylaşıyorum.</p>
+        <p class="post-excerpt">Tedavi sürecinde beslenmeyi nasıl düzenleyeceğinizi ve ASCO kılavuzlarına dayanan pratik önerileri paylaşıyorum.</p>
         <div class="post-footer"><span>Okumaya Devam Et</span><span>→</span></div>
       </a>
+    </div>
+    
+    <div class="reveal" style="text-align: center; margin-top: 3.5rem;">
+        <a href="#yazilar" class="btn btn-outline">Tüm Yazıları Gör &rarr;</a>
     </div>
   </div>
 </section>
 
-<section class="section section-alt" id="randevu">
+<section class="section" id="randevu">
   <div class="section-inner">
     <p class="eyebrow reveal">Randevu</p>
     <h2 class="section-title reveal">Klinik Görüşme Planlayın</h2>
@@ -648,7 +680,7 @@ footer {
   </div>
 </section>
 
-<section class="section" id="iletisim">
+<section class="section section-alt" id="iletisim">
   <div class="section-inner">
     <p class="eyebrow reveal">İletişim</p>
     <h2 class="section-title reveal">Bize Ulaşın</h2>
@@ -683,16 +715,16 @@ footer {
         </div>
       </div>
       <div class="contact-map">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3119.5393165039327!2d27.3876007!3d38.617500!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14b986cf3a76387f%3A0xb23190fc6797cc2d!2sManisa%20%C5%9Eehir%20Hastanesi!5e0!3m2!1str!2str!4v1700000000000!5m2!1str!2str" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe src="http://googleusercontent.com/maps.google.com/3" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>
 
     <div class="form-container reveal">
-      <h3>Geri Bildirim ve İletişim Formu</h3>
-      <p>Süreçle ilgili sorularınız veya geri bildirimleriniz için aşağıdaki formu doldurarak bize iletebilirsiniz.</p>
+      <h3>Geri Bildirim Formu</h3>
+      <p>Süreçle ilgili sorularınız veya görüşleriniz için aşağıdaki formu doldurarak bize iletebilirsiniz.</p>
       
       <div class="form-iframe-wrapper">
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSe_ORNEK_BURAYA_KENDI_FORM_LINKINIZI_YAZIN/viewform?embedded=true" width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0">Yükleniyor…</iframe>
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfwYc42mH7sB9WfQk_L5X0rLq_r3zX6X9uX_y_Z9/viewform?embedded=true" width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0">Form Yükleniyor…</iframe>
       </div>
     </div>
 
@@ -705,7 +737,7 @@ footer {
 </footer>
 
 <script>
-  // Kaydırma (Scroll) Animasyonları
+  // Kaydırma Animasyonları
   const io = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
@@ -718,12 +750,10 @@ footer {
   const navLinks = document.querySelector('.nav-links');
   const navItems = document.querySelectorAll('.nav-links a');
 
-  // Menü açma/kapama
   hamburger.addEventListener('click', () => {
     navLinks.classList.toggle('open');
   });
 
-  // Mobil cihazlarda menüden bir linke tıklandığında menüyü otomatik kapat
   navItems.forEach(item => {
     item.addEventListener('click', () => {
       if (navLinks.classList.contains('open')) {
