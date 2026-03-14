@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dr. Murat Karateke — Tıbbi Onkoloji Uzmanı</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink:    #1a1a1a;
+    --muted:  #6b7280;
+    --line:   #e5e0d8;
+    --cream:  #faf8f5;
+    --gold:   #8b6f47;
+    --gold-lt:#c4a97d;
+    --white:  #ffffff;
+    --serif:  'Cormorant Garamond', Georgia, serif;
+    --sans:   'DM Sans', system-ui, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--cream);
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.4rem 3.5rem;
+    background: rgba(250,248,245,.92);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    font-weight: 400;
+    letter-spacing: .05em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 2.2rem; list-style: none; }
+  .nav-links a {
+    font-size: .75rem;
+    font-weight: 500;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color .2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 80px;
+  }
+  .hero-text {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 6rem 4rem 6rem 5rem;
+  }
+  .hero-eyebrow {
+    font-size: .7rem;
+    font-weight: 500;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.6rem;
+    opacity: 0;
+    animation: fadeUp .8s .2s forwards;
+  }
+  .hero-name {
+    font-family: var(--serif);
+    font-size: clamp(3rem, 5vw, 5rem);
+    font-weight: 300;
+    line-height: 1.08;
+    letter-spacing: -.01em;
+    color: var(--ink);
+    opacity: 0;
+    animation: fadeUp .8s .35s forwards;
+  }
+  .hero-name em { font-style: italic; color: var(--gold); }
+  .hero-title {
+    margin-top: 1.8rem;
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    font-weight: 300;
+    color: var(--muted);
+    opacity: 0;
+    animation: fadeUp .8s .5s forwards;
+  }
+  .hero-divider {
+    width: 48px; height: 1px;
+    background: var(--gold);
+    margin: 2.4rem 0;
+    opacity: 0;
+    animation: fadeUp .8s .6s forwards;
+  }
+  .hero-desc {
+    max-width: 420px;
+    font-size: .92rem;
+    color: var(--muted);
+    line-height: 1.85;
+    opacity: 0;
+    animation: fadeUp .8s .7s forwards;
+  }
+  .hero-cta {
+    margin-top: 3rem;
+    display: flex; gap: 1rem; flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeUp .8s .85s forwards;
+  }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: .5rem;
+    padding: .85rem 2rem;
+    background: var(--ink);
+    color: var(--white);
+    font-size: .75rem;
+    font-weight: 500;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background .25s, transform .2s;
+  }
+  .btn-primary:hover { background: var(--gold); transform: translateY(-2px); }
+  .btn-secondary {
+    display: inline-flex; align-items: center; gap: .5rem;
+    padding: .85rem 2rem;
+    border: 1px solid var(--ink);
+    color: var(--ink);
+    font-size: .75rem;
+    font-weight: 500;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: border-color .25s, color .25s, transform .2s;
+  }
+  .btn-secondary:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
+
+  .hero-visual {
+    position: relative;
+    background: #1a1a1a;
+    overflow: hidden;
+  }
+  .hero-visual-inner {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+  }
+  /* Geometric medical motif */
+  .hero-bg-pattern {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 50% 50%, #2d2520 0%, #111 100%);
+  }
+  .hero-rings {
+    position: absolute;
+    width: 380px; height: 380px;
+    border: 1px solid rgba(196,169,125,.15);
+    border-radius: 50%;
+    animation: rotate 20s linear infinite;
+  }
+  .hero-rings::before {
+    content:'';
+    position: absolute; inset: 30px;
+    border: 1px solid rgba(196,169,125,.1);
+    border-radius: 50%;
+  }
+  .hero-rings::after {
+    content:'';
+    position: absolute; inset: 80px;
+    border: 1px solid rgba(196,169,125,.08);
+    border-radius: 50%;
+  }
+  .hero-cross {
+    position: relative; z-index: 2;
+    display: flex; flex-direction: column; align-items: center; gap: 0;
+  }
+  .cross-v { width: 1px; height: 120px; background: linear-gradient(to bottom, transparent, var(--gold-lt), transparent); }
+  .cross-h { width: 120px; height: 1px; background: linear-gradient(to right, transparent, var(--gold-lt), transparent); margin: -60px 0; }
+  .cross-center {
+    width: 8px; height: 8px;
+    background: var(--gold);
+    border-radius: 50%;
+    box-shadow: 0 0 20px var(--gold-lt);
+  }
+  .hero-tagline {
+    position: absolute;
+    bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+    font-family: var(--serif);
+    font-size: .95rem;
+    font-style: italic;
+    color: rgba(196,169,125,.6);
+    white-space: nowrap;
+    letter-spacing: .05em;
+  }
+  .hero-location {
+    position: absolute;
+    top: 2rem; right: 2rem;
+    font-size: .68rem;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    color: rgba(196,169,125,.45);
+  }
+
+  /* ── SECTIONS ── */
+  section { padding: 7rem 5rem; }
+  .section-label {
+    font-size: .68rem;
+    font-weight: 500;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 3.5rem;
+    display: flex; align-items: center; gap: 1.2rem;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1; max-width: 80px; height: 1px;
+    background: var(--gold-lt);
+    opacity: .5;
+  }
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 300;
+    line-height: 1.15;
+    letter-spacing: -.01em;
+  }
+
+  /* ── ABOUT ── */
+  #hakkimda { background: var(--white); }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 6rem;
+    align-items: start;
+    margin-top: 4rem;
+  }
+  .about-photo-frame {
+    position: relative;
+  }
+  .about-photo-placeholder {
+    width: 100%;
+    aspect-ratio: 3/4;
+    background: linear-gradient(135deg, #f0ebe3 0%, #e5ddd2 100%);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 1rem;
+    color: var(--gold-lt);
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1rem;
+  }
+  .photo-icon { font-size: 2.5rem; opacity: .4; }
+  .about-photo-caption {
+    position: absolute; bottom: -1.5rem; right: 0;
+    font-size: .7rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .about-photo-frame::before {
+    content: '';
+    position: absolute;
+    top: 16px; left: 16px; right: -16px; bottom: -16px;
+    border: 1px solid var(--line);
+    z-index: -1;
+  }
+  .about-content { padding-top: 1rem; }
+  .about-content p {
+    font-size: .92rem;
+    color: #4a4a4a;
+    line-height: 1.9;
+    margin-bottom: 1.4rem;
+  }
+  .about-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+    padding-top: 3rem;
+    border-top: 1px solid var(--line);
+  }
+  .stat-num {
+    font-family: var(--serif);
+    font-size: 2.8rem;
+    font-weight: 300;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: .72rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: .5rem;
+  }
+
+  /* ── EXPERTISE ── */
+  #uzmanlık { background: var(--cream); }
+  .expertise-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5px;
+    margin-top: 4rem;
+    background: var(--line);
+  }
+  .expertise-card {
+    background: var(--cream);
+    padding: 2.5rem 2rem;
+    transition: background .3s;
+    cursor: default;
+  }
+  .expertise-card:hover { background: var(--white); }
+  .expertise-card:hover .exp-num { color: var(--gold); }
+  .exp-num {
+    font-family: var(--serif);
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: var(--line);
+    line-height: 1;
+    margin-bottom: 1.2rem;
+    transition: color .3s;
+  }
+  .exp-title {
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    font-weight: 400;
+    margin-bottom: .8rem;
+    line-height: 1.3;
+  }
+  .exp-desc {
+    font-size: .82rem;
+    color: var(--muted);
+    line-height: 1.8;
+  }
+  .exp-tags {
+    margin-top: 1.5rem;
+    display: flex; flex-wrap: wrap; gap: .4rem;
+  }
+  .exp-tag {
+    display: inline-block;
+    padding: .25rem .7rem;
+    border: 1px solid var(--line);
+    font-size: .65rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* ── ILKELER ── */
+  #ilkeler {
+    background: var(--ink);
+    color: var(--white);
+  }
+  #ilkeler .section-label { color: var(--gold-lt); }
+  #ilkeler .section-label::after { background: var(--gold-lt); }
+  #ilkeler .section-title { color: var(--white); }
+  .principles-list {
+    margin-top: 4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem 5rem;
+  }
+  .principle {
+    padding-bottom: 3rem;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+  }
+  .principle-header {
+    display: flex; align-items: center; gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  .principle-dot {
+    width: 6px; height: 6px;
+    background: var(--gold);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .principle-title {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--white);
+  }
+  .principle p {
+    font-size: .85rem;
+    color: rgba(255,255,255,.5);
+    line-height: 1.85;
+    padding-left: 1.35rem;
+  }
+
+  /* ── KLINIKLER ── */
+  #klinik { background: var(--white); }
+  .clinic-row {
+    display: flex; align-items: center;
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--line);
+    gap: 3rem;
+    transition: padding-left .25s;
+    cursor: default;
+  }
+  .clinic-row:hover { padding-left: .8rem; }
+  .clinic-row:first-child { border-top: 1px solid var(--line); margin-top: 3rem; }
+  .clinic-year {
+    font-size: .75rem;
+    letter-spacing: .12em;
+    color: var(--gold);
+    min-width: 60px;
+  }
+  .clinic-name {
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    font-weight: 400;
+    flex: 1;
+  }
+  .clinic-role {
+    font-size: .8rem;
+    color: var(--muted);
+    text-align: right;
+  }
+  .clinic-arrow {
+    color: var(--gold-lt);
+    font-size: 1.2rem;
+    opacity: 0;
+    transition: opacity .25s, transform .25s;
+  }
+  .clinic-row:hover .clinic-arrow { opacity: 1; transform: translateX(4px); }
+
+  /* ── ILETISIM ── */
+  #iletisim {
+    background: var(--cream);
+    text-align: center;
+  }
+  #iletisim .section-label { justify-content: center; }
+  #iletisim .section-label::after { display: none; }
+  .contact-subtitle {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.2rem;
+    color: var(--muted);
+    margin: 1.5rem 0 3.5rem;
+  }
+  .contact-grid {
+    display: inline-grid;
+    grid-template-columns: repeat(3, 200px);
+    gap: 1px;
+    background: var(--line);
+    margin-bottom: 4rem;
+  }
+  .contact-item {
+    background: var(--cream);
+    padding: 2rem 1.5rem;
+    text-decoration: none;
+    color: var(--ink);
+    transition: background .25s;
+  }
+  .contact-item:hover { background: var(--white); }
+  .contact-item-icon { font-size: 1.3rem; margin-bottom: .8rem; }
+  .contact-item-label {
+    font-size: .65rem;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: block; margin-bottom: .3rem;
+  }
+  .contact-item-value { font-size: .85rem; color: var(--ink); }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 2rem 5rem;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .footer-copy { font-size: .75rem; color: var(--muted); }
+  .footer-brand {
+    font-family: var(--serif);
+    font-size: .95rem;
+    color: var(--muted);
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes rotate { to { transform: rotate(360deg); } }
+
+  /* Scroll reveal */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity .7s ease, transform .7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 1.2rem 2rem; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-visual { height: 280px; }
+    .hero-text { padding: 5rem 2rem 3rem; }
+    section { padding: 5rem 2rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .expertise-grid { grid-template-columns: 1fr; }
+    .principles-list { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; width: 100%; max-width: 300px; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; }
+    .about-stats { grid-template-columns: repeat(3, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">Dr. Murat Karateke</a>
+  <ul class="nav-links">
+    <li><a href="#hakkimda">Hakkımda</a></li>
+    <li><a href="#uzmanlık">Uzmanlık</a></li>
+    <li><a href="#ilkeler">İlkeler</a></li>
+    <li><a href="#klinik">Deneyim</a></li>
+    <li><a href="#iletisim">İletişim</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <p class="hero-eyebrow">Tıbbi Onkoloji Uzmanı · Manisa</p>
+    <h1 class="hero-name">Dr. Murat<br/><em>Karateke</em></h1>
+    <p class="hero-title">Kanıta Dayalı Onkoloji &amp; Multidisipliner Bakım</p>
+    <div class="hero-divider"></div>
+    <p class="hero-desc">
+      Kanser tedavisinde bilimi insanla buluşturan bir yaklaşımla; 
+      multidisipliner tümör konseyleri, moleküler profilleme ve 
+      uluslararası kılavuzlar eşliğinde bireyselleştirilmiş tedavi planları sunuyorum.
+    </p>
+    <div class="hero-cta">
+      <a href="#hakkimda" class="btn-primary">Daha Fazla Bilgi</a>
+      <a href="#iletisim" class="btn-secondary">İletişime Geç</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-bg-pattern"></div>
+    <div class="hero-visual-inner">
+      <div class="hero-rings"></div>
+      <div class="hero-cross">
+        <div class="cross-v"></div>
+        <div class="cross-h"></div>
+        <div class="cross-center"></div>
+      </div>
+    </div>
+    <span class="hero-location">Manisa · Türkiye</span>
+    <span class="hero-tagline">Primo non nocere</span>
+  </div>
+</section>
+
+<!-- HAKKIMDA -->
+<section id="hakkimda">
+  <p class="section-label">01 — Hakkımda</p>
+  <div class="about-grid">
+    <div class="about-photo-frame reveal">
+      <div class="about-photo-placeholder">
+        <span class="photo-icon">◎</span>
+        <span>Fotoğraf eklenecek</span>
+      </div>
+      <span class="about-photo-caption">Dr. Murat Karateke</span>
+    </div>
+    <div class="about-content reveal">
+      <h2 class="section-title">Kanser tedavisinde<br/>bilim ve insanlık</h2>
+      <div style="height:2rem"></div>
+      <p>
+        Tıbbi Onkoloji alanında uzmanlaşmış bir hekim olarak Manisa'da devlet 
+        hastanesi bünyesinde faaliyet göstermekteyim. Kliniğimde çok disiplinli 
+        yaklaşımı, moleküler tümör profillemesini ve uluslararası kılavuz önerilerini 
+        (NCCN, ESMO, ASCO, ESGO) günlük pratiğime entegre ediyorum.
+      </p>
+      <p>
+        Kanıta dayalı tıp ilkeleri çerçevesinde, her hastanın biyolojik ve klinik 
+        özelliklerine göre kişiselleştirilmiş tedavi planları oluşturmayı temel 
+        önceliğim olarak benimsedim. Akademik literatürü yakından takip ederek 
+        kliniğe yansımasını sağlamak en önemli mesleki ilkelerimden biridir.
+      </p>
+      <p>
+        Teknoloji ve tıbbın kesişim noktasında çalışmaktan keyif alıyor; yapay zeka 
+        destekli klinik karar destek sistemlerini pratiğe entegre etmek için aktif 
+        çalışmalar yürütüyorum.
+      </p>
+      <div class="about-stats">
+        <div>
+          <div class="stat-num">NCCN</div>
+          <div class="stat-label">Kılavuz Odaklı Pratik</div>
+        </div>
+        <div>
+          <div class="stat-num">MDT</div>
+          <div class="stat-label">Multidisipliner Ekip</div>
+        </div>
+        <div>
+          <div class="stat-num">AI</div>
+          <div class="stat-label">Klinik Entegrasyon</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- UZMANLIK -->
+<section id="uzmanlık">
+  <p class="section-label">02 — Uzmanlık Alanları</p>
+  <div class="expertise-grid">
+    <div class="expertise-card reveal">
+      <div class="exp-num">01</div>
+      <h3 class="exp-title">Solid Tümör Onkolojisi</h3>
+      <p class="exp-desc">Akciğer, meme, kolorektal ve gastrointestinal malignansilerin 
+      modern sistemik tedavisi. Moleküler hedefe yönelik ajanlar ve immünoterapi kombinasyonları.</p>
+      <div class="exp-tags">
+        <span class="exp-tag">Akciğer Kanseri</span>
+        <span class="exp-tag">Meme Kanseri</span>
+        <span class="exp-tag">Kolorektal</span>
+      </div>
+    </div>
+    <div class="expertise-card reveal">
+      <div class="exp-num">02</div>
+      <h3 class="exp-title">İmmünoterapi &amp; Hedefe Yönelik Tedavi</h3>
+      <p class="exp-desc">Checkpoint inhibitörleri, CAR-T hücre tedavileri ve küçük 
+      molekül inhibitörlerinin seçimi, yönetimi ve toksisite kontrolü.</p>
+      <div class="exp-tags">
+        <span class="exp-tag">PD-1/PD-L1</span>
+        <span class="exp-tag">TKI</span>
+        <span class="exp-tag">PARP İnhibitörleri</span>
+      </div>
+    </div>
+    <div class="expertise-card reveal">
+      <div class="exp-num">03</div>
+      <h3 class="exp-title">Moleküler Profilleme</h3>
+      <p class="exp-desc">NGS tabanlı kapsamlı genomik profilleme sonuçlarının klinik 
+      pratiğe yansıtılması. Kompanyon diagnostik testlerin yorumlanması ve tedavi seçimine entegrasyonu.</p>
+      <div class="exp-tags">
+        <span class="exp-tag">NGS</span>
+        <span class="exp-tag">TMB/MSI</span>
+        <span class="exp-tag">BRCA/HER2</span>
+      </div>
+    </div>
+    <div class="expertise-card reveal">
+      <div class="exp-num">04</div>
+      <h3 class="exp-title">Jinekojik Onkoloji</h3>
+      <p class="exp-desc">Endometrial, over ve serviks kanserlerinde multidisipliner 
+      yaklaşım. ESGO kılavuzları çerçevesinde evreleme ve sistemik tedavi planlaması.</p>
+      <div class="exp-tags">
+        <span class="exp-tag">Endometrial</span>
+        <span class="exp-tag">Over Kanseri</span>
+        <span class="exp-tag">ESGO</span>
+      </div>
+    </div>
+    <div class="expertise-card reveal">
+      <div class="exp-num">05</div>
+      <h3 class="exp-title">Multidisipliner Tümör Konseyi</h3>
+      <p class="exp-desc">Kompleks olguların multidisipliner perspektiften değerlendirilmesi. 
+      Onkoloji, radyoloji, patoloji ve cerrahi branşlarla koordineli karar alma süreçleri.</p>
+      <div class="exp-tags">
+        <span class="exp-tag">Tümör Konseyi</span>
+        <span class="exp-tag">MDT</span>
+        <span class="exp-tag">Vaka Yönetimi</span>
+      </div>
+    </div>
+    <div class="expertise-card reveal">
+      <div class="exp-num">06</div>
+      <h3 class="exp-title">Onkolojik Beslenme &amp; Destek</h3>
+      <p class="exp-desc">ESPEN ve ASCO kılavuzları eşliğinde kanser hastalarında 
+      beslenme değerlendirmesi ve müdahalesi. Kemoterapide nutrisyonel destek stratejileri.</p>
+      <div class="exp-tags">
+        <span class="exp-tag">ESPEN</span>
+        <span class="exp-tag">Nutrisyon</span>
+        <span class="exp-tag">Destek Bakım</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- İLKELER -->
+<section id="ilkeler">
+  <p class="section-label">03 — Klinik İlkelerim</p>
+  <h2 class="section-title" style="color:var(--white)">Pratiğimi şekillendiren<br/>temel değerler</h2>
+  <div class="principles-list">
+    <div class="principle reveal">
+      <div class="principle-header">
+        <div class="principle-dot"></div>
+        <h3 class="principle-title">Kanıta Dayalı Tıp</h3>
+      </div>
+      <p>Her klinik karar, NCCN, ESMO ve ASCO gibi otorite kurumların güncel meta-analiz 
+      ve kılavuzları temelinde alınır. Klinik sezginin yerini kanıt almaz; ikisi birbirini tamamlar.</p>
+    </div>
+    <div class="principle reveal">
+      <div class="principle-header">
+        <div class="principle-dot"></div>
+        <h3 class="principle-title">Bireyselleştirilmiş Tedavi</h3>
+      </div>
+      <p>Tümör biyolojisi, hasta performansı ve yaşam kalitesi hedefleri 
+      gözetilerek her hasta için özgün, kişiselleştirilmiş tedavi planları oluşturulur.</p>
+    </div>
+    <div class="principle reveal">
+      <div class="principle-header">
+        <div class="principle-dot"></div>
+        <h3 class="principle-title">Şeffaf İletişim</h3>
+      </div>
+      <p>Hastalar ve aileleriyle açık, anlaşılır ve empatik bir dil kullanılarak 
+      bilgilendirme yapılır. Paylaşımlı karar alma süreçleri her zaman ön planda tutulur.</p>
+    </div>
+    <div class="principle reveal">
+      <div class="principle-header">
+        <div class="principle-dot"></div>
+        <h3 class="principle-title">Sürekli Öğrenme</h3>
+      </div>
+      <p>Onkoloji biliminin hızla değişen yapısına ayak uydurmak için literatür 
+      takibi ve akademik güncellik mesleki sorumluluğun ayrılmaz bir parçasıdır.</p>
+    </div>
+  </div>
+</section>
+
+<!-- DENEYİM -->
+<section id="klinik">
+  <p class="section-label">04 — Deneyim</p>
+  <h2 class="section-title">Kurumsal<br/>yolculuk</h2>
+
+  <div class="clinic-row reveal">
+    <span class="clinic-year">Güncel</span>
+    <span class="clinic-name">Manisa Devlet Hastanesi</span>
+    <span class="clinic-role">Tıbbi Onkoloji Uzmanı<br/>Poliklinik &amp; Yataklı Servis</span>
+    <span class="clinic-arrow">→</span>
+  </div>
+  <div class="clinic-row reveal">
+    <span class="clinic-year">Geçmiş</span>
+    <span class="clinic-name">Uzmanlık Eğitimi</span>
+    <span class="clinic-role">Tıbbi Onkoloji<br/>Uzmanlık Programı</span>
+    <span class="clinic-arrow">→</span>
+  </div>
+  <div class="clinic-row reveal">
+    <span class="clinic-year">Akademik</span>
+    <span class="clinic-name">Tıp Fakültesi</span>
+    <span class="clinic-role">Mezuniyet<br/>Tıp Doktorası (MD)</span>
+    <span class="clinic-arrow">→</span>
+  </div>
+</section>
+
+<!-- İLETİŞİM -->
+<section id="iletisim">
+  <p class="section-label">05 — İletişim</p>
+  <h2 class="section-title">Hep birlikte<br/>konuşalım</h2>
+  <p class="contact-subtitle">Mesleki iş birliği, konsültasyon talebi veya herhangi bir soru için</p>
+
+  <div class="contact-grid reveal">
+    <a class="contact-item" href="mailto:dr@muratkarateke.com">
+      <div class="contact-item-icon">✉</div>
+      <span class="contact-item-label">E-posta</span>
+      <span class="contact-item-value">dr@muratkarateke.com</span>
+    </a>
+    <a class="contact-item" href="https://muratkarateke.com" target="_blank">
+      <div class="contact-item-icon">◎</div>
+      <span class="contact-item-label">Web Sitesi</span>
+      <span class="contact-item-value">muratkarateke.com</span>
+    </a>
+    <a class="contact-item" href="#">
+      <div class="contact-item-icon">⌖</div>
+      <span class="contact-item-label">Kurum</span>
+      <span class="contact-item-value">Manisa, Türkiye</span>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-copy">© 2025 Dr. Murat Karateke. Tüm hakları saklıdır.</span>
+  <span class="footer-brand">Tıbbi Onkoloji · Manisa</span>
+</footer>
+
+<script>
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Smooth nav highlight
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 120) current = s.id;
+    });
+    navLinks.forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + current ? 'var(--gold)' : '';
+    });
+  });
+</script>
+</body>
+</html>
