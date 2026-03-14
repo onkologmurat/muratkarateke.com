@@ -5,8 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta name="description" content="Manisa Şehir Hastanesi Tıbbi Onkoloji Uzmanı Dr. Murat Karateke. Yenilikçi kanser tedavileri, akıllı ilaçlar ve immünoterapi hakkında bilgiler." />
 <title>Dr. Murat Karateke — Tıbbi Onkoloji</title>
+
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet"/>
+
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -15,8 +17,7 @@
   --bg:      #f9f8f6;
   --bg2:     #f3f1ee;
   --line:    #e8e4de;
-  /* Metin rengi saf siyahtan, çok koyu antrasit/yeşil tonuna yumuşatıldı */
-  --text:    #2c332e; 
+  --text:    #2c332e;  /* Koyu antrasit/siyah, otoriter metin rengi */
   --muted:   #6b6662;
   --accent:  #5c7a52;   /* Zeytin yeşili */
   --purple:  #812990;   /* Lavanta moru */
@@ -41,7 +42,7 @@ nav {
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--line);
   display: flex; justify-content: space-between; align-items: center;
-  padding: 1rem 4rem;
+  padding: 0.8rem 4rem;
 }
 .nav-logo-link { display: flex; align-items: center; text-decoration: none; }
 
@@ -74,7 +75,7 @@ nav {
   transition: 0.3s;
 }
 
-/* ── HERO (Profesyonel, Tek Satır ve Yumuşatılmış Tasarım) ── */
+/* ── HERO (Artık Tek Renk ve Çok Daha Profesyonel) ── */
 .hero {
   min-height: 100vh;
   display: flex; flex-direction: column;
@@ -96,29 +97,17 @@ nav {
 }
 .hero-name {
   font-family: var(--serif);
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  font-weight: 600; 
-  color: var(--text);
-  display: flex;
-  align-items: baseline;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 0.8rem;
+  font-size: clamp(2.8rem, 6vw, 4.5rem);
+  font-weight: 700; 
+  color: var(--text); /* Tamamen profesyonel tek renk */
+  margin-bottom: 0.5rem;
   opacity: 0;
   animation: rise .8s .25s forwards;
-}
-.hero-name .title {
-  font-size: 0.6em;
-  color: var(--muted);
-  font-weight: 500;
-}
-.hero-name .surname {
-  color: var(--purple); 
 }
 .hero-divider {
   width: 60px; height: 3px;
   background: var(--purple); 
-  margin: 2rem auto;
+  margin: 1.5rem auto 2.5rem auto;
   border-radius: 2px;
   opacity: 0;
   animation: rise .8s .4s forwards;
@@ -170,7 +159,7 @@ nav {
 .section { padding: 6rem 4rem; }
 .section-inner { max-width: 950px; margin: 0 auto; }
 .section-inner.wide { max-width: 1100px; }
-.section-alt { background: var(--white); } /* Arka plan dengelendi */
+.section-alt { background: var(--white); } 
 
 .eyebrow {
   font-size: .7rem;
@@ -241,7 +230,7 @@ nav {
   margin-bottom: 1.5rem;
 }
 
-/* Özgeçmiş (Ferahlatıldı) */
+/* Özgeçmiş */
 .cv-integrated {
   margin-top: 4rem;
   padding-top: 3rem;
@@ -274,7 +263,7 @@ nav {
   margin-bottom: 2rem;
 }
 .cv-item {
-  margin-bottom: 2rem; /* Maddeler arası boşluk artırıldı */
+  margin-bottom: 2rem;
 }
 .cv-item:last-child { margin-bottom: 0; }
 .cv-item-title {
@@ -439,7 +428,7 @@ nav {
 }
 .contact-map iframe { width: 100%; height: 100%; }
 
-/* Geri Bildirim Formu (Scrollbar gizlendi) */
+/* Geri Bildirim Formu */
 .form-container {
   background: var(--bg);
   border: 1px solid var(--line);
@@ -459,7 +448,7 @@ nav {
 }
 .form-iframe-wrapper {
   width: 100%;
-  height: 800px; /* Form yüksekliği artırıldı, kaydırma çubuğu gizlendi */
+  height: 900px; 
   border-radius: 8px;
   overflow: hidden;
   background: transparent;
@@ -496,7 +485,7 @@ footer {
   nav { padding: 1rem 1.5rem; }
   .hamburger { display: flex; }
   .nav-links {
-    position: absolute; top: 76px; left: 0; right: 0;
+    position: absolute; top: 70px; left: 0; right: 0;
     background: rgba(255, 255, 255, 0.98);
     flex-direction: column; gap: 1.5rem; padding: 2rem;
     box-shadow: 0 4px 10px rgba(0,0,0,0.05);
@@ -523,10 +512,15 @@ footer {
 
 <nav>
   <a class="nav-logo-link" href="#" aria-label="Ana Sayfa">
-    <svg width="220" height="40" viewBox="0 0 220 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <text x="0" y="30" font-family="'Playfair Display', serif" font-size="32" font-weight="700" fill="#812990" letter-spacing="-0.05em">M<tspan fill="#5c7a52">K</tspan></text>
-      <text x="60" y="20" font-family="'Inter', sans-serif" font-size="14" font-weight="600" fill="#2c332e" letter-spacing="0.02em">Dr. Murat Karateke</text>
-      <text x="61" y="35" font-family="'Inter', sans-serif" font-size="10" font-weight="500" fill="#5c7a52" letter-spacing="0.15em">TIBBİ ONKOLOJİ</text>
+    <svg width="240" height="70" viewBox="0 0 240 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M 40,25 Q 120,18 200,25" stroke="#5c7a52" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+      <circle cx="80" cy="22" r="2" fill="#812990" opacity="0.8"/>
+      <circle cx="100" cy="26" r="2.5" fill="#812990" opacity="0.8"/>
+      <circle cx="120" cy="21" r="2" fill="#812990" opacity="0.8"/>
+      <circle cx="140" cy="27" r="2.5" fill="#812990" opacity="0.8"/>
+      <circle cx="160" cy="22" r="2" fill="#812990" opacity="0.8"/>
+      <text x="120" y="50" font-family="'Dancing Script', cursive" font-size="28" font-weight="700" fill="#812990" text-anchor="middle">Murat Karateke</text>
+      <text x="120" y="65" font-family="'Inter', sans-serif" font-size="9" font-weight="500" fill="#5c7a52" letter-spacing="0.25em" text-anchor="middle">TIBBİ ONKOLOG</text>
     </svg>
   </a>
   <button class="hamburger" aria-label="Menüyü Aç/Kapat">
@@ -544,7 +538,7 @@ footer {
 
 <section class="hero">
   <p class="hero-tag">Tıbbi Onkoloji Uzmanı</p>
-  <h1 class="hero-name"><span class="title">Dr.</span> Murat <span class="surname">Karateke</span></h1>
+  <h1 class="hero-name">Dr. Murat Karateke</h1>
   <div class="hero-divider"></div>
   <p class="hero-sub">Güncel tıbbi yaklaşımlar, multidisipliner değerlendirme ve her hastaya özel planlanmış güvenilir tedavi süreçleri.</p>
   <div class="hero-cta">
@@ -559,8 +553,8 @@ footer {
     
     <div class="about-grid mb-5">
       <div class="about-photo-wrap reveal">
-        Fotoğraf Alanı
-        </div>
+        <img src="portre.jpg" alt="Dr. Murat Karateke" class="about-photo-img" />
+      </div>
       <div class="about-text reveal">
         <h2 class="section-title" style="margin-bottom:1.5rem">Kansere Karşı<br/>Bilimle ve Güvenle</h2>
         <p>
@@ -636,7 +630,7 @@ footer {
       <a class="post-card reveal" href="#">
         <span class="post-tag">Tedavi</span>
         <h3 class="post-title">Akıllı İlaçlar ve İmmünoterapi: Tedavide Yeni Çağ</h3>
-        <p class="post-excerpt">Geleneksel kemoterapinin ötesine geçen hedefe yönelik tedaviler ve immünoterapi süreçlerinin nasıl çalışır?</p>
+        <p class="post-excerpt">Geleneksel kemoterapinin ötesine geçen hedefe yönelik tedaviler ve immünoterapi süreçlerinin nasıl çalıştığını sade bir dille anlatıyorum.</p>
         <div class="post-footer"><span>Okumaya Devam Et</span><span>→</span></div>
       </a>
       <a class="post-card reveal" href="#">
@@ -715,7 +709,7 @@ footer {
         </div>
       </div>
       <div class="contact-map">
-        <iframe src="http://googleusercontent.com/maps.google.com/3" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe src="http://googleusercontent.com/maps.google.com/5" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>
 
@@ -724,7 +718,7 @@ footer {
       <p>Süreçle ilgili sorularınız veya görüşleriniz için aşağıdaki formu doldurarak bize iletebilirsiniz.</p>
       
       <div class="form-iframe-wrapper">
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfwYc42mH7sB9WfQk_L5X0rLq_r3zX6X9uX_y_Z9/viewform?embedded=true" width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0">Form Yükleniyor…</iframe>
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScMk6wCHr73w4QVrp70CkqaHcRLd-u6ehOMBX_qlWOK-Y3N5g/viewform?embedded=true" width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0">Yükleniyor…</iframe>
       </div>
     </div>
 
@@ -737,7 +731,6 @@ footer {
 </footer>
 
 <script>
-  // Kaydırma Animasyonları
   const io = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
@@ -745,7 +738,6 @@ footer {
   }, { threshold: .1, rootMargin: '0px 0px -30px 0px' });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-  // Hamburger Menü İşlevselliği
   const hamburger = document.querySelector('.hamburger');
   const navLinks = document.querySelector('.nav-links');
   const navItems = document.querySelectorAll('.nav-links a');
