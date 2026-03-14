@@ -7,7 +7,7 @@
 <title>Dr. Murat Karateke — Tıbbi Onkoloji</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -45,7 +45,7 @@ nav {
   padding: 1rem 4rem;
 }
 .nav-logo-link { display: flex; align-items: center; text-decoration: none; }
-.nav-logo-img { height: 50px; width: auto; object-fit: contain; } 
+.nav-logo-link svg { height: 60px; width: auto; } /* SVG Logo boyutu */
 
 .nav-links { display: flex; gap: 2.5rem; list-style: none; }
 .nav-links a {
@@ -75,7 +75,7 @@ nav {
   transition: 0.3s;
 }
 
-/* ── HERO (Renklendirilmiş Profesyonel Başlık) ── */
+/* ── HERO ── */
 .hero {
   min-height: 100vh;
   display: flex; flex-direction: column;
@@ -108,16 +108,12 @@ nav {
   opacity: 0;
   animation: rise .8s .25s forwards;
 }
-.hero-name .title {
-  font-size: 0.65em;
-  color: var(--accent); /* Dr. Yeşili */
-  font-weight: 600;
-}
-.hero-name .name {
-  color: var(--accent); /* Murat Yeşili */
+/* Dr. ve Murat isimleri aynı boyutta ve aynı yeşil tonda */
+.hero-name .title, .hero-name .name {
+  color: var(--accent); 
 }
 .hero-name .surname {
-  color: var(--purple); /* Karateke Moru */
+  color: var(--purple); 
 }
 .hero-divider {
   width: 60px; height: 3px;
@@ -491,7 +487,17 @@ footer {
 
 <nav>
   <a class="nav-logo-link" href="#" aria-label="Ana Sayfa">
-    <img src="logo.jpg" alt="Dr. Murat Karateke Logo" class="nav-logo-img" />
+    <svg width="240" height="70" viewBox="0 0 240 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M 30,35 Q 120,25 210,35" stroke="#5c7a52" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+      <circle cx="70" cy="31" r="2.5" fill="#812990" opacity="0.8"/>
+      <circle cx="95" cy="36" r="3" fill="#812990" opacity="0.8"/>
+      <circle cx="120" cy="30" r="2.5" fill="#812990" opacity="0.8"/>
+      <circle cx="145" cy="37" r="3" fill="#812990" opacity="0.8"/>
+      <circle cx="170" cy="31" r="2.5" fill="#812990" opacity="0.8"/>
+      <circle cx="185" cy="35" r="2" fill="#812990" opacity="0.8"/>
+      <text x="120" y="52" font-family="'Dancing Script', cursive" font-size="32" font-weight="700" fill="#812990" text-anchor="middle">Murat Karateke</text>
+      <text x="120" y="66" font-family="'Inter', sans-serif" font-size="9" font-weight="600" fill="#5c7a52" letter-spacing="0.25em" text-anchor="middle">TIBBİ ONKOLOG</text>
+    </svg>
   </a>
   <button class="hamburger" aria-label="Menüyü Aç/Kapat">
     <span></span>
@@ -527,21 +533,15 @@ footer {
     
     <div class="about-grid mb-5">
       <div class="about-photo-wrap reveal">
-        <img src="portre.jpg" alt="Dr. Murat Karateke" class="about-photo-img" />
+        <img src="portre.jpg" alt="Dr. Murat Karateke" class="about-photo-img" onerror="this.style.display='none'"/>
       </div>
       <div class="about-text reveal">
-        <h2 class="section-title" style="margin-bottom:1.5rem">Kansere Karşı<br/>Bilimle ve Güvenle</h2>
+        <h2 class="section-title" style="margin-bottom:1.5rem">Sağlığınıza Bilimle, Sürecinize Güvenle Eşlik Ediyorum</h2>
         <p>
-          Tıp eğitimimi Hacettepe Üniversitesi Tıp Fakültesi'nde, İç Hastalıkları uzmanlığımı 
-          Ege Üniversitesi Tıp Fakültesi'nde tamamladım. Onkolojiye olan ilgim ve bu alandaki 
-          bilimsel gelişmelerin hastalar üzerindeki hayati etkisi nedeniyle, yan dal uzmanlığımı 
-          Ege Üniversitesi Tıbbi Onkoloji Bilim Dalı'nda tamamladım.
+          Tıp eğitimimi Hacettepe Üniversitesi'nde, İç Hastalıkları uzmanlığımı ise Ege Üniversitesi'nde aldım. Kanserin tedavi edilebilirliğindeki hızlı bilimsel ilerlemeler ve bu yeniliklerin insan hayatına dokunuşu beni doğrudan onkolojiye yönlendirdi; böylece yan dal uzmanlığımı Ege Üniversitesi Tıbbi Onkoloji Bilim Dalı'nda noktaladım.
         </p>
         <p>
-          Meslek hayatım boyunca kanser tedavisinde güncel yaklaşımlar, immünoterapiler ve 
-          hedefe yönelik tedaviler üzerine yoğunlaştım. Şu an hastalarıma multidisipliner bir yaklaşımla hizmet vermekteyim. Amacım, her hastanın 
-          genetik ve klinik yapısına uygun kişiselleştirilmiş tedavi planları oluşturarak 
-          bu zorlu süreci en bilimsel ve konforlu şekilde yönetmektir.
+          Kariyerim boyunca hedefe yönelik akıllı tedaviler, immünoterapi ve güncel onkolojik yaklaşımlar üzerine odaklandım. Günümüzde hastalarıma tanı ve tedavi sürecinde multidisipliner bir bakış açısıyla destek oluyorum. En büyük hedefim; genetik ve klinik özelliklerinize en uygun, tamamen size özel bir tedavi planı hazırlayarak bu yolu bilimsel, şeffaf ve rahat bir şekilde birlikte yürümektir.
         </p>
       </div>
     </div>
@@ -616,7 +616,7 @@ footer {
     </div>
     
     <div class="reveal" style="text-align: center; margin-top: 3.5rem;">
-        <a href="#yazilar" class="btn btn-outline">Tüm Yazıları Gör &rarr;</a>
+        <a href="#yazilar" class="btn btn-outline">Tüm Yazıları Gör →</a>
     </div>
   </div>
 </section>
@@ -673,7 +673,7 @@ footer {
         </div>
       </div>
       <div class="contact-map">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3121.2825835926574!2d27.3916965155829!3d38.61864237961474!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14b986e6b5d0cdfb%3A0xc3626e2586b6a38!2sManisa%20%C5%9Eehir%20Hastanesi!5e0!3m2!1str!2str!4v1700000000000!5m2!1str!2str" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3115.1105370965365!2d27.387807812423377!3d38.66938926017006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14b98d28e75dbcc9%3A0xe5dbdf062d988d8b!2sManisa%20City%20Hospital!5e0!3m2!1sen!2str!4v1709403816630!5m2!1sen!2str" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>
 
@@ -682,7 +682,7 @@ footer {
       <p>Süreçle ilgili sorularınız veya görüşleriniz için aşağıdaki bağlantıya tıklayarak formumuzu doldurabilirsiniz.</p>
       
       <a href="https://docs.google.com/forms/d/e/1FAIpQLScMk6wCHr73w4QVrp70CkqaHcRLd-u6ehOMBX_qlWOK-Y3N5g/viewform?usp=header" target="_blank" rel="noopener" class="btn btn-outline" style="margin-top: 1rem;">
-        Geri Bildirim Formunu Aç &rarr;
+        Geri Bildirim Formunu Aç →
       </a>
     </div>
 
@@ -690,7 +690,7 @@ footer {
 </section>
 
 <footer>
-  <span class="footer-left">© 2025 Dr. Murat Karateke · Tüm hakları saklıdır.</span>
+  <span class="footer-left">© 2026 Dr. Murat Karateke · Tüm hakları saklıdır.</span>
   <span class="footer-right">Manisa Şehir Hastanesi · Tıbbi Onkoloji</span>
 </footer>
 
