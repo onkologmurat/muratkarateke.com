@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Yengeç Avının Öyküsü - Bölüm 1 | Murat Karateke</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+
+<style>
+/* Ana Sayfanızdaki Temel Stil Değerleri */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --white:   #ffffff;
+  --bg:      #f9f8f6;
+  --bg2:     #f3f1ee;
+  --line:    #e8e4de;
+  --text:    #2c332e;  
+  --muted:   #6b6662;
+  --accent:  #5c7a52;   
+  --purple:  #812990;   
+  --serif:   'Playfair Display', Georgia, serif;
+  --sans:    'Inter', system-ui, sans-serif;
+}
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 16px; /* Okumayı kolaylaştırmak için bir tık büyütüldü */
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Basit Üst Menü */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(255,255,255,.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 4rem;
+}
+.nav-logo-link { display: flex; align-items: center; text-decoration: none; }
+.nav-logo-link svg { height: 40px; width: auto; }
+.back-link {
+  font-size: .85rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: var(--accent);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  transition: color 0.3s;
+}
+.back-link:hover { color: var(--purple); }
+
+/* Makale Okuma Alanı */
+.article-container {
+  max-width: 800px;
+  margin: 10rem auto 6rem auto;
+  padding: 0 2rem;
+}
+.article-tag {
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--purple);
+  margin-bottom: 1rem;
+  display: block;
+}
+.article-title {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text);
+  margin-bottom: 2rem;
+}
+.article-content p {
+  margin-bottom: 1.5rem;
+  color: var(--text);
+}
+.article-content strong {
+  font-weight: 600;
+  color: var(--purple);
+}
+.article-footer {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.author-name {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+.author-title {
+  font-size: 0.85rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Footer */
+footer {
+  padding: 3rem 4rem;
+  border-top: 1px solid var(--line);
+  display: flex; justify-content: space-between; align-items: center;
+  background: var(--white);
+}
+.footer-left { font-size: .85rem; color: var(--muted); }
+.footer-right {
+  font-family: var(--serif);
+  font-size: 1rem;
+  color: var(--purple);
+  font-weight: 600;
+}
+
+@media (max-width: 800px) {
+  nav { padding: 1rem 1.5rem; }
+  .article-container { margin-top: 8rem; }
+  footer { flex-direction: column; gap: 1rem; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo-link" href="index.html" aria-label="Ana Sayfa">
+    <svg width="200" height="50" viewBox="0 0 240 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M 30,35 Q 120,25 210,35" stroke="#5c7a52" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+      <circle cx="70" cy="31" r="2.5" fill="#812990" opacity="0.8"/>
+      <circle cx="95" cy="36" r="3" fill="#812990" opacity="0.8"/>
+      <circle cx="120" cy="30" r="2.5" fill="#812990" opacity="0.8"/>
+      <circle cx="145" cy="37" r="3" fill="#812990" opacity="0.8"/>
+      <circle cx="170" cy="31" r="2.5" fill="#812990" opacity="0.8"/>
+      <circle cx="185" cy="35" r="2" fill="#812990" opacity="0.8"/>
+      <text x="120" y="52" font-family="'Dancing Script', cursive" font-size="32" font-weight="700" fill="#812990" text-anchor="middle">Murat Karateke</text>
+      <text x="120" y="66" font-family="'Inter', sans-serif" font-size="9" font-weight="600" fill="#5c7a52" letter-spacing="0.25em" text-anchor="middle">TIBBİ ONKOLOG</text>
+    </svg>
+  </a>
+  <a href="index.html" class="back-link">← Ana Sayfaya Dön</a>
+</nav>
+
+<main class="article-container">
+  <span class="article-tag">Yengeç Avının Öyküsü</span>
+  <h1 class="article-title">Bölüm 1: Milyonlarca Yıllık Sır ve Yaşamın Gölgesi</h1>
+  
+  <div class="article-content">
+    <p>Kanseri anlamak, yaşamın ta kendisini anlamaktır.</p>
+    
+    <p>Bu yazı dizisine <strong>"Yengeç Avının Öyküsü"</strong> adını verirken, tıp tarihinin en eski metaforlarından birinden ilham aldım. Antik Yunan’da tıbbın babası kabul edilen Hipokrat, bazı tümörleri incelerken onların merkezden dışarıya doğru uzanan damarlı yapısını bir yengecin bacaklarına benzetmiş ve ona Yunanca yengeç anlamına gelen <em>"karkinos"</em> adını vermişti. Romalı hekim Celsus ise bu terimi Latinceye çevirirken yine yengeç anlamına gelen <em>"cancer"</em> kelimesini kullandı. Binlerce yıldır insanlık, bedeninin içinde beliren bu inatçı yengeci anlamaya, ehlileştirmeye ve nihayetinde avlamaya çalışıyor.</p>
+    
+    <p>Peki, bu "yengeç" sadece modern çağın, sanayileşmenin veya stresin bir laneti mi? Çoğu insan kanserin çağımıza özgü bir hastalık olduğuna inanır. Oysa bilim, bize çok daha çarpıcı ve derin bir gerçekliği fısıldıyor: <strong>Yaşam var olduğu sürece, kanser de hep oradaydı.</strong></p>
+    
+    <p>Sizi bundan tam 76 milyon yıl öncesine, insanın henüz yeryüzünde ayak izinin bile olmadığı bir çağa götürmek istiyorum.</p>
+    
+    <p>Yakın zamanda, saygın tıp dergisi <em>The Lancet Oncology</em>'de yayımlanan çığır açıcı bir çalışma, kanserin kökenlerine dair muazzam bir gerçeği gün yüzüne çıkardı. Bilim insanları, Kanada'da bulunan <em>Centrosaurus apertus</em> türü otobur ve boynuzlu bir dinozorun kaval kemiğinde olağandışı bir deformasyon fark ettiler. Yıllarca bunun iyileşmiş bir kırık olduğu düşünüldü. Ancak kemik, modern tıp teknolojileri ve 3 boyutlu taramalarla tıpkı bir insan hastaya yapıldığı gibi detaylıca incelendiğinde sonuç çok netti: Bu 76 milyon yıllık devasa canlı, ileri evre bir <strong>osteosarkom</strong>, yani kemik kanseri hastasıydı.</p>
+    
+    <p>Hücrenin, mikroskobun veya genetiğin bilinmediği bir çağda, devasa bir dinozor, sürüsüyle birlikte yürürken bacağındaki o sinsi "yengecin" ağrılarıyla mücadele etmişti.</p>
+    
+    <p>Bu bulgu bize şunu çok net anlatıyor: Kanser, dışarıdan gelen yabancı bir işgalci değil; kendi hücrelerimizin yenilenme ve çoğalma sürecindeki kusurların, yani çok hücreli ve karmaşık bir "yaşam" olmanın getirdiği kaçınılmaz bir risktir. Yaşayan, bölünen ve büyüyen her organizmanın DNA'sında bu hata payı gizlidir. Yaşam nerede yeşerirse, gölgesi olan kanser de orada var olma ihtimali taşır.</p>
+    
+    <p>Ancak 76 milyon yıl öncesinden bugüne değişen çok büyük bir şey var: <strong>Artık çaresiz değiliz.</strong></p>
+    
+    <p>Dinozorların bu hastalığa karşı hiçbir silahı yoktu. Bizim ise bugün bilimin ışığında geliştirdiğimiz olağanüstü silahlarımız var. İşte <strong>"Yengeç Avının Öyküsü"</strong> yazı dizisinde, bu amansız avda kullandığımız o modern silahları konuşacağız.</p>
+    
+    <p>İlerleyen yazılarımda kanser hücresinin biyolojisinden (onko-hematoloji), akıllı ilaçların o hücreleri nasıl bulup yok ettiğinden (onko-farmakoloji), tedavi sürecinde ruhumuzu nasıl güçlü tutacağımızdan (psiko-onkoloji) ve hücrelerimizi doğru besinlerle nasıl destekleyeceğimizden (onko-nutrisyon) bahsedeceğim.</p>
+    
+    <p>Çünkü artık biliyoruz ki; yengeç ne kadar kadim bir düşman olursa olsun, insan aklı ve bilimin gücü onun en büyük avcısıdır.</p>
+    
+    <p>Bilimle, umutla ve sağlıkla kalın.</p>
+  </div>
+
+  <div class="article-footer">
+    <span class="author-name">Dr. Murat Karateke</span>
+    <span class="author-title">Tıbbi Onkoloji Uzmanı</span>
+  </div>
+</main>
+
+<footer>
+  <span class="footer-left">© 2026 Murat Karateke · Tüm hakları saklıdır.</span>
+  <span class="footer-right">Manisa Şehir Hastanesi · Tıbbi Onkoloji</span>
+</footer>
+
+</body>
+</html>
