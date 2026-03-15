@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Bölüm 2: Papirüsün Sessiz Çığlığı | Murat Karateke</title>
+<meta name="description" content="Edwin Smith Papirüsü ve insanlığın kanserle ilk yüzleşmesi. MÖ 3000-1600, Antik Mısır'da tıbbın doğuşu. Dr. Murat Karateke'nin kaleminden.">
+<meta name="author" content="Dr. Murat Karateke">
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ─── Renk Sistemi (Açık / Koyu) ─── */
+:root {
+  --white:   #ffffff;
+  --bg:      #f9f8f6;
+  --bg2:     #f3f1ee;
+  --line:    #e8e4de;
+  --text:    #2c332e;
+  --muted:   #6b6662;
+  --accent:  #5c7a52;
+  --purple:  #812990;
+  --serif:   'Playfair Display', Georgia, serif;
+  --sans:    'Inter', system-ui, sans-serif;
+  --shadow:  0 1px 3px rgba(0,0,0,.04);
+  --progress: var(--purple);
+}
+[data-theme="dark"] {
+  --white:   #1a1a1f;
+  --bg:      #111114;
+  --bg2:     #1e1e23;
+  --line:    #2a2a30;
+  --text:    #e0ddd8;
+  --muted:   #9a958f;
+  --accent:  #7fa874;
+  --purple:  #b55cc4;
+  --shadow:  0 1px 3px rgba(0,0,0,.2);
+  --progress: var(--purple);
+}
+
+/* ─── Genel ─── */
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 17px;
+  line-height: 1.9;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background .4s ease, color .4s ease;
+}
+
+/* ─── Okuma İlerleme Çubuğu ─── */
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent), var(--purple));
+  z-index: 200;
+  transition: width .1s linear;
+  border-radius: 0 2px 2px 0;
+}
+
+/* ─── Navigasyon ─── */
+nav {
+  position: fixed; top: 3px; left: 0; right: 0; z-index: 100;
+  background: rgba(249,248,246,.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line);
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 0.85rem 4rem;
+  transition: background .4s ease, border-color .4s ease;
+}
+[data-theme="dark"] nav {
+  background: rgba(17,17,20,.92);
+}
+.nav-logo-link { display: flex; align-items: center; text-decoration: none; }
+.nav-logo-link svg { height: 50px; width: auto; }
+
+.nav-right { display: flex; align-items: center; gap: 1.5rem; }
+
+.back-link {
+  font-size: .82rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: var(--accent);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  transition: color 0.3s;
+}
+.back-link:hover { color: var(--purple); }
+
+/* Tema Değiştirici */
+.theme-toggle {
+  background: none;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  width: 36px; height: 36px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  color: var(--muted);
+  transition: all .3s ease;
+  flex-shrink: 0;
+}
+.theme-toggle:hover {
+  border-color: var(--purple);
+  color: var(--purple);
+  transform: rotate(15deg);
+}
+.theme-toggle svg { width: 18px; height: 18px; }
+.icon-moon { display: block; }
+.icon-sun  { display: none; }
+[data-theme="dark"] .icon-moon { display: none; }
+[data-theme="dark"] .icon-sun  { display: block; }
+
+/* ─── Makale Ana Alanı ─── */
+.article-container {
+  max-width: 720px;
+  margin: 10rem auto 6rem auto;
+  padding: 0 2rem;
+}
+
+/* Üst meta bilgi */
+.article-meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.2rem;
+}
+.article-tag {
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--purple);
+  display: inline-block;
+}
+.reading-time {
+  font-size: .78rem;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+}
+.reading-time svg { width: 14px; height: 14px; opacity: .6; }
+
+/* Başlık */
+.article-title {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text);
+  margin-bottom: 3.5rem;
+  letter-spacing: -0.01em;
+}
+
+/* ─── İçerik Tipografisi ─── */
+.article-content p {
+  margin-bottom: 1.65rem;
+  color: var(--text);
+  word-spacing: 0.02em;
+  hanging-punctuation: first;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
+.article-content strong {
+  font-weight: 600;
+  color: var(--text);
+}
+.article-content em {
+  font-style: italic;
+  color: var(--text);
+}
+
+/* Drop Cap — İlk paragrafın ilk harfi */
+.article-content > p:first-child::first-letter {
+  font-family: var(--serif);
+  float: left;
+  font-size: 4.2em;
+  line-height: 0.8;
+  padding-right: 0.12em;
+  padding-top: 0.06em;
+  color: var(--purple);
+  font-weight: 700;
+}
+
+/* ─── Pull Quote (Vurgulu Alıntı) ─── */
+.pull-quote {
+  margin: 3rem -1rem;
+  padding: 2rem 2.5rem;
+  position: relative;
+  border-left: 3px solid var(--purple);
+  background: linear-gradient(135deg, transparent 0%, rgba(129,41,144,.03) 100%);
+  border-radius: 0 8px 8px 0;
+}
+[data-theme="dark"] .pull-quote {
+  background: linear-gradient(135deg, transparent 0%, rgba(129,41,144,.08) 100%);
+}
+.pull-quote p {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  font-style: italic;
+  line-height: 1.65;
+  color: var(--text);
+  margin-bottom: 0 !important;
+}
+.pull-quote .pq-source {
+  display: block;
+  font-family: var(--sans);
+  font-style: normal;
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-top: 0.8rem;
+  letter-spacing: 0.03em;
+}
+
+/* ─── Metin Ayırıcı ─── */
+.text-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 3.5rem auto;
+  color: var(--accent);
+  opacity: 0.4;
+}
+.text-divider::before,
+.text-divider::after {
+  content: '';
+  width: 24px;
+  height: 1.5px;
+  background: var(--accent);
+  border-radius: 2px;
+}
+.text-divider svg {
+  width: 12px;
+  height: 12px;
+}
+
+/* ─── Papirüs Alıntı Kartı ─── */
+.papyrus-card {
+  margin: 2.5rem 0;
+  padding: 2rem 2.2rem;
+  background: var(--bg2);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  position: relative;
+  transition: background .4s ease, border-color .4s ease;
+}
+.papyrus-card .card-label {
+  display: inline-block;
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--purple);
+  margin-bottom: 0.8rem;
+}
+.papyrus-card .card-text {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  font-style: italic;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.65;
+}
+.papyrus-card .card-note {
+  display: block;
+  margin-top: 0.8rem;
+  font-size: .8rem;
+  font-style: normal;
+  font-weight: 400;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* ─── Bilgi Kutusu ─── */
+.info-box {
+  margin: 2.5rem 0;
+  padding: 1.8rem 2.2rem;
+  background: var(--bg2);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  font-size: .88rem;
+  color: var(--text);
+  line-height: 1.75;
+  transition: background .4s ease, border-color .4s ease;
+}
+.info-box .box-title {
+  font-weight: 600;
+  font-size: .72rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.6rem;
+}
+
+/* ─── Fade-in Animasyonu ─── */
+.fade-section {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+.fade-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── Yazar ve Kaynakça ─── */
+.article-footer {
+  margin-top: 4.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.author-name {
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--text);
+}
+.author-title {
+  font-size: 0.82rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.references {
+  margin-top: 4rem;
+  padding: 2rem 2.2rem;
+  background-color: var(--bg2);
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  transition: background .4s ease, border-color .4s ease;
+}
+.references h4 {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  margin-bottom: 1.2rem;
+  color: var(--text);
+}
+.references p {
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin-bottom: 0.85rem;
+  line-height: 1.6;
+  padding-left: 1.5em;
+  text-indent: -1.5em;
+}
+.references p:last-child { margin-bottom: 0; }
+
+/* ─── Bölüm Navigasyonu ─── */
+.chapter-nav {
+  margin-top: 3rem;
+  display: flex;
+  gap: 1rem;
+}
+.chapter-nav a {
+  flex: 1;
+  padding: 1.8rem 2.2rem;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-decoration: none;
+  transition: all .3s ease;
+  box-shadow: var(--shadow);
+}
+.chapter-nav a:hover {
+  border-color: var(--purple);
+  box-shadow: 0 4px 20px rgba(129,41,144,.08);
+  transform: translateY(-2px);
+}
+.chapter-nav a.prev { flex-direction: row-reverse; }
+.chapter-nav a.prev .nav-arrow { transform: scaleX(-1); }
+.chapter-nav a.prev:hover .nav-arrow { transform: scaleX(-1) translateX(4px); }
+.chapter-nav a.prev .nav-text { text-align: left; }
+.chapter-nav a.next .nav-text { text-align: right; }
+
+.nav-label {
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: .3rem;
+}
+.nav-title {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.3;
+}
+.nav-arrow {
+  font-size: 1.5rem;
+  color: var(--purple);
+  transition: transform .3s ease;
+  flex-shrink: 0;
+}
+.chapter-nav a.next:hover .nav-arrow { transform: translateX(4px); }
+
+/* ─── Başa Dön Butonu ─── */
+.scroll-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 1px solid var(--line);
+  color: var(--purple);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all .3s ease;
+  box-shadow: var(--shadow);
+  z-index: 50;
+}
+.scroll-top.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+.scroll-top:hover {
+  background: var(--purple);
+  color: var(--white);
+  border-color: var(--purple);
+}
+.scroll-top svg { width: 18px; height: 18px; }
+
+/* ─── Footer ─── */
+footer {
+  padding: 3rem 4rem;
+  border-top: 1px solid var(--line);
+  display: flex; justify-content: space-between; align-items: center;
+  background: var(--white);
+  transition: background .4s ease, border-color .4s ease;
+}
+.footer-left { font-size: .82rem; color: var(--muted); }
+.footer-right {
+  font-family: var(--serif);
+  font-size: .95rem;
+  color: var(--purple);
+  font-weight: 600;
+}
+
+/* ─── Baskı Stili ─── */
+@media print {
+  nav, .progress-bar, .theme-toggle, .scroll-top, .chapter-nav { display: none !important; }
+  body { font-size: 11pt; line-height: 1.7; color: #000; background: #fff; }
+  .article-container { margin: 0 auto; max-width: 100%; }
+  .article-content > p:first-child::first-letter { color: #000; }
+  .pull-quote { border-left-color: #333; }
+  .references, .papyrus-card, .info-box { background: #f5f5f5; border: 1px solid #ccc; }
+  footer { border-top: 1px solid #ccc; }
+  a { color: #000; text-decoration: none; }
+}
+
+/* ─── Mobil Uyumluluk ─── */
+@media (max-width: 800px) {
+  nav { padding: 0.85rem 1.2rem; top: 3px; }
+  .nav-logo-link svg { height: 40px; }
+  .nav-right { gap: 1rem; }
+  .back-link { font-size: .75rem; }
+
+  .article-container {
+    margin-top: 7.5rem;
+    padding: 0 1.4rem;
+  }
+  body { font-size: 16px; line-height: 1.85; }
+
+  .article-content > p:first-child::first-letter {
+    font-size: 3.4em;
+  }
+
+  .pull-quote {
+    margin: 2.5rem -0.5rem;
+    padding: 1.5rem 1.6rem;
+  }
+  .pull-quote p { font-size: 1.1rem; }
+
+  .papyrus-card { padding: 1.5rem 1.6rem; }
+  .info-box { padding: 1.5rem 1.6rem; }
+
+  .chapter-nav {
+    flex-direction: column;
+  }
+  .chapter-nav a { padding: 1.4rem 1.5rem; }
+  .nav-title { font-size: 1rem; }
+
+  .scroll-top { bottom: 1.2rem; right: 1.2rem; width: 38px; height: 38px; }
+
+  footer {
+    flex-direction: column;
+    gap: 0.8rem;
+    text-align: center;
+    padding: 2.5rem 1.5rem;
+  }
+}
+
+/* ─── Küçük ekranlar ─── */
+@media (max-width: 400px) {
+  .article-title { font-size: 1.7rem; }
+  .article-container { padding: 0 1.1rem; }
+}
+
+/* ─── Tercih: Azaltılmış hareket ─── */
+@media (prefers-reduced-motion: reduce) {
+  .fade-section { opacity: 1; transform: none; transition: none; }
+  html { scroll-behavior: auto; }
+  .progress-bar { transition: none; }
+}
+
+/* ─── Seçim rengi ─── */
+::selection {
+  background: rgba(129,41,144,.15);
+  color: var(--text);
+}
+</style>
+</head>
+<body>
+
+<!-- Okuma İlerleme Çubuğu -->
+<div class="progress-bar" id="progressBar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+
+<!-- Navigasyon -->
+<nav>
+  <a class="nav-logo-link" href="index.html" aria-label="Ana Sayfa">
+    <svg width="240" height="70" viewBox="0 0 240 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M 30,35 Q 120,25 210,35" stroke="var(--accent)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+      <circle cx="70" cy="31" r="2.5" fill="var(--purple)" opacity="0.8"/>
+      <circle cx="95" cy="36" r="3" fill="var(--purple)" opacity="0.8"/>
+      <circle cx="120" cy="30" r="2.5" fill="var(--purple)" opacity="0.8"/>
+      <circle cx="145" cy="37" r="3" fill="var(--purple)" opacity="0.8"/>
+      <circle cx="170" cy="31" r="2.5" fill="var(--purple)" opacity="0.8"/>
+      <circle cx="185" cy="35" r="2" fill="var(--purple)" opacity="0.8"/>
+      <text x="120" y="52" font-family="'Dancing Script', cursive" font-size="32" font-weight="700" fill="var(--purple)" text-anchor="middle">Murat Karateke</text>
+      <text x="120" y="66" font-family="'Inter', sans-serif" font-size="9" font-weight="600" fill="var(--accent)" letter-spacing="0.25em" text-anchor="middle">TIBBİ ONKOLOG</text>
+    </svg>
+  </a>
+  <div class="nav-right">
+    <a href="index.html" class="back-link">← Ana Sayfaya Dön</a>
+    <button class="theme-toggle" id="themeToggle" aria-label="Tema değiştir" title="Açık / Koyu tema">
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- Makale -->
+<main class="article-container">
+
+  <div class="article-meta">
+    <span class="article-tag">Yengeç Avının Öyküsü</span>
+    <span class="reading-time">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      <span id="readTime">14 dk okuma</span>
+    </span>
+  </div>
+
+  <h1 class="article-title">II — Papirüsün Sessiz Çığlığı</h1>
+
+  <article class="article-content">
+
+    <div class="fade-section">
+      <p>Üç bin yıl önce, Nil Nehri'nin sularının Mısır topraklarını bir kez daha bereketlendirdiği bir mevsimde — belki bir savaşın hemen ardından, belki de sarayın loş koridorlarında — isimsiz bir cerrah, papirüsün üzerine eğildi. Elinde, kâğıt yerine geçen Nil kamışından yapılmış ince bir tabaka; kalemi, is mürekkebiyle ıslanmış bir saz. Yazdığı şey ne bir ilahi, ne bir büyü formülü, ne de firavuna övgüydü. O, bir hastanın bedeninde gördüğü şeyi — soğuk, sert, acımasız bir gerçeği — kelimelerle tarif ediyordu.</p>
+
+      <p>O cerrahın adını bilmiyoruz. Yüzünü hiçbir kabartma tasvir etmiyor, hiçbir lahit duvarında ismine rastlamıyoruz. Ama yazdığı satırlar, üç bin altı yüz yıl sonra bugün hâlâ okunuyor. Çünkü o satırlarda, insanlığın kanserle ilk bilinçli yüzleşmesi gizli. Bir hekim, bir hastalığı tanımlıyor — ve sonra, tarihin belki de en yürek burkan tıbbi cümlesini yazıyor.</p>
+    </div>
+
+    <div class="text-divider" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+    </div>
+
+    <div class="fade-section">
+      <p>1862 yılında Amerikalı koleksiyoner Edwin Smith, Mısır'ın Luksor şehrinde bir antika satıcısından olağanüstü bir papirüs satın aldı. Bu papirüs, ölümünden sonra 1930'da kızı tarafından New York Tarih Derneği'ne bağışlandı ve Mısırbilimci James Henry Breasted tarafından çevrildi. Ortaya çıkan metin, tıp tarihinin en eski ve en önemli cerrahi el yazmasıydı.</p>
+
+      <p>Papirüs, büyük olasılıkla MÖ 1600 civarında kopya edilmiş, ancak içerdiği bilgilerin MÖ 3000–2500 yıllarına, yani Eski Krallık dönemine kadar uzandığı düşünülmektedir. Bazı araştırmacılar metnin orijinal yazarının, Mısır'ın efsanevi hekimi <em>İmhotep</em> olabileceğini ileri sürmüştür — Djoser Piramidi'nin mimarı, aynı zamanda tıbbın babası sayılan o gizemli dahi.</p>
+
+      <p>Papirüs, kırk sekiz cerrahi vakayı sistematik biçimde ele alır. Her vaka aynı titiz yapıyla sunulur: başlık, muayene bulguları, tanı ve tedavi önerisi. Bu yapı, modern tıp eğitimindeki "vaka sunumu" formatının ilk prototipidir. Vakalar baştan — kafatasından — başlar ve aşağıya doğru inerken, kırk beşinci vakada papirüs aniden farklı bir yere varır.</p>
+    </div>
+
+    <!-- Papirüs Alıntı Kartı -->
+    <div class="papyrus-card fade-section">
+      <span class="card-label">Edwin Smith Papirüsü — Vaka 45</span>
+      <p class="card-text">
+        "Memesinde kabarık kitleleri olan bir kadını muayene ettiğinde; eğer elini memenin üzerine koyar ve o kitleleri soğuk, dokunulduğunda sert, taş gibi bulursan; yayılmış, kabarık ve içinden ateş fışkırıyorsa — bu, <em>memede tümör kitleleri</em> hastalığıdır. Tedavisi yoktur."
+      </p>
+      <span class="card-note">
+        Mısırbilimci James Henry Breasted'ın 1930 tarihli çevirisinden uyarlanmıştır. Orijinal metin hiyeratik yazıyla yazılmıştır.
+      </span>
+    </div>
+
+    <div class="fade-section">
+      <p>Bu satırları ilk kez okuyan her onkolog, birkaç saniyeliğine duraksıyor olmalıdır. Çünkü bu metin, üç bin altı yüz yıl öncesinden, bugünün tıp kitaplarında yer alabilecek bir klinik tanımlama sunuyor. "Soğuk, sert, taş gibi" — bu ifadeler, günümüzde meme kanserinin fizik muayene bulgularını anlatan herhangi bir referans kitabından alınmış olabilir. "Yayılmış, kabarık" — lokal ileri evre hastalığın tasviri. "İçinden ateş fışkıran" — enflamatuvar komponentin olası ilk tarifi.</p>
+    </div>
+
+    <div class="text-divider" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+    </div>
+
+    <div class="fade-section">
+      <p>Kırk sekiz vakanın kırk yedisinde, papirüsün yazarı bir tedavi önerir. Kırığı sarar, yarayı diker, çıkığı yerine oturtur. Pragmatik, kararlı ve müdahalecidir. Ama kırk beşinci vakada duruyor. Ve yazıyor: <strong>"Tedavisi yoktur."</strong></p>
+
+      <p>Bu üç kelime, tıp tarihinin en cesur itirafıdır. Düşünün: Bu cümle, firavunların ölümsüzlük için piramitler inşa ettiği, rahiplerin her hastalığı tanrıların gazabıyla açıkladığı, büyücülerin her derde bir tılsım vaat ettiği bir çağda yazılmıştır. O dönemde "tedavisi yoktur" demek, yalnızca tıbbi bir yargı değil, aynı zamanda kültürel bir isyandı. Rahiplerin "tanrılara daha çok dua et" tavsiyesine, büyücülerin "daha güçlü bir amulet tak" vaadine karşı, bir cerrahın sade ve acımasız dürüstlüğüydü.</p>
+    </div>
+
+    <!-- Pull Quote -->
+    <div class="pull-quote fade-section">
+      <p>Belki de tıp tarihinin gerçek başlangıç noktası, ilk tedavi değil, ilk "tedavi edemiyorum" itirafıdır. Çünkü o an, şifacılık mitinden bilimsel düşünceye geçişin, büyüden gözleme dönüşün ilk kıvılcımıdır.</p>
+    </div>
+
+    <div class="fade-section">
+      <p>Bu cerrah, sihirli bir formül uydurmadı. Tanrıları suçlamadı. Hastaya yalan söylemedi. Bunun yerine, gözlemlerini olduğu gibi kaydetti ve sınırını kabul etti. Bu davranış, modern tıbbın temelini oluşturan üç ilkeyi aynı anda barındırır: <strong>gözleme dayalı tanımlama</strong>, <strong>dürüst prognoz</strong> ve <strong>tedavi sınırlarının kabulü</strong>. Bugün "kanıta dayalı tıp" dediğimiz felsefenin tohumu, belki de bu papirüsün mürekkebinde gizlidir.</p>
+    </div>
+
+    <div class="text-divider" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+    </div>
+
+    <div class="fade-section">
+      <p>Papirüs, her ne kadar kırk beşinci vaka için "tedavisi yoktur" dese de, daha erken evredeki meme kitlelerine yaklaşımı farklıdır. Metin, bazı vakalarda <em>"ateş matkabı"</em> adını verdiği bir aletle kitlelerin dağlanarak yakıldığından bahseder. Bu yöntem — <em>koterizasyon</em> — ateşle dokunun tahrip edilmesi, tarihte bilinen en eski kanser tedavi girişimlerinden biridir.</p>
+
+      <p>Koterizasyon, ilkel görünse de ardındaki mantık şaşırtıcı derecede sağlamdır: anormal dokuyu yok et, kanamayı durdur, enfeksiyonu önle. Bu üç ilke, yüzyıllar sonra cerrahinin temel prensipleri olacaktır. Antik Mısır cerrahları, modern elektrokoter cihazlarının atasını — kızgın metal bir çubukla — kullanıyorlardı. Anestezi yoktu, sterilizasyon kavramı bilinmiyordu, ama gözlem ve deneyim, onları doğru yöne itiyordu.</p>
+
+      <p>Burada, insanlığın kanserle mücadelesinin ilk paradoksuyla karşılaşıyoruz: aynı metin, aynı yazar, küçük kitleleri ateşle tedavi ederken, büyük ve yayılmış kitlelerde elini çekiyor. Bu ayrım, bugünün onkolojisinde hâlâ geçerlidir. Erken evre hastalıkta küratif cerrahi mümkünken, ileri evrede tedavi seçenekleri kısıtlanır. Üç bin altı yüz yıl önce, isimsiz bir cerrah bu gerçeği çoktan anlamıştı.</p>
+    </div>
+
+    <div class="text-divider" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+    </div>
+
+    <div class="fade-section">
+      <p>Papirüs, kanserle ilgili tek Mısır kanıtı değil. Yirminci ve yirmi birinci yüzyılda, paleopatoloji — eski hastalıkların incelenmesi — alanında yapılan çalışmalar, mumyalarda ve iskeletlerde kanser izlerinin varlığını ortaya koydu.</p>
+
+      <p>En bilinen örneklerden biri, MÖ 1200 civarına tarihlenen bir mumyada tespit edilen <em>nazofarenks karsinomu</em> bulgularıdır. Kafatası tabanındaki kemik tahribatı, yumuşak doku tümörünün kemiğe invazyonuyla uyumlu bulunmuştur. Bir başka vakada, Nubya'dan gelen yaklaşık 3.000 yıllık bir iskeletin kemiklerinde, <em>osteosarkom</em> — primer kemik kanseri — ile uyumlu lezyonlar saptanmıştır.</p>
+
+      <p>Bu bulgular önemli bir gerçeği teyit eder: kanser, modern çağın hastalığı değildir. Endüstriyel kirlilik, işlenmiş gıda, sigara — bunlar kanserin sıklığını artırmış olabilir, ama kanserin kendisi insanlık kadar eskidir. Hücrelerin kontrolsüz bölünmesi, DNA'nın kaçınılmaz hataları, çok hücreli yaşamın doğasında var olan bir bedel — bu bedel, firavunların altın maskeleriyle bile örtülememiştir.</p>
+    </div>
+
+    <!-- Bilgi Kutusu -->
+    <div class="info-box fade-section">
+      <div class="box-title">Paleopatolojik Not</div>
+      Antik Mısır'da kanser vakalarının görece az sayıda olması, kanserin nadir olduğu anlamına gelmez. O dönemde ortalama yaşam süresi 30–40 yıl civarındaydı; çoğu insan, kanserin en sık görüldüğü ileri yaşlara ulaşamadan enfeksiyon, savaş veya kıtlık nedeniyle hayatını kaybediyordu. Kanser, her şeyden önce bir yaşlanma hastalığıdır — ve yaşlanmak, antik dünyada bir ayrıcalıktı.
+    </div>
+
+    <div class="text-divider" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+    </div>
+
+    <div class="fade-section">
+      <p>Antik Mısır uygarlığının merkezinde bir takıntı vardı: <strong>ölümsüzlük</strong>. Piramitler, bu takıntının taşa dönüşmüş haliydi. Mumyalama, bedenin sonsuz yaşama hazırlanmasıydı. <em>Ölüler Kitabı</em>, ruhun öbür dünyada yolunu bulması için yazılmış bir haritaydı. Her şey, ölümü alt etmek içindi.</p>
+
+      <p>Ama kanser, bir anlamda Mısırlıların aradığı ölümsüzlüğün karanlık aynasıdır. Kanser hücresi de ölümsüzdür — ya da en azından ölmeyi reddeder. Normal bir hücre, programlanmış ölümle — <em>apoptoz</em> ile — görevini tamamlayıp sahneden çekilirken, kanser hücresi bu emri dinlemez. Bölünür, çoğalır, yayılır, durdurulamaz. Firavun, taştan bir beden inşa ederek sonsuza kadar var olmak istiyordu; kanser hücresi, biyolojik mekanizmaları alt ederek aynı şeyi başarıyor.</p>
+
+      <p>Bu paradoks, papirüsün sessiz çığlığında yankılanır. Ölümsüzlüğe tapan bir uygarlık, bedenin içinde zaten ölümsüz olan bir düşmanla karşılaşıyor — ve onu yenemiyordu. O isimsiz cerrah, belki de bu ironinin farkında olmadan, "tedavisi yoktur" derken, insanlığın en derin çaresizliklerinden birini dile getiriyordu: ölümsüzlük arayışının, ölümsüz bir hastalıkla sonuçlanması.</p>
+    </div>
+
+    <div class="text-divider" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+    </div>
+
+    <div class="fade-section">
+      <p>Edwin Smith Papirüsü, bugün New York Tıp Akademisi Kütüphanesi'nde, kontrollü sıcaklık ve nem koşullarında saklanıyor. Papirüsün kendisi çürümeye karşı korunuyor — tıpkı yazdığı hastalığın, çağlar boyunca yok edilememiş olması gibi.</p>
+
+      <p>Bu metin, tıp tarihinde birçok "ilk"i barındırır: ilk sistematik cerrahi el yazması, ilk vaka bazlı klinik kayıt, ilk kanser tanımlaması, ve belki de en önemlisi, ilk tıbbi teslimiyet itirafı. Ama bu teslimiyette bir onur vardır. O cerrah yalan söyleyebilirdi. Bir iksir önerebilirdi. Tanrıların yardım edeceğini söyleyebilirdi. Bunların hiçbirini yapmadı.</p>
+
+      <p>Bugün, bir onkolog olarak hastamın karşısına oturduğumda ve zor bir konuşma yapmam gerektiğinde — tedavi seçeneklerinin tükendiğini, hastalığın ilerlediğini söylemem gerektiğinde — o isimsiz Mısırlı meslektaşımla aynı ağırlığı omuzlarımda hissediyorum. Aramızdaki fark muazzam: ben immünoterapi, hedefe yönelik tedaviler, palyatif bakım protokolleri biliyorum. Ama o temel duygu — hastanın gözlerindeki soruya dürüstçe cevap verme yükümlülüğü — değişmedi. Üç bin altı yüz yıldır değişmedi.</p>
+    </div>
+
+    <!-- Pull Quote -->
+    <div class="pull-quote fade-section">
+      <p>"Tedavisi yoktur" yazan o cerrah, belki de tıp tarihinin ilk kahramanıdır. Çünkü kahramanlık, her zaman kazanmak değildir. Bazen, kaybettiğini kabul edecek cesareti göstermektir.</p>
+    </div>
+
+    <div class="fade-section">
+      <p>Papirüs sesini çıkarmıyor artık. Ama dinlemeyi bilenler için, hâlâ çığlık atıyor. Nil'in kıyısında bir cerrahın, karanlıkta yanan bir kandilin ışığında, titreyerek yazdığı o satırlar — "tedavisi yoktur" — tıbbın en eski duasıdır belki de. Bir gün tedavisi olsun diye yazılmış, sessiz bir çığlık.</p>
+    </div>
+
+  </article>
+
+  <!-- Yazar -->
+  <div class="article-footer fade-section">
+    <span class="author-name">Dr. Murat Karateke</span>
+    <span class="author-title">Tıbbi Onkoloji Uzmanı</span>
+  </div>
+
+  <!-- Kaynaklar -->
+  <div class="references fade-section">
+    <h4>Kaynaklar</h4>
+    <p>1. Breasted JH. <em>The Edwin Smith Surgical Papyrus.</em> University of Chicago Press; 1930.</p>
+    <p>2. Nunn JF. <em>Ancient Egyptian Medicine.</em> University of Oklahoma Press; 1996.</p>
+    <p>3. Hajdu SI. A note from history: landmarks in history of cancer, part 1. <em>Cancer.</em> 2011;117(5):1097-1102.</p>
+    <p>4. David AR, Zimmerman MR. Cancer: an old disease, a new disease or something in between? <em>Nat Rev Cancer.</em> 2010;10(10):728-733.</p>
+    <p>5. Strouhal E. Malignant tumors in the Old World. <em>Paleopathol Newsl.</em> 1994;85:1-6.</p>
+  </div>
+
+  <!-- Bölüm Navigasyonu -->
+  <div class="chapter-nav fade-section">
+    <a class="prev" href="#">
+      <span class="nav-arrow">→</span>
+      <div class="nav-text">
+        <div class="nav-label">Önceki Bölüm</div>
+        <div class="nav-title">I — Kemiklerin Hafızası</div>
+      </div>
+    </a>
+    <a class="next" href="#">
+      <div class="nav-text">
+        <div class="nav-label">Sonraki Bölüm</div>
+        <div class="nav-title">III — Yengeç'in Gölgesinde</div>
+      </div>
+      <span class="nav-arrow">→</span>
+    </a>
+  </div>
+
+</main>
+
+<!-- Başa Dön -->
+<button class="scroll-top" id="scrollTop" aria-label="Başa dön" title="Başa dön">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<!-- Footer -->
+<footer>
+  <span class="footer-left">© 2026 Murat Karateke · Tüm hakları saklıdır.</span>
+  <span class="footer-right">Manisa Şehir Hastanesi · Tıbbi Onkoloji</span>
+</footer>
+
+<script>
+(function() {
+  'use strict';
+
+  // ── Okuma İlerleme Çubuğu ──
+  const progressBar = document.getElementById('progressBar');
+  function updateProgress() {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    progressBar.style.width = progress + '%';
+    progressBar.setAttribute('aria-valuenow', Math.round(progress));
+  }
+
+  // ── Başa Dön Butonu ──
+  const scrollTopBtn = document.getElementById('scrollTop');
+  function toggleScrollBtn() {
+    scrollTopBtn.classList.toggle('show', window.scrollY > 600);
+  }
+  scrollTopBtn.addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // ── Scroll olaylarını birleştir ──
+  let ticking = false;
+  window.addEventListener('scroll', function() {
+    if (!ticking) {
+      requestAnimationFrame(function() {
+        updateProgress();
+        toggleScrollBtn();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+
+  // ── Fade-in Animasyonu (Intersection Observer) ──
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.fade-section').forEach(function(el) {
+      observer.observe(el);
+    });
+  } else {
+    document.querySelectorAll('.fade-section').forEach(function(el) {
+      el.classList.add('visible');
+    });
+  }
+
+  // ── Tema Değiştirici ──
+  const themeToggle = document.getElementById('themeToggle');
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'dark') {
+    document.documentElement.setAttribute('data-theme', 'dark');
+  }
+  themeToggle.addEventListener('click', function() {
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    if (isDark) {
+      document.documentElement.removeAttribute('data-theme');
+      localStorage.removeItem('theme');
+    } else {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      localStorage.setItem('theme', 'dark');
+    }
+  });
+
+  // ── Tahmini Okuma Süresi Hesaplama ──
+  const articleText = document.querySelector('.article-content');
+  if (articleText) {
+    const wordCount = articleText.textContent.trim().split(/\s+/).length;
+    const minutes = Math.ceil(wordCount / 200);
+    document.getElementById('readTime').textContent = minutes + ' dk okuma';
+  }
+
+  // ── İlk yüklemede çalıştır ──
+  updateProgress();
+  toggleScrollBtn();
+})();
+</script>
+
+</body>
+</html>
