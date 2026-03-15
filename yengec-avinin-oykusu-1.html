@@ -3,13 +3,12 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Yengeç Avının Öyküsü - Bölüm 1 | Murat Karateke</title>
+<title>Bölüm 1: Kemiklerin Hafızası | Murat Karateke</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 
 <style>
-/* Ana Sayfanızdaki Temel Stil Değerleri */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
   --white:   #ffffff;
@@ -27,8 +26,8 @@ body {
   font-family: var(--sans);
   background: var(--bg);
   color: var(--text);
-  font-size: 16px; /* Okumayı kolaylaştırmak için bir tık büyütüldü */
-  line-height: 1.8;
+  font-size: 16.5px; /* Okuma kolaylığı için ideal boyut */
+  line-height: 1.85;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -42,7 +41,7 @@ nav {
   padding: 1rem 4rem;
 }
 .nav-logo-link { display: flex; align-items: center; text-decoration: none; }
-.nav-logo-link svg { height: 40px; width: auto; }
+.nav-logo-link svg { height: 50px; width: auto; }
 .back-link {
   font-size: .85rem;
   font-weight: 500;
@@ -56,7 +55,7 @@ nav {
 
 /* Makale Okuma Alanı */
 .article-container {
-  max-width: 800px;
+  max-width: 760px;
   margin: 10rem auto 6rem auto;
   padding: 0 2rem;
 }
@@ -71,20 +70,31 @@ nav {
 }
 .article-title {
   font-family: var(--serif);
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-size: clamp(2rem, 5vw, 3.2rem);
   font-weight: 700;
   line-height: 1.2;
   color: var(--text);
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 .article-content p {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.6rem;
   color: var(--text);
 }
 .article-content strong {
   font-weight: 600;
-  color: var(--purple);
+  color: var(--text);
 }
+/* Metin içi şık ayırıcı (*** yerine) */
+.text-divider {
+  width: 40px;
+  height: 2px;
+  background-color: var(--accent);
+  margin: 3rem auto;
+  border-radius: 2px;
+  opacity: 0.5;
+}
+
+/* Yazar ve Kaynakça */
 .article-footer {
   margin-top: 4rem;
   padding-top: 2rem;
@@ -95,9 +105,9 @@ nav {
 }
 .author-name {
   font-family: var(--serif);
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   font-weight: 600;
-  color: var(--accent);
+  color: var(--text);
 }
 .author-title {
   font-size: 0.85rem;
@@ -105,6 +115,26 @@ nav {
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
+
+.references {
+  margin-top: 4rem;
+  padding: 2rem;
+  background-color: var(--bg2);
+  border-radius: 8px;
+}
+.references h4 {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+.references p {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 0.8rem;
+  line-height: 1.5;
+}
+.references p:last-child { margin-bottom: 0; }
 
 /* Footer */
 footer {
@@ -132,7 +162,7 @@ footer {
 
 <nav>
   <a class="nav-logo-link" href="index.html" aria-label="Ana Sayfa">
-    <svg width="200" height="50" viewBox="0 0 240 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width="240" height="70" viewBox="0 0 240 70" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M 30,35 Q 120,25 210,35" stroke="#5c7a52" stroke-width="1.5" fill="none" stroke-linecap="round"/>
       <circle cx="70" cy="31" r="2.5" fill="#812990" opacity="0.8"/>
       <circle cx="95" cy="36" r="3" fill="#812990" opacity="0.8"/>
@@ -149,38 +179,90 @@ footer {
 
 <main class="article-container">
   <span class="article-tag">Yengeç Avının Öyküsü</span>
-  <h1 class="article-title">Bölüm 1: Milyonlarca Yıllık Sır ve Yaşamın Gölgesi</h1>
+  <h1 class="article-title">I — Kemiklerin Hafızası</h1>
   
   <div class="article-content">
-    <p>Kanseri anlamak, yaşamın ta kendisini anlamaktır.</p>
+    <p>Milattan önce dördüncü yüzyıl. Kos Adası'nda yaşlı bir hekim, hastasının göğsündeki sert kitleye parmaklarını bastırıyor. Kitlenin etrafına yıldız gibi yayılan şişkin damarları izliyor gözleriyle. Bir an duraksamanın ardından zihninde bir hayvan beliriyor: yengeç. Kıyılarda rastladığı o inatçı, sert kabuklu, kıskaçlarını geçirdiği yeri bir daha bırakmayan yaratık.</p>
     
-    <p>Bu yazı dizisine <strong>"Yengeç Avının Öyküsü"</strong> adını verirken, tıp tarihinin en eski metaforlarından birinden ilham aldım. Antik Yunan’da tıbbın babası kabul edilen Hipokrat, bazı tümörleri incelerken onların merkezden dışarıya doğru uzanan damarlı yapısını bir yengecin bacaklarına benzetmiş ve ona Yunanca yengeç anlamına gelen <em>"karkinos"</em> adını vermişti. Romalı hekim Celsus ise bu terimi Latinceye çevirirken yine yengeç anlamına gelen <em>"cancer"</em> kelimesini kullandı. Binlerce yıldır insanlık, bedeninin içinde beliren bu inatçı yengeci anlamaya, ehlileştirmeye ve nihayetinde avlamaya çalışıyor.</p>
+    <p>Hippokrates, elini hastasından çekip papirüsüne eğiliyor ve tarihte ilk kez bu hastalığa bir isim veriyor: <em>karkinos</em> — yengeç.</p>
     
-    <p>Peki, bu "yengeç" sadece modern çağın, sanayileşmenin veya stresin bir laneti mi? Çoğu insan kanserin çağımıza özgü bir hastalık olduğuna inanır. Oysa bilim, bize çok daha çarpıcı ve derin bir gerçekliği fısıldıyor: <strong>Yaşam var olduğu sürece, kanser de hep oradaydı.</strong></p>
+    <p>Neden yengeç? Belki tümörün taş gibi sertliği, yengecin kabuğunu çağrıştırdığı için. Belki kitlenin etrafına ışınsal biçimde uzanan damarlar, yengecin bacaklarına benzediği için. Belki de bir kez yapıştığı yeri asla bırakmayan o kıskacın amansızlığı, hastalığın tabiatını en iyi o hayvan anlatabildiği için.</p>
     
-    <p>Sizi bundan tam 76 milyon yıl öncesine, insanın henüz yeryüzünde ayak izinin bile olmadığı bir çağa götürmek istiyorum.</p>
+    <p>Yedinci yüzyılda İskenderiyeli hekim Stephanos, hocası Hippokrates'in aforizmalarına yazdığı şerhte bu üç ihtimali de sıralayacak ve yengecin tıp tarihindeki yerini ebedîleştirecekti. Dört yüz yıl sonra Romalı ansiklopedist Celsus, Yunanca <em>karkinos</em>'u Latince'ye çevirdi: <em>cancer</em>. Yine yengeç demekti.</p>
     
-    <p>Yakın zamanda, saygın tıp dergisi <em>The Lancet Oncology</em>'de yayımlanan çığır açıcı bir çalışma, kanserin kökenlerine dair muazzam bir gerçeği gün yüzüne çıkardı. Bilim insanları, Kanada'da bulunan <em>Centrosaurus apertus</em> türü otobur ve boynuzlu bir dinozorun kaval kemiğinde olağandışı bir deformasyon fark ettiler. Yıllarca bunun iyileşmiş bir kırık olduğu düşünüldü. Ancak kemik, modern tıp teknolojileri ve 3 boyutlu taramalarla tıpkı bir insan hastaya yapıldığı gibi detaylıca incelendiğinde sonuç çok netti: Bu 76 milyon yıllık devasa canlı, ileri evre bir <strong>osteosarkom</strong>, yani kemik kanseri hastasıydı.</p>
+    <p>İkinci yüzyılda Bergamalı Galenos, bir meme tümörünü diseke ederken kitlenin etrafına örümcek ağı gibi yayılan damarları gördü ve yazdı: <em>"Yengeç, bacaklarını bedeninin her yanına nasıl uzatırsa, bu hastalıktaki damarlar da tümörün etrafına öyle yayılır."</em></p>
     
-    <p>Hücrenin, mikroskobun veya genetiğin bilinmediği bir çağda, devasa bir dinozor, sürüsüyle birlikte yürürken bacağındaki o sinsi "yengecin" ağrılarıyla mücadele etmişti.</p>
+    <p>Bu benzetme iki bin beş yüz yıldır değişmedi. Bugün hâlâ aynı kelimeyi kullanıyoruz — kanser. İşte bu yazı dizisinin adı da oradan geliyor: Yengeç Avının Öyküsü.</p>
     
-    <p>Bu bulgu bize şunu çok net anlatıyor: Kanser, dışarıdan gelen yabancı bir işgalci değil; kendi hücrelerimizin yenilenme ve çoğalma sürecindeki kusurların, yani çok hücreli ve karmaşık bir "yaşam" olmanın getirdiği kaçınılmaz bir risktir. Yaşayan, bölünen ve büyüyen her organizmanın DNA'sında bu hata payı gizlidir. Yaşam nerede yeşerirse, gölgesi olan kanser de orada var olma ihtimali taşır.</p>
+    <p>Ama bu dizi, yengeci avlamaya çalışan modern tıbbın öyküsü olduğu kadar, yengecin insanlığı — hayır, yaşamın kendisini — avladığı kadim öykünün de izini sürüyor. Çünkü kanser, insana özgü bir bela değil. İnsan var olmadan çok önce de vardı.</p>
     
-    <p>Ancak 76 milyon yıl öncesinden bugüne değişen çok büyük bir şey var: <strong>Artık çaresiz değiliz.</strong></p>
+    <p>Dinozorlar yeryüzünde hüküm sürerken de, onlardan yüz milyonlarca yıl önce ilk sürüngenler göllerin kıyısında güneşlenirken de yengeç oradaydı — kıskaçlarını kemiklerin derinliklerine geçirmiş, sessizce bekliyor.</p>
     
-    <p>Dinozorların bu hastalığa karşı hiçbir silahı yoktu. Bizim ise bugün bilimin ışığında geliştirdiğimiz olağanüstü silahlarımız var. İşte <strong>"Yengeç Avının Öyküsü"</strong> yazı dizisinde, bu amansız avda kullandığımız o modern silahları konuşacağız.</p>
+    <div class="text-divider"></div>
     
-    <p>İlerleyen yazılarımda kanser hücresinin biyolojisinden (onko-hematoloji), akıllı ilaçların o hücreleri nasıl bulup yok ettiğinden (onko-farmakoloji), tedavi sürecinde ruhumuzu nasıl güçlü tutacağımızdan (psiko-onkoloji) ve hücrelerimizi doğru besinlerle nasıl destekleyeceğimizden (onko-nutrisyon) bahsedeceğim.</p>
+    <p>1989 yılı. Kanada'nın Alberta eyaletinde, Dinosaur Provincial Park'ın çorak arazisinde bir paleontoloji ekibi, dev bir kemik yatağını kazıyor. Yetmiş altı milyon yıl önce bir sel felaketinin toplu mezara çevirdiği bu alanda, yüzlerce <em>Centrosaurus apertus</em> fosili yatıyor. Centrosaurus, Geç Kretase döneminin otçul, tek boynuzlu dinozorlarından biri — burnunun üzerinde kıvrık bir boynuz, boyun siperi gibi genişleyen bir fırfırla donanmış, sürüler halinde yaşayan bir dev.</p>
     
-    <p>Çünkü artık biliyoruz ki; yengeç ne kadar kadim bir düşman olursa olsun, insan aklı ve bilimin gücü onun en büyük avcısıdır.</p>
+    <p>Kazı ekibi, fosillerin arasından bir fibula — alt bacak kemiği — çıkarıyor. Ama bu kemik diğerlerine benzemiyor. Uç kısmı biçimsiz, şişkin, yüzeyi düzensiz ve pürüzlü. İlk değerlendirmede karar veriliyor: kırık. Kötü iyileşmiş bir fraktür. Kemik etiketleniyor, kutulanıyor ve Royal Tyrrell Müzesi'nin depolarına kaldırılıyor. Otuz yıl boyunca orada sessizce bekleyecek.</p>
     
-    <p>Bilimle, umutla ve sağlıkla kalın.</p>
+    <p>2017'de Royal Ontario Müzesi'nden paleontolog David Evans, Tyrrell koleksiyonunu ziyaret ederken bu kemikle yeniden karşılaşıyor. Kırık izi diye geçiştirilen deformite ona tuhaf geliyor. Evans, kemiği McMaster Üniversitesi'ne götürüyor ve orada patologlar, ortopedik cerrahlar, radyologlar ve paleontologlardan oluşan multidisipliner bir ekip kurulmasını sağlıyor — tıpkı bugün bir hastanedeki tümör konseyinin çalışma biçimi gibi.</p>
+    
+    <p>Ekip, fosili günümüz tıbbının tanı araçlarıyla incelemeye başlıyor. Yüksek çözünürlüklü bilgisayarlı tomografi taramaları, kemiğin iç yapısını üç boyutlu olarak ortaya koyuyor. Görüntülerde periosteal reaksiyonun agresif bir paterni, korteks ve medüller kanalın bütünlüğünün bozulması, lezyonun içinde dezorganize skleroz ve Codman üçgeni beliriyor — kemik tümörlerinin radyolojik imzası.</p>
+    
+    <p>Ardından kemikten ince kesitler alınıyor, hematoksilen-eozin boyamasıyla mikroskopta inceleniyor. Olgunlaşmamış kemik dokusu, permeativ ve bidireksiyonel invazyon... Tanı kesinleşiyor: <strong>osteosarkom.</strong></p>
+    
+    <p>Kontrol için aynı türden sağlam bir fibula ve on dokuz yaşında osteosarkom tanısı almış bir insanın fibulası da karşılaştırmaya dahil ediliyor. Sonuç çarpıcı: yetmiş altı milyon yıllık dinozor kemiğindeki patoloji, günümüzde genç insanların kemiklerinde gördüğümüz malign tümörle neredeyse özdeş.</p>
+    
+    <p>Ekhtiari ve arkadaşları bu bulguları 2020 yılında <em>The Lancet Oncology</em>'de yayımladılar. Makale, bir dinozorda osteosarkomun hücresel düzeyde doğrulandığı ilk vaka olarak tarihe geçti. Ama hikâye bununla bitmiyor.</p>
+    
+    <p>Araştırmanın en etkileyici detayı, kanserin evresinde gizli: tümör ileri evredeydi. Kemiğin neredeyse tamamına yayılmıştı ve muhtemelen metastaz yapmıştı. Bu derece ağır bir hastalığa sahip olan bir Centrosaurus'un tek başına ayakta kalması, yırtıcılardan korunması imkânsız olurdu.</p>
+    
+    <p>Peki nasıl bu kadar uzun yaşamıştı? Cevap, fosilin bulunduğu yerde gizliydi: dev kemik yatağı, sürü halinde yaşadığının kanıtıydı. Sürünün koruması altında, topallamasına ve zayıflamasına rağmen hayatta kalmayı başarmıştı. Onu öldüren kanser değil, tüm sürüyü silip süpüren sel felaketi olmuştu.</p>
+    
+    <p>Bir onkolog olarak bu detay beni derinden etkiliyor. Yetmiş altı milyon yıl önce bile topluluk, hastalıkla mücadelenin temel direğiydi. Dinozor sürüsü farkında olmadan bir destek grubu işlevi görmüştü — hasta bireyi koruyan, onu yırtıcıların kıskacından kurtaran bir kalkan.</p>
+    
+    <p>Bugün onkoloji pratiğinde "multidisipliner yaklaşım" ve "destek bakımı" dediğimiz şeyin en ilkel, en saf halini yetmiş altı milyon yıllık bir fosilde okumak... Yaşamın şifresi, kaydedilmeden çok önce kemiklere yazılmış.</p>
+    
+    <div class="text-divider"></div>
+    
+    <p>Ama yengeç, dinozorlardan da eskidir.</p>
+    
+    <p>2019 yılında <em>JAMA Oncology</em>'de yayımlanan bir başka çalışma, zaman çizelgesini çok daha geriye taşıdı. Berlin Doğa Tarihi Müzesi'nden Yara Haridy ve ekibi, Almanya'nın güneybatısındaki bir kireçtaşı ocağından çıkarılmış 240 milyon yıllık bir fosili inceliyorlardı: <em>Pappochelys rosinae</em> — modern kaplumbağaların kabuksuz, iguanaya benzeyen atasının femuru, yani uyluk kemiği.</p>
+    
+    <p>Kemiğin üzerinde açıklanamayan bir çıkıntı vardı. Mikro-BT taramaları ve morfolojik analizler, bu çıkıntının travma ya da enfeksiyon olmadığını ortaya koydu. Periosteal osteosarkom — bugün insanlarda gördüğümüz agresif bir kemik kanseri tipi.</p>
+    
+    <p>İki yüz kırk milyon yıl öncesinden, Triyas Dönemi'nden, ilk dinozorların henüz yeni belirmeye başladığı bir çağdan gelen bu bulgu, bilinen en eski amniote kemik kanseri vakasıydı.</p>
+    
+    <p>Düşünün: bu küçük, kabuksuz sürüngen Almanya'daki bir gölün kenarında güneşlenirken — Pangaea henüz parçalanmamışken, çiçekli bitkiler evrimleşmemişken, memeliler daha dünyaya gelmemişken — kemiklerinin içinde kontrolsüz çoğalan hücreler zaten iş başındaydı. Aynı genetik hata, aynı onkojenik mekanizma, aynı biyolojik ihanet.</p>
+    
+    <div class="text-divider"></div>
+    
+    <p>Bu iki bulgunun bize söylediği şey son derece derin ve rahatsız edici kadar basit: <strong>yaşam var olduğu sürece, kanser de var olacak.</strong></p>
+    
+    <p>Kanser, modern çağın laneti değil. Endüstrileşmenin, çevre kirliliğinin, işlenmiş gıdaların yan ürünü değil — en azından tek başına bunların ürünü değil. Kanser, yaşamın ta kendisine kodlanmış bir olasılık. Hücre bölündüğü, DNA kopyalandığı, organizma büyüdüğü sürece bu olasılık var. Çünkü kanser, nihayetinde bir kopya hatasıdır; yaşamı mümkün kılan aynı mekanizmanın — hücre çoğalmasının — karanlık ikizi.</p>
+    
+    <p>Osteosarkom, bu gerçeğin en çarpıcı kanıtlarından biri. İnsanda en sık ikinci on yılda, kemiklerin en hızlı büyüdüğü dönemde ortaya çıkar. Dinozorlar, doğdukları andan itibaren inanılmaz hızla büyüyerek devasa boyutlara ulaşıyorlardı. Bu hızlı büyümenin bedeli, kontrolsüz çoğalma riskiydi. Hayatı mümkün kılan şey — büyüme, yenilenme, çoğalma — aynı zamanda kanseri mümkün kılıyordu.</p>
+    
+    <p>Romalı düşünür Seneca, iki bin yıl önce <em>"yaşamak istiyorsan ölümü düşün"</em> demişti. Belki de biyoloji, ondan çok daha önce kendi versiyonunu yazmıştı: <strong>yaşam istiyorsan, kanseri göze al.</strong></p>
+    
+    <div class="text-divider"></div>
+    
+    <p>Yengeç Avının Öyküsü, işte bu kadim savaşın hikâyesini anlatacak. Mısır papirüslerinden moleküler biyolojiye, Hippokrates'in kıskaç benzetmesinden immünoterapiye, bir Centrosaurus'un topallayan bacağından bugün onkoloji kliniklerinde tedavi gören hastalara uzanan o kırılmaz ipliği takip edeceğiz.</p>
+    
+    <p>Çünkü yengeci anlamak için onun hikâyesini baştan bilmek gerekir. Ve bu hikâye, düşündüğümüzden çok daha eskidir.</p>
   </div>
 
   <div class="article-footer">
     <span class="author-name">Dr. Murat Karateke</span>
     <span class="author-title">Tıbbi Onkoloji Uzmanı</span>
   </div>
+
+  <div class="references">
+    <h4>Kaynaklar</h4>
+    <p>1. Ekhtiari S, Chiba K, Popovic S, et al. First case of osteosarcoma in a dinosaur: a multimodal diagnosis. <em>Lancet Oncol.</em> 2020;21(8):1021-1022.</p>
+    <p>2. Haridy Y, Witzmann F, Asbach P, Schoch RR, Fröbisch N, Rothschild BM. Triassic Cancer — Osteosarcoma in a 240-Million-Year-Old Stem-Turtle. <em>JAMA Oncol.</em> 2019;5(3):425-426.</p>
+    <p>3. Panegyres K. The story of how cancer got its name. <em>Cancer.</em> 2024;130(18):3182-3186.</p>
+  </div>
+
 </main>
 
 <footer>
