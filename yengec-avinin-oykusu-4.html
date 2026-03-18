@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Bölüm 4: Gecenin Ortasında Bir Bıçak | Murat Karateke</title>
+<meta name="description" content="Vesalius'un anatomik devrimi ve kanseri kesip çıkarma cesareti. Rönesans cerrahisi, anestezisiz ameliyatlar ve bilginin bedeli. Dr. Murat Karateke'nin kaleminden.">
+<meta name="author" content="Dr. Murat Karateke">
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ─── Renk Sistemi (Açık / Koyu) ─── */
+:root {
+  --white:   #ffffff;
+  --bg:      #f9f8f6;
+  --bg2:     #f3f1ee;
+  --line:    #e8e4de;
+  --text:    #2c332e;
+  --muted:   #6b6662;
+  --accent:  #5c7a52;
+  --purple:  #812990;
+  --serif:   'Playfair Display', Georgia, serif;
+  --sans:    'Inter', system-ui, sans-serif;
+  --shadow:  0 1px 3px rgba(0,0,0,.04);
+  --progress: var(--purple);
+}
+[data-theme="dark"] {
+  --white:   #1a1a1f;
+  --bg:      #111114;
+  --bg2:     #1e1e23;
+  --line:    #2a2a30;
+  --text:    #e0ddd8;
+  --muted:   #9a958f;
+  --accent:  #7fa874;
+  --purple:  #b55cc4;
+  --shadow:  0 1px 3px rgba(0,0,0,.2);
+  --progress: var(--purple);
+}
+
+/* ─── Genel ─── */
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 17px;
+  line-height: 1.9;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background .4s ease, color .4s ease;
+}
+
+/* ─── Okuma İlerleme Çubuğu ─── */
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent), var(--purple));
+  z-index: 200;
+  transition: width .1s linear;
+  border-radius: 0 2px 2px 0;
+}
+
+/* ─── Navigasyon ─── */
+nav {
+  position: fixed; top: 3px; left: 0; right: 0; z-index: 100;
+  background: rgba(249,248,246,.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line);
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 0.85rem 4rem;
+  transition: background .4s ease, border-color .4s ease;
+}
+[data-theme="dark"] nav {
+  background: rgba(17,17,20,.92);
+}
+.nav-logo-link { display: flex; align-items: center; text-decoration: none; }
+.nav-logo-link svg { height: 50px; width: auto; }
+
+.nav-right { display: flex; align-items: center; gap: 1.5rem; }
+
+.back-link {
+  font-size: .82rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: var(--accent);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  transition: color 0.3s;
+}
+.back-link:hover { color: var(--purple); }
+
+/* Tema Değiştirici */
+.theme-toggle {
+  background: none;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  width: 36px; height: 36px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  color: var(--muted);
+  transition: all .3s ease;
+  flex-shrink: 0;
+}
+.theme-toggle:hover {
+  border-color: var(--purple);
+  color: var(--purple);
+  transform: rotate(15deg);
+}
+.theme-toggle svg { width: 18px; height: 18px; }
+.icon-moon { display: block; }
+.icon-sun  { display: none; }
+[data-theme="dark"] .icon-moon { display: none; }
+[data-theme="dark"] .icon-sun  { display: block; }
+
+/* ─── Makale Ana Alanı ─── */
+.article-container {
+  max-width: 720px;
+  margin: 10rem auto 6rem auto;
+  padding: 0 2rem;
+}
+
+/* Üst meta bilgi */
+.article-meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.2rem;
+}
+.article-tag {
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--purple);
+  display: inline-block;
+}
+.reading-time {
+  font-size: .78rem;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+}
+.reading-time svg { width: 14px; height: 14px; opacity: .6; }
+
+/* Başlık */
+.article-title {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text);
+  margin-bottom: 3.5rem;
+  letter-spacing: -0.01em;
+}
+
+/* ─── İçerik Tipografisi ─── */
+.article-content p {
+  margin-bottom: 1.65rem;
+  color: var(--text);
+  word-spacing: 0.02em;
+  hanging-punctuation: first;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
+.article-content strong {
+  font-weight: 600;
+  color: var(--text);
+}
+.article-content em {
+  font-style: italic;
+  color: var(--text);
+}
+
+/* Drop Cap */
+.article-content > p:first-child::first-letter {
+  font-family: var(--serif);
+  float: left;
+  font-size: 4.2em;
+  line-height: 0.8;
+  padding-right: 0.12em;
+  padding-top: 0.06em;
+  color: var(--purple);
+  font-weight: 700;
+}
+
+/* ─── Pull Quote ─── */
+.pull-quote {
+  margin: 3rem -1rem;
+  padding: 2rem 2.5rem;
+  position: relative;
+  border-left: 3px solid var(--purple);
+  background: linear-gradient(135deg, transparent 0%, rgba(129,41,144,.03) 100%);
+  border-radius: 0 8px 8px 0;
+}
+[data-theme="dark"] .pull-quote {
+  background: linear-gradient(135deg, transparent 0%, rgba(129,41,144,.08) 100%);
+}
+.pull-quote p {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  font-style: italic;
+  line-height: 1.65;
+  color: var(--text);
+  margin-bottom: 0 !important;
+}
+.pull-quote .pq-source {
+  display: block;
+  font-family: var(--sans);
+  font-style: normal;
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-top: 0.8rem;
+  letter-spacing: 0.03em;
+}
+
+/* ─── Metin Ayırıcı ─── */
+.text-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 3.5rem auto;
+  color: var(--accent);
+  opacity: 0.4;
+}
+.text-divider::before,
+.text-divider::after {
+  content: '';
+  width: 24px;
+  height: 1.5px;
+  background: var(--accent);
+  border-radius: 2px;
+}
+.text-divider svg {
+  width: 12px;
+  height: 12px;
+}
+
+/* ─── Kaynak Alıntı Kartı ─── */
+.source-card {
+  margin: 2.5rem 0;
+  padding: 2rem 2.2rem;
+  background: var(--bg2);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  position: relative;
+  transition: background .4s ease, border-color .4s ease;
+}
+.source-card .card-label {
+  display: inline-block;
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--purple);
+  margin-bottom: 0.8rem;
+}
+.source-card .card-text {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  font-style: italic;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.65;
+}
+.source-card .card-note {
+  display: block;
+  margin-top: 0.8rem;
+  font-size: .8rem;
+  font-style: normal;
+  font-weight: 400;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* ─── Bilgi Kutusu ─── */
+.info-box {
+  margin: 2.5rem 0;
+  padding: 1.8rem 2.2rem;
+  background: var(--bg2);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  font-size: .88rem;
+  color: var(--text);
+  line-height: 1.75;
+  transition: background .4s ease, border-color .4s ease;
+}
+.info-box .box-title {
+  font-weight: 600;
+  font-size: .72rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.6rem;
+}
+
+/* ─── Fade-in Animasyonu ─── */
+.fade-section {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+.fade-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── Yazar ve Kaynakça ─── */
+.article-footer {
+  margin-top: 4.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.author-name {
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--text);
+}
+.author-title {
+  font-size: 0.82rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.references {
+  margin-top: 4rem;
+  padding: 2rem 2.2rem;
+  background-color: var(--bg2);
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  transition: background .4s ease, border-color .4s ease;
+}
+.references h4 {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  margin-bottom: 1.2rem;
+  color: var(--text);
+}
+.references p {
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin-bottom: 0.85rem;
+  line-height: 1.6;
+  padding-left: 1.5em;
+  text-indent: -1.5em;
+}
+.references p:last-child { margin-bottom: 0; }
+
+/* ─── Bölüm Navigasyonu ─── */
+.chapter-nav {
+  margin-top: 3rem;
+  display: flex;
+  gap: 1rem;
+}
+.chapter-nav a {
+  flex: 1;
+  padding: 1.8rem 2.2rem;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-decoration: none;
+  transition: all .3s ease;
+  box-shadow: var(--shadow);
+}
+.chapter-nav a:hover {
+  border-color: var(--purple);
+  box-shadow: 0 4px 20px rgba(129,41,144,.08);
+  transform: translateY(-2px);
+}
+.chapter-nav a.prev { flex-direction: row-reverse; }
+.chapter-nav a.prev .nav-arrow { transform: scaleX(-1); }
+.chapter-nav a.prev:hover .nav-arrow { transform: scaleX(-1) translateX(4px); }
+.chapter-nav a.prev .nav-text { text-align: left; }
+.chapter-nav a.next .nav-text { text-align: right; }
+
+.nav-label {
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: .3rem;
+}
+.nav-title {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.3;
+}
+.nav-arrow {
+  font-size: 1.5rem;
+  color: var(--purple);
+  transition: transform .3s ease;
+  flex-shrink: 0;
+}
+.chapter-nav a.next:hover .nav-arrow { transform: translateX(4px); }
+
+/* ─── Başa Dön Butonu ─── */
+.scroll-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 1px solid var(--line);
+  color: var(--purple);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all .3s ease;
+  box-shadow: var(--shadow);
+  z-index: 50;
+}
+.scroll-top.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+.scroll-top:hover {
+  background: var(--purple);
+  color: var(--white);
+  border-color: var(--purple);
+}
+.scroll-top svg { width: 18px; height: 18px; }
+
+/* ─── Footer ─── */
+footer {
+  padding: 3rem 4rem;
+  border-top: 1px solid var(--line);
+  display: flex; justify-content: space-between; align-items: center;
+  background: var(--white);
+  transition: background .4s ease, border-color .4s ease;
+}
+.footer-left { font-size: .82rem; color: var(--muted); }
+.footer-right {
+  font-family: var(--serif);
+  font-size: .95rem;
+  color: var(--purple);
+  font-weight: 600;
+}
+
+/* ─── Baskı Stili ─── */
+@media print {
+  nav, .progress-bar, .theme-toggle, .scroll-top, .chapter-nav { display: none !important; }
+  body { font-size: 11pt; line-height: 1.7; color: #000; background: #fff; }
+  .article-container { margin: 0 auto; max-width: 100%; }
+  .article-content > p:first-child::first-letter { color: #000; }
+  .pull-quote { border-left-color: #333; }
+  .references, .source-card, .info-box { background: #f5f5f5; border: 1px solid #ccc; }
+  footer { border-top: 1px solid #ccc; }
+  a { color: #000; text-decoration: none; }
+}
+
+/* ─── Mobil Uyumluluk ─── */
+@media (max-width: 800px) {
+  nav { padding: 0.85rem 1.2rem; top: 3px; }
+  .nav-logo-link svg { height: 40px; }
+  .nav-right { gap: 1rem; }
+  .back-link { font-size: .75rem; }
+
+  .article-container {
+    margin-top: 7.5rem;
+    padding: 0 1.4rem;
+  }
+  body { font-size: 16px; line-height: 1.85; }
+
+  .article-content > p:first-child::first-letter {
+    font-size: 3.4em;
+  }
+
+  .pull-quote {
+    margin: 2.5rem -0.5rem;
+    padding: 1.5rem 1.6rem;
+  }
+  .pull-quote p { font-size: 1.1rem; }
+
+  .source-card { padding: 1.5rem 1.6rem; }
+  .info-box { padding: 1.5rem 1.6rem; }
+
+  .chapter-nav {
+    flex-direction: column;
+  }
+  .chapter-nav a { padding: 1.4rem 1.5rem; }
+  .nav-title { font-size: 1rem; }
+
+  .scroll-top { bottom: 1.2rem; right: 1.2rem; width: 38px; height: 38px; }
+
+  footer {
+    flex-direction: column;
+    gap: 0.8rem;
+    text-align: center;
+    padding: 2.5rem 1.5rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .article-title { font-size: 1.7rem; }
+  .article-container { padding: 0 1.1rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-section { opacity: 1; transform: none; transition: none; }
+  html { scroll-behavior: auto; }
+  .progress-bar { transition: none; }
+}
+
+::selection {
+  background: rgba(129,41,144,.15);
+  color: var(--text);
+}
+</style>
+</head>
+<body>
+
+<!-- Okuma İlerleme Çubuğu -->
+<div class="progress-bar" id="progressBar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+
+<!-- Navigasyon -->
+<nav>
+  <a class="nav-logo-link" href="index.html" aria-label="Ana Sayfa">
+    <svg width="240" height="70" viewBox="0 0 240 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M 30,35 Q 120,25 210,35" stroke="var(--accent)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+      <circle cx="70" cy="31" r="2.5" fill="var(--purple)" opacity="0.8"/>
+      <circle cx="95" cy="36" r="3" fill="var(--purple)" opacity="0.8"/>
+      <circle cx="120" cy="30" r="2.5" fill="var(--purple)" opacity="0.8"/>
+      <circle cx="145" cy="37" r="3" fill="var(--purple)" opacity="0.8"/>
+      <circle cx="170" cy="31" r="2.5" fill="var(--purple)" opacity="0.8"/>
+      <circle cx="185" cy="35" r="2" fill="var(--purple)" opacity="0.8"/>
+      <text x="120" y="52" font-family="'Dancing Script', cursive" font-size="32" font-weight="700" fill="var(--purple)" text-anchor="middle">Murat Karateke</text>
+      <text x="120" y="66" font-family="'Inter', sans-serif" font-size="9" font-weight="600" fill="var(--accent)" letter-spacing="0.25em" text-anchor="middle">TIBBİ ONKOLOG</text>
+    </svg>
+  </a>
+  <div class="nav-right">
+    <a href="index.html" class="back-link">← Ana Sayfaya Dön</a>
+    <button class="theme-toggle" id="themeToggle" aria-label="Tema değiştir" title="Açık / Koyu tema">
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- Makale -->
+<main class="article-container">
+
+  <div class="article-meta">
+    <span class="article-tag">Yengeç Avının Öyküsü</span>
+    <span class="reading-time">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      <span id="readTime">18 dk okuma</span>
+    </span>
+  </div>
+
+  <h1 class="article-title">IV — Gecenin Ortasında Bir Bıçak</h1>
+
+  <article class="article-content">
+
+
+    <!-- ═══ 1. GİRİŞ: AMELİYATHANE ═══ -->
+
+    <div class="fade-section">
+      <p>Padova, 1543. Kışın ortası, şafak henüz uzakta. Anatomi tiyatrosunun merkezindeki mermer masanın üzerinde bir ceset yatıyor — hukuk tarafından tıbba bağışlanmış, idam edilmiş bir mahkûm. Etrafında, amfi biçiminde yükselen sıralarda, meşalelerle aydınlanan yüzlerce öğrenci nefesini tutmuş bekliyor. Hava, balmumu, kokuşmuş et ve tütsü karışımıyla ağır. Masanın başında ise, otuz yaşına bile girmemiş bir adam duruyor: Andreas Vesalius. Elinde bir neşter var ve o neşterle, bin beş yüz yıllık bir yalanı kesip atacak.</p>
+
+      <p>O güne kadar anatomi dersleri şöyle işliyordu: profesör, kürsüsünden Galenos'un kitabını okurdu; bir berber-cerrah, profesörün talimatlarıyla cesedi açardı; öğrenciler yukarıdan izlerdi. Profesörün eli cesede değmezdi — o, bilginin bekçisiydi, pisliğin değil. Vesalius bu düzeni yıktı. Kürsüden indi, neşteri kendi eline aldı ve cesedi kendi açtı. Gördüğü şey, okuduğu şeyle uyuşmuyordu. Galenos'un bin beş yüz yıldır tartışılmaz otorite olarak kabul edilen anatomik tanımlarının birçoğu yanlıştı — çünkü Galenos, insan cesedi yerine maymun ve domuz diseke etmişti.</p>
+
+      <p>Vesalius, o gece bir kitap yazmaya başladı. O kitabın adı <em>De Humani Corporis Fabrica</em> — İnsan Bedeninin Yapısı Üzerine — olacaktı. Ve tıp tarihinin en büyük devrimlerinden birini ateşleyecekti.</p>
+    </div>
+
+    <div class="text-divider" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+    </div>
+
+
+    <!-- ═══ 2. GALENOS'UN GÖLGESİ ═══ -->
+
+    <div class="fade-section">
+      <p>Vesalius'un devrimini anlamak için, ondan önce tıbbın nasıl bir karanlığa gömüldüğünü bilmek gerekir. Önceki bölümde tanıştığımız Galenos, MS ikinci yüzyılda yaşamış ve ölümünden sonra neredeyse tanrılaştırılmıştı. Ortaçağ boyunca — hem İslam dünyasında hem de Hristiyan Avrupa'da — Galenos'un eserleri kutsal metinler gibi muamele gördü. Onun anatomik tanımlarına itiraz etmek, Aristoteles'e itiraz etmek kadar, hatta İncil'e itiraz etmek kadar tehlikeli sayılıyordu.</p>
+
+      <p>Sorun şuydu: Galenos, Roma'da insan diseksiyonunun yasak olduğu bir çağda çalışmıştı. Anatomik bilgilerinin büyük kısmını hayvan diseksiyonlarından — özellikle Berberi makağı maymunundan — çıkarmıştı. Kas yapıları, sinir yolları, organ konumları... birçoğu insana yakındı, ama birçoğu da değildi. Ve bin beş yüz yıl boyunca kimse bunu fark etmemişti — ya da fark edip de söylemeye cesaret edememişti.</p>
+
+      <p>Kanser açısından bu ne anlama geliyordu? Galenos'un humoral teorisi — kanserin kara safra birikiminden kaynaklandığı inancı — sorgulanmadan kabul edilmeye devam ediyordu. Eğer kanser sistemik bir sıvı bozukluğuysa, onu kesmek anlamsızdı; çünkü kara safra tüm bedende dolaşıyordu. Bu inanç, Ortaçağ boyunca kanser cerrahisini neredeyse tamamen engelledi. Tümörü kesmek yerine, kara safrayı dengelemeye yönelik tedaviler — kan alma, müshil verme, özel diyetler, bitkisel ilaçlar — uygulanıyordu. Bin beş yüz yıl boyunca.</p>
+    </div>
+
+    <!-- Pull Quote -->
+    <div class="pull-quote fade-section">
+      <p>Yanlış bir teori, yalnızca bilgiyi değil, cesareti de öldürür. Galenos'un kara safra dogması, bin beş yüz yıl boyunca cerrahların elini bağladı — bıçağı değil bilgiyi keskinleştirmek gerekiyordu önce.</p>
+    </div>
+
+    <div class="text-divider" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+    </div>
+
+
+    <!-- ═══ 3. VESALİUS: GÖRMENİN CESARETİ ═══ -->
+
+    <div class="fade-section">
+      <p>Andreas Vesalius 1514'te Brüksel'de doğdu. Babası ve dedesi saray eczacısıydı; tıp, ailenin kanındaydı. Leuven ve Paris'te tıp eğitimi aldı, ama onu gerçek bir devrimci yapan şey Padova Üniversitesi'ndeki anatomi kürsüsüydü. Yirmi üç yaşında profesör oldu — ve hemen gelenekleri yıkmaya başladı.</p>
+
+      <p>1543 yılında yayımlanan <em>De Humani Corporis Fabrica</em>, yedi ciltlik devasa bir eserdi. İçindeki detaylı illüstrasyonlar — dönemin en iyi ahşap baskı sanatçıları tarafından hazırlanmıştı; bazı araştırmacılar Tiziano'nun atölyesinin katkısını öne sürer — insan anatomisini ilk kez gerçeğe uygun biçimde gösteriyordu. Kaslar, kemikler, sinirler, damarlar, iç organlar... hepsi gerçek insan diseksiyonlarına dayanıyordu, hayvan anolojilerine değil.</p>
+
+      <p>Vesalius, <em>Fabrica</em>'nın sayfalarında Galenos'un iki yüzden fazla hatasını belgeledi. Karaciğerin lobları, uterusun yapısı, mandibula kemiğinin tek parça oluşu, sternum segmentleri... Bunlar teknik düzeltmelerdi, ama anlamları devrimciydi: <strong>otorite, gerçeğin yerini alamaz</strong>. Bir şeyi anlamak istiyorsan, kendin bak. Başkasının yazdığına güvenme — kendi gözlerinle gör.</p>
+    </div>
+
+    <!-- Kaynak Alıntı Kartı: Vesalius -->
+    <div class="source-card fade-section">
+      <span class="card-label">Andreas Vesalius — De Humani Corporis Fabrica, 1543</span>
+      <p class="card-text">
+        "Ben Galenos'a değil, doğaya güveniyorum. Doğanın kitabı, anatomistlerin kitaplarından daha doğru, daha açık, daha güvenilirdir. Benim hocam kadavradır."
+      </p>
+      <span class="card-note">
+        Vesalius'un Fabrica'nın önsözünden. Otoriteye değil gözleme dayalı bilim anlayışının manifestosu.
+      </span>
+    </div>
+
+    <div class="fade-section">
+      <p>Bu cümle, tıptaki bilimsel devrimin temeliydi. Vesalius'un mirası yalnızca düzelttiği hatalar değildi; onun asıl mirası, <strong>görme cesareti</strong>ydi. Otoritenin yazdığını değil, gözlerin gördüğünü kabul etme cesareti. Bu cesaret, kanser tarihinde de hayati bir dönüm noktasıydı — çünkü tümörü tedavi edebilmek için önce onu anlamak, anlamak için de doğru anatomik bilgiye sahip olmak gerekiyordu.</p>
+    </div>
+
+    <div class="text-divider" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+    </div>
+
+
+    <!-- ═══ 4. PARÉ: CERRAHIN ELİ ═══ -->
+
+    <div class="fade-section">
+      <p>Vesalius anatominin haritasını çizdi; ama o haritayı kullanan ilk cerrahlardan biri, onun çağdaşı Ambroise Paré'ydi. Paré, Fransa'nın en ünlü cerrahı, dört kralın saray hekimi ve cerrahi tarihinin en renkli figürlerinden biriydi. Berber-cerrah olarak işe başlamıştı — o dönemde cerrahlar, hekimlerin altında bir kast olarak görülürdü; ellerini kirleten zanaatkârlardı, düşünen bilim insanları değil.</p>
+
+      <p>Paré, savaş meydanlarında yetişti. Ateşli silah yaralarının tedavisinde kaynar yağ dökmek yerine yumurta sarısı, gül yağı ve terebentin karışımı kullanarak devrim yaptı. Ampütasyon tekniklerini geliştirdi, damar bağlama (<em>ligasyon</em>) yöntemini yaygınlaştırdı ve cerrahi aletlerin tasarımında çığır açtı. Ama onun kanser tarihindeki yeri, başka bir nedenle önemlidir.</p>
+
+      <p>Paré, meme kanserinde <em>mastektomi</em> — memenin tamamının cerrahi olarak çıkarılması — uygulayan ve bunu sistematik olarak kayıt altına alan ilk cerrahlardan biriydi. Operasyon, bugünün standartlarıyla düşünüldüğünde kabusvariydi: anestezi yoktu, hastanın bilinci tamamen açıktı. Antisepsi kavramı daha icat edilmemişti — ameliyat, enfeksiyon tehdidi altında, çoğunlukla ölümcül koşullarda gerçekleştiriliyordu.</p>
+    </div>
+
+    <div class="fade-section">
+      <p>Paré'nin ameliyat tekniğini tarif eden metinler, bugün okunduğunda dehşet vericidir ve aynı zamanda derin bir saygı uyandırır. Hasta, birkaç asistan tarafından tutulurdu — bazen masaya bağlanırdı. Cerrah, hızlı olmak zorundaydı; çünkü hastanın dayanabileceği süre sınırlıydı ve şok riski her saniye artıyordu. Bıçak dokuya girerdi; kanama, kızgın demir ya da kaynar yağla — koterizasyonla — durdurulurdu. İşlem, başarılı olursa birkaç dakika sürerdi. Başarısız olursa, hasta masada kalırdı.</p>
+
+      <p>Ve yine de, bazı hastalar iyileşti. Bazı tümörler geri gelmedi. Bu gözlem — kanserin kesildiğinde bazen tedavi edilebildiği gözlemi — Galenos'un "kara safra tüm bedende dolaşır, bu yüzden kesmenin anlamı yoktur" dogmasına ilk ciddi deneysel itirazlardan biriydi.</p>
+    </div>
+
+    <!-- Pull Quote -->
+    <div class="pull-quote fade-section">
+      <p>Paré'nin en ünlü sözü, cerrahinin özünü özetler: "Ben sardım, Tanrı iyileştirdi." Bu tevazu, bilginin sınırlarını kabul etme erdemiydi — ama aynı zamanda, o sınırlara rağmen eyleme geçme cesaretiydi.</p>
+      <span class="pq-source">— Ambroise Paré, 16. yüzyıl</span>
+    </div>
+
+    <div class="text-divider" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+    </div>
+
+
+    <!-- ═══ 5. AMELİYATHANENİN KARANLIĞI ═══ -->
+
+    <div class="fade-section">
+      <p>On altıncı ve on yedinci yüzyılın cerrahi gerçekliğini anlamak için, o ameliyathanelerin içine girmemiz gerekiyor. Ve uyarıyorum: manzara rahatsız edicidir.</p>
+
+      <p><strong>Anestezi yoktu.</strong> Ağrı kesici olarak afyon şurubu, alkol ve bazen mandragora kökü verilirdi — bunların hiçbiri gerçek anestezi sağlamazdı. Hasta, ameliyat boyunca uyanık ve acı içindeydi. Bazı cerrahlar, hastayı bayıltmak için şakaklara baskı uygular ya da çene altından sıkıca kavrar, geçici bir sersemlik yaratırdı. Ama çoğu zaman tek çare, hızdı: işlemi mümkün olduğunca çabuk bitirmek.</p>
+
+      <p><strong>Antisepsi yoktu.</strong> Mikropların varlığı bilinmiyordu; enfeksiyon "kötü hava" (<em>miasma</em>) ya da ilahi ceza olarak açıklanıyordu. Cerrahın elleri yıkanmazdı — hatta kanlı bir önlük, deneyimin ve ustalığın göstergesiydi. Ameliyat aletleri, hastalar arasında temizlenmeden kullanılırdı. Sonuç: cerrahi enfeksiyonlar, hastaların büyük bir kısmını öldürüyordu. Ameliyattan sağ kurtulanlar, günler sonra ateş, irin ve sepsisten hayatlarını kaybedebiliyordu.</p>
+
+      <p><strong>Kanama kontrolü ilkeldi.</strong> Paré'nin damar bağlama tekniği bir devrimdi, ama yaygın olarak benimsenmesi zaman aldı. Birçok cerrah hâlâ koterizasyona — kızgın demirle damarı yakarak kapatmaya — güveniyordu. Bu yöntem kanamayı durduruyordu ama korkunç doku hasarına yol açıyordu.</p>
+    </div>
+
+    <!-- Bilgi Kutusu -->
+    <div class="info-box fade-section">
+      <div class="box-title">Ameliyathane Değil, Arena</div>
+      On yedinci yüzyılda büyük cerrahiler, tıpkı anatomi dersleri gibi, halka açık "tiyatro" ortamlarında yapılırdı. Seyirciler amfi sıralarında oturur, cerrahı izlerdi. Hız, cerrahın en büyük erdemi sayılıyordu; ünlü İngiliz cerrah Robert Liston'un bir bacak ampütasyonunu yirmi sekiz saniyede tamamladığı rivayet edilir. Bu hız takdirle karşılanırdı — çünkü her ek saniye, hasta için ek acı ve ek kan kaybı demekti.
+    </div>
+
+    <div class="text-divider" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+    </div>
+
+
+    <!-- ═══ 6. FABRICIUS HILDANUS: KANSER CERRAHİSİNİN ÖNCÜLERİ ═══ -->
+
+    <div class="fade-section">
+      <p>Bu korkunç koşullara rağmen, bazı cerrahlar kanseri kesmeye devam etti. Ve bazıları, kayda değer sonuçlar aldı.</p>
+
+      <p>Alman cerrah Wilhelm Fabricius Hildanus — Almanca'da "Fabry von Hilden" — on altıncı yüzyılın sonlarında ve on yedinci yüzyılın başlarında çalıştı ve "Alman cerrahisinin babası" olarak anılır. Hildanus, meme kanseri cerrahisinde iki kritik yenilik getirdi. Birincisi, tümörü çıkarırken çevresindeki sağlam dokuyu da — bugünün terimiyle <em>cerrahi sınır</em> ya da <em>marjin</em> — almaya özen gösterdi. Tümörün hemen kenarından değil, ötesinden kesmek gerektiğini anlamıştı; çünkü hastalık, gözle görülenden daha geniş bir alana yayılmış olabilirdi.</p>
+
+      <p>İkincisi, Hildanus meme kanseri ameliyatında pektoral kası da çıkarmayı öneren ilk cerrahlardan biriydi. Bu yaklaşım, üç yüz yıl sonra William Halsted'in "radikal mastektomi"sinin kavramsal öncüsüydü. Hildanus, kanserin yalnızca bir yumru olmadığını, çevredeki dokulara sızdığını klinik deneyimle görmüştü.</p>
+    </div>
+
+    <div class="fade-section">
+      <p>Hildanus'un çağdaşı, Hollandalı cerrah Adrian Helvetius ise farklı bir yaklaşımı denedi. Meme kanserinde kompresyon — sıkıştırma — tekniği uygulayarak tümörün kan damarlarını boğmayı ve kitlenin nekroza — ölüme — uğramasını sağlamaya çalıştı. Yöntem çoğu zaman işe yaramadı, ama ardındaki fikir — tümörün kan kaynağını kesmek — bugünün <em>antianjiogenik tedavi</em> kavramının ilkel bir versiyonuydu.</p>
+
+      <p>Bu dönemin cerrahları, modern onkolojinin temel ilkelerini karanlıkta el yordamıyla keşfediyorlardı: geniş cerrahi sınır, bölgesel lenf bezi disseksiyonu, tümör damarlanmasının engellenmesi. Hiçbir patoloji raporu yoktu, hiçbir görüntüleme yöntemi yoktu, hücre kavramı dahi bilinmiyordu. Ellerinde yalnızca gözleri, parmakları ve bıçakları vardı. Ve cesaret.</p>
+    </div>
+
+    <!-- Pull Quote -->
+    <div class="pull-quote fade-section">
+      <p>Rönesans cerrahları, karanlık bir odada çakmak taşıyla ateş yakmaya çalışan insanlardı. Çoğu zaman yalnızca kıvılcım çıkardılar. Ama o kıvılcımlar, bir gün cerrahi onkolojinin büyük ateşini yakacaktı.</p>
+    </div>
+
+    <div class="text-divider" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+    </div>
+
+
+    <!-- ═══ 7. HUMORAL TEORİNİN ÇATLAĞA BAŞLAMASI ═══ -->
+
+    <div class="fade-section">
+      <p>Vesalius'un anatomik devriminin dolaylı ama derin bir etkisi, humoral teorinin çatlamaya başlamasıydı. Eğer Galenos'un anatomik bilgileri yanlışsa, onun hastalık teorisi de yanlış olabilir miydi? Bu soru, on altıncı ve on yedinci yüzyılda giderek daha yüksek sesle soruldu.</p>
+
+      <p>İsviçreli hekim ve kimyager Paracelsus — asıl adıyla Theophrastus von Hohenheim — Galenos'un humoral teorisine en erken ve en gürültülü itirazı yükseltenlerden biriydi. 1527'de Basel Üniversitesi'nde öğretim üyesi olduğunda, ilk icraatı Galenos'un ve İbn Sina'nın kitaplarını halka açık biçimde ateşe vermek oldu. Paracelsus, hastalıkların vücut sıvılarının dengesizliğinden değil, dışarıdan gelen spesifik etkenlerden — "zehirler"den — kaynaklandığını savundu. Kanser için spesifik bir "arkanöz madde" önerdi; detayları yanlıştı, ama sezgisi — hastalığın spesifik bir nedene bağlı olduğu fikri — iki yüz yıl sonra doğrulanacaktı.</p>
+
+      <p>On yedinci yüzyılın ortalarında, lenfatik sistemin keşfi humoral teoriye bir darbe daha vurdu. Danimarkalı anatomist Thomas Bartholin ve İsveçli Olaus Rudbeck, birbirlerinden bağımsız olarak lenf damarlarını ve lenf düğümlerini tanımladılar. Bu keşif, kara safranın "bedenin her yerinde dolaşan gizemli bir sıvı" olduğu inancını temelden sarstı. Artık sıvı akışının yolları biliniyordu — ve kara safra bu yolların hiçbirinde bulunamıyordu.</p>
+    </div>
+
+    <div class="fade-section">
+      <p>Hollandalı anatomist Frederik Ruysch ise on yedinci yüzyılın sonlarında, tümörlerin bir lenf sıvısı bozukluğundan değil, lokal bir doku büyümesinden kaynaklanabileceğini öne sürdü. Bu fikir, "lenf teorisi" olarak adlandırıldı ve humoral teorinin yerini almaya aday oldu. Lenf teorisi de nihayetinde yanlıştı, ama en azından doğru yöne bir adım attı: kanseri gizemli bir sıvı dengesizliğinden çıkarıp, dokunun kendisine — somut, incelenebilir, kesilebilir bir yapıya — bağlamaya başlıyordu.</p>
+
+      <p>Bu kavramsal değişim, cerrahi için hayati bir fırsat penceresi açtı. Eğer kanser "tüm bedende dolaşan kara safra"dan değil, belirli bir bölgedeki doku bozukluğundan kaynaklanıyorsa, o dokuyu kesmek mantıklı hale geliyordu. Bıçak, artık sadece bir zanaatkâr aleti değil, tedavi aracı olabilirdi.</p>
+    </div>
+
+    <div class="text-divider" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+    </div>
+
+
+    <!-- ═══ 8. BİLGİNİN BEDELİ ═══ -->
+
+    <div class="fade-section">
+      <p>Vesalius'un kaderi, bilginin bedelinin ne kadar ağır olabileceğinin acı bir hatırlatıcısıdır. <em>Fabrica</em>'nın yayımlanmasının ardından Galenos'çu akademisyenlerin öfkesiyle karşılaştı. En yakın hocası Jacobus Sylvius, onu alenen "delirmiş" ve "bedene zehir saçan bir cani" olarak nitelendirdi. Sylvius, Galenos'un yanlış olabileceğini kabul etmektense, "insanların Galenos'un zamanından bu yana anatomik olarak değişmiş olduğunu" iddia etti — anatominin değil, insan bedeninin değiştiğini savunan absürt bir argüman.</p>
+
+      <p>Vesalius, bu baskılara dayanamayarak akademik hayatı bıraktı ve İspanya Kralı V. Karl'ın saray hekimi oldu. 1564'te, elli yaşında, Kudüs'e hac yolculuğuna çıktı — bazı tarihçiler bunun bir sürgün, bazıları gönüllü bir çekilme olduğunu iddia eder. Dönüş yolunda, Yunan adası Zakynthos'ta öldü. Modern anatominin kurucusu, otoriteye meydan okumanın bedelini ömrüyle ödedi.</p>
+    </div>
+
+    <!-- Pull Quote -->
+    <div class="pull-quote fade-section">
+      <p>Vesalius'un trajedisi, bilim tarihinin tekrar eden motifidir: doğruyu söyleyen, önce cezalandırılır. Galileo gökyüzünde, Vesalius insan bedeninde, Semmelweis hastane koridorlarında — hepsi aynı günaha düştü: gördükleri şeyi söylediler.</p>
+    </div>
+
+    <div class="text-divider" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+    </div>
+
+
+    <!-- ═══ 9. GECENİN İÇİNDEKİ IŞIK ═══ -->
+
+    <div class="fade-section">
+      <p>On altıncı ve on yedinci yüzyılın kanser cerrahisi, modern standartlarla değerlendirildiğinde vahşi, ilkel ve çoğunlukla başarısız görünebilir. Ve birçok açıdan öyleydi. Hastaların büyük kısmı ameliyattan sağ çıkamadı. Sağ çıkanların çoğunda kanser geri döndü. Enfeksiyon, kanama ve şok, cerrahın en büyük düşmanlarıydı.</p>
+
+      <p>Ama bu dönem, yalnızca başarısızlıklarla değil, temel kavramsal atılımlarla da tanımlanmalıdır. Bu iki yüz yıl içinde, kanser cerrahisinin tohumları ekildi:</p>
+
+      <p>Vesalius, <strong>doğru anatomik bilgi</strong>nin temelini attı. Tümörün nerede olduğunu bilmek için, bedenin haritasına sahip olmak gerekiyordu — ve artık o harita vardı. Paré, <strong>cerrahi tekniği</strong> modernleştirdi. Damar bağlama, yara bakımı, ampütasyon prosedürleri — bunlar kanseri kesmek isteyen gelecek nesil cerrahların araç çantasına konuldu. Hildanus, <strong>cerrahi marjin</strong> kavramını sezgisel olarak uyguladı. Tümörü dar sınırlarla değil, geniş sınırlarla çıkarmak gerektiğini anladı. Ve lenfatik sistemin keşfi, <strong>humoral teoriyi çatlattı</strong> — kanserin lokal bir hastalık olabileceği fikrini güçlendirdi ve cerrahiye kavramsal meşruiyet kazandırdı.</p>
+    </div>
+
+    <div class="fade-section">
+      <p>Bu atılımların hiçbiri tek başına yeterli değildi. Anestezi olmadan cerrahinin yaygınlaşması imkânsızdı; antisepsi olmadan ameliyat sonrası sağkalım çok düşüktü; patoloji olmadan neyin kesilmesi gerektiğini bilmek olanaksızdı. Bu eksikliklerin giderilmesi, on dokuzuncu yüzyılı bekleyecekti — ve bu, dizimizin ilerleyen bölümlerinin konusu olacak.</p>
+
+      <p>Ama burada, bu bölümün başlığına dönelim: <em>Gecenin ortasında bir bıçak</em>.</p>
+
+      <p>Bu metafor, üç katmanlıdır. Birinci katman somuttur: Rönesans ameliyathanelerinin gerçek karanlığı — loş meşale ışığı altında, gece yarısı yapılan ameliyatlar. İkinci katman epistemiktir: bu cerrahların bilgi karanlığı — mikropları bilmeden, hücreyi bilmeden, kanserin doğasını bilmeden, yalnızca gözlem ve sezgiyle ilerlemeleri. Üçüncü katman ise varoluşsaldır: gecenin ortasında bıçağı eline alan bir cerrahın, hastasını kurtarıp kurtaramayacağını bilmeden, belki öldüreceğini bile bile, yine de kesme cesareti göstermesi.</p>
+    </div>
+
+    <!-- Pull Quote -->
+    <div class="pull-quote fade-section">
+      <p>Cerrahi, cesaretin somutlaşmış halidir. Başka biri bir fikir öne sürebilir, bir teori geliştirebilir, bir tartışma yürütebilir. Ama cerrah, bıçağı eline alıp dokuya girmek zorundadır. Ve o anda, doğru ile yanlış arasındaki mesafe bir bıçak sırtı kadardır.</p>
+    </div>
+
+    <div class="text-divider" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+    </div>
+
+
+    <!-- ═══ 10. KAPANIŞ ═══ -->
+
+    <div class="fade-section">
+      <p>Bugün bir onkolog olarak cerrahi tedaviyi tartışırken — ameliyat öncesi görüntüleme, patolojik marjin değerlendirmesi, sentinel lenf nodu biyopsisi, robotik cerrahi — bunların hepsinin köklerinin Rönesans'ın kanlı ameliyathanelerine uzandığını biliyorum. O loş ışıkta, ağlayan hastaların çığlıkları arasında, elinde ilkel aletler ve muazzam bir kararlılıkla çalışan cerrahlar, bugünkü cerrahi onkolojinin temelini attılar.</p>
+
+      <p>Vesalius, Paré, Hildanus ve isimsiz yüzlerce cerrah — hepsinin ortak noktası aynıydı: <strong>bilmediklerinin farkında olarak, yine de eyleme geçtiler</strong>. Görmek cesaret istiyordu; kesmek daha da fazla. Ve o bıçak, gecenin karanlığında, hem dehşetin hem de umudun aracıydı.</p>
+
+      <p>Çünkü her ameliyat bir sorudur: "Bu kitlenin altında ne var?" Vesalius, bu soruyu kadavraya sordu ve anatominin sırlarını buldu. Paré, canlı hastaya sordu ve cerrahinin sınırlarını keşfetti. İkisi de aynı şeyi yaptı — karanlığa uzanıp, oradan bir parça ışık çıkardılar.</p>
+
+      <p>Gece henüz bitmemişti. Ama bıçak artık elde, el artık kararlıydı. Ve ufukta, anestezinin, antisepsinin ve mikrobiyolojinin şafağı bekliyordu.</p>
+    </div>
+
+
+  </article>
+
+  <!-- Yazar -->
+  <div class="article-footer fade-section">
+    <span class="author-name">Dr. Murat Karateke</span>
+    <span class="author-title">Tıbbi Onkoloji Uzmanı</span>
+  </div>
+
+  <!-- Kaynaklar -->
+  <div class="references fade-section">
+    <h4>Kaynaklar</h4>
+    <p>1. Vesalius A. <em>De Humani Corporis Fabrica Libri Septem.</em> Basel: Johannes Oporinus; 1543.</p>
+    <p>2. O'Malley CD. <em>Andreas Vesalius of Brussels, 1514–1564.</em> University of California Press; 1964.</p>
+    <p>3. Paré A. <em>Les Oeuvres d'Ambroise Paré.</em> Paris; 1585.</p>
+    <p>4. Hajdu SI. A note from history: landmarks in history of cancer, part 2. <em>Cancer.</em> 2011;117(12):2811-2820.</p>
+    <p>5. Kardinal CG, Yarbro JW. A conceptual history of cancer. <em>Semin Oncol.</em> 1979;6(4):396-408.</p>
+    <p>6. Zimmerman LM, Veith I. <em>Great Ideas in the History of Surgery.</em> Norman Publishing; 1993.</p>
+    <p>7. Mukherjee S. <em>The Emperor of All Maladies: A Biography of Cancer.</em> Scribner; 2010.</p>
+    <p>8. Nuland SB. <em>Doctors: The Biography of Medicine.</em> Vintage Books; 1995.</p>
+  </div>
+
+  <!-- Bölüm Navigasyonu -->
+  <div class="chapter-nav fade-section">
+  <a class="prev" href="yengec-avinin-oykusu-3.html">
+    <span class="nav-arrow">→</span>
+    <div class="nav-text">
+      <div class="nav-label">Önceki Bölüm</div>
+      <div class="nav-title">III — Yengeç'in İsim Babası</div>
+    </div>
+  </a>
+  <a class="next" href="#">
+    <div class="nav-text">
+      <div class="nav-label">Sonraki Bölüm</div>
+      <div class="nav-title">V — Baca Çocukları</div>
+    </div>
+    <span class="nav-arrow">→</span>
+  </a>
+</div>
+
+</main>
+
+<!-- Başa Dön -->
+<button class="scroll-top" id="scrollTop" aria-label="Başa dön" title="Başa dön">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<!-- Footer -->
+<footer>
+  <span class="footer-left">© 2026 Murat Karateke · Tüm hakları saklıdır.</span>
+  <span class="footer-right">Manisa Şehir Hastanesi · Tıbbi Onkoloji</span>
+</footer>
+
+<script>
+(function() {
+  'use strict';
+
+  // ── Okuma İlerleme Çubuğu ──
+  const progressBar = document.getElementById('progressBar');
+  function updateProgress() {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    progressBar.style.width = progress + '%';
+    progressBar.setAttribute('aria-valuenow', Math.round(progress));
+  }
+
+  // ── Başa Dön Butonu ──
+  const scrollTopBtn = document.getElementById('scrollTop');
+  function toggleScrollBtn() {
+    scrollTopBtn.classList.toggle('show', window.scrollY > 600);
+  }
+  scrollTopBtn.addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // ── Scroll olaylarını birleştir ──
+  let ticking = false;
+  window.addEventListener('scroll', function() {
+    if (!ticking) {
+      requestAnimationFrame(function() {
+        updateProgress();
+        toggleScrollBtn();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+
+  // ── Fade-in Animasyonu ──
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.fade-section').forEach(function(el) {
+      observer.observe(el);
+    });
+  } else {
+    document.querySelectorAll('.fade-section').forEach(function(el) {
+      el.classList.add('visible');
+    });
+  }
+
+  // ── Tema Değiştirici ──
+  const themeToggle = document.getElementById('themeToggle');
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'dark') {
+    document.documentElement.setAttribute('data-theme', 'dark');
+  }
+  themeToggle.addEventListener('click', function() {
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    if (isDark) {
+      document.documentElement.removeAttribute('data-theme');
+      localStorage.removeItem('theme');
+    } else {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      localStorage.setItem('theme', 'dark');
+    }
+  });
+
+  // ── Tahmini Okuma Süresi ──
+  const articleText = document.querySelector('.article-content');
+  if (articleText) {
+    const wordCount = articleText.textContent.trim().split(/\s+/).length;
+    const minutes = Math.ceil(wordCount / 200);
+    document.getElementById('readTime').textContent = minutes + ' dk okuma';
+  }
+
+  // ── İlk yüklemede çalıştır ──
+  updateProgress();
+  toggleScrollBtn();
+})();
+</script>
+
+</body>
+</html>
