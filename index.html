@@ -370,13 +370,13 @@ nav {
   margin-right: auto;
 }
 
-/* ── İLETİŞİM & GOOGLE FORMS (Butonlu Versiyon) ── */
+/* ── İLETİŞİM & GOOGLE FORMS (Düzenlendi) ── */
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
   align-items: start;
-  margin-bottom: 4rem; 
+  margin-bottom: 0; /* Boşluk kaldırıldı çünkü altta ayrı form yok */
 }
 .contact-group { margin-bottom: 2.5rem; }
 .contact-group-label {
@@ -390,43 +390,40 @@ nav {
   border-bottom: 1px solid var(--line);
 }
 .contact-row {
-  display: flex; justify-content: space-between;
+  display: flex; justify-content: space-between; align-items: center;
   padding: .8rem 0; border-bottom: 1px solid var(--bg2);
 }
 .contact-key { font-weight: 500; color: var(--text); }
-.contact-val { color: var(--muted); text-decoration: none; font-weight: 500;}
+.contact-val { color: var(--muted); text-decoration: none; font-weight: 500; text-align: right; }
 .contact-val:hover { color: var(--purple); }
+.contact-map-link { font-size: 0.85rem; font-weight: 600; color: var(--purple); text-decoration: none; display: flex; align-items: center; gap: 0.3rem;}
+.contact-map-link:hover { text-decoration: underline; }
 
-.contact-map {
-  background: var(--bg2);
-  aspect-ratio: 4/3;
-  border-radius: 8px;
-  overflow: hidden;
-  border: 1px solid var(--line);
-}
-.contact-map iframe { width: 100%; height: 100%; }
-
-/* Form Buton Kartı */
-.form-container {
+/* Sağdaki Yeni Form Kartı (Haritanın yerini alan) */
+.contact-form-card {
   background: var(--bg);
   border: 1px solid var(--line);
   border-radius: 8px;
-  padding: 4rem 2rem;
+  padding: 3rem 2rem;
   text-align: center;
-  max-width: 800px;
-  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* Sol tarafla hizalı olması için */
 }
-.form-container h3 {
+.contact-form-card h3 {
   font-family: var(--serif);
   font-size: 1.8rem;
   font-weight: 600;
   color: var(--text);
   margin-bottom: 1rem;
 }
-.form-container p {
-  font-size: 1.05rem;
+.contact-form-card p {
+  font-size: 1rem;
   color: var(--muted);
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
+  line-height: 1.6;
 }
 
 /* ── FOOTER ── */
@@ -478,7 +475,7 @@ footer {
   }
   .about-photo-wrap { width: 220px; margin: 0 auto; }
   .randevu-container { padding: 3rem 1.5rem; }
-  .form-container { padding: 3rem 1.5rem; }
+  .contact-form-card { padding: 3rem 1.5rem; }
   footer { flex-direction: column; gap: 1rem; text-align: center; }
 }
 </style>
@@ -595,22 +592,22 @@ footer {
     <h2 class="section-title reveal">Bilimin İzinde</h2>
 
     <div class="posts-grid">
-      <a class="post-card reveal" href="yengec-avinin-oykusu-1.html">
+      <a class="post-card reveal" href="yengec-avinin-oykusu-4.html">
         <span class="post-tag">Yengeç Avının Öyküsü</span>
-        <h3 class="post-title">I — Kemiklerin Hafızası</h3>
-        <p class="post-excerpt">Milattan önce dördüncü yüzyıl. Kos Adası'nda yaşlı bir hekim, hastasının göğsündeki sert kitleye parmaklarını bastırıyor... İnsanlıktan ve dinozorlardan çok öncesine uzanan o kadim sırrın öyküsü.</p>
+        <h3 class="post-title">IV — Gecenin Ortasında Bir Bıçak</h3>
+        <p class="post-excerpt">Vesalius'un anatomik devrimi ve kanseri kesip çıkarma cesareti... Rönesans cerrahisi ve anestezisiz ameliyatların sarsıcı tarihi.</p>
+        <div class="post-footer"><span>Okumaya Devam Et</span><span>→</span></div>
+      </a>
+      <a class="post-card reveal" href="yengec-avinin-oykusu-3.html">
+        <span class="post-tag">Yengeç Avının Öyküsü</span>
+        <h3 class="post-title">III — Yengece İsmini Veren Adam</h3>
+        <p class="post-excerpt">Hipokrat'ın Kos Adası'nda bir tümöre 'karkinos' (yengeç) ismini vermesiyle başlayan, kanserin tarihsel isimlendirme ve sınıflandırma serüveni.</p>
         <div class="post-footer"><span>Okumaya Devam Et</span><span>→</span></div>
       </a>
       <a class="post-card reveal" href="yengec-avinin-oykusu-2.html">
         <span class="post-tag">Yengeç Avının Öyküsü</span>
         <h3 class="post-title">II — Papirüsün Sessiz Çığlığı</h3>
         <p class="post-excerpt">MÖ 3000'lerde yazılan Edwin Smith Papirüsü... İnsanlığın kanserle ilk yüzleşmesi ve tıp tarihinin en cesur "tedavisi yoktur" itirafı.</p>
-        <div class="post-footer"><span>Okumaya Devam Et</span><span>→</span></div>
-      </a>
-      <a class="post-card reveal" href="yengec-avinin-oykusu-3.html">
-        <span class="post-tag">Yengeç Avının Öyküsü</span>
-        <h3 class="post-title">III — Yengeç'in İsim Babası</h3>
-        <p class="post-excerpt">Hipokrat'ın Kos Adası'nda bir tümöre 'karkinos' (yengeç) ismini vermesiyle başlayan, kanserin tarihsel isimlendirme ve sınıflandırma serüveni.</p>
         <div class="post-footer"><span>Okumaya Devam Et</span><span>→</span></div>
       </a>
     </div>
@@ -655,7 +652,14 @@ footer {
             <span class="contact-key">Bölüm</span>
             <span class="contact-val">Tıbbi Onkoloji Polikliniği</span>
           </div>
+          <div class="contact-row" style="border-bottom: none; padding-top: 1rem;">
+            <a href="https://goo.gl/maps/QGZVzNqHj5W8wJQy6" target="_blank" rel="noopener" class="contact-map-link">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              Google Haritalar'da Gör
+            </a>
+          </div>
         </div>
+        
         <div class="contact-group">
           <div class="contact-group-label">Telefonlar</div>
           <div class="contact-row">
@@ -672,20 +676,18 @@ footer {
           </div>
         </div>
       </div>
-      <div class="contact-map">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12499.85409890536!2d27.4394!3d38.6186!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14b98263158c388d%3A0x8cf76f30e8c75d7b!2sManisa%20%C5%9Eehir%20Hastanesi!5e0!3m2!1str!2str!4v1708890000000!5m2!1str!2str" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-      </div>
-    </div>
-
-    <div class="form-container reveal">
-      <h3>Geri Bildirim</h3>
-      <p>Süreçle ilgili düşüncelerinizi veya geri bildirimlerinizi öğrenmekten mutluluk duyarız.</p>
       
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLScMk6wCHr73w4QVrp70CkqaHcRLd-u6ehOMBX_qlWOK-Y3N5g/viewform?usp=header" target="_blank" rel="noopener" class="btn btn-outline" style="margin-top: 1rem;">
-        Geri Bildirim Formunu Aç →
-      </a>
+      <div>
+        <div class="contact-form-card">
+          <h3>Geri Bildirim</h3>
+          <p>Süreçle ilgili düşüncelerinizi veya geri bildirimlerinizi öğrenmekten mutluluk duyarız.</p>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLScMk6wCHr73w4QVrp70CkqaHcRLd-u6ehOMBX_qlWOK-Y3N5g/viewform?usp=header" target="_blank" rel="noopener" class="btn btn-outline" style="margin-top: 0.5rem;">
+            Geri Bildirim Formunu Aç →
+          </a>
+        </div>
+      </div>
+      
     </div>
-
   </div>
 </section>
 
