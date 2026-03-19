@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<meta name="description" content="Kanserin ve tıbbın tarihsel dönüşümünü anlatan yazılar ve seri metinler." />
+<meta name="description" content="Kanserin, hekimliğin ve tıbbi düşüncenin tarih boyunca geçirdiği dönüşümleri anlatan yazılar ve seri metinler." />
 <meta name="author" content="Dr. Murat Karateke" />
 <title>Tıp Tarihi | Murat Karateke</title>
 
@@ -14,202 +14,379 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --white:#ffffff;
-  --bg:#f9f8f6;
-  --bg2:#f3f1ee;
-  --line:#e8e4de;
-  --text:#2c332e;
-  --muted:#6b6662;
-  --accent:#5c7a52;
-  --purple:#812990;
-  --serif:'Playfair Display', serif;
-  --sans:'Inter', sans-serif;
+  --white:   #ffffff;
+  --bg:      #f9f8f6;
+  --bg2:     #f3f1ee;
+  --line:    #e8e4de;
+  --text:    #2c332e;
+  --muted:   #6b6662;
+  --accent:  #5c7a52;
+  --purple:  #812990;
+  --serif:   'Playfair Display', Georgia, serif;
+  --sans:    'Inter', system-ui, sans-serif;
 }
 
+html { scroll-behavior: smooth; }
 body {
   font-family: var(--sans);
   background: var(--white);
   color: var(--text);
-  line-height: 1.7;
+  font-size: 15px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
 }
 
 /* NAV */
 nav {
   position: sticky;
   top: 0;
+  z-index: 100;
   background: rgba(255,255,255,.96);
+  backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--line);
-  padding: 1rem 3rem;
-  display:flex;
-  justify-content:space-between;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 4rem;
 }
+.nav-logo-link { display: flex; align-items: center; text-decoration: none; }
+.nav-logo-link svg { height: 60px; width: auto; }
 
 .nav-links {
-  display:flex;
-  gap:2rem;
-  list-style:none;
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  flex-wrap: wrap;
+  justify-content: flex-end;
 }
-
 .nav-links a {
-  font-size:.75rem;
-  text-transform:uppercase;
-  color:var(--muted);
-  text-decoration:none;
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color .2s ease;
 }
-
+.nav-links a:hover,
 .nav-links a.active {
-  color:var(--purple);
+  color: var(--purple);
 }
 
 /* HERO */
-.hero {
+.page-hero {
   background: var(--bg);
-  padding: 5rem 2rem 4rem;
-  text-align:center;
+  padding: 5rem 1.5rem 4rem;
+  border-bottom: 1px solid var(--line);
 }
-
-.hero h1 {
+.page-hero-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+.eyebrow {
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.2rem;
+}
+.page-title {
   font-family: var(--serif);
-  font-size: 3rem;
-  margin-bottom:1rem;
+  font-size: clamp(2.3rem, 5vw, 3.8rem);
+  line-height: 1.12;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 1rem;
+}
+.page-sub {
+  max-width: 760px;
+  margin: 0 auto;
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.85;
 }
 
-.hero p {
-  color:var(--muted);
-  max-width:700px;
-  margin:auto;
-}
-
-/* SECTION */
+/* CONTENT */
 .section {
-  padding:4rem 2rem;
+  padding: 5rem 1.5rem;
+}
+.section-inner {
+  max-width: 920px;
+  margin: 0 auto;
+}
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  text-decoration: none;
+  color: var(--purple);
+  font-size: .82rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+.back-link:hover { text-decoration: underline; }
+
+/* FEATURE BOX */
+.feature-box {
+  background: linear-gradient(180deg, #fff 0%, #fcfaf8 100%);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 2.2rem;
+  position: relative;
+  overflow: hidden;
+}
+.feature-box::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent), var(--purple));
 }
 
-.container {
-  max-width:900px;
-  margin:auto;
+.feature-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
 }
-
-/* SERIES BOX */
-.series-box {
-  background:linear-gradient(180deg,#fff,#fcfaf8);
-  border:1px solid var(--line);
-  border-radius:14px;
-  padding:2rem;
-  margin-bottom:2rem;
+.feature-badge,
+.feature-date {
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
 }
-
-.series-title {
-  font-family:var(--serif);
-  font-size:1.8rem;
-  margin-bottom:.8rem;
-}
-
-.series-desc {
-  color:var(--muted);
-  margin-bottom:1.5rem;
-}
-
-/* LIST */
-.article-list {
-  display:flex;
-  flex-direction:column;
-  gap:1rem;
-}
-
-.article-item {
-  display:flex;
-  justify-content:space-between;
-  padding:1rem 1.2rem;
-  border:1px solid var(--line);
-  border-radius:8px;
-  text-decoration:none;
-  color:var(--text);
-  transition:.25s;
-}
-
-.article-item:hover {
-  border-color:var(--purple);
-  transform:translateX(4px);
-}
+.feature-badge { color: var(--accent); }
+.feature-date { color: var(--muted); }
 
 .article-title {
-  font-weight:500;
+  font-family: var(--serif);
+  font-size: clamp(1.9rem, 4vw, 2.6rem);
+  line-height: 1.18;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+.article-content p {
+  color: var(--muted);
+  line-height: 1.9;
+  margin-bottom: 1.2rem;
+}
+.article-content p:last-child { margin-bottom: 0; }
+
+/* SERIES LIST */
+.series-list {
+  margin-top: 1.8rem;
+  display: grid;
+  gap: .95rem;
+}
+.series-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 1rem 1.1rem;
+  background: rgba(255,255,255,.82);
+  transition: all .25s ease;
+}
+.series-link:hover {
+  border-color: rgba(129, 41, 144, 0.35);
+  background: #fff;
+  transform: translateX(4px);
+}
+.series-left {
+  display: flex;
+  flex-direction: column;
+  gap: .25rem;
+}
+.series-no {
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.series-name {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text);
+}
+.series-arrow {
+  color: var(--purple);
+  font-size: 1rem;
+  flex-shrink: 0;
 }
 
-.article-no {
-  font-size:.75rem;
-  color:var(--accent);
-  letter-spacing:.1em;
-  text-transform:uppercase;
+/* NOTE BOX */
+.note-box {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 1.6rem;
+}
+.note-box h3 {
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  margin-bottom: .8rem;
+  color: var(--text);
+}
+.note-box p {
+  color: var(--muted);
+  line-height: 1.85;
 }
 
-/* BACK */
-.back {
-  display:inline-block;
-  margin-bottom:2rem;
-  font-size:.8rem;
-  color:var(--purple);
-  text-decoration:none;
+/* FOOTER */
+footer {
+  padding: 2.5rem 1.5rem;
+  border-top: 1px solid var(--line);
+  background: var(--bg);
+}
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  color: var(--muted);
+  font-size: .9rem;
+}
+.footer-mark {
+  font-family: var(--serif);
+  color: var(--purple);
+  font-weight: 600;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1100px) {
+  nav { padding: 1rem 1.5rem; }
+  .nav-links { gap: 1.2rem; }
+}
+@media (max-width: 860px) {
+  .nav-links {
+    display: none;
+  }
+}
+@media (max-width: 700px) {
+  .feature-box { padding: 1.5rem; }
+  .series-link {
+    align-items: flex-start;
+  }
 }
 </style>
 </head>
-
 <body>
 
 <nav>
-  <a href="index.html">Ana Sayfa</a>
+  <a class="nav-logo-link" href="index.html" aria-label="Ana Sayfa">
+    <svg width="240" height="70" viewBox="0 0 240 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M 30,35 Q 120,25 210,35" stroke="#5c7a52" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+      <circle cx="70" cy="31" r="2.5" fill="#812990" opacity="0.8"/>
+      <circle cx="95" cy="36" r="3" fill="#812990" opacity="0.8"/>
+      <circle cx="120" cy="30" r="2.5" fill="#812990" opacity="0.8"/>
+      <circle cx="145" cy="37" r="3" fill="#812990" opacity="0.8"/>
+      <circle cx="170" cy="31" r="2.5" fill="#812990" opacity="0.8"/>
+      <circle cx="185" cy="35" r="2" fill="#812990" opacity="0.8"/>
+      <text x="120" y="52" font-family="'Dancing Script', cursive" font-size="32" font-weight="700" fill="#812990" text-anchor="middle">Murat Karateke</text>
+      <text x="120" y="66" font-family="'Inter', sans-serif" font-size="9" font-weight="600" fill="#5c7a52" letter-spacing="0.25em" text-anchor="middle">TIBBİ ONKOLOG</text>
+    </svg>
+  </a>
+
   <ul class="nav-links">
+    <li><a href="index.html">Ana Sayfa</a></li>
     <li><a href="tum-yazilar.html">Tüm Yazılar</a></li>
-    <li><a href="#" class="active">Tıp Tarihi</a></li>
+    <li><a href="onkoloji-bilgilendirme.html">Onkoloji Bilgilendirme</a></li>
+    <li><a href="hasta-ve-yakinlari-icin.html">Hasta ve Yakınları İçin</a></li>
+    <li><a href="tip-tarihi.html" class="active">Tıp Tarihi</a></li>
+    <li><a href="anlatilar.html">Anlatılar</a></li>
   </ul>
 </nav>
 
-<section class="hero">
-  <h1>Tıp Tarihi</h1>
-  <p>
-    Kanserin, hekimliğin ve tıbbi düşüncenin tarih boyunca geçirdiği dönüşümleri anlatan yazılar ve seri metinler.
-  </p>
-</section>
+<header class="page-hero">
+  <div class="page-hero-inner">
+    <p class="eyebrow">Yazılar</p>
+    <h1 class="page-title">Tıp Tarihi</h1>
+    <p class="page-sub">
+      Kanserin, hekimliğin ve tıbbi düşüncenin tarih boyunca geçirdiği dönüşümleri anlatan yazılar, seri metinler ve tarihsel izlekler.
+    </p>
+  </div>
+</header>
 
 <section class="section">
-<div class="container">
+  <div class="section-inner">
+    <a href="index.html#yazilar" class="back-link">← Ana Sayfadaki Yazılara Dön</a>
 
-<a href="index.html#yazilar" class="back">← Ana sayfaya dön</a>
+    <article class="feature-box">
+      <div class="feature-meta">
+        <span class="feature-badge">Seri Yazı</span>
+        <span class="feature-date">4 Bölüm</span>
+      </div>
 
-<div class="series-box">
-  <h2 class="series-title">Yengeç Avının Öyküsü</h2>
-  <p class="series-desc">
-    Kanserin tarihsel serüvenini, tıbbın dönüşümüyle birlikte ele alan dört bölümlük bir yazı dizisi.
-  </p>
+      <h2 class="article-title">Yengeç Avının Öyküsü</h2>
 
-  <div class="article-list">
+      <div class="article-content">
+        <p>Bu seri, kanserin tarihsel serüvenini yalnızca bir hastalık tarihi olarak değil; tıbbın düşünme biçiminin, araştırma araçlarının ve tedavi anlayışının nasıl değiştiğini gösteren uzun bir dönüşüm olarak ele alır.</p>
 
-    <a href="yengec-avinin-oykusu-1.html" class="article-item">
-      <span class="article-title">Kemiklerin Hafızası</span>
-      <span class="article-no">Bölüm 1</span>
-    </a>
+        <p>İlk izlerden modern onkolojiye uzanan bu çizgide, kimi zaman kemiklerde kalan bir iz, kimi zaman mikroskobun açtığı yeni bir pencere, kimi zaman da hücreye dair değişen bilgi, hastalığı anlama biçimimizi dönüştürmüştür. Seri, bu dönüşümü daha anlatısal ve tarihsel bir dille izlemeyi amaçlar.</p>
+      </div>
 
-    <a href="yengec-avinin-oykusu-2.html" class="article-item">
-      <span class="article-title">Görünmeyeni Aramak</span>
-      <span class="article-no">Bölüm 2</span>
-    </a>
+      <div class="series-list">
+        <a href="yengec-avinin-oykusu-1.html" class="series-link">
+          <div class="series-left">
+            <span class="series-no">Bölüm 1</span>
+            <span class="series-name">Kemiklerin Hafızası</span>
+          </div>
+          <span class="series-arrow">→</span>
+        </a>
 
-    <a href="yengec-avinin-oykusu-3.html" class="article-item">
-      <span class="article-title">Hücrenin İçine Yolculuk</span>
-      <span class="article-no">Bölüm 3</span>
-    </a>
+        <a href="yengec-avinin-oykusu-2.html" class="series-link">
+          <div class="series-left">
+            <span class="series-no">Bölüm 2</span>
+            <span class="series-name">Görünmeyeni Aramak</span>
+          </div>
+          <span class="series-arrow">→</span>
+        </a>
 
-    <a href="yengec-avinin-oykusu-4.html" class="article-item">
-      <span class="article-title">Kontrol Altına Almak</span>
-      <span class="article-no">Bölüm 4</span>
-    </a>
+        <a href="yengec-avinin-oykusu-3.html" class="series-link">
+          <div class="series-left">
+            <span class="series-no">Bölüm 3</span>
+            <span class="series-name">Hücrenin İçine Yolculuk</span>
+          </div>
+          <span class="series-arrow">→</span>
+        </a>
 
+        <a href="yengec-avinin-oykusu-4.html" class="series-link">
+          <div class="series-left">
+            <span class="series-no">Bölüm 4</span>
+            <span class="series-name">Kontrol Altına Almak</span>
+          </div>
+          <span class="series-arrow">→</span>
+        </a>
+      </div>
+    </article>
+
+    <div class="note-box">
+      <h3>Bu bölümde neler olacak?</h3>
+      <p>Kanser tarihine, modern onkolojinin doğuşuna, tanı ve tedavi anlayışının dönüşümüne, tıbbi düşüncenin geçirdiği kırılmalara ve hekimliğin tarihsel hafızasına temas eden yeni yazılar bu bölümde yer alacaktır.</p>
+    </div>
   </div>
-</div>
-
-</div>
 </section>
+
+<footer>
+  <div class="footer-inner">
+    <span>© 2026 Murat Karateke · Tüm hakları saklıdır.</span>
+    <span class="footer-mark">Manisa Şehir Hastanesi · Tıbbi Onkoloji</span>
+  </div>
+</footer>
 
 </body>
 </html>
