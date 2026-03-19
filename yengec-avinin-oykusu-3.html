@@ -62,48 +62,86 @@ body {
   height: 3px;
   width: 0%;
   background: linear-gradient(90deg, var(--accent), var(--purple));
-  z-index: 200;
+  z-index: 300;
   transition: width .1s linear;
   border-radius: 0 2px 2px 0;
 }
 
-/* ─── Navigasyon ─── */
+/* ─── NAV ─── */
 nav {
-  position: fixed; top: 3px; left: 0; right: 0; z-index: 100;
+  position: sticky;
+  top: 3px;
+  left: 0;
+  right: 0;
+  z-index: 200;
   background: rgba(249,248,246,.92);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--line);
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 0.85rem 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.9rem 4rem;
+  gap: 2rem;
   transition: background .4s ease, border-color .4s ease;
 }
 [data-theme="dark"] nav {
   background: rgba(17,17,20,.92);
 }
-.nav-logo-link { display: flex; align-items: center; text-decoration: none; }
-.nav-logo-link svg { height: 50px; width: auto; }
 
-.nav-right { display: flex; align-items: center; gap: 1.5rem; }
-
-.back-link {
-  font-size: .82rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  color: var(--accent);
+.nav-logo-link {
+  display: flex;
+  align-items: center;
   text-decoration: none;
-  letter-spacing: 0.05em;
-  transition: color 0.3s;
+  flex-shrink: 0;
 }
-.back-link:hover { color: var(--purple); }
+.nav-logo-link svg {
+  height: 54px;
+  width: auto;
+  display: block;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  min-width: 0;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.25rem;
+  list-style: none;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.nav-links a {
+  font-size: .73rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color .2s ease;
+  white-space: nowrap;
+}
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--purple);
+}
 
 /* Tema Değiştirici */
 .theme-toggle {
   background: none;
   border: 1px solid var(--line);
   border-radius: 50%;
-  width: 36px; height: 36px;
-  display: flex; align-items: center; justify-content: center;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
   color: var(--muted);
   transition: all .3s ease;
@@ -122,9 +160,34 @@ nav {
 
 /* ─── Makale Ana Alanı ─── */
 .article-container {
-  max-width: 720px;
-  margin: 10rem auto 6rem auto;
+  max-width: 760px;
+  margin: 8.8rem auto 6rem auto;
   padding: 0 2rem;
+}
+
+/* Üst bağlam */
+.article-breadcrumb {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin-bottom: 1.4rem;
+  color: var(--muted);
+  font-size: .76rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.article-breadcrumb a {
+  color: var(--muted);
+  text-decoration: none;
+  transition: color .2s ease;
+}
+.article-breadcrumb a:hover {
+  color: var(--purple);
+}
+.article-breadcrumb .sep {
+  opacity: .45;
 }
 
 /* Üst meta bilgi */
@@ -133,7 +196,7 @@ nav {
   align-items: center;
   gap: 1rem;
   flex-wrap: wrap;
-  margin-bottom: 1.2rem;
+  margin-bottom: 1rem;
 }
 .article-tag {
   font-size: .72rem;
@@ -152,6 +215,15 @@ nav {
 }
 .reading-time svg { width: 14px; height: 14px; opacity: .6; }
 
+/* Seri üst başlığı */
+.series-name {
+  font-family: var(--serif);
+  font-size: clamp(1.15rem, 2vw, 1.35rem);
+  font-style: italic;
+  color: var(--accent);
+  margin-bottom: .6rem;
+}
+
 /* Başlık */
 .article-title {
   font-family: var(--serif);
@@ -159,7 +231,7 @@ nav {
   font-weight: 700;
   line-height: 1.2;
   color: var(--text);
-  margin-bottom: 3.5rem;
+  margin-bottom: 3rem;
   letter-spacing: -0.01em;
 }
 
@@ -419,12 +491,15 @@ nav {
   position: fixed;
   bottom: 2rem;
   right: 2rem;
-  width: 42px; height: 42px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
   background: var(--white);
   border: 1px solid var(--line);
   color: var(--purple);
-  display: flex; align-items: center; justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
   opacity: 0;
   transform: translateY(10px);
@@ -447,7 +522,9 @@ nav {
 footer {
   padding: 3rem 4rem;
   border-top: 1px solid var(--line);
-  display: flex; justify-content: space-between; align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background: var(--white);
   transition: background .4s ease, border-color .4s ease;
 }
@@ -472,14 +549,25 @@ footer {
 }
 
 /* ─── Mobil Uyumluluk ─── */
+@media (max-width: 1180px) {
+  nav { padding: 0.9rem 1.5rem; }
+  .nav-links { gap: .95rem; }
+  .nav-links a {
+    font-size: .7rem;
+    letter-spacing: .1em;
+  }
+}
+
+@media (max-width: 920px) {
+  .nav-links { display: none; }
+  nav { padding: 0.9rem 1.2rem; }
+}
+
 @media (max-width: 800px) {
-  nav { padding: 0.85rem 1.2rem; top: 3px; }
-  .nav-logo-link svg { height: 40px; }
-  .nav-right { gap: 1rem; }
-  .back-link { font-size: .75rem; }
+  .nav-logo-link svg { height: 42px; }
 
   .article-container {
-    margin-top: 7.5rem;
+    margin-top: 7.6rem;
     padding: 0 1.4rem;
   }
   body { font-size: 16px; line-height: 1.85; }
@@ -532,10 +620,8 @@ footer {
 </head>
 <body>
 
-<!-- Okuma İlerleme Çubuğu -->
 <div class="progress-bar" id="progressBar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
 
-<!-- Navigasyon -->
 <nav>
   <a class="nav-logo-link" href="index.html" aria-label="Ana Sayfa">
     <svg width="240" height="70" viewBox="0 0 240 70" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -550,8 +636,17 @@ footer {
       <text x="120" y="66" font-family="'Inter', sans-serif" font-size="9" font-weight="600" fill="var(--accent)" letter-spacing="0.25em" text-anchor="middle">TIBBİ ONKOLOG</text>
     </svg>
   </a>
+
   <div class="nav-right">
-    <a href="index.html" class="back-link">← Ana Sayfaya Dön</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Ana Sayfa</a></li>
+      <li><a href="tum-yazilar.html">Tüm Yazılar</a></li>
+      <li><a href="onkoloji-bilgilendirme.html">Onkoloji</a></li>
+      <li><a href="hasta-ve-yakinlari-icin.html">Hasta Yakınları</a></li>
+      <li><a href="tip-tarihi.html" class="active">Tıp Tarihi</a></li>
+      <li><a href="anlatilar.html">Anlatılar</a></li>
+    </ul>
+
     <button class="theme-toggle" id="themeToggle" aria-label="Tema değiştir" title="Açık / Koyu tema">
       <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
       <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
@@ -559,23 +654,28 @@ footer {
   </div>
 </nav>
 
-<!-- Makale -->
 <main class="article-container">
 
+  <div class="article-breadcrumb">
+    <a href="tum-yazilar.html">Tüm Yazılar</a>
+    <span class="sep">/</span>
+    <a href="tip-tarihi.html">Tıp Tarihi</a>
+    <span class="sep">/</span>
+    <span>Yengeç Avının Öyküsü</span>
+  </div>
+
   <div class="article-meta">
-    <span class="article-tag">Yengeç Avının Öyküsü</span>
+    <span class="article-tag">Bölüm 3</span>
     <span class="reading-time">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
       <span id="readTime">16 dk okuma</span>
     </span>
   </div>
 
+  <div class="series-name">Yengeç Avının Öyküsü</div>
   <h1 class="article-title">III — Yengeç'in İsim Babası</h1>
 
   <article class="article-content">
-
-
-    <!-- ═══ 1. GİRİŞ: KOS ADASI ═══ -->
 
     <div class="fade-section">
       <p>Kos Adası'nın çınar ağaçları altında, Ege'nin tuzlu rüzgârı yaprakların arasından süzülürken, yaşlı bir hekim hastasının göğsüne eğildi. Parmaklarını kadının memesindeki sert kitlenin üzerine koydu; yavaşça bastırdı, çekti, kitlenin sınırlarını yokladı. Sonra gözlerini kıstı ve kitlenin etrafına yıldız gibi yayılan şişkin, morumsu damarları izledi. Bir an düşündü. O ana kadar bu hastalığın adı yoktu — ya da en azından, onu tam olarak karşılayan bir sözcük kimsenin aklına gelmemişti. Ama şimdi, hekimin zihninde bir hayvan belirdi: kıyılarda rastladığı o sert kabuklu, inatçı, kıskaçlarını geçirdiği yeri bir daha bırakmayan yaratık.</p>
@@ -589,9 +689,6 @@ footer {
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
     </div>
 
-
-    <!-- ═══ 2. HİPPOKRATES: İNSAN ═══ -->
-
     <div class="fade-section">
       <p>Hippokrates hakkında kesin olarak bildiğimiz şeyler şaşırtıcı derecede azdır. MÖ 460 civarında Kos Adası'nda doğduğu, MÖ 370 civarında — muhtemelen Larissa'da — öldüğü kabul edilir. Babası Herakleides de hekimdi; aile geleneğine göre soyları, tıp tanrısı Asklepios'a kadar uzanıyordu. Ama Hippokrates, tanrıların değil gözlemin hekimi olacaktı.</p>
 
@@ -604,9 +701,6 @@ footer {
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
     </div>
 
-
-    <!-- ═══ 3. KARKİNOS: İSMİN DOĞUŞU ═══ -->
-
     <div class="fade-section">
       <p>Hippokrates'in <em>karkinos</em> sözcüğünü neden seçtiği, yüzyıllardır tartışılmaktadır. Antik kaynaklar birbirini tamamlayan üç açıklama sunar.</p>
 
@@ -617,7 +711,6 @@ footer {
       <p>Üçüncüsü ve belki de en derinlikli olanı, <strong>davranış</strong>. Yengeç, kıskaçlarını bir kez geçirdi mi bırakmaz. Kayaların arasına yapışır, avını sıkıştırır, inatla tutar. Kanser de öyle yapıyordu — bir kez tutunduğu dokuyu bırakmıyor, çevresine yayılıyor, söküp atılamıyordu.</p>
     </div>
 
-    <!-- Kaynak Alıntı Kartı: Stephanos -->
     <div class="source-card fade-section">
       <span class="card-label">Stephanos, İskenderiye — MS 7. yüzyıl</span>
       <p class="card-text">
@@ -636,9 +729,6 @@ footer {
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
     </div>
 
-
-    <!-- ═══ 4. CANCER: ROMA'YA GEÇIŞ ═══ -->
-
     <div class="fade-section">
       <p>Yunanca <em>karkinos</em>, zamanla Akdeniz'in batısına doğru yol aldı. MÖ birinci yüzyılda Romalı ansiklopedist Aulus Cornelius Celsus, <em>De Medicina</em> adlı ansiklopedik eserinde Hippokrates'in terimini Latince'ye çevirdi: <em>cancer</em>. Kelime yine yengeç demekti — aynı hayvan, aynı metafor, farklı bir dil.</p>
 
@@ -651,9 +741,6 @@ footer {
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
     </div>
 
-
-    <!-- ═══ 5. HUMORAL TEORİ: KARA SAFRA ═══ -->
-
     <div class="fade-section">
       <p>Hippokrates'in kanser anlayışı, yalnızca isimlendirmeyle sınırlı değildi. Ardında kapsamlı bir teorik çerçeve yatıyordu: <strong>humoral teori</strong> — vücut sıvıları kuramı. Bu kurama göre insan bedeni dört temel sıvıdan — <em>humor</em> — oluşuyordu: kan, balgam, sarı safra ve kara safra. Sağlık, bu dört sıvının dengesi; hastalık ise dengesizliğiydi.</p>
 
@@ -662,7 +749,6 @@ footer {
       <p>Bu teori bugün tamamen yanlış olarak değerlendirilir ve öyledir de. Kara safra diye bir vücut sıvısı yoktur; kanser, hücresel düzeyde genetik mutasyonlardan kaynaklanır. Ama Hippokrates'in humoral teorisini yalnızca "yanlış" diye etiketlemek, onun tarihsel dehasını görmezden gelmek olur. Çünkü bu teori, hastalığı ilk kez <strong>sistemik</strong> bir sorun olarak kavramsallaştırıyordu.</p>
     </div>
 
-    <!-- Pull Quote -->
     <div class="pull-quote fade-section">
       <p>Hippokrates, kanser hücresini göremezdi — ne mikroskobu vardı, ne histoloji bilgisi. Ama bedenin bir bütün olarak hasta olduğunu, hastalığın yalnızca bir bölgeye ait olmadığını sezdi. Bu sezgi, iki bin dört yüz yıl sonra "sistemik hastalık" kavramıyla doğrulanacaktı.</p>
     </div>
@@ -677,14 +763,10 @@ footer {
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
     </div>
 
-
-    <!-- ═══ 6. "GİZLİ KANSERE DOKUNMA" ═══ -->
-
     <div class="fade-section">
       <p>Hippokrates'in aforizmalarında, kanserle ilgili en çok alıntılanan ve en çok tartışılan cümle şudur:</p>
     </div>
 
-    <!-- Kaynak Alıntı Kartı: Hippokrates -->
     <div class="source-card fade-section">
       <span class="card-label">Hippokrates — Aforizmalar, VI. Bölüm, 38. Aforizma</span>
       <p class="card-text">
@@ -703,7 +785,6 @@ footer {
       <p>Burada, Hippokrates'e atfedilen ama aslında ondan çok sonra formüle edilen bir ilkenin tohumlarını görüyoruz: <em>primum non nocere</em> — önce zarar verme. Bu Latince deyiş Hippokrates Külliyatı'nda bu formda yer almaz, ama <em>Salgınlar</em> kitabında benzer bir ruh vardır: "Hastalıklar karşısında iki şey yap: fayda sağla ya da en azından zarar verme." Gizli kansere dokunmama öğüdü, bu felsefenin en dramatik uygulamasıydı.</p>
     </div>
 
-    <!-- Bilgi Kutusu -->
     <div class="info-box fade-section">
       <div class="box-title">Modern Perspektif</div>
       Hippokrates'in "gizli kansere dokunma" öğüdü, bugünün onkolojisinde de yankı bulan bir tartışmayı çağrıştırır: aşırı tanı ve aşırı tedavi (overdiagnosis / overtreatment). Özellikle düşük riskli prostat kanseri ve bazı tiroid mikrokarsinomlarında, "aktif izlem" (active surveillance) stratejisi — yani tümörü tedavi etmeden yakından takip etmek — giderek daha fazla kabul görmektedir. Hippokrates'in sezgisel olarak kavradığı şeyi modern kanıt da destekliyor: bazı kanserlere dokunmamak, gerçekten de hastanın yararına olabilir.
@@ -713,9 +794,6 @@ footer {
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
     </div>
 
-
-    <!-- ═══ 7. GALENOS: YENGECIN ANATOMİSİ ═══ -->
-
     <div class="fade-section">
       <p>Hippokrates'in attığı temelin üzerine en görkemli yapıyı inşa eden kişi, ondan altı yüz yıl sonra geldi: <strong>Galenos</strong> — Bergama doğumlu, Roma'nın en ünlü hekimi, gladyatörlerin cerrahı, imparatorların danışmanı.</p>
 
@@ -724,7 +802,6 @@ footer {
       <p>Galenos'un kanser tarihine en büyük katkısı, klinik gözlemlerinin zenginliğidir. Meme kanserini diseke ederken — evet, antik dönemde otopsi benzeri incelemeler yapılıyordu — kitlenin etrafına yayılan damarları gördü ve Hippokrates'in yengeç metaforunu somutlaştırdı:</p>
     </div>
 
-    <!-- Kaynak Alıntı Kartı: Galenos -->
     <div class="source-card fade-section">
       <span class="card-label">Galenos — MS 2. yüzyıl</span>
       <p class="card-text">
@@ -745,9 +822,6 @@ footer {
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
     </div>
 
-
-    <!-- ═══ 8. HASTA BAŞINDA HİPPOKRATES ═══ -->
-
     <div class="fade-section">
       <p>Hippokrates'in külliyatında — <em>Corpus Hippocraticum</em> olarak bilinen, yaklaşık altmış metinden oluşan koleksiyonda — kanser vakaları dağınık ama etkileyici biçimde yer alır. Meme kanseri, rahim kanseri, nazofarenks kanseri, deri tümörleri, iç organ tümörleri... Bu metinler, Hippokrates'in ya da okulunun öğrencilerinin gerçek hastaları muayene ederek yazdığı klinik kayıtlardır.</p>
 
@@ -756,7 +830,6 @@ footer {
       <p>Bu yaklaşım, tıp tarihinde hasta-hekim ilişkisinin ilk etik çerçevesidir. Hippokrates için hekimlik, yalnızca teknik bir beceri değil, ahlaki bir sorumluluktu. Dürüstlük, o sorumluluğun temelydi. Mısırlı cerrahın "tedavisi yoktur" deme cesaretini hatırlayın — Hippokrates, bu cesareti sistematik bir etik ilkeye dönüştürdü.</p>
     </div>
 
-    <!-- Pull Quote -->
     <div class="pull-quote fade-section">
       <p>Hippokrates Yemini'nin özü, teknik bir talimat değil, ahlaki bir sözdür: hastana zarar verme, sırrını koru, bilgini kötüye kullanma. İki bin dört yüz yıl sonra hâlâ her hekimin dilindedir — çünkü insan doğası değişmedi.</p>
     </div>
@@ -764,9 +837,6 @@ footer {
     <div class="text-divider" aria-hidden="true">
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
     </div>
-
-
-    <!-- ═══ 9. İSİMLENDİRMENİN GÜCÜ ═══ -->
 
     <div class="fade-section">
       <p>Peki, bir hastalığa isim vermenin gerçek önemi nedir? Neden "karkinos" sözcüğü, tıp tarihinin en önemli anlarından biri sayılır?</p>
@@ -778,7 +848,6 @@ footer {
       <p>Modern onkolojinin tamamı, bu ilkenin devamıdır. Bugün artık yalnızca "kanser" demiyoruz — meme kanseri, akciğer kanseri, kolon kanseri diyoruz. Hatta bu da yetmiyor: HER2 pozitif meme kanseri, EGFR mutant akciğer kanseri, mikrosatellit instabil kolon kanseri diyoruz. Her yeni isim, hastalığı biraz daha yakından tanımamızı, tedaviyi biraz daha kişiselleştirmemizi sağlıyor. Hippokrates'in başlattığı isimlendirme serüveni, genomik tıbbın kişiselleştirilmiş tedavi çağında hâlâ devam ediyor.</p>
     </div>
 
-    <!-- Pull Quote -->
     <div class="pull-quote fade-section">
       <p>Bir şeye isim vermek, onu karanlıktan çıkarmaktır. Hippokrates, yengece adını verdiği gün, insanlığı o karanlıkta ilk kez bir adım ileri taşıdı. Yengeç hâlâ orada — ama artık karanlıkta değil.</p>
     </div>
@@ -786,9 +855,6 @@ footer {
     <div class="text-divider" aria-hidden="true">
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
     </div>
-
-
-    <!-- ═══ 10. KAPANIŞ ═══ -->
 
     <div class="fade-section">
       <p>Bugün dünya genelinde her yıl yaklaşık yirmi milyon insana kanser tanısı konuyor. Her birinin dosyasında, raporunda, tıbbi kaydında bir yerde "kanser" ya da "karsinom" ya da "karsinoma" yazıyor. Bu kelimelerin her biri, iki bin dört yüz yıl önce Kos Adası'nda bir hekimin hastasının göğsüne bakıp "yengeç" demesinden doğdu.</p>
@@ -804,16 +870,13 @@ footer {
       <p>Yengeç, iki bin dört yüz yıldır aynı yerde. Ama artık bir ismi var. Ve ismi olan şeyle savaşılabilir.</p>
     </div>
 
-
   </article>
 
-  <!-- Yazar -->
   <div class="article-footer fade-section">
     <span class="author-name">Dr. Murat Karateke</span>
     <span class="author-title">Tıbbi Onkoloji Uzmanı</span>
   </div>
 
-  <!-- Kaynaklar -->
   <div class="references fade-section">
     <h4>Kaynaklar</h4>
     <p>1. Hippocrates. <em>Aphorisms.</em> Çev. Adams F. The Internet Classics Archive, MIT.</p>
@@ -825,32 +888,30 @@ footer {
     <p>7. Jouanna J. <em>Hippocrates.</em> Çev. DeBevoise MB. Johns Hopkins University Press; 1999.</p>
   </div>
 
-  <!-- Bölüm Navigasyonu -->
   <div class="chapter-nav fade-section">
-  <a class="prev" href="yengec-avinin-oykusu-2.html">
-    <span class="nav-arrow">→</span>
-    <div class="nav-text">
-      <div class="nav-label">Önceki Bölüm</div>
-      <div class="nav-title">II — Papirüsün Sessiz Çığlığı</div>
-    </div>
-  </a>
-  <a class="next" href="yengec-avinin-oykusu-4.html">
-    <div class="nav-text">
-      <div class="nav-label">Sonraki Bölüm</div>
-      <div class="nav-title">IV — Gecenin Ortasında Bir Bıçak</div>
-    </div>
-    <span class="nav-arrow">→</span>
-  </a>
-</div>
+    <a class="prev" href="yengec-avinin-oykusu-2.html">
+      <span class="nav-arrow">→</span>
+      <div class="nav-text">
+        <div class="nav-label">Önceki Bölüm</div>
+        <div class="nav-title">II — Papirüsün Sessiz Çığlığı</div>
+      </div>
+    </a>
+
+    <a class="next" href="yengec-avinin-oykusu-4.html">
+      <div class="nav-text">
+        <div class="nav-label">Sonraki Bölüm</div>
+        <div class="nav-title">IV — Gecenin Ortasında Bir Bıçak</div>
+      </div>
+      <span class="nav-arrow">→</span>
+    </a>
+  </div>
 
 </main>
 
-<!-- Başa Dön -->
 <button class="scroll-top" id="scrollTop" aria-label="Başa dön" title="Başa dön">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="18 15 12 9 6 15"/></svg>
 </button>
 
-<!-- Footer -->
 <footer>
   <span class="footer-left">© 2026 Murat Karateke · Tüm hakları saklıdır.</span>
   <span class="footer-right">Manisa Şehir Hastanesi · Tıbbi Onkoloji</span>
@@ -860,8 +921,8 @@ footer {
 (function() {
   'use strict';
 
-  // ── Okuma İlerleme Çubuğu ──
   const progressBar = document.getElementById('progressBar');
+
   function updateProgress() {
     const scrollTop = window.scrollY;
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
@@ -870,16 +931,16 @@ footer {
     progressBar.setAttribute('aria-valuenow', Math.round(progress));
   }
 
-  // ── Başa Dön Butonu ──
   const scrollTopBtn = document.getElementById('scrollTop');
+
   function toggleScrollBtn() {
     scrollTopBtn.classList.toggle('show', window.scrollY > 600);
   }
+
   scrollTopBtn.addEventListener('click', function() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
-  // ── Scroll olaylarını birleştir ──
   let ticking = false;
   window.addEventListener('scroll', function() {
     if (!ticking) {
@@ -892,7 +953,6 @@ footer {
     }
   }, { passive: true });
 
-  // ── Fade-in Animasyonu ──
   if ('IntersectionObserver' in window) {
     const observer = new IntersectionObserver(function(entries) {
       entries.forEach(function(entry) {
@@ -912,12 +972,13 @@ footer {
     });
   }
 
-  // ── Tema Değiştirici ──
   const themeToggle = document.getElementById('themeToggle');
   const savedTheme = localStorage.getItem('theme');
+
   if (savedTheme === 'dark') {
     document.documentElement.setAttribute('data-theme', 'dark');
   }
+
   themeToggle.addEventListener('click', function() {
     const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
     if (isDark) {
@@ -929,7 +990,6 @@ footer {
     }
   });
 
-  // ── Tahmini Okuma Süresi ──
   const articleText = document.querySelector('.article-content');
   if (articleText) {
     const wordCount = articleText.textContent.trim().split(/\s+/).length;
@@ -937,7 +997,6 @@ footer {
     document.getElementById('readTime').textContent = minutes + ' dk okuma';
   }
 
-  // ── İlk yüklemede çalıştır ──
   updateProgress();
   toggleScrollBtn();
 })();
