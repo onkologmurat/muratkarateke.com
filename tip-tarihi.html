@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="Kanserin ve tıbbın tarihsel dönüşümünü anlatan yazılar ve seri metinler." />
+<meta name="author" content="Dr. Murat Karateke" />
+<title>Tıp Tarihi | Murat Karateke</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --white:#ffffff;
+  --bg:#f9f8f6;
+  --bg2:#f3f1ee;
+  --line:#e8e4de;
+  --text:#2c332e;
+  --muted:#6b6662;
+  --accent:#5c7a52;
+  --purple:#812990;
+  --serif:'Playfair Display', serif;
+  --sans:'Inter', sans-serif;
+}
+
+body {
+  font-family: var(--sans);
+  background: var(--white);
+  color: var(--text);
+  line-height: 1.7;
+}
+
+/* NAV */
+nav {
+  position: sticky;
+  top: 0;
+  background: rgba(255,255,255,.96);
+  border-bottom: 1px solid var(--line);
+  padding: 1rem 3rem;
+  display:flex;
+  justify-content:space-between;
+}
+
+.nav-links {
+  display:flex;
+  gap:2rem;
+  list-style:none;
+}
+
+.nav-links a {
+  font-size:.75rem;
+  text-transform:uppercase;
+  color:var(--muted);
+  text-decoration:none;
+}
+
+.nav-links a.active {
+  color:var(--purple);
+}
+
+/* HERO */
+.hero {
+  background: var(--bg);
+  padding: 5rem 2rem 4rem;
+  text-align:center;
+}
+
+.hero h1 {
+  font-family: var(--serif);
+  font-size: 3rem;
+  margin-bottom:1rem;
+}
+
+.hero p {
+  color:var(--muted);
+  max-width:700px;
+  margin:auto;
+}
+
+/* SECTION */
+.section {
+  padding:4rem 2rem;
+}
+
+.container {
+  max-width:900px;
+  margin:auto;
+}
+
+/* SERIES BOX */
+.series-box {
+  background:linear-gradient(180deg,#fff,#fcfaf8);
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:2rem;
+  margin-bottom:2rem;
+}
+
+.series-title {
+  font-family:var(--serif);
+  font-size:1.8rem;
+  margin-bottom:.8rem;
+}
+
+.series-desc {
+  color:var(--muted);
+  margin-bottom:1.5rem;
+}
+
+/* LIST */
+.article-list {
+  display:flex;
+  flex-direction:column;
+  gap:1rem;
+}
+
+.article-item {
+  display:flex;
+  justify-content:space-between;
+  padding:1rem 1.2rem;
+  border:1px solid var(--line);
+  border-radius:8px;
+  text-decoration:none;
+  color:var(--text);
+  transition:.25s;
+}
+
+.article-item:hover {
+  border-color:var(--purple);
+  transform:translateX(4px);
+}
+
+.article-title {
+  font-weight:500;
+}
+
+.article-no {
+  font-size:.75rem;
+  color:var(--accent);
+  letter-spacing:.1em;
+  text-transform:uppercase;
+}
+
+/* BACK */
+.back {
+  display:inline-block;
+  margin-bottom:2rem;
+  font-size:.8rem;
+  color:var(--purple);
+  text-decoration:none;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <a href="index.html">Ana Sayfa</a>
+  <ul class="nav-links">
+    <li><a href="tum-yazilar.html">Tüm Yazılar</a></li>
+    <li><a href="#" class="active">Tıp Tarihi</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <h1>Tıp Tarihi</h1>
+  <p>
+    Kanserin, hekimliğin ve tıbbi düşüncenin tarih boyunca geçirdiği dönüşümleri anlatan yazılar ve seri metinler.
+  </p>
+</section>
+
+<section class="section">
+<div class="container">
+
+<a href="index.html#yazilar" class="back">← Ana sayfaya dön</a>
+
+<div class="series-box">
+  <h2 class="series-title">Yengeç Avının Öyküsü</h2>
+  <p class="series-desc">
+    Kanserin tarihsel serüvenini, tıbbın dönüşümüyle birlikte ele alan dört bölümlük bir yazı dizisi.
+  </p>
+
+  <div class="article-list">
+
+    <a href="yengec-avinin-oykusu-1.html" class="article-item">
+      <span class="article-title">Kemiklerin Hafızası</span>
+      <span class="article-no">Bölüm 1</span>
+    </a>
+
+    <a href="yengec-avinin-oykusu-2.html" class="article-item">
+      <span class="article-title">Görünmeyeni Aramak</span>
+      <span class="article-no">Bölüm 2</span>
+    </a>
+
+    <a href="yengec-avinin-oykusu-3.html" class="article-item">
+      <span class="article-title">Hücrenin İçine Yolculuk</span>
+      <span class="article-no">Bölüm 3</span>
+    </a>
+
+    <a href="yengec-avinin-oykusu-4.html" class="article-item">
+      <span class="article-title">Kontrol Altına Almak</span>
+      <span class="article-no">Bölüm 4</span>
+    </a>
+
+  </div>
+</div>
+
+</div>
+</section>
+
+</body>
+</html>
