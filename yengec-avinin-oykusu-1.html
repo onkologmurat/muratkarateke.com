@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="Yengeç Avının Öyküsü serisinin ilk bölümü: Kemiklerin Hafızası. Kanserin tarihsel serüvenine, fosillerden Hippokrates'e uzanan anlatı." />
+<meta name="author" content="Dr. Murat Karateke" />
 <title>Bölüm 1: Kemiklerin Hafızası | Murat Karateke</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -60,48 +62,84 @@ body {
   height: 3px;
   width: 0%;
   background: linear-gradient(90deg, var(--accent), var(--purple));
-  z-index: 200;
+  z-index: 300;
   transition: width .1s linear;
   border-radius: 0 2px 2px 0;
 }
 
-/* ─── Navigasyon ─── */
+/* ─── NAV ─── */
 nav {
-  position: fixed; top: 3px; left: 0; right: 0; z-index: 100;
+  position: sticky;
+  top: 3px;
+  z-index: 200;
   background: rgba(249,248,246,.92);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--line);
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 0.85rem 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.9rem 4rem;
+  gap: 2rem;
   transition: background .4s ease, border-color .4s ease;
 }
 [data-theme="dark"] nav {
   background: rgba(17,17,20,.92);
 }
-.nav-logo-link { display: flex; align-items: center; text-decoration: none; }
-.nav-logo-link svg { height: 50px; width: auto; }
 
-.nav-right { display: flex; align-items: center; gap: 1.5rem; }
-
-.back-link {
-  font-size: .82rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  color: var(--accent);
+.nav-logo-link {
+  display: flex;
+  align-items: center;
   text-decoration: none;
-  letter-spacing: 0.05em;
-  transition: color 0.3s;
+  flex-shrink: 0;
 }
-.back-link:hover { color: var(--purple); }
+.nav-logo-link svg {
+  height: 54px;
+  width: auto;
+  display: block;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  min-width: 0;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.25rem;
+  list-style: none;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.nav-links a {
+  font-size: .73rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color .2s ease;
+  white-space: nowrap;
+}
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--purple);
+}
 
 /* Tema Değiştirici */
 .theme-toggle {
   background: none;
   border: 1px solid var(--line);
   border-radius: 50%;
-  width: 36px; height: 36px;
-  display: flex; align-items: center; justify-content: center;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
   color: var(--muted);
   transition: all .3s ease;
@@ -120,9 +158,34 @@ nav {
 
 /* ─── Makale Ana Alanı ─── */
 .article-container {
-  max-width: 720px;
-  margin: 10rem auto 6rem auto;
+  max-width: 760px;
+  margin: 8.8rem auto 6rem auto;
   padding: 0 2rem;
+}
+
+/* Üst bağlam */
+.article-breadcrumb {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin-bottom: 1.4rem;
+  color: var(--muted);
+  font-size: .76rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.article-breadcrumb a {
+  color: var(--muted);
+  text-decoration: none;
+  transition: color .2s ease;
+}
+.article-breadcrumb a:hover {
+  color: var(--purple);
+}
+.article-breadcrumb .sep {
+  opacity: .45;
 }
 
 /* Üst meta bilgi */
@@ -131,7 +194,7 @@ nav {
   align-items: center;
   gap: 1rem;
   flex-wrap: wrap;
-  margin-bottom: 1.2rem;
+  margin-bottom: 1rem;
 }
 .article-tag {
   font-size: .72rem;
@@ -150,6 +213,15 @@ nav {
 }
 .reading-time svg { width: 14px; height: 14px; opacity: .6; }
 
+/* Seri üst başlığı */
+.series-name {
+  font-family: var(--serif);
+  font-size: clamp(1.15rem, 2vw, 1.35rem);
+  font-style: italic;
+  color: var(--accent);
+  margin-bottom: .6rem;
+}
+
 /* Başlık */
 .article-title {
   font-family: var(--serif);
@@ -157,7 +229,7 @@ nav {
   font-weight: 700;
   line-height: 1.2;
   color: var(--text);
-  margin-bottom: 3.5rem;
+  margin-bottom: 3rem;
   letter-spacing: -0.01em;
 }
 
@@ -179,7 +251,7 @@ nav {
   color: var(--text);
 }
 
-/* Drop Cap — İlk paragrafın ilk harfi */
+/* Drop Cap */
 .article-content > p:first-child::first-letter {
   font-family: var(--serif);
   float: left;
@@ -191,7 +263,7 @@ nav {
   font-weight: 700;
 }
 
-/* ─── Pull Quote (Vurgulu Alıntı) ─── */
+/* ─── Pull Quote ─── */
 .pull-quote {
   margin: 3rem -1rem;
   padding: 2rem 2.5rem;
@@ -301,9 +373,15 @@ nav {
 }
 .references p:last-child { margin-bottom: 0; }
 
-/* ─── Sonraki Bölüm Bağlantısı ─── */
-.next-chapter {
+/* ─── Bölüm Navigasyonu ─── */
+.chapter-nav {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
   margin-top: 3rem;
+}
+
+.next-chapter {
   padding: 1.8rem 2.2rem;
   background: var(--white);
   border: 1px solid var(--line);
@@ -346,12 +424,15 @@ nav {
   position: fixed;
   bottom: 2rem;
   right: 2rem;
-  width: 42px; height: 42px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
   background: var(--white);
   border: 1px solid var(--line);
   color: var(--purple);
-  display: flex; align-items: center; justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
   opacity: 0;
   transform: translateY(10px);
@@ -374,7 +455,9 @@ nav {
 footer {
   padding: 3rem 4rem;
   border-top: 1px solid var(--line);
-  display: flex; justify-content: space-between; align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background: var(--white);
   transition: background .4s ease, border-color .4s ease;
 }
@@ -388,7 +471,7 @@ footer {
 
 /* ─── Baskı Stili ─── */
 @media print {
-  nav, .progress-bar, .theme-toggle, .scroll-top, .next-chapter { display: none !important; }
+  nav, .progress-bar, .theme-toggle, .scroll-top, .chapter-nav { display: none !important; }
   body { font-size: 11pt; line-height: 1.7; color: #000; background: #fff; }
   .article-container { margin: 0 auto; max-width: 100%; }
   .article-content > p:first-child::first-letter { color: #000; }
@@ -399,16 +482,30 @@ footer {
 }
 
 /* ─── Mobil Uyumluluk ─── */
+@media (max-width: 1180px) {
+  nav { padding: 0.9rem 1.5rem; }
+  .nav-links { gap: .95rem; }
+  .nav-links a {
+    font-size: .7rem;
+    letter-spacing: .1em;
+  }
+}
+
+@media (max-width: 920px) {
+  .nav-links { display: none; }
+  nav {
+    padding: 0.9rem 1.2rem;
+  }
+}
+
 @media (max-width: 800px) {
-  nav { padding: 0.85rem 1.2rem; top: 3px; }
-  .nav-logo-link svg { height: 40px; }
-  .nav-right { gap: 1rem; }
-  .back-link { font-size: .75rem; }
+  .nav-logo-link svg { height: 42px; }
 
   .article-container {
-    margin-top: 7.5rem;
+    margin-top: 7.6rem;
     padding: 0 1.4rem;
   }
+
   body { font-size: 16px; line-height: 1.85; }
 
   .article-content > p:first-child::first-letter {
@@ -434,7 +531,6 @@ footer {
   }
 }
 
-/* ─── Küçük ekranlar ─── */
 @media (max-width: 400px) {
   .article-title { font-size: 1.7rem; }
   .article-container { padding: 0 1.1rem; }
@@ -456,10 +552,8 @@ footer {
 </head>
 <body>
 
-<!-- Okuma İlerleme Çubuğu -->
 <div class="progress-bar" id="progressBar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
 
-<!-- Navigasyon -->
 <nav>
   <a class="nav-logo-link" href="index.html" aria-label="Ana Sayfa">
     <svg width="240" height="70" viewBox="0 0 240 70" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -474,8 +568,17 @@ footer {
       <text x="120" y="66" font-family="'Inter', sans-serif" font-size="9" font-weight="600" fill="var(--accent)" letter-spacing="0.25em" text-anchor="middle">TIBBİ ONKOLOG</text>
     </svg>
   </a>
+
   <div class="nav-right">
-    <a href="index.html" class="back-link">← Ana Sayfaya Dön</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Ana Sayfa</a></li>
+      <li><a href="tum-yazilar.html">Tüm Yazılar</a></li>
+      <li><a href="onkoloji-bilgilendirme.html">Onkoloji</a></li>
+      <li><a href="hasta-ve-yakinlari-icin.html">Hasta Yakınları</a></li>
+      <li><a href="tip-tarihi.html" class="active">Tıp Tarihi</a></li>
+      <li><a href="anlatilar.html">Anlatılar</a></li>
+    </ul>
+
     <button class="theme-toggle" id="themeToggle" aria-label="Tema değiştir" title="Açık / Koyu tema">
       <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
       <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
@@ -483,17 +586,25 @@ footer {
   </div>
 </nav>
 
-<!-- Makale -->
 <main class="article-container">
 
+  <div class="article-breadcrumb">
+    <a href="tum-yazilar.html">Tüm Yazılar</a>
+    <span class="sep">/</span>
+    <a href="tip-tarihi.html">Tıp Tarihi</a>
+    <span class="sep">/</span>
+    <span>Yengeç Avının Öyküsü</span>
+  </div>
+
   <div class="article-meta">
-    <span class="article-tag">Yengeç Avının Öyküsü</span>
+    <span class="article-tag">Bölüm 1</span>
     <span class="reading-time">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
       <span id="readTime">12 dk okuma</span>
     </span>
   </div>
 
+  <div class="series-name">Yengeç Avının Öyküsü</div>
   <h1 class="article-title">I — Kemiklerin Hafızası</h1>
 
   <article class="article-content">
@@ -544,7 +655,6 @@ footer {
       <p>Ekhtiari ve arkadaşları bu bulguları 2020 yılında <em>The Lancet Oncology</em>'de yayımladılar. Makale, bir dinozorda osteosarkomun hücresel düzeyde doğrulandığı ilk vaka olarak tarihe geçti. Ama hikâye bununla bitmiyor.</p>
     </div>
 
-    <!-- Pull Quote -->
     <div class="pull-quote fade-section">
       <p>Yetmiş altı milyon yıl önce bile topluluk, hastalıkla mücadelenin temel direğiydi. Dinozor sürüsü farkında olmadan bir destek grubu işlevi görmüştü.</p>
     </div>
@@ -573,7 +683,6 @@ footer {
       <p>İki yüz kırk milyon yıl öncesinden, Triyas Dönemi'nden, ilk dinozorların henüz yeni belirmeye başladığı bir çağdan gelen bu bulgu, bilinen en eski amniote kemik kanseri vakasıydı.</p>
     </div>
 
-    <!-- Pull Quote -->
     <div class="pull-quote fade-section">
       <p>Pangaea henüz parçalanmamışken, çiçekli bitkiler evrimleşmemişken, memeliler daha dünyaya gelmemişken — kemiklerin içinde kontrolsüz çoğalan hücreler zaten iş başındaydı.</p>
     </div>
@@ -594,7 +703,6 @@ footer {
       <p>Osteosarkom, bu gerçeğin en çarpıcı kanıtlarından biri. İnsanda en sık ikinci on yılda, kemiklerin en hızlı büyüdüğü dönemde ortaya çıkar. Dinozorlar, doğdukları andan itibaren inanılmaz hızla büyüyerek devasa boyutlara ulaşıyorlardı. Bu hızlı büyümenin bedeli, kontrolsüz çoğalma riskiydi. Hayatı mümkün kılan şey — büyüme, yenilenme, çoğalma — aynı zamanda kanseri mümkün kılıyordu.</p>
     </div>
 
-    <!-- Pull Quote -->
     <div class="pull-quote fade-section">
       <p>Yaşam istiyorsan, kanseri göze al.</p>
       <span class="pq-source">— Biyolojinin yazılmamış yasası</span>
@@ -616,13 +724,11 @@ footer {
 
   </article>
 
-  <!-- Yazar -->
   <div class="article-footer fade-section">
     <span class="author-name">Dr. Murat Karateke</span>
     <span class="author-title">Tıbbi Onkoloji Uzmanı</span>
   </div>
 
-  <!-- Kaynaklar -->
   <div class="references fade-section">
     <h4>Kaynaklar</h4>
     <p>1. Ekhtiari S, Chiba K, Popovic S, et al. First case of osteosarcoma in a dinosaur: a multimodal diagnosis. <em>Lancet Oncol.</em> 2020;21(8):1021-1022.</p>
@@ -630,23 +736,22 @@ footer {
     <p>3. Panegyres K. The story of how cancer got its name. <em>Cancer.</em> 2024;130(18):3182-3186.</p>
   </div>
 
-  <!-- Sonraki Bölüm -->
-  <a class="next-chapter fade-section" href="yengec-avinin-oykusu-2.html">
-    <div>
-      <div class="next-label">Sonraki Bölüm</div>
-      <div class="next-title">II — Papirüsün Sessiz Çığlığı</div>
-    </div>
-    <span class="next-arrow">→</span>
-  </a>
+  <div class="chapter-nav">
+    <a class="next-chapter fade-section" href="yengec-avinin-oykusu-2.html">
+      <div>
+        <div class="next-label">Sonraki Bölüm</div>
+        <div class="next-title">II — Papirüsün Sessiz Çığlığı</div>
+      </div>
+      <span class="next-arrow">→</span>
+    </a>
+  </div>
 
 </main>
 
-<!-- Başa Dön -->
 <button class="scroll-top" id="scrollTop" aria-label="Başa dön" title="Başa dön">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="18 15 12 9 6 15"/></svg>
 </button>
 
-<!-- Footer -->
 <footer>
   <span class="footer-left">© 2026 Murat Karateke · Tüm hakları saklıdır.</span>
   <span class="footer-right">Manisa Şehir Hastanesi · Tıbbi Onkoloji</span>
@@ -656,8 +761,8 @@ footer {
 (function() {
   'use strict';
 
-  // ── Okuma İlerleme Çubuğu ──
   const progressBar = document.getElementById('progressBar');
+
   function updateProgress() {
     const scrollTop = window.scrollY;
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
@@ -666,16 +771,16 @@ footer {
     progressBar.setAttribute('aria-valuenow', Math.round(progress));
   }
 
-  // ── Başa Dön Butonu ──
   const scrollTopBtn = document.getElementById('scrollTop');
+
   function toggleScrollBtn() {
     scrollTopBtn.classList.toggle('show', window.scrollY > 600);
   }
+
   scrollTopBtn.addEventListener('click', function() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
-  // ── Scroll olaylarını birleştir ──
   let ticking = false;
   window.addEventListener('scroll', function() {
     if (!ticking) {
@@ -688,7 +793,6 @@ footer {
     }
   }, { passive: true });
 
-  // ── Fade-in Animasyonu (Intersection Observer) ──
   if ('IntersectionObserver' in window) {
     const observer = new IntersectionObserver(function(entries) {
       entries.forEach(function(entry) {
@@ -703,18 +807,18 @@ footer {
       observer.observe(el);
     });
   } else {
-    // Fallback: hepsini hemen göster
     document.querySelectorAll('.fade-section').forEach(function(el) {
       el.classList.add('visible');
     });
   }
 
-  // ── Tema Değiştirici ──
   const themeToggle = document.getElementById('themeToggle');
   const savedTheme = localStorage.getItem('theme');
+
   if (savedTheme === 'dark') {
     document.documentElement.setAttribute('data-theme', 'dark');
   }
+
   themeToggle.addEventListener('click', function() {
     const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
     if (isDark) {
@@ -726,15 +830,13 @@ footer {
     }
   });
 
-  // ── Tahmini Okuma Süresi Hesaplama ──
   const articleText = document.querySelector('.article-content');
   if (articleText) {
     const wordCount = articleText.textContent.trim().split(/\s+/).length;
-    const minutes = Math.ceil(wordCount / 200); // Türkçe için ~200 kelime/dk
+    const minutes = Math.ceil(wordCount / 200);
     document.getElementById('readTime').textContent = minutes + ' dk okuma';
   }
 
-  // ── İlk yüklemede çalıştır ──
   updateProgress();
   toggleScrollBtn();
 })();
