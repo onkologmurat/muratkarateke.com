@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<meta name="description" content="Manisa Şehir Hastanesi Tıbbi Onkoloji Uzmanı Murat Karateke. Yenilikçi kanser tedavileri, akıllı ilaçlar ve kişiselleştirilmiş tedavi planları." />
-<title>Murat Karateke — Tıbbi Onkoloji</title>
+<meta name="description" content="Murat Karateke'nin onkoloji, tıp tarihi, hasta ve yakınlarına yönelik bilgilendirme yazıları ile insani anlatı metinlerini bulabileceğiniz dijital içerik alanı." />
+<meta name="author" content="Dr. Murat Karateke" />
+<title>Murat Karateke | Tıbbi Onkoloji, Tıp Tarihi ve Bilgilendirme Yazıları</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
@@ -17,10 +18,10 @@
   --bg:      #f9f8f6;
   --bg2:     #f3f1ee;
   --line:    #e8e4de;
-  --text:    #2c332e;  
+  --text:    #2c332e;
   --muted:   #6b6662;
-  --accent:  #5c7a52;   /* Zeytin yeşili (Logo) */
-  --purple:  #812990;   /* Lavanta moru (Logo) */
+  --accent:  #5c7a52;
+  --purple:  #812990;
   --serif:   'Playfair Display', Georgia, serif;
   --sans:    'Inter', system-ui, sans-serif;
 }
@@ -45,9 +46,9 @@ nav {
   padding: 1rem 4rem;
 }
 .nav-logo-link { display: flex; align-items: center; text-decoration: none; }
-.nav-logo-link svg { height: 60px; width: auto; } /* SVG Logo boyutu */
+.nav-logo-link svg { height: 60px; width: auto; }
 
-.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links { display: flex; gap: 2rem; list-style: none; }
 .nav-links a {
   font-size: .75rem;
   font-weight: 500;
@@ -82,7 +83,7 @@ nav {
   justify-content: center; align-items: center;
   text-align: center;
   padding: 8rem 2rem 4rem;
-  background: var(--bg); 
+  background: var(--bg);
   position: relative;
 }
 .hero-tag {
@@ -98,7 +99,7 @@ nav {
 .hero-name {
   font-family: var(--serif);
   font-size: clamp(2.8rem, 6vw, 4.5rem);
-  font-weight: 700; 
+  font-weight: 700;
   display: flex;
   align-items: baseline;
   justify-content: center;
@@ -108,17 +109,14 @@ nav {
   opacity: 0;
   animation: rise .8s .25s forwards;
 }
-/* Murat ve Karateke isimleri aynı mor tonda */
-.hero-name .name {
-  color: var(--purple); 
-}
+.hero-name .name,
 .hero-name .surname {
-  color: var(--purple); 
+  color: var(--purple);
 }
 .hero-divider {
   width: 60px; height: 3px;
-  background: var(--accent); 
-  margin: 1.5rem auto 2.5rem auto;
+  background: var(--accent);
+  margin: 1.5rem auto 2rem auto;
   border-radius: 2px;
   opacity: 0;
   animation: rise .8s .4s forwards;
@@ -127,7 +125,7 @@ nav {
   font-size: 1.1rem;
   font-weight: 400;
   color: var(--muted);
-  max-width: 600px;
+  max-width: 720px;
   opacity: 0;
   animation: rise .8s .5s forwards;
 }
@@ -149,28 +147,28 @@ nav {
   border-radius: 4px;
 }
 .btn-dark {
-  background: var(--accent); 
+  background: var(--accent);
   color: var(--white);
   border: 1px solid var(--accent);
 }
-.btn-dark:hover { 
-  background: var(--purple); 
+.btn-dark:hover {
+  background: var(--purple);
   border-color: var(--purple);
 }
 .btn-outline {
   border: 1px solid var(--muted);
   color: var(--text);
 }
-.btn-outline:hover { 
-  border-color: var(--purple); 
-  color: var(--purple); 
+.btn-outline:hover {
+  border-color: var(--purple);
+  color: var(--purple);
 }
 
 /* ── ORTAK BÖLÜM ── */
 .section { padding: 6rem 4rem; }
 .section-inner { max-width: 950px; margin: 0 auto; }
 .section-inner.wide { max-width: 1100px; }
-.section-alt { background: var(--white); } 
+.section-alt { background: var(--white); }
 
 .eyebrow {
   font-size: .7rem;
@@ -196,6 +194,53 @@ nav {
   color: var(--text);
 }
 
+/* ── YAKLAŞIM ── */
+.approach-text p,
+.about-text p,
+.podcast-box p,
+.disclaimer-box p,
+.contact-form-card p,
+.randevu-container p {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--text);
+  line-height: 1.85;
+  margin-bottom: 1.5rem;
+}
+.approach-text p:last-child,
+.disclaimer-box p:last-child { margin-bottom: 0; }
+
+/* ── İÇERİK ALANLARI ── */
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+.pillar-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 2rem;
+  transition: all .3s ease;
+}
+.pillar-card:hover {
+  border-color: var(--purple);
+  box-shadow: 0 4px 15px rgba(129, 41, 144, 0.08);
+  transform: translateY(-4px);
+}
+.pillar-card h3 {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: .9rem;
+  color: var(--text);
+}
+.pillar-card p {
+  font-size: .95rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
 /* ── HAKKIMDA & ÖZGEÇMİŞ ── */
 .about-grid {
   display: grid;
@@ -207,7 +252,7 @@ nav {
   position: relative;
   width: 100%;
   aspect-ratio: 3/4;
-  background: var(--bg2); 
+  background: var(--bg2);
   border-radius: 4px;
   display: flex;
   align-items: center;
@@ -229,16 +274,9 @@ nav {
   content: '';
   position: absolute; top: 15px; left: 15px; right: -15px; bottom: -15px;
   background: var(--bg);
-  border: 1px solid var(--accent); 
+  border: 1px solid var(--accent);
   border-radius: 4px;
   z-index: 1;
-}
-.about-text p {
-  font-size: 1rem;
-  font-weight: 400;
-  color: var(--text);
-  line-height: 1.8;
-  margin-bottom: 1.5rem;
 }
 
 .cv-integrated {
@@ -272,9 +310,7 @@ nav {
   letter-spacing: 0.1em;
   margin-bottom: 2rem;
 }
-.cv-item {
-  margin-bottom: 2rem;
-}
+.cv-item { margin-bottom: 2rem; }
 .cv-item:last-child { margin-bottom: 0; }
 .cv-item-title {
   font-weight: 600;
@@ -287,7 +323,7 @@ nav {
   color: var(--muted);
 }
 
-/* ── YAZILARIM ── */
+/* ── YAZILAR ── */
 .posts-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -303,8 +339,8 @@ nav {
   transition: all .3s ease;
   display: flex; flex-direction: column;
 }
-.post-card:hover { 
-  border-color: var(--purple); 
+.post-card:hover {
+  border-color: var(--purple);
   box-shadow: 0 4px 15px rgba(129, 41, 144, 0.08);
   transform: translateY(-5px);
 }
@@ -315,6 +351,11 @@ nav {
   text-transform: uppercase;
   color: var(--accent);
   margin-bottom: 1rem;
+}
+.post-series {
+  font-size: .8rem;
+  color: var(--muted);
+  margin-bottom: .8rem;
 }
 .post-title {
   font-family: var(--serif);
@@ -340,7 +381,22 @@ nav {
   padding-top: 1rem;
 }
 
-/* ── RANDEVU (Sadeleştirilmiş Tek Kart) ── */
+/* ── PODCAST ── */
+.podcast-box {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 3rem;
+}
+.podcast-box h3 {
+  font-family: var(--serif);
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 1rem;
+}
+
+/* ── RANDEVU ── */
 .randevu-container {
   background: var(--bg);
   border: 1px solid var(--line);
@@ -365,18 +421,17 @@ nav {
   font-size: 1.05rem;
   color: var(--muted);
   margin-bottom: 2.5rem;
-  max-width: 500px;
+  max-width: 560px;
   margin-left: auto;
   margin-right: auto;
 }
 
-/* ── İLETİŞİM & GOOGLE FORMS (Düzenlendi) ── */
+/* ── İLETİŞİM ── */
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
   align-items: start;
-  margin-bottom: 0; /* Boşluk kaldırıldı çünkü altta ayrı form yok */
 }
 .contact-group { margin-bottom: 2.5rem; }
 .contact-group-label {
@@ -396,21 +451,20 @@ nav {
 .contact-key { font-weight: 500; color: var(--text); }
 .contact-val { color: var(--muted); text-decoration: none; font-weight: 500; text-align: right; }
 .contact-val:hover { color: var(--purple); }
-.contact-map-link { font-size: 0.85rem; font-weight: 600; color: var(--purple); text-decoration: none; display: flex; align-items: center; gap: 0.3rem;}
+.contact-map-link {
+  font-size: 0.85rem; font-weight: 600; color: var(--purple);
+  text-decoration: none; display: flex; align-items: center; gap: 0.3rem;
+}
 .contact-map-link:hover { text-decoration: underline; }
 
-/* Sağdaki Yeni Form Kartı (Haritanın yerini alan) */
 .contact-form-card {
   background: var(--bg);
   border: 1px solid var(--line);
   border-radius: 8px;
   padding: 3rem 2rem;
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100%; /* Sol tarafla hizalı olması için */
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  height: 100%;
 }
 .contact-form-card h3 {
   font-family: var(--serif);
@@ -419,11 +473,18 @@ nav {
   color: var(--text);
   margin-bottom: 1rem;
 }
-.contact-form-card p {
-  font-size: 1rem;
+
+/* ── DİSCLAIMER ── */
+.disclaimer-box {
+  background: #fcfbf9;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 2rem;
+}
+.disclaimer-box p {
+  font-size: .9rem;
   color: var(--muted);
-  margin-bottom: 2rem;
-  line-height: 1.6;
+  line-height: 1.8;
 }
 
 /* ── FOOTER ── */
@@ -452,7 +513,11 @@ footer {
 }
 .reveal.visible { opacity: 1; transform: none; }
 
-/* ── MOBİL UYUM ── */
+/* ── MOBİL ── */
+@media (max-width: 1000px) {
+  .pillars-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
 @media (max-width: 900px) {
   nav { padding: 1rem 1.5rem; }
   .hamburger { display: flex; }
@@ -465,25 +530,32 @@ footer {
     transition: all 0.3s ease; pointer-events: none;
   }
   .nav-links.open { transform: translateY(0); opacity: 1; pointer-events: auto; }
-  
+
   .section { padding: 5rem 1.5rem; }
   .hero { padding: 8rem 1.5rem 4rem; }
-  
-  .about-grid, .contact-grid, .cv-grid-layout { 
-    grid-template-columns: 1fr; 
-    gap: 3rem; 
+
+  .about-grid, .contact-grid, .cv-grid-layout {
+    grid-template-columns: 1fr;
+    gap: 3rem;
   }
   .about-photo-wrap { width: 220px; margin: 0 auto; }
-  .randevu-container { padding: 3rem 1.5rem; }
-  .contact-form-card { padding: 3rem 1.5rem; }
+  .randevu-container,
+  .contact-form-card,
+  .podcast-box,
+  .disclaimer-box { padding: 2rem 1.5rem; }
+
   footer { flex-direction: column; gap: 1rem; text-align: center; }
+}
+
+@media (max-width: 640px) {
+  .pillars-grid { grid-template-columns: 1fr; }
 }
 </style>
 </head>
 <body>
 
 <nav>
-  <a class="nav-logo-link" href="#" aria-label="Ana Sayfa">
+  <a class="nav-logo-link" href="#hero" aria-label="Ana Sayfa">
     <svg width="240" height="70" viewBox="0 0 240 70" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M 30,35 Q 120,25 210,35" stroke="#5c7a52" stroke-width="1.5" fill="none" stroke-linecap="round"/>
       <circle cx="70" cy="31" r="2.5" fill="#812990" opacity="0.8"/>
@@ -496,53 +568,149 @@ footer {
       <text x="120" y="66" font-family="'Inter', sans-serif" font-size="9" font-weight="600" fill="#5c7a52" letter-spacing="0.25em" text-anchor="middle">TIBBİ ONKOLOG</text>
     </svg>
   </a>
-  <button class="hamburger" aria-label="Menüyü Aç/Kapat">
+
+  <button class="hamburger" aria-label="Menüyü Aç/Kapat" aria-expanded="false" aria-controls="main-menu">
     <span></span>
     <span></span>
     <span></span>
   </button>
-  <ul class="nav-links">
+
+  <ul class="nav-links" id="main-menu">
+    <li><a href="#yazilar">Yazılar</a></li>
+    <li><a href="#alanlar">Alanlar</a></li>
     <li><a href="#hakkimda">Hakkımda</a></li>
-    <li><a href="#yazilar">Yazılarım</a></li>
-    <li><a href="#randevu">Randevu</a></li>
+    <li><a href="#podcast">Sesli İçerikler</a></li>
     <li><a href="#iletisim">İletişim</a></li>
+    <li><a href="#randevu">Randevu</a></li>
   </ul>
 </nav>
 
-<section class="hero">
+<section class="hero" id="hero">
   <p class="hero-tag">Tıbbi Onkoloji Uzmanı</p>
   <h1 class="hero-name">
-    <span class="name">Murat</span> 
+    <span class="name">Murat</span>
     <span class="surname">Karateke</span>
   </h1>
   <div class="hero-divider"></div>
-  <p class="hero-sub">Kanıta Dayalı Tedavi, Güvene Dayalı İlişki</p>
+  <p class="hero-sub">Onkoloji, tıp tarihi ve hasta-yakınlarına yönelik anlaşılır, sakin ve güven veren bir içerik alanı.</p>
   <div class="hero-cta">
-    <a href="#randevu" class="btn btn-dark">Randevu Al</a>
+    <a href="#yazilar" class="btn btn-dark">Yazıları Oku</a>
     <a href="#hakkimda" class="btn btn-outline">Hakkımda</a>
   </div>
 </section>
 
-<section class="section" id="hakkimda">
+<section class="section section-alt" id="yaklasim">
+  <div class="section-inner">
+    <p class="eyebrow reveal">Yaklaşım</p>
+    <h2 class="section-title reveal">Bilimsel bilgi, sade anlatım, insani temas</h2>
+    <div class="approach-text reveal">
+      <p>Bu site; onkolojiyle ilgili temel bilgileri daha anlaşılır kılmak, hasta ve yakınlarının sık karşılaştığı sorulara sade bir dille eşlik etmek ve tıbbın insani tarafını görünür kılan metinler yayınlamak amacıyla hazırlanmıştır.</p>
+      <p>Burada yalnızca hastalıklar ve tedaviler değil; bekleyiş, belirsizlik, umut, yorgunluk ve hekimliğin anlatı tarafı da yer bulur. Amaç, hem bilimsel hem insani bir alan oluşturmaktır.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="alanlar">
+  <div class="section-inner wide">
+    <p class="eyebrow reveal">İçerik Alanları</p>
+    <h2 class="section-title reveal">Bu sitede neler bulacaksınız?</h2>
+
+    <div class="pillars-grid">
+      <div class="pillar-card reveal">
+        <h3>Onkoloji Bilgilendirme</h3>
+        <p>Kemoterapi, immünoterapi, hedefe yönelik tedaviler ve sık sorulan sorulara yönelik sade açıklamalar.</p>
+      </div>
+
+      <div class="pillar-card reveal">
+        <h3>Hasta ve Yakınları İçin</h3>
+        <p>Tedavi sürecinin duygusal ve pratik yönlerine temas eden, eşlik etmeyi amaçlayan metinler.</p>
+      </div>
+
+      <div class="pillar-card reveal">
+        <h3>Tıp Tarihi</h3>
+        <p>Kanserin, hekimliğin ve tıbbın tarihsel yolculuğuna dair yazılar ve mini seriler.</p>
+      </div>
+
+      <div class="pillar-card reveal">
+        <h3>Anlatılar</h3>
+        <p>İnsani karşılaşmalardan, bekleyişten, sessizlikten ve iyileşme arzusundan doğan kısa metinler.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="yazilar">
+  <div class="section-inner wide">
+    <p class="eyebrow reveal">Yazılar</p>
+    <h2 class="section-title reveal">Öne Çıkan Yazılar</h2>
+
+    <div class="posts-grid">
+      <a class="post-card reveal" href="yengec-avinin-oykusu-1.html">
+        <span class="post-tag">Tıp Tarihi</span>
+        <div class="post-series">Yengeç Avının Öyküsü</div>
+        <h3 class="post-title">I — Kemiklerin Hafızası</h3>
+        <p class="post-excerpt">İnsanlığın ve yaşamın çok eski zamanlarına uzanan, kanserin kadim izlerini süren bir başlangıç yazısı.</p>
+        <div class="post-footer"><span>Okumaya Devam Et</span><span>→</span></div>
+      </a>
+
+      <a class="post-card reveal" href="yengec-avinin-oykusu-4.html">
+        <span class="post-tag">Tıp Tarihi</span>
+        <div class="post-series">Yengeç Avının Öyküsü</div>
+        <h3 class="post-title">IV — Gecenin Ortasında Bir Bıçak</h3>
+        <p class="post-excerpt">Rönesans cerrahisinin karanlığı, cesareti ve kanser cerrahisinin ilk düşünsel temelleri.</p>
+        <div class="post-footer"><span>Okumaya Devam Et</span><span>→</span></div>
+      </a>
+
+      <a class="post-card reveal" href="tum-yazilar.html">
+        <span class="post-tag">Arşiv</span>
+        <div class="post-series">Tüm Yazılar</div>
+        <h3 class="post-title">Tüm Yazı Arşivini Gör</h3>
+        <p class="post-excerpt">Onkoloji, tıp tarihi, hasta ve yakınlarına yönelik yazılar ile anlatı metinlerinin tamamına buradan ulaşabilirsiniz.</p>
+        <div class="post-footer"><span>Arşive Git</span><span>→</span></div>
+      </a>
+    </div>
+
+    <div class="reveal" style="text-align: center; margin-top: 3.5rem;">
+      <a href="tum-yazilar.html" class="btn btn-dark" style="font-size: 0.9rem; padding: 1rem 3rem;">
+        TÜM YAZILARI GÖR
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="podcast">
+  <div class="section-inner">
+    <p class="eyebrow reveal">Podcast</p>
+    <h2 class="section-title reveal">Yakında: Yazıların sesli halleri</h2>
+
+    <div class="podcast-box reveal">
+      <h3>Podcast ve kısa sesli anlatımlar</h3>
+      <p>Bazı yazılar, zaman içinde kısa sesli içerikler olarak da paylaşılacaktır. Amaç; bilgiyi yalnızca okunur değil, dinlenebilir hale de getirmek.</p>
+      <p>Tıp tarihi anlatıları, kısa bilgilendirme bölümleri ve bazı metinlerin seslendirilmiş versiyonları bu alanda yer alacaktır.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="hakkimda">
   <div class="section-inner">
     <p class="eyebrow reveal">Hakkımda</p>
-    
+
     <div class="about-grid mb-5">
       <div class="about-photo-wrap reveal">
         <img src="portre.jpg" alt="Murat Karateke" class="about-photo-img" onerror="this.style.display='none'"/>
       </div>
+
       <div class="about-text reveal">
         <h2 class="section-title" style="margin-bottom:1.5rem">Kansere Karşı, Bilimle ve Güvenle</h2>
-        
-        <p>Tıp eğitimimi Hacettepe Üniversitesi'nde tamamladım. İç hastalıkları uzmanlığımı ise Ege Üniversitesi'nde aldıktan sonra, kanser tedavisinde yaşanan hızlı bilimsel gelişmeler ve bu yeniliklerin insan yaşamına doğrudan dokunabilme gücü beni onkoloji alanına yönlendirdi. Bu doğrultuda yan dal uzmanlık eğitimimi Ege Üniversitesi Tıbbi Onkoloji Bilim Dalı'nda tamamladım.</p>
-        
-        <p>Mesleki pratiğimde özellikle hedefe yönelik akıllı tedaviler, immünoterapi ve güncel onkolojik yaklaşımlar üzerine yoğunlaşmaktayım. Ancak kanser tedavisinin yalnızca tıbbi bir mücadele olmadığının bilinciyle, psiko-onkoloji prensiplerini de sürecin merkezine alıyorum. Günümüzde hastalarıma tanı ve tedavi süreçlerinde multidisipliner bir bakış açısıyla destek veriyor; hem fiziksel hem de ruhsal iyilik hallerini gözeterek en güncel tedavi seçeneklerini uygulamaya özen gösteriyorum.</p>
-        
-        <p>Her bireyin eşit, nitelikli ve çağdaş sağlık hizmetlerine ulaşmasının ayrıcalık değil, vazgeçilmez bir temel hak olduğuna derinden inanıyorum. Tam da bu sosyal sorumluluk bilinciyle, hastalarıma sunduğum tedavi ve desteği şu an Manisa Şehir Hastanesi bünyesinde sürdürmekteyim.</p>
-        
-        <p>En önemli hedefim; her hastamın, kendisine özgü klinik özelliklerini dikkate alarak kişiye özel, bilimsel temellere dayanan bir tedavi planı oluşturmak ve bu süreci hastalarımla açık, güvene dayalı ve anlaşılır bir iletişim içinde birlikte yürütmektir.</p>
+
+        <p>Tıp eğitimimi Hacettepe Üniversitesi'nde tamamladım. İç hastalıkları uzmanlığımı Ege Üniversitesi'nde aldıktan sonra, kanser tedavisinde yaşanan hızlı bilimsel gelişmeler ve bu yeniliklerin insan yaşamına doğrudan dokunabilme gücü beni onkoloji alanına yönlendirdi. Bu doğrultuda yan dal uzmanlık eğitimimi Ege Üniversitesi Tıbbi Onkoloji Bilim Dalı'nda tamamladım.</p>
+
+        <p>Mesleki pratiğimde özellikle hedefe yönelik akıllı tedaviler, immünoterapi ve güncel onkolojik yaklaşımlar üzerine yoğunlaşmaktayım. Bununla birlikte, kanser tedavisinin yalnızca tıbbi bir mücadele olmadığının bilinciyle; iletişimi, eşlik etmeyi ve sürecin insani tarafını da merkeze alıyorum.</p>
+
+        <p>Bu platformu, klinik pratiğin yanında bilgiyi sadeleştirmek, tıp tarihini görünür kılmak ve hasta ile yakınlarının deneyimine daha dikkatli bir dille eşlik edebilmek için oluşturdum.</p>
       </div>
     </div>
+
     <div class="cv-integrated reveal">
       <h3>Eğitim & Kariyer</h3>
       <div class="cv-grid-layout">
@@ -586,62 +754,11 @@ footer {
   </div>
 </section>
 
-<section class="section section-alt" id="yazilar">
-  <div class="section-inner wide">
-    <p class="eyebrow reveal">Yazılarım</p>
-    <h2 class="section-title reveal">Bilimin İzinde</h2>
-
-    <div class="posts-grid">
-      <a class="post-card reveal" href="yengec-avinin-oykusu-1.html">
-        <span class="post-tag">Yengeç Avının Öyküsü</span>
-        <h3 class="post-title">I — Kemiklerin Hafızası</h3>
-        <p class="post-excerpt">Milattan önce dördüncü yüzyıl. Kos Adası'nda yaşlı bir hekim, hastasının göğsündeki sert kitleye parmaklarını bastırıyor... İnsanlıktan ve dinozorlardan çok öncesine uzanan o kadim sırrın öyküsü.</p>
-        <div class="post-footer"><span>Okumaya Devam Et</span><span>→</span></div>
-      </a>
-      <a class="post-card reveal" href="yengec-avinin-oykusu-2.html">
-        <span class="post-tag">Yengeç Avının Öyküsü</span>
-        <h3 class="post-title">II — Papirüsün Sessiz Çığlığı</h3>
-        <p class="post-excerpt">MÖ 3000'lerde yazılan Edwin Smith Papirüsü... İnsanlığın kanserle ilk yüzleşmesi ve tıp tarihinin en cesur "tedavisi yoktur" itirafı.</p>
-        <div class="post-footer"><span>Okumaya Devam Et</span><span>→</span></div>
-      </a>
-      <a class="post-card reveal" href="yengec-avinin-oykusu-3.html">
-        <span class="post-tag">Yengeç Avının Öyküsü</span>
-        <h3 class="post-title">III — Yengeç'in İsim Babası</h3>
-        <p class="post-excerpt">Hipokrat'ın Kos Adası'nda bir tümöre 'karkinos' (yengeç) ismini vermesiyle başlayan, kanserin tarihsel isimlendirme ve sınıflandırma serüveni.</p>
-        <div class="post-footer"><span>Okumaya Devam Et</span><span>→</span></div>
-      </a>
-    </div>
-    
-    <div class="reveal" style="text-align: center; margin-top: 3.5rem;">
-      <a href="tum-yazilar.html" class="btn btn-dark" style="font-size: 0.9rem; padding: 1rem 3rem;">
-         TÜM YAZILARI GÖR
-      </a>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="randevu">
-  <div class="section-inner">
-    <p class="eyebrow reveal">Randevu</p>
-    
-    <div class="randevu-container reveal">
-      <div class="randevu-icon">🗓️</div>
-      <h3>Randevu Planlayın</h3>
-      <p>MHRS veya Alo 182 üzerinden randevu alamıyorsanız, aşağıdan size uygun zaman dilimini seçin. Seçtiğiniz randevu anında onaylanır ve bize iletilir.</p>
-      
-      <a href="https://calendar.app.google/RNEwQTGMDRCMDGiV6" target="_blank" rel="noopener" class="btn btn-dark" style="font-size: 0.9rem; padding: 1rem 3rem;">
-        RANDEVU AL
-      </a>
-    </div>
-    
-  </div>
-</section>
-
-<section class="section section-alt" id="iletisim">
+<section class="section" id="iletisim">
   <div class="section-inner">
     <p class="eyebrow reveal">İletişim</p>
-    <h2 class="section-title reveal">Bize Ulaşın</h2>
-    
+    <h2 class="section-title reveal">İletişim Bilgileri</h2>
+
     <div class="contact-grid reveal">
       <div>
         <div class="contact-group">
@@ -661,7 +778,7 @@ footer {
             </a>
           </div>
         </div>
-        
+
         <div class="contact-group">
           <div class="contact-group-label">Telefonlar</div>
           <div class="contact-row">
@@ -678,7 +795,7 @@ footer {
           </div>
         </div>
       </div>
-      
+
       <div>
         <div class="contact-form-card">
           <div style="font-size: 3rem; margin-bottom: 1rem;">📝</div>
@@ -689,7 +806,31 @@ footer {
           </a>
         </div>
       </div>
-      
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="randevu">
+  <div class="section-inner">
+    <p class="eyebrow reveal">Randevu</p>
+
+    <div class="randevu-container reveal">
+      <div class="randevu-icon">🗓️</div>
+      <h3>Randevu Bilgisi</h3>
+      <p>Muayene planlaması için MHRS ve Alo 182 kanallarını kullanabilirsiniz. Uygunluk durumunda aşağıdaki bağlantı üzerinden ek planlama sayfasına da ulaşabilirsiniz.</p>
+
+      <a href="https://calendar.app.google/RNEwQTGMDRCMDGiV6" target="_blank" rel="noopener" class="btn btn-dark" style="font-size: 0.9rem; padding: 1rem 3rem;">
+        RANDEVU AL
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="bilgilendirme">
+  <div class="section-inner">
+    <p class="eyebrow reveal">Bilgilendirme</p>
+    <div class="disclaimer-box reveal">
+      <p>Bu sitede yer alan içerikler genel bilgilendirme amacı taşır. Tanı, tedavi ve tıbbi karar süreçlerinde doğrudan hekim değerlendirmesinin yerini tutmaz.</p>
     </div>
   </div>
 </section>
@@ -702,9 +843,13 @@ footer {
 <script>
   const io = new IntersectionObserver(entries => {
     entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
     });
   }, { threshold: .1, rootMargin: '0px 0px -30px 0px' });
+
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
   const hamburger = document.querySelector('.hamburger');
@@ -712,13 +857,15 @@ footer {
   const navItems = document.querySelectorAll('.nav-links a');
 
   hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('open');
+    const isOpen = navLinks.classList.toggle('open');
+    hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
   });
 
   navItems.forEach(item => {
     item.addEventListener('click', () => {
       if (navLinks.classList.contains('open')) {
         navLinks.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
       }
     });
   });
