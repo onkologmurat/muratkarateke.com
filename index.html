@@ -194,7 +194,7 @@ nav {
   color: var(--text);
 }
 
-/* ── YAKLAŞIM ── */
+/* ── METİN BLOKLARI ── */
 .approach-text p,
 .about-text p,
 .podcast-box p,
@@ -209,37 +209,6 @@ nav {
 }
 .approach-text p:last-child,
 .disclaimer-box p:last-child { margin-bottom: 0; }
-
-/* ── İÇERİK ALANLARI ── */
-.pillars-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
-}
-.pillar-card {
-  background: var(--white);
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  padding: 2rem;
-  transition: all .3s ease;
-}
-.pillar-card:hover {
-  border-color: var(--purple);
-  box-shadow: 0 4px 15px rgba(129, 41, 144, 0.08);
-  transform: translateY(-4px);
-}
-.pillar-card h3 {
-  font-family: var(--serif);
-  font-size: 1.2rem;
-  font-weight: 600;
-  margin-bottom: .9rem;
-  color: var(--text);
-}
-.pillar-card p {
-  font-size: .95rem;
-  color: var(--muted);
-  line-height: 1.7;
-}
 
 /* ── HAKKIMDA & ÖZGEÇMİŞ ── */
 .about-grid {
@@ -323,10 +292,10 @@ nav {
   color: var(--muted);
 }
 
-/* ── YAZILAR ── */
+/* ── YAZI KATEGORİLERİ ── */
 .posts-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(2, minmax(280px, 1fr));
   gap: 2rem;
 }
 .post-card {
@@ -337,7 +306,9 @@ nav {
   border: 1px solid var(--line);
   border-radius: 8px;
   transition: all .3s ease;
-  display: flex; flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  min-height: 240px;
 }
 .post-card:hover {
   border-color: var(--purple);
@@ -352,22 +323,17 @@ nav {
   color: var(--accent);
   margin-bottom: 1rem;
 }
-.post-series {
-  font-size: .8rem;
-  color: var(--muted);
-  margin-bottom: .8rem;
-}
 .post-title {
   font-family: var(--serif);
-  font-size: 1.25rem;
+  font-size: 1.35rem;
   font-weight: 600;
-  line-height: 1.4;
+  line-height: 1.35;
   margin-bottom: 1rem;
 }
 .post-excerpt {
-  font-size: .9rem;
+  font-size: .95rem;
   color: var(--muted);
-  line-height: 1.6;
+  line-height: 1.7;
   flex: 1;
 }
 .post-footer {
@@ -514,10 +480,6 @@ footer {
 .reveal.visible { opacity: 1; transform: none; }
 
 /* ── MOBİL ── */
-@media (max-width: 1000px) {
-  .pillars-grid { grid-template-columns: repeat(2, 1fr); }
-}
-
 @media (max-width: 900px) {
   nav { padding: 1rem 1.5rem; }
   .hamburger { display: flex; }
@@ -534,7 +496,7 @@ footer {
   .section { padding: 5rem 1.5rem; }
   .hero { padding: 8rem 1.5rem 4rem; }
 
-  .about-grid, .contact-grid, .cv-grid-layout {
+  .about-grid, .contact-grid, .cv-grid-layout, .posts-grid {
     grid-template-columns: 1fr;
     gap: 3rem;
   }
@@ -545,10 +507,6 @@ footer {
   .disclaimer-box { padding: 2rem 1.5rem; }
 
   footer { flex-direction: column; gap: 1rem; text-align: center; }
-}
-
-@media (max-width: 640px) {
-  .pillars-grid { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -576,9 +534,8 @@ footer {
   </button>
 
   <ul class="nav-links" id="main-menu">
-    <li><a href="#yazilar">Yazılar</a></li>
-    <li><a href="#alanlar">Alanlar</a></li>
     <li><a href="#hakkimda">Hakkımda</a></li>
+    <li><a href="#yazilar">Yazılar</a></li>
     <li><a href="#podcast">Sesli İçerikler</a></li>
     <li><a href="#iletisim">İletişim</a></li>
     <li><a href="#randevu">Randevu</a></li>
@@ -599,103 +556,11 @@ footer {
   </div>
 </section>
 
-<section class="section section-alt" id="yaklasim">
-  <div class="section-inner">
-    <p class="eyebrow reveal">Yaklaşım</p>
-    <h2 class="section-title reveal">Bilimsel bilgi, sade anlatım, insani temas</h2>
-    <div class="approach-text reveal">
-      <p>Bu site; onkolojiyle ilgili temel bilgileri daha anlaşılır kılmak, hasta ve yakınlarının sık karşılaştığı sorulara sade bir dille eşlik etmek ve tıbbın insani tarafını görünür kılan metinler yayınlamak amacıyla hazırlanmıştır.</p>
-      <p>Burada yalnızca hastalıklar ve tedaviler değil; bekleyiş, belirsizlik, umut, yorgunluk ve hekimliğin anlatı tarafı da yer bulur. Amaç, hem bilimsel hem insani bir alan oluşturmaktır.</p>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="alanlar">
-  <div class="section-inner wide">
-    <p class="eyebrow reveal">İçerik Alanları</p>
-    <h2 class="section-title reveal">Bu sitede neler bulacaksınız?</h2>
-
-    <div class="pillars-grid">
-      <div class="pillar-card reveal">
-        <h3>Onkoloji Bilgilendirme</h3>
-        <p>Kemoterapi, immünoterapi, hedefe yönelik tedaviler ve sık sorulan sorulara yönelik sade açıklamalar.</p>
-      </div>
-
-      <div class="pillar-card reveal">
-        <h3>Hasta ve Yakınları İçin</h3>
-        <p>Tedavi sürecinin duygusal ve pratik yönlerine temas eden, eşlik etmeyi amaçlayan metinler.</p>
-      </div>
-
-      <div class="pillar-card reveal">
-        <h3>Tıp Tarihi</h3>
-        <p>Kanserin, hekimliğin ve tıbbın tarihsel yolculuğuna dair yazılar ve mini seriler.</p>
-      </div>
-
-      <div class="pillar-card reveal">
-        <h3>Anlatılar</h3>
-        <p>İnsani karşılaşmalardan, bekleyişten, sessizlikten ve iyileşme arzusundan doğan kısa metinler.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section section-alt" id="yazilar">
-  <div class="section-inner wide">
-    <p class="eyebrow reveal">Yazılar</p>
-    <h2 class="section-title reveal">Öne Çıkan Yazılar</h2>
-
-    <div class="posts-grid">
-      <a class="post-card reveal" href="yengec-avinin-oykusu-1.html">
-        <span class="post-tag">Tıp Tarihi</span>
-        <div class="post-series">Yengeç Avının Öyküsü</div>
-        <h3 class="post-title">I — Kemiklerin Hafızası</h3>
-        <p class="post-excerpt">İnsanlığın ve yaşamın çok eski zamanlarına uzanan, kanserin kadim izlerini süren bir başlangıç yazısı.</p>
-        <div class="post-footer"><span>Okumaya Devam Et</span><span>→</span></div>
-      </a>
-
-      <a class="post-card reveal" href="yengec-avinin-oykusu-4.html">
-        <span class="post-tag">Tıp Tarihi</span>
-        <div class="post-series">Yengeç Avının Öyküsü</div>
-        <h3 class="post-title">IV — Gecenin Ortasında Bir Bıçak</h3>
-        <p class="post-excerpt">Rönesans cerrahisinin karanlığı, cesareti ve kanser cerrahisinin ilk düşünsel temelleri.</p>
-        <div class="post-footer"><span>Okumaya Devam Et</span><span>→</span></div>
-      </a>
-
-      <a class="post-card reveal" href="tum-yazilar.html">
-        <span class="post-tag">Arşiv</span>
-        <div class="post-series">Tüm Yazılar</div>
-        <h3 class="post-title">Tüm Yazı Arşivini Gör</h3>
-        <p class="post-excerpt">Onkoloji, tıp tarihi, hasta ve yakınlarına yönelik yazılar ile anlatı metinlerinin tamamına buradan ulaşabilirsiniz.</p>
-        <div class="post-footer"><span>Arşive Git</span><span>→</span></div>
-      </a>
-    </div>
-
-    <div class="reveal" style="text-align: center; margin-top: 3.5rem;">
-      <a href="tum-yazilar.html" class="btn btn-dark" style="font-size: 0.9rem; padding: 1rem 3rem;">
-        TÜM YAZILARI GÖR
-      </a>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="podcast">
-  <div class="section-inner">
-    <p class="eyebrow reveal">Podcast</p>
-    <h2 class="section-title reveal">Yakında: Yazıların sesli halleri</h2>
-
-    <div class="podcast-box reveal">
-      <h3>Podcast ve kısa sesli anlatımlar</h3>
-      <p>Bazı yazılar, zaman içinde kısa sesli içerikler olarak da paylaşılacaktır. Amaç; bilgiyi yalnızca okunur değil, dinlenebilir hale de getirmek.</p>
-      <p>Tıp tarihi anlatıları, kısa bilgilendirme bölümleri ve bazı metinlerin seslendirilmiş versiyonları bu alanda yer alacaktır.</p>
-    </div>
-  </div>
-</section>
-
 <section class="section section-alt" id="hakkimda">
   <div class="section-inner">
     <p class="eyebrow reveal">Hakkımda</p>
 
-    <div class="about-grid mb-5">
+    <div class="about-grid">
       <div class="about-photo-wrap reveal">
         <img src="portre.jpg" alt="Murat Karateke" class="about-photo-img" onerror="this.style.display='none'"/>
       </div>
@@ -750,6 +615,73 @@ footer {
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="yaklasim">
+  <div class="section-inner">
+    <p class="eyebrow reveal">Yaklaşım</p>
+    <h2 class="section-title reveal">Bilimsel bilgi, sade anlatım, insani temas</h2>
+    <div class="approach-text reveal">
+      <p>Bu site; onkolojiyle ilgili temel bilgileri daha anlaşılır kılmak, hasta ve yakınlarının sık karşılaştığı sorulara sade bir dille eşlik etmek ve tıbbın insani tarafını görünür kılan metinler yayınlamak amacıyla hazırlanmıştır.</p>
+      <p>Burada yalnızca hastalıklar ve tedaviler değil; bekleyiş, belirsizlik, umut, yorgunluk ve hekimliğin anlatı tarafı da yer bulur. Amaç, hem bilimsel hem insani bir alan oluşturmaktır.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="yazilar">
+  <div class="section-inner wide">
+    <p class="eyebrow reveal">Yazılar</p>
+    <h2 class="section-title reveal">İçerik Başlıkları</h2>
+
+    <div class="posts-grid">
+      <a class="post-card reveal" href="onkoloji-bilgilendirme.html">
+        <span class="post-tag">Kategori 01</span>
+        <h3 class="post-title">Onkoloji Bilgilendirme</h3>
+        <p class="post-excerpt">Kemoterapi, immünoterapi, hedefe yönelik tedaviler ve sık sorulan sorulara yönelik sade açıklamalar.</p>
+        <div class="post-footer"><span>Yazılara Git</span><span>→</span></div>
+      </a>
+
+      <a class="post-card reveal" href="hasta-ve-yakinlari-icin.html">
+        <span class="post-tag">Kategori 02</span>
+        <h3 class="post-title">Hasta ve Yakınları İçin</h3>
+        <p class="post-excerpt">Tedavi sürecinin duygusal ve pratik yönlerine temas eden, eşlik etmeyi amaçlayan metinler.</p>
+        <div class="post-footer"><span>Yazılara Git</span><span>→</span></div>
+      </a>
+
+      <a class="post-card reveal" href="tip-tarihi.html">
+        <span class="post-tag">Kategori 03</span>
+        <h3 class="post-title">Tıp Tarihi</h3>
+        <p class="post-excerpt">Kanserin, hekimliğin ve tıbbın tarihsel yolculuğuna dair yazılar ve mini seriler.</p>
+        <div class="post-footer"><span>Yazılara Git</span><span>→</span></div>
+      </a>
+
+      <a class="post-card reveal" href="anlatilar.html">
+        <span class="post-tag">Kategori 04</span>
+        <h3 class="post-title">Anlatılar</h3>
+        <p class="post-excerpt">İnsani karşılaşmalardan, bekleyişten, sessizlikten ve iyileşme arzusundan doğan kısa metinler.</p>
+        <div class="post-footer"><span>Yazılara Git</span><span>→</span></div>
+      </a>
+    </div>
+
+    <div class="reveal" style="text-align: center; margin-top: 3.5rem;">
+      <a href="tum-yazilar.html" class="btn btn-dark" style="font-size: 0.9rem; padding: 1rem 3rem;">
+        TÜM YAZILARI GÖR
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="podcast">
+  <div class="section-inner">
+    <p class="eyebrow reveal">Podcast</p>
+    <h2 class="section-title reveal">Yakında: Yazıların sesli halleri</h2>
+
+    <div class="podcast-box reveal">
+      <h3>Podcast ve kısa sesli anlatımlar</h3>
+      <p>Bazı yazılar, zaman içinde kısa sesli içerikler olarak da paylaşılacaktır. Amaç; bilgiyi yalnızca okunur değil, dinlenebilir hale de getirmek.</p>
+      <p>Tıp tarihi anlatıları, kısa bilgilendirme bölümleri ve bazı metinlerin seslendirilmiş versiyonları bu alanda yer alacaktır.</p>
     </div>
   </div>
 </section>
