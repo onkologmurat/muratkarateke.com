@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Tüm Yazılar | Murat Karateke</title>
-<meta name="description" content="Murat Karateke'nin onkoloji, tıp tarihi, hasta ve yakınlarına yönelik yazıları ile anlatı metinlerinin yer aldığı arşiv sayfası." />
+<meta name="description" content="Onkoloji bilgilendirme, hasta ve yakınlarına yönelik metinler, tıp tarihi yazıları ve anlatılardan oluşan tüm yazılar arşivi." />
 <meta name="author" content="Dr. Murat Karateke" />
+<title>Tüm Yazılar | Murat Karateke</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
@@ -27,353 +27,336 @@
 }
 
 html { scroll-behavior: smooth; }
+
 body {
   font-family: var(--sans);
-  background: var(--bg);
+  background: var(--white);
   color: var(--text);
-  font-size: 16px;
+  font-size: 15px;
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
 }
 
-/* ─── NAV ─── */
+/* NAV */
 nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  background: rgba(249,248,246,.96);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255,255,255,.96);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--line);
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 1rem 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 3rem;
 }
-.nav-logo-link { display: flex; align-items: center; text-decoration: none; }
-.nav-logo-link svg { height: 50px; width: auto; }
-
-.back-link {
-  font-size: .85rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  color: var(--accent);
+.nav-logo-link {
+  display: flex;
+  align-items: center;
   text-decoration: none;
-  letter-spacing: 0.05em;
-  transition: color 0.3s;
 }
-.back-link:hover { color: var(--purple); }
+.nav-logo-link svg {
+  height: 60px;
+  width: auto;
+}
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+.nav-links a {
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color .2s ease;
+}
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--purple);
+}
 
-/* ─── HERO/BAŞLIK ─── */
-.archive-hero {
-  max-width: 950px;
-  margin: 9.5rem auto 4rem auto;
-  padding: 0 2rem;
+/* HERO */
+.page-hero {
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+  padding: 5rem 1.5rem 4rem;
+  text-align: center;
 }
-.archive-eyebrow {
+.page-hero-inner {
+  max-width: 920px;
+  margin: 0 auto;
+}
+.eyebrow {
   font-size: .72rem;
   font-weight: 600;
-  letter-spacing: .15em;
+  letter-spacing: .18em;
   text-transform: uppercase;
-  color: var(--purple);
-  margin-bottom: 1rem;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-.archive-eyebrow::before {
-  content: "";
-  width: 30px;
-  height: 2px;
-  background: var(--purple);
-  flex-shrink: 0;
-}
-.archive-title {
-  font-family: var(--serif);
-  font-size: clamp(2.5rem, 5vw, 3.6rem);
-  font-weight: 700;
-  color: var(--text);
-  line-height: 1.15;
+  color: var(--accent);
   margin-bottom: 1.2rem;
 }
-.archive-subtitle {
-  max-width: 720px;
-  font-size: 1.05rem;
-  color: var(--muted);
-  line-height: 1.8;
-}
-
-/* ─── KATEGORİ TANITIM BLOKLARI ─── */
-.category-overview {
-  max-width: 1100px;
-  margin: 0 auto 4rem auto;
-  padding: 0 2rem;
-}
-.category-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.25rem;
-}
-.category-card {
-  display: block;
-  text-decoration: none;
-  color: inherit;
-  background: var(--white);
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  padding: 1.6rem;
-  transition: all .3s ease;
-}
-.category-card:hover {
-  border-color: var(--purple);
-  box-shadow: 0 4px 15px rgba(129, 41, 144, 0.08);
-  transform: translateY(-4px);
-}
-.category-card h3 {
+.page-title {
   font-family: var(--serif);
-  font-size: 1.1rem;
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  line-height: 1.12;
   font-weight: 600;
   color: var(--text);
-  margin-bottom: .75rem;
-  transition: color .25s ease;
-}
-.category-card:hover h3 {
-  color: var(--purple);
-}
-.category-card p {
-  font-size: .92rem;
-  color: var(--muted);
-  line-height: 1.65;
-}
-
-/* ─── ARŞİV BÖLÜMLERİ ─── */
-.archive-section {
-  max-width: 950px;
-  margin: 0 auto 5rem auto;
-  padding: 0 2rem;
-}
-
-/* ─── TIKLANABİLİR KATEGORİ KAPAĞI ─── */
-.category-header-link {
-  display: block;
-  text-decoration: none;
-  color: inherit;
-  margin-bottom: 2rem;
-}
-.category-header-box {
-  background: transparent;
-  border-bottom: 1px solid var(--line);
-  padding-bottom: 1.6rem;
-  transition: all .28s ease;
-}
-.category-header-link:hover .category-header-box {
-  border-color: rgba(129, 41, 144, 0.35);
-  transform: translateY(-2px);
-}
-.category-header-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: .8rem;
-}
-.category-header-title {
-  font-family: var(--serif);
-  font-size: 1.8rem;
-  font-weight: 600;
-  color: var(--text);
-  line-height: 1.2;
-  transition: color .25s ease;
-}
-.category-header-link:hover .category-header-title {
-  color: var(--purple);
-}
-.category-header-arrow {
-  font-size: 1.2rem;
-  color: var(--purple);
-  transition: transform .25s ease, opacity .25s ease;
-  opacity: .9;
-  flex-shrink: 0;
-}
-.category-header-link:hover .category-header-arrow {
-  transform: translateX(4px);
-}
-.category-header-desc {
-  font-size: .98rem;
-  color: var(--muted);
-  line-height: 1.75;
-  max-width: 760px;
   margin-bottom: 1rem;
 }
-.category-header-cta {
+.page-sub {
+  max-width: 760px;
+  margin: 0 auto;
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.85;
+}
+
+/* PAGE */
+.section {
+  padding: 4.5rem 1.5rem 5rem;
+}
+.section-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  text-decoration: none;
+  color: var(--purple);
+  font-size: .82rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+.back-link:hover {
+  text-decoration: underline;
+}
+
+/* FILTERS */
+.filters-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2.2rem;
+}
+.filters-title {
+  font-family: var(--serif);
+  font-size: 1.4rem;
+  color: var(--text);
+}
+.filters {
+  display: flex;
+  gap: .8rem;
+  flex-wrap: wrap;
+}
+.filter-btn {
+  border: 1px solid var(--line);
+  background: var(--white);
+  color: var(--muted);
+  padding: .75rem 1.1rem;
+  border-radius: 999px;
   font-size: .78rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all .25s ease;
+}
+.filter-btn:hover {
+  border-color: var(--purple);
+  color: var(--purple);
+}
+.filter-btn.active {
+  background: var(--purple);
+  border-color: var(--purple);
+  color: var(--white);
+}
+
+/* GRID */
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.post-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, #fff 0%, #fcfaf8 100%);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 2rem;
+  text-decoration: none;
+  color: var(--text);
+  overflow: hidden;
+  transition: all .3s ease;
+  min-height: 310px;
+}
+.post-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent), var(--purple));
+}
+.post-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top right, rgba(129,41,144,.05), transparent 35%);
+  pointer-events: none;
+}
+.post-card:hover {
+  border-color: rgba(129, 41, 144, 0.35);
+  box-shadow: 0 14px 34px rgba(44, 51, 46, 0.08);
+  transform: translateY(-6px);
+}
+
+.post-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+}
+.post-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem;
+}
+.post-badge {
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.post-series {
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--purple);
+  background: rgba(129,41,144,.08);
+  padding: .35rem .55rem;
+  border-radius: 999px;
+}
+.post-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--purple);
+  flex-shrink: 0;
+}
+
+.post-title {
+  font-family: var(--serif);
+  font-size: 1.45rem;
+  line-height: 1.3;
+  font-weight: 600;
+  margin-bottom: .9rem;
+  color: var(--text);
+}
+.post-excerpt {
+  color: var(--muted);
+  line-height: 1.8;
+  font-size: .97rem;
+  flex: 1;
+}
+.post-footer {
+  margin-top: 1.7rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+.post-meta {
+  font-size: .73rem;
   font-weight: 600;
   letter-spacing: .1em;
   text-transform: uppercase;
-  color: var(--purple);
-}
-
-/* ─── ARŞİV KARTLARI ─── */
-.archive-list {
-  display: flex;
-  flex-direction: column;
-}
-.archive-card {
-  display: block;
-  text-decoration: none;
-  padding: 2.2rem 0;
-  border-bottom: 1px solid var(--line);
-  transition: transform 0.3s ease;
-}
-.archive-card:last-child {
-  border-bottom: none;
-}
-.archive-card:hover {
-  transform: translateX(8px);
-}
-.archive-card:hover .archive-card-title {
-  color: var(--purple);
-}
-
-.archive-category {
-  display: inline-block;
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 0.7rem;
-}
-.archive-series {
-  display: block;
-  font-size: 0.9rem;
   color: var(--muted);
-  margin-bottom: 0.8rem;
 }
-.archive-card-title {
-  font-family: var(--serif);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--text);
-  margin-bottom: 0.9rem;
-  transition: color 0.3s ease;
-  line-height: 1.3;
-}
-.archive-card-excerpt {
+.post-arrow {
   font-size: 1rem;
-  color: var(--muted);
-  line-height: 1.7;
-  margin-bottom: 1.2rem;
-  max-width: 760px;
-}
-.archive-card-footer {
-  font-size: 0.78rem;
-  font-weight: 600;
   color: var(--purple);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+  transition: transform .25s ease;
+}
+.post-card:hover .post-arrow {
+  transform: translateX(4px);
 }
 
-/* ─── YAKINDA BLOĞU ─── */
-.coming-soon-box {
-  background: var(--white);
+/* EMPTY STATE */
+.empty-state {
+  display: none;
+  background: var(--bg);
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: 14px;
   padding: 2rem;
-}
-.coming-soon-box h3 {
-  font-family: var(--serif);
-  font-size: 1.25rem;
-  margin-bottom: .8rem;
-  color: var(--text);
-}
-.coming-soon-box p {
-  font-size: .95rem;
+  text-align: center;
   color: var(--muted);
-  line-height: 1.75;
+  margin-top: 1rem;
+}
+.empty-state.show {
+  display: block;
 }
 
-/* ─── DİSCLAIMER ─── */
-.disclaimer-wrap {
-  max-width: 950px;
-  margin: 0 auto 5rem auto;
-  padding: 0 2rem;
-}
-.disclaimer-box {
-  background: #fcfbf9;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  padding: 2rem;
-}
-.disclaimer-box p {
-  font-size: .9rem;
-  color: var(--muted);
-  line-height: 1.8;
-}
-
-/* ─── ANİMASYON ─── */
-.reveal {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity .8s ease, transform .8s ease;
-}
-.reveal.visible {
-  opacity: 1;
-  transform: none;
-}
-
-/* ─── FOOTER ─── */
+/* FOOTER */
 footer {
-  padding: 3rem 4rem;
+  padding: 2.5rem 1.5rem;
   border-top: 1px solid var(--line);
-  display: flex; justify-content: space-between; align-items: center;
-  background: var(--white);
+  background: var(--bg);
 }
-.footer-left { font-size: .85rem; color: var(--muted); }
-.footer-right {
+.footer-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  color: var(--muted);
+  font-size: .9rem;
+}
+.footer-mark {
   font-family: var(--serif);
-  font-size: 1rem;
   color: var(--purple);
   font-weight: 600;
 }
 
-/* ─── RESPONSIVE ─── */
-@media (max-width: 1000px) {
-  .category-grid {
-    grid-template-columns: repeat(2, 1fr);
+/* RESPONSIVE */
+@media (max-width: 960px) {
+  nav {
+    padding: 1rem 1.25rem;
+  }
+  .posts-grid {
+    grid-template-columns: 1fr;
   }
 }
-
-@media (max-width: 800px) {
-  nav { padding: 1rem 1.5rem; }
-  .archive-hero { margin-top: 8rem; }
-  .category-grid { grid-template-columns: 1fr; }
-
-  .category-header-title {
-    font-size: 1.45rem;
+@media (max-width: 760px) {
+  .nav-links {
+    display: none;
   }
-
-  .category-header-desc {
-    font-size: .95rem;
+  .post-card {
+    min-height: auto;
+    padding: 1.6rem;
   }
-
-  .category-header-top {
-    align-items: flex-start;
-  }
-
-  footer {
-    flex-direction: column;
-    gap: 1rem;
-    text-align: center;
-    padding: 2.5rem 1.5rem;
-  }
-}
-
-@media (max-width: 560px) {
-  .archive-card-title { font-size: 1.35rem; }
-  .archive-hero,
-  .category-overview,
-  .archive-section,
-  .disclaimer-wrap {
-    padding: 0 1.25rem;
+  .page-hero {
+    padding: 4rem 1.25rem 3rem;
   }
 }
 </style>
@@ -394,181 +377,259 @@ footer {
       <text x="120" y="66" font-family="'Inter', sans-serif" font-size="9" font-weight="600" fill="#5c7a52" letter-spacing="0.25em" text-anchor="middle">TIBBİ ONKOLOG</text>
     </svg>
   </a>
-  <a href="index.html" class="back-link">← Ana Sayfaya Dön</a>
+
+  <ul class="nav-links">
+    <li><a href="index.html">Ana Sayfa</a></li>
+    <li><a href="tum-yazilar.html" class="active">Tüm Yazılar</a></li>
+    <li><a href="tip-tarihi.html">Tıp Tarihi</a></li>
+    <li><a href="onkoloji-bilgilendirme.html">Onkoloji Bilgilendirme</a></li>
+  </ul>
 </nav>
 
-<header class="archive-hero">
-  <div class="reveal">
-    <p class="archive-eyebrow">Yazı Arşivi</p>
-    <h1 class="archive-title">Tüm Yazılar</h1>
-    <p class="archive-subtitle">
-      Onkoloji, tıp tarihi, hasta ve yakınlarına yönelik bilgilendirme yazıları ile anlatı metinlerini bu sayfada bir arada bulabilirsiniz.
-      Bu arşiv zaman içinde yeni yazılar, seriler ve sesli içeriklerle genişleyecektir.
+<header class="page-hero">
+  <div class="page-hero-inner">
+    <p class="eyebrow">Arşiv</p>
+    <h1 class="page-title">Tüm Yazılar</h1>
+    <p class="page-sub">
+      Onkoloji bilgilendirme yazıları, hasta ve yakınlarına yönelik metinler, tıp tarihi serileri ve anlatılar bu sayfada bir araya geliyor. Bölümlere göre filtreleyebilir, mevcut yazılara doğrudan ulaşabilirsiniz.
     </p>
   </div>
 </header>
 
-<section class="category-overview">
-  <div class="category-grid">
-    <a href="onkoloji-bilgilendirme.html" class="category-card reveal">
-      <h3>Onkoloji Bilgilendirme</h3>
-      <p>Tedavi süreçleri, sık sorulan sorular ve hasta dostu açıklamalar.</p>
-    </a>
+<section class="section">
+  <div class="section-inner">
+    <a href="index.html#yazilar" class="back-link">← Ana Sayfadaki Yazılara Dön</a>
 
-    <a href="hasta-ve-yakinlari.html" class="category-card reveal">
-      <h3>Hasta ve Yakınları</h3>
-      <p>Belirsizlik, bekleyiş, eşlik etme ve sürecin insani yönüne dair yazılar.</p>
-    </a>
+    <div class="filters-wrap">
+      <h2 class="filters-title">Bölümlere göre göz atın</h2>
 
-    <a href="tip-tarihi.html" class="category-card reveal">
-      <h3>Tıp Tarihi</h3>
-      <p>Kanserin ve hekimliğin tarihsel serüvenini izleyen yazılar ve diziler.</p>
-    </a>
-
-    <a href="anlatilar.html" class="category-card reveal">
-      <h3>Anlatılar</h3>
-      <p>Klinik deneyimden ve insan karşılaşmalarından doğan kısa metinler.</p>
-    </a>
-  </div>
-</section>
-
-<section class="archive-section" id="tip-tarihi">
-  <a href="tip-tarihi.html" class="category-header-link reveal">
-    <div class="category-header-box">
-      <div class="category-header-top">
-        <h2 class="category-header-title">Tıp Tarihi</h2>
-        <span class="category-header-arrow">→</span>
+      <div class="filters" aria-label="Kategori filtreleri">
+        <button class="filter-btn active" data-filter="all" type="button">Tümü</button>
+        <button class="filter-btn" data-filter="onkoloji" type="button">Onkoloji Bilgilendirme</button>
+        <button class="filter-btn" data-filter="hasta" type="button">Hasta ve Yakınları İçin</button>
+        <button class="filter-btn" data-filter="tip-tarihi" type="button">Tıp Tarihi</button>
+        <button class="filter-btn" data-filter="anlatilar" type="button">Anlatılar</button>
       </div>
-      <p class="category-header-desc">
-        Kanserin adını, tarihini, düşünsel dönüşümünü ve insanlıkla birlikte geçirdiği uzun yolculuğu izleyen yazılar.
-      </p>
-      <div class="category-header-cta">Bu kategorideki tüm yazıları gör</div>
     </div>
-  </a>
 
-  <div class="archive-list">
-    <a href="yengec-avinin-oykusu-4.html" class="archive-card reveal">
-      <span class="archive-category">Tıp Tarihi</span>
-      <span class="archive-series">Yengeç Avının Öyküsü</span>
-      <h3 class="archive-card-title">IV — Gecenin Ortasında Bir Bıçak</h3>
-      <p class="archive-card-excerpt">Vesalius'un anatomik devrimi, Rönesans cerrahisinin karanlığı ve kanseri kesip çıkarma cesaretinin tarihsel başlangıcı.</p>
-      <div class="archive-card-footer"><span>Okumaya Devam Et</span><span>→</span></div>
-    </a>
+    <div class="posts-grid" id="postsGrid">
 
-    <a href="yengec-avinin-oykusu-3.html" class="archive-card reveal">
-      <span class="archive-category">Tıp Tarihi</span>
-      <span class="archive-series">Yengeç Avının Öyküsü</span>
-      <h3 class="archive-card-title">III — Yengeç’in İsim Babası</h3>
-      <p class="archive-card-excerpt">Hippokrates, karkinos ve kanserin isim hikâyesi. Humoral teori, kara safra ve hastalığı tanımlamanın düşünsel gücü.</p>
-      <div class="archive-card-footer"><span>Okumaya Devam Et</span><span>→</span></div>
-    </a>
+      <!-- ONKOLOJİ -->
+      <a class="post-card" href="onkoloji-bilgilendirme.html" data-category="onkoloji">
+        <div class="post-top">
+          <div class="post-badges">
+            <span class="post-badge">Onkoloji Bilgilendirme</span>
+          </div>
+          <div class="post-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M12 3L19 7V12C19 16.5 15.9 20.7 12 21C8.1 20.7 5 16.5 5 12V7L12 3Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+              <path d="M9.5 12L11.2 13.7L14.8 10.1" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+        <h3 class="post-title">Onkoloji Bilgilendirme Yazılarına Başlarken</h3>
+        <p class="post-excerpt">
+          Kemoterapi, immünoterapi, hedefe yönelik tedaviler, yan etkiler ve sık sorulan başlıklar üzerine bu bölümün çerçevesini kuran başlangıç yazısı.
+        </p>
+        <div class="post-footer">
+          <span class="post-meta">Onkoloji Bilgilendirme</span>
+          <span class="post-arrow">→</span>
+        </div>
+      </a>
 
-    <a href="yengec-avinin-oykusu-2.html" class="archive-card reveal">
-      <span class="archive-category">Tıp Tarihi</span>
-      <span class="archive-series">Yengeç Avının Öyküsü</span>
-      <h3 class="archive-card-title">II — Papirüsün Sessiz Çığlığı</h3>
-      <p class="archive-card-excerpt">Edwin Smith Papirüsü ve insanlığın kanserle ilk yüzleşmesi. Antik Mısır'da bir hekimin “tedavisi yoktur” deme cesareti.</p>
-      <div class="archive-card-footer"><span>Okumaya Devam Et</span><span>→</span></div>
-    </a>
+      <!-- HASTA VE YAKINLARI -->
+      <a class="post-card" href="hasta-ve-yakinlari-icin.html" data-category="hasta">
+        <div class="post-top">
+          <div class="post-badges">
+            <span class="post-badge">Hasta ve Yakınları İçin</span>
+          </div>
+          <div class="post-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M8 13C9.10457 13 10 12.1046 10 11C10 9.89543 9.10457 9 8 9C6.89543 9 6 9.89543 6 11C6 12.1046 6.89543 13 8 13Z" stroke="currentColor" stroke-width="1.7"/>
+              <path d="M16 13C17.1046 13 18 12.1046 18 11C18 9.89543 17.1046 9 16 9C14.8954 9 14 9.89543 14 11C14 12.1046 14.8954 13 16 13Z" stroke="currentColor" stroke-width="1.7"/>
+              <path d="M3.5 18C4.2 15.9 6 15 8 15C10 15 11.8 15.9 12.5 18" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+              <path d="M11.5 18C12.2 15.9 14 15 16 15C18 15 19.8 15.9 20.5 18" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+            </svg>
+          </div>
+        </div>
+        <h3 class="post-title">Tedavi Sürecinde Yalnızca Hastalık Değil, Hayat da Devam Eder</h3>
+        <p class="post-excerpt">
+          Tanı ve tedavi döneminin duygusal, gündelik ve ilişkisel tarafına yer açan; bu bölümün yönünü belirleyen ilk karşılama metni.
+        </p>
+        <div class="post-footer">
+          <span class="post-meta">Hasta ve Yakınları İçin</span>
+          <span class="post-arrow">→</span>
+        </div>
+      </a>
 
-    <a href="yengec-avinin-oykusu-1.html" class="archive-card reveal">
-      <span class="archive-category">Tıp Tarihi</span>
-      <span class="archive-series">Yengeç Avının Öyküsü</span>
-      <h3 class="archive-card-title">I — Kemiklerin Hafızası</h3>
-      <p class="archive-card-excerpt">Kanserin insanlık öncesine uzanan izleri, fosiller ve kemiklerde saklı biyolojik hafıza üzerinden anlatılan bir başlangıç yazısı.</p>
-      <div class="archive-card-footer"><span>Okumaya Devam Et</span><span>→</span></div>
-    </a>
-  </div>
-</section>
+      <!-- TIP TARİHİ 1 -->
+      <a class="post-card" href="yengec-avinin-oykusu-1.html" data-category="tip-tarihi">
+        <div class="post-top">
+          <div class="post-badges">
+            <span class="post-badge">Tıp Tarihi</span>
+            <span class="post-series">Yengeç Avının Öyküsü</span>
+          </div>
+          <div class="post-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.7"/>
+              <path d="M12 7.5V12L15 13.8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+        <h3 class="post-title">Bölüm 1: Kemiklerin Hafızası</h3>
+        <p class="post-excerpt">
+          Kanserin tarihsel serüvenine giriş niteliğindeki bu ilk bölüm, hastalığın erken izlerini ve tıbbın başlangıçtaki bakışını ele alır.
+        </p>
+        <div class="post-footer">
+          <span class="post-meta">Tıp Tarihi · Seri Yazı</span>
+          <span class="post-arrow">→</span>
+        </div>
+      </a>
 
-<section class="archive-section" id="onkoloji">
-  <a href="onkoloji-bilgilendirme.html" class="category-header-link reveal">
-    <div class="category-header-box">
-      <div class="category-header-top">
-        <h2 class="category-header-title">Onkoloji Bilgilendirme</h2>
-        <span class="category-header-arrow">→</span>
-      </div>
-      <p class="category-header-desc">
-        Tedavi sürecine eşlik eden temel sorulara, açık ve sade bir dille yazılmış bilgilendirme metinleri.
-      </p>
-      <div class="category-header-cta">Bu kategorideki tüm yazıları gör</div>
+      <!-- TIP TARİHİ 2 -->
+      <a class="post-card" href="yengec-avinin-oykusu-2.html" data-category="tip-tarihi">
+        <div class="post-top">
+          <div class="post-badges">
+            <span class="post-badge">Tıp Tarihi</span>
+            <span class="post-series">Yengeç Avının Öyküsü</span>
+          </div>
+          <div class="post-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.7"/>
+              <path d="M12 7.5V12L15 13.8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+        <h3 class="post-title">Bölüm 2: Görünmeyeni Aramak</h3>
+        <p class="post-excerpt">
+          Kanserin görünmeyen doğasını anlamaya çalışan tıbbın, gözlemden araştırmaya doğru ilerlediği ikinci bölüm.
+        </p>
+        <div class="post-footer">
+          <span class="post-meta">Tıp Tarihi · Seri Yazı</span>
+          <span class="post-arrow">→</span>
+        </div>
+      </a>
+
+      <!-- TIP TARİHİ 3 -->
+      <a class="post-card" href="yengec-avinin-oykusu-3.html" data-category="tip-tarihi">
+        <div class="post-top">
+          <div class="post-badges">
+            <span class="post-badge">Tıp Tarihi</span>
+            <span class="post-series">Yengeç Avının Öyküsü</span>
+          </div>
+          <div class="post-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.7"/>
+              <path d="M12 7.5V12L15 13.8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+        <h3 class="post-title">Bölüm 3: Hücrenin İçine Yolculuk</h3>
+        <p class="post-excerpt">
+          Modern patoloji ve hücresel düşüncenin gelişmesiyle kanserin daha yakından anlaşılmaya başlandığı üçüncü bölüm.
+        </p>
+        <div class="post-footer">
+          <span class="post-meta">Tıp Tarihi · Seri Yazı</span>
+          <span class="post-arrow">→</span>
+        </div>
+      </a>
+
+      <!-- TIP TARİHİ 4 -->
+      <a class="post-card" href="yengec-avinin-oykusu-4.html" data-category="tip-tarihi">
+        <div class="post-top">
+          <div class="post-badges">
+            <span class="post-badge">Tıp Tarihi</span>
+            <span class="post-series">Yengeç Avının Öyküsü</span>
+          </div>
+          <div class="post-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.7"/>
+              <path d="M12 7.5V12L15 13.8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+        <h3 class="post-title">Bölüm 4: Kontrol Altına Almak</h3>
+        <p class="post-excerpt">
+          Tedavi düşüncesinin dönüşümünü, modern onkolojinin oluşumunu ve kanserle mücadelede değişen yaklaşımı izleyen dördüncü bölüm.
+        </p>
+        <div class="post-footer">
+          <span class="post-meta">Tıp Tarihi · Seri Yazı</span>
+          <span class="post-arrow">→</span>
+        </div>
+      </a>
+
+      <!-- ANLATILAR -->
+      <a class="post-card" href="anlatilar.html" data-category="anlatilar">
+        <div class="post-top">
+          <div class="post-badges">
+            <span class="post-badge">Anlatılar</span>
+          </div>
+          <div class="post-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M6 5.5H18C18.6 5.5 19 5.9 19 6.5V17.5L15.5 15.2L12 17.5L8.5 15.2L5 17.5V6.5C5 5.9 5.4 5.5 6 5.5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+              <path d="M8.5 9H15.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+              <path d="M8.5 12H13.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+            </svg>
+          </div>
+        </div>
+        <h3 class="post-title">Bazı Şeyler Bilgiyle Değil, Anlatıyla Taşınır</h3>
+        <p class="post-excerpt">
+          Hekimliğin, bekleyişin, kırılganlığın ve insanın iç sesiyle karşılaşmasının anlatı yoluyla taşınabileceğini anlatan giriş metni.
+        </p>
+        <div class="post-footer">
+          <span class="post-meta">Anlatılar</span>
+          <span class="post-arrow">→</span>
+        </div>
+      </a>
+
     </div>
-  </a>
 
-  <div class="coming-soon-box reveal">
-    <h3>Bu bölüm yakında genişleyecek</h3>
-    <p>
-      Kemoterapi nedir, immünoterapi nasıl çalışır, tedavi öncesi ilk görüşmede neler konuşulur gibi temel başlıklar bu alanda yer alacaktır.
-    </p>
-  </div>
-</section>
-
-<section class="archive-section" id="hasta-yakinlari">
-  <a href="hasta-ve-yakinlari.html" class="category-header-link reveal">
-    <div class="category-header-box">
-      <div class="category-header-top">
-        <h2 class="category-header-title">Hasta ve Yakınları İçin</h2>
-        <span class="category-header-arrow">→</span>
-      </div>
-      <p class="category-header-desc">
-        Hastalık bilgisinin ötesine geçen; bekleme, belirsizlik, eşlik etme ve dayanma deneyimine temas eden yazılar.
-      </p>
-      <div class="category-header-cta">Bu kategorideki tüm yazıları gör</div>
+    <div class="empty-state" id="emptyState">
+      Bu filtre altında henüz görüntülenecek yazı bulunmuyor.
     </div>
-  </a>
-
-  <div class="coming-soon-box reveal">
-    <h3>Bu bölüm yakında genişleyecek</h3>
-    <p>
-      Belirsizlikle yaşamak, bir yakının yanında nasıl durulur, ilk tedavi günü öncesi gibi konulara odaklanan yeni yazılar bu alana eklenecektir.
-    </p>
-  </div>
-</section>
-
-<section class="archive-section" id="anlatilar">
-  <a href="anlatilar.html" class="category-header-link reveal">
-    <div class="category-header-box">
-      <div class="category-header-top">
-        <h2 class="category-header-title">Anlatılar</h2>
-        <span class="category-header-arrow">→</span>
-      </div>
-      <p class="category-header-desc">
-        Hekimlik deneyiminden, sessizlikten, bekleyişten ve insan karşılaşmalarından doğan daha anlatısal metinler.
-      </p>
-      <div class="category-header-cta">Bu kategorideki tüm yazıları gör</div>
-    </div>
-  </a>
-
-  <div class="coming-soon-box reveal">
-    <h3>Bu bölüm yakında genişleyecek</h3>
-    <p>
-      Kısa hikâyeler, insani gözlem metinleri ve klinik karşılaşmalardan doğan anlatılar ilerleyen dönemde burada toplanacaktır.
-    </p>
-  </div>
-</section>
-
-<section class="disclaimer-wrap">
-  <div class="disclaimer-box reveal">
-    <p>Bu sitede yer alan içerikler genel bilgilendirme amacı taşır. Tanı, tedavi ve tıbbi karar süreçlerinde doğrudan hekim değerlendirmesinin yerini tutmaz.</p>
   </div>
 </section>
 
 <footer>
-  <span class="footer-left">© 2026 Murat Karateke · Tüm hakları saklıdır.</span>
-  <span class="footer-right">Manisa Şehir Hastanesi · Tıbbi Onkoloji</span>
+  <div class="footer-inner">
+    <span>© 2026 Murat Karateke · Tüm hakları saklıdır.</span>
+    <span class="footer-mark">Manisa Şehir Hastanesi · Tıbbi Onkoloji</span>
+  </div>
 </footer>
 
 <script>
-  const io = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        io.unobserve(e.target);
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.post-card');
+  const emptyState = document.getElementById('emptyState');
+
+  function applyFilter(filter) {
+    let visibleCount = 0;
+
+    cards.forEach(card => {
+      const category = card.getAttribute('data-category');
+
+      if (filter === 'all' || category === filter) {
+        card.style.display = '';
+        visibleCount++;
+      } else {
+        card.style.display = 'none';
       }
     });
-  }, { threshold: .1, rootMargin: '0px 0px -30px 0px' });
 
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+    if (visibleCount === 0) {
+      emptyState.classList.add('show');
+    } else {
+      emptyState.classList.remove('show');
+    }
+  }
+
+  filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+      applyFilter(button.getAttribute('data-filter'));
+    });
+  });
 </script>
 
 </body>
