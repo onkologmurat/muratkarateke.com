@@ -48,22 +48,32 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 3rem;
+  padding: 1rem 4rem;
+  gap: 2rem;
 }
+
 .nav-logo-link {
   display: flex;
   align-items: center;
   text-decoration: none;
+  flex-shrink: 0;
 }
+
 .nav-logo-link svg {
   height: 60px;
   width: auto;
+  display: block;
 }
+
 .nav-links {
   display: flex;
-  gap: 2rem;
+  gap: 1.6rem;
   list-style: none;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-end;
 }
+
 .nav-links a {
   font-size: .75rem;
   font-weight: 600;
@@ -72,7 +82,9 @@ nav {
   color: var(--muted);
   text-decoration: none;
   transition: color .2s ease;
+  white-space: nowrap;
 }
+
 .nav-links a:hover,
 .nav-links a.active {
   color: var(--purple);
@@ -85,10 +97,12 @@ nav {
   padding: 5rem 1.5rem 4rem;
   text-align: center;
 }
+
 .page-hero-inner {
   max-width: 920px;
   margin: 0 auto;
 }
+
 .eyebrow {
   font-size: .72rem;
   font-weight: 600;
@@ -97,6 +111,7 @@ nav {
   color: var(--accent);
   margin-bottom: 1.2rem;
 }
+
 .page-title {
   font-family: var(--serif);
   font-size: clamp(2.4rem, 5vw, 4rem);
@@ -105,6 +120,7 @@ nav {
   color: var(--text);
   margin-bottom: 1rem;
 }
+
 .page-sub {
   max-width: 760px;
   margin: 0 auto;
@@ -117,10 +133,12 @@ nav {
 .section {
   padding: 4.5rem 1.5rem 5rem;
 }
+
 .section-inner {
   max-width: 1180px;
   margin: 0 auto;
 }
+
 .back-link {
   display: inline-flex;
   align-items: center;
@@ -133,6 +151,7 @@ nav {
   text-transform: uppercase;
   margin-bottom: 2rem;
 }
+
 .back-link:hover {
   text-decoration: underline;
 }
@@ -146,16 +165,19 @@ nav {
   flex-wrap: wrap;
   margin-bottom: 2.2rem;
 }
+
 .filters-title {
   font-family: var(--serif);
   font-size: 1.4rem;
   color: var(--text);
 }
+
 .filters {
   display: flex;
   gap: .8rem;
   flex-wrap: wrap;
 }
+
 .filter-btn {
   border: 1px solid var(--line);
   background: var(--white);
@@ -169,10 +191,12 @@ nav {
   cursor: pointer;
   transition: all .25s ease;
 }
+
 .filter-btn:hover {
   border-color: var(--purple);
   color: var(--purple);
 }
+
 .filter-btn.active {
   background: var(--purple);
   border-color: var(--purple);
@@ -200,6 +224,7 @@ nav {
   transition: all .3s ease;
   min-height: 310px;
 }
+
 .post-card::before {
   content: "";
   position: absolute;
@@ -207,6 +232,7 @@ nav {
   height: 4px;
   background: linear-gradient(90deg, var(--accent), var(--purple));
 }
+
 .post-card::after {
   content: "";
   position: absolute;
@@ -214,6 +240,7 @@ nav {
   background: radial-gradient(circle at top right, rgba(129,41,144,.05), transparent 35%);
   pointer-events: none;
 }
+
 .post-card:hover {
   border-color: rgba(129, 41, 144, 0.35);
   box-shadow: 0 14px 34px rgba(44, 51, 46, 0.08);
@@ -227,11 +254,13 @@ nav {
   gap: 1rem;
   margin-bottom: 1.2rem;
 }
+
 .post-badges {
   display: flex;
   flex-wrap: wrap;
   gap: .6rem;
 }
+
 .post-badge {
   font-size: .68rem;
   font-weight: 600;
@@ -239,6 +268,7 @@ nav {
   text-transform: uppercase;
   color: var(--accent);
 }
+
 .post-series {
   font-size: .68rem;
   font-weight: 600;
@@ -249,6 +279,7 @@ nav {
   padding: .35rem .55rem;
   border-radius: 999px;
 }
+
 .post-icon {
   width: 52px;
   height: 52px;
@@ -270,12 +301,14 @@ nav {
   margin-bottom: .9rem;
   color: var(--text);
 }
+
 .post-excerpt {
   color: var(--muted);
   line-height: 1.8;
   font-size: .97rem;
   flex: 1;
 }
+
 .post-footer {
   margin-top: 1.7rem;
   padding-top: 1rem;
@@ -285,6 +318,7 @@ nav {
   align-items: center;
   gap: 1rem;
 }
+
 .post-meta {
   font-size: .73rem;
   font-weight: 600;
@@ -292,11 +326,13 @@ nav {
   text-transform: uppercase;
   color: var(--muted);
 }
+
 .post-arrow {
   font-size: 1rem;
   color: var(--purple);
   transition: transform .25s ease;
 }
+
 .post-card:hover .post-arrow {
   transform: translateX(4px);
 }
@@ -312,6 +348,7 @@ nav {
   color: var(--muted);
   margin-top: 1rem;
 }
+
 .empty-state.show {
   display: block;
 }
@@ -322,6 +359,7 @@ footer {
   border-top: 1px solid var(--line);
   background: var(--bg);
 }
+
 .footer-inner {
   max-width: 1180px;
   margin: 0 auto;
@@ -332,6 +370,7 @@ footer {
   color: var(--muted);
   font-size: .9rem;
 }
+
 .footer-mark {
   font-family: var(--serif);
   color: var(--purple);
@@ -339,22 +378,32 @@ footer {
 }
 
 /* RESPONSIVE */
-@media (max-width: 960px) {
-  nav {
-    padding: 1rem 1.25rem;
+@media (max-width: 1180px) {
+  nav { padding: 1rem 1.5rem; }
+  .nav-links { gap: 1rem; }
+  .nav-links a {
+    font-size: .72rem;
+    letter-spacing: .1em;
   }
+}
+
+@media (max-width: 960px) {
   .posts-grid {
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 920px) {
+  .nav-links { display: none; }
+  nav { padding: 1rem 1.25rem; }
+}
+
 @media (max-width: 760px) {
-  .nav-links {
-    display: none;
-  }
   .post-card {
     min-height: auto;
     padding: 1.6rem;
   }
+
   .page-hero {
     padding: 4rem 1.25rem 3rem;
   }
@@ -381,8 +430,10 @@ footer {
   <ul class="nav-links">
     <li><a href="index.html">Ana Sayfa</a></li>
     <li><a href="tum-yazilar.html" class="active">Tüm Yazılar</a></li>
+    <li><a href="onkoloji-bilgilendirme.html">Onkoloji</a></li>
+    <li><a href="hasta-ve-yakinlari-icin.html">Hasta Yakınları</a></li>
     <li><a href="tip-tarihi.html">Tıp Tarihi</a></li>
-    <li><a href="onkoloji-bilgilendirme.html">Onkoloji Bilgilendirme</a></li>
+    <li><a href="anlatilar.html">Anlatılar</a></li>
   </ul>
 </nav>
 
@@ -405,8 +456,8 @@ footer {
 
       <div class="filters" aria-label="Kategori filtreleri">
         <button class="filter-btn active" data-filter="all" type="button">Tümü</button>
-        <button class="filter-btn" data-filter="onkoloji" type="button">Onkoloji Bilgilendirme</button>
-        <button class="filter-btn" data-filter="hasta" type="button">Hasta ve Yakınları İçin</button>
+        <button class="filter-btn" data-filter="onkoloji" type="button">Onkoloji</button>
+        <button class="filter-btn" data-filter="hasta" type="button">Hasta Yakınları</button>
         <button class="filter-btn" data-filter="tip-tarihi" type="button">Tıp Tarihi</button>
         <button class="filter-btn" data-filter="anlatilar" type="button">Anlatılar</button>
       </div>
@@ -414,11 +465,10 @@ footer {
 
     <div class="posts-grid" id="postsGrid">
 
-      <!-- ONKOLOJİ -->
       <a class="post-card" href="onkoloji-bilgilendirme.html" data-category="onkoloji">
         <div class="post-top">
           <div class="post-badges">
-            <span class="post-badge">Onkoloji Bilgilendirme</span>
+            <span class="post-badge">Onkoloji</span>
           </div>
           <div class="post-icon" aria-hidden="true">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -432,16 +482,15 @@ footer {
           Kemoterapi, immünoterapi, hedefe yönelik tedaviler, yan etkiler ve sık sorulan başlıklar üzerine bu bölümün çerçevesini kuran başlangıç yazısı.
         </p>
         <div class="post-footer">
-          <span class="post-meta">Onkoloji Bilgilendirme</span>
+          <span class="post-meta">Onkoloji</span>
           <span class="post-arrow">→</span>
         </div>
       </a>
 
-      <!-- HASTA VE YAKINLARI -->
       <a class="post-card" href="hasta-ve-yakinlari-icin.html" data-category="hasta">
         <div class="post-top">
           <div class="post-badges">
-            <span class="post-badge">Hasta ve Yakınları İçin</span>
+            <span class="post-badge">Hasta Yakınları</span>
           </div>
           <div class="post-icon" aria-hidden="true">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -457,12 +506,11 @@ footer {
           Tanı ve tedavi döneminin duygusal, gündelik ve ilişkisel tarafına yer açan; bu bölümün yönünü belirleyen ilk karşılama metni.
         </p>
         <div class="post-footer">
-          <span class="post-meta">Hasta ve Yakınları İçin</span>
+          <span class="post-meta">Hasta Yakınları</span>
           <span class="post-arrow">→</span>
         </div>
       </a>
 
-      <!-- TIP TARİHİ 1 -->
       <a class="post-card" href="yengec-avinin-oykusu-1.html" data-category="tip-tarihi">
         <div class="post-top">
           <div class="post-badges">
@@ -486,7 +534,6 @@ footer {
         </div>
       </a>
 
-      <!-- TIP TARİHİ 2 -->
       <a class="post-card" href="yengec-avinin-oykusu-2.html" data-category="tip-tarihi">
         <div class="post-top">
           <div class="post-badges">
@@ -510,7 +557,6 @@ footer {
         </div>
       </a>
 
-      <!-- TIP TARİHİ 3 -->
       <a class="post-card" href="yengec-avinin-oykusu-3.html" data-category="tip-tarihi">
         <div class="post-top">
           <div class="post-badges">
@@ -534,7 +580,6 @@ footer {
         </div>
       </a>
 
-      <!-- TIP TARİHİ 4 -->
       <a class="post-card" href="yengec-avinin-oykusu-4.html" data-category="tip-tarihi">
         <div class="post-top">
           <div class="post-badges">
@@ -558,7 +603,6 @@ footer {
         </div>
       </a>
 
-      <!-- ANLATILAR -->
       <a class="post-card" href="anlatilar.html" data-category="anlatilar">
         <div class="post-top">
           <div class="post-badges">
