@@ -465,6 +465,19 @@ nav {
   gap: 4rem;
   align-items: start;
 }
+.contact-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .contact-info-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
 .contact-group { margin-bottom: 2.5rem; }
 .contact-group-label {
   font-size: .75rem;
@@ -819,76 +832,66 @@ footer {
     <h2 class="section-title reveal">İletişim Bilgileri</h2>
 
     <div class="contact-grid reveal">
-  <div>
-    <div class="contact-group">
-      <div class="contact-group-label">Kurum Bilgileri</div>
-      <div class="contact-row">
-        <span class="contact-key">Hastane</span>
-        <span class="contact-val">Manisa Şehir Hastanesi</span>
-      </div>
-      <div class="contact-row">
-        <span class="contact-key">Bölüm</span>
-        <span class="contact-val">Tıbbi Onkoloji Polikliniği</span>
-      </div>
-      <div class="contact-row" style="border-bottom: none; padding-top: 1rem;">
-        <a href="https://www.google.com/maps/place/Murat+Karateke,+T%C4%B1bbi+Onkoloji+ve+%C4%B0%C3%A7+Hastal%C4%B1klar%C4%B1+Uzman%C4%B1/@38.6120529,27.4585208,17z/data=!3m1!4b1!4m6!3m5!1s0x14b99f1f299a0b09:0xf67eaa99c1acf8b5!8m2!3d38.6120529!4d27.4610957!16s%2Fg%2F11td14nkh7?entry=ttu&g_ep=EgoyMDI2MDMxNS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" class="contact-map-link">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-          Google Haritalar'da Gör
-        </a>
-      </div>
-    </div>
+      <div>
+        <div class="contact-info-grid">
+          <div>
+            <div class="contact-group">
+              <div class="contact-group-label">Kurum Bilgileri</div>
+              <div class="contact-row">
+                <span class="contact-key">Hastane</span>
+                <span class="contact-val">Manisa Şehir Hastanesi</span>
+              </div>
+              <div class="contact-row">
+                <span class="contact-key">Bölüm</span>
+                <span class="contact-val">Tıbbi Onkoloji Polikliniği</span>
+              </div>
+              <div class="contact-row" style="border-bottom: none; padding-top: 1rem;">
+                <a href="https://www.google.com/maps/place/Murat+Karateke,+T%C4%B1bbi+Onkoloji+ve+%C4%B0%C3%A7+Hastal%C4%B1klar%C4%B1+Uzman%C4%B1/@38.6120529,27.4585208,17z/data=!3m1!4b1!4m6!3m5!1s0x14b99f1f299a0b09:0xf67eaa99c1acf8b5!8m2!3d38.6120529!4d27.4610957!16s%2Fg%2F11td14nkh7?entry=ttu&g_ep=EgoyMDI2MDMxNS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" class="contact-map-link">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                  Google Haritalar'da Gör
+                </a>
+              </div>
+            </div>
 
-    <div class="contact-group">
-      <div class="contact-group-label">Telefonlar</div>
-      <div class="contact-row">
-        <span class="contact-key">Santral</span>
-        <a class="contact-val" href="tel:+902362292600">0 236 229 26 00</a>
+            <div class="contact-group">
+              <div class="contact-group-label">Sosyal Medya</div>
+              <div class="contact-row">
+                <span class="contact-key">Instagram</span>
+                <a class="contact-val" href="https://www.instagram.com/niobe.onco/" target="_blank" rel="noopener">@niobe.onco</a>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="contact-group">
+              <div class="contact-group-label">Telefonlar</div>
+              <div class="contact-row">
+                <span class="contact-key">Santral</span>
+                <a class="contact-val" href="tel:+902362292600">0 236 229 26 00</a>
+              </div>
+              <div class="contact-row">
+                <span class="contact-key">Sekreterlik</span>
+                <span class="contact-val">Dahili 30064</span>
+              </div>
+              <div class="contact-row">
+                <span class="contact-key">Tedavi Ünitesi</span>
+                <span class="contact-val">Dahili 30055</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="contact-row">
-        <span class="contact-key">Sekreterlik</span>
-        <span class="contact-val">Dahili 30064</span>
+
+      <div>
+        <div class="contact-form-card">
+          <div style="font-size: 3rem; margin-bottom: 1rem;">📝</div>
+          <h3>Geri Bildirim</h3>
+          <p>Süreçle ilgili düşüncelerinizi veya geri bildirimlerinizi öğrenmekten mutluluk duyarız.</p>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLScMk6wCHr73w4QVrp70CkqaHcRLd-u6ehOMBX_qlWOK-Y3N5g/viewform?usp=header" target="_blank" rel="noopener" class="btn btn-dark" style="font-size: 0.9rem; padding: 1rem 3rem; margin-top: 0.5rem;">
+            GERİ BİLDİRİM FORMU
+          </a>
+        </div>
       </div>
-      <div class="contact-row">
-        <span class="contact-key">Tedavi Ünitesi</span>
-        <span class="contact-val">Dahili 30055</span>
-      </div>
-    </div>
-
-    <div class="contact-group">
-      <div class="contact-group-label">Sosyal Medya</div>
-      <div class="contact-row">
-        <span class="contact-key">Instagram</span>
-        <a class="contact-val" href="https://www.instagram.com/niobe.onco/" target="_blank" rel="noopener">@niobe.onco</a>
-      </div>
-    </div>
-  </div>
-
-  <div>
-    <div class="contact-form-card">
-      <div style="font-size: 3rem; margin-bottom: 1rem;">📝</div>
-      <h3>Geri Bildirim</h3>
-      <p>Süreçle ilgili düşüncelerinizi veya geri bildirimlerinizi öğrenmekten mutluluk duyarız.</p>
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLScMk6wCHr73w4QVrp70CkqaHcRLd-u6ehOMBX_qlWOK-Y3N5g/viewform?usp=header" target="_blank" rel="noopener" class="btn btn-dark" style="font-size: 0.9rem; padding: 1rem 3rem; margin-top: 0.5rem;">
-        GERİ BİLDİRİM FORMU
-      </a>
-    </div>
-  </div>
-</div>
-    
-</section>
-
-<section class="section section-alt" id="randevu">
-  <div class="section-inner">
-    <p class="eyebrow reveal">Randevu</p>
-
-    <div class="randevu-container reveal">
-      <div class="randevu-icon">🗓️</div>
-      <h3>Randevu Bilgisi</h3>
-      <p>Muayene planlaması için MHRS ve Alo 182 kanallarını kullanabilirsiniz. Uygunluk durumunda aşağıdaki bağlantı üzerinden ek planlama sayfasına da ulaşabilirsiniz.</p>
-
-      <a href="https://calendar.app.google/RNEwQTGMDRCMDGiV6" target="_blank" rel="noopener" class="btn btn-dark" style="font-size: 0.9rem; padding: 1rem 3rem;">
-        RANDEVU AL
-      </a>
     </div>
   </div>
 </section>
