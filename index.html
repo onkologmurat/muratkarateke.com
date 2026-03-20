@@ -478,26 +478,44 @@ nav {
   margin-top: 2rem;
   align-items: stretch;
 }
-
+.contact-card-block {
+  display: flex;
+  flex-direction: column;
+}
+.contact-card-block .eyebrow {
+  margin-bottom: 1rem;
+}
 .contact-cards-grid .contact-form-card,
 .contact-cards-grid .randevu-container {
   height: 100%;
   max-width: none;
   margin: 0;
   padding: 3rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-
-@media (max-width: 900px) {
-  .contact-cards-grid {
-    grid-template-columns: 1fr;
-  }
+.contact-cards-grid .contact-form-card h3,
+.contact-cards-grid .randevu-container h3 {
+  font-family: var(--serif);
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 1rem;
+  text-align: center;
 }
-
-@media (max-width: 900px) {
-  .contact-info-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
+.contact-cards-grid .contact-form-card p,
+.contact-cards-grid .randevu-container p {
+  max-width: 420px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.contact-cards-grid .btn {
+  min-width: 220px;
+  text-align: center;
 }
 .contact-group { margin-bottom: 2.5rem; }
 .contact-group-label {
@@ -599,7 +617,9 @@ footer {
   .about-grid,
   .contact-grid,
   .cv-grid-layout,
-  .posts-grid {
+  .posts-grid,
+  .contact-info-grid,
+  .contact-cards-grid {
     grid-template-columns: 1fr;
     gap: 3rem;
   }
@@ -653,7 +673,7 @@ footer {
     <li><a href="#yazilar">Yazılar</a></li>
     <li><a href="#podcast">Podcast</a></li>
     <li><a href="#iletisim">İletişim</a></li>
-    <li><a href="#randevu">Randevu</a></li>
+    <li><a href="#randevu-karti">Randevu</a></li>
   </ul>
 </nav>
 
@@ -901,22 +921,28 @@ footer {
     </div>
 
     <div class="contact-cards-grid reveal">
-      <div class="contact-form-card">
-        <div style="font-size: 3rem; margin-bottom: 1rem;">📝</div>
-        <h3>Geri Bildirim</h3>
-        <p>Süreçle ilgili düşüncelerinizi veya geri bildirimlerinizi öğrenmekten mutluluk duyarız.</p>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLScMk6wCHr73w4QVrp70CkqaHcRLd-u6ehOMBX_qlWOK-Y3N5g/viewform?usp=header" target="_blank" rel="noopener" class="btn btn-dark" style="font-size: 0.9rem; padding: 1rem 3rem; margin-top: 0.5rem;">
-          GERİ BİLDİRİM FORMU
-        </a>
+      <div class="contact-card-block" id="randevu-karti">
+        <p class="eyebrow">Randevu</p>
+        <div class="randevu-container">
+          <div class="randevu-icon">🗓️</div>
+          <h3>Randevu Bilgisi</h3>
+          <p>Muayene planlaması için MHRS ve Alo 182 kanallarını kullanabilirsiniz. Uygunluk durumunda aşağıdaki bağlantı üzerinden ek planlama sayfasına da ulaşabilirsiniz.</p>
+          <a href="https://calendar.app.google/RNEwQTGMDRCMDGiV6" target="_blank" rel="noopener" class="btn btn-dark" style="font-size: 0.9rem; padding: 1rem 3rem;">
+            RANDEVU AL
+          </a>
+        </div>
       </div>
 
-      <div class="randevu-container">
-        <div class="randevu-icon">🗓️</div>
-        <h3>Randevu Bilgisi</h3>
-        <p>Muayene planlaması için MHRS ve Alo 182 kanallarını kullanabilirsiniz. Uygunluk durumunda aşağıdaki bağlantı üzerinden ek planlama sayfasına da ulaşabilirsiniz.</p>
-        <a href="https://calendar.app.google/RNEwQTGMDRCMDGiV6" target="_blank" rel="noopener" class="btn btn-dark" style="font-size: 0.9rem; padding: 1rem 3rem;">
-          RANDEVU AL
-        </a>
+      <div class="contact-card-block" id="geri-bildirim-karti">
+        <p class="eyebrow">Geri Bildirim</p>
+        <div class="contact-form-card">
+          <div style="font-size: 3rem; margin-bottom: 1.5rem;">📝</div>
+          <h3>Geri Bildirim</h3>
+          <p>Süreçle ilgili düşüncelerinizi veya geri bildirimlerinizi öğrenmekten mutluluk duyarız.</p>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLScMk6wCHr73w4QVrp70CkqaHcRLd-u6ehOMBX_qlWOK-Y3N5g/viewform?usp=header" target="_blank" rel="noopener" class="btn btn-dark" style="font-size: 0.9rem; padding: 1rem 3rem;">
+            GERİ BİLDİRİM FORMU
+          </a>
+        </div>
       </div>
     </div>
   </div>
