@@ -373,51 +373,6 @@ nav {
 }
 .references p:last-child { margin-bottom: 0; }
 
-/* ─── Bölüm Navigasyonu ─── */
-.chapter-nav {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem;
-  margin-top: 3rem;
-}
-
-.next-chapter {
-  padding: 1.8rem 2.2rem;
-  background: var(--white);
-  border: 1px solid var(--line);
-  border-radius: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  text-decoration: none;
-  transition: all .3s ease;
-  box-shadow: var(--shadow);
-}
-.next-chapter:hover {
-  border-color: var(--purple);
-  box-shadow: 0 4px 20px rgba(129,41,144,.08);
-  transform: translateY(-2px);
-}
-.next-label {
-  font-size: .72rem;
-  font-weight: 600;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: .3rem;
-}
-.next-title {
-  font-family: var(--serif);
-  font-size: 1.15rem;
-  font-weight: 600;
-  color: var(--text);
-}
-.next-arrow {
-  font-size: 1.5rem;
-  color: var(--purple);
-  transition: transform .3s ease;
-}
-.next-chapter:hover .next-arrow { transform: translateX(4px); }
 
 /* ─── Başa Dön Butonu ─── */
 .scroll-top {
@@ -471,7 +426,7 @@ footer {
 
 /* ─── Baskı Stili ─── */
 @media print {
-  nav, .progress-bar, .theme-toggle, .scroll-top, .chapter-nav { display: none !important; }
+  nav, .progress-bar, .theme-toggle, .scroll-top { display: none !important; }
   body { font-size: 11pt; line-height: 1.7; color: #000; background: #fff; }
   .article-container { margin: 0 auto; max-width: 100%; }
   .article-content > p:first-child::first-letter { color: #000; }
