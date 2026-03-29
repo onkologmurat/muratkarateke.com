@@ -135,7 +135,7 @@ nav {
 }
 
 .section-inner {
-  max-width: 1180px;
+  max-width: 820px;
   margin: 0 auto;
 }
 
@@ -203,138 +203,73 @@ nav {
   color: var(--white);
 }
 
-/* GRID */
-.posts-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(280px, 1fr));
-  gap: 2rem;
+/* POST LIST */
+.posts-list {
+  list-style: none;
+  border-top: 1px solid var(--line);
 }
 
-.post-card {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  background: linear-gradient(180deg, #fff 0%, #fcfaf8 100%);
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  padding: 2rem;
-  text-decoration: none;
-  color: var(--text);
-  overflow: hidden;
-  transition: all .3s ease;
-  min-height: 310px;
+.post-item {
+  border-bottom: 1px solid var(--line);
 }
 
-.post-card::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, var(--accent), var(--purple));
-}
-
-.post-card::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at top right, rgba(129,41,144,.05), transparent 35%);
-  pointer-events: none;
-}
-
-.post-card:hover {
-  border-color: rgba(129, 41, 144, 0.35);
-  box-shadow: 0 14px 34px rgba(44, 51, 46, 0.08);
-  transform: translateY(-6px);
-}
-
-.post-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 1rem;
-  margin-bottom: 1.2rem;
-}
-
-.post-badges {
-  display: flex;
-  flex-wrap: wrap;
-  gap: .6rem;
-}
-
-.post-badge {
-  font-size: .68rem;
-  font-weight: 600;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: var(--accent);
-}
-
-.post-series {
-  font-size: .68rem;
-  font-weight: 600;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: var(--purple);
-  background: rgba(129,41,144,.08);
-  padding: .35rem .55rem;
-  border-radius: 999px;
-}
-
-.post-icon {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  background: var(--bg);
-  border: 1px solid var(--line);
+.post-link {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.1rem 0;
+  text-decoration: none;
+  color: var(--text);
+  transition: color .2s ease;
+}
+
+.post-link:hover {
   color: var(--purple);
-  flex-shrink: 0;
+}
+
+.post-link:hover .post-arrow {
+  transform: translateX(3px);
+  color: var(--purple);
 }
 
 .post-title {
   font-family: var(--serif);
-  font-size: 1.45rem;
-  line-height: 1.3;
+  font-size: 1.1rem;
   font-weight: 600;
-  margin-bottom: .9rem;
-  color: var(--text);
-}
-
-.post-excerpt {
-  color: var(--muted);
-  line-height: 1.8;
-  font-size: .97rem;
+  line-height: 1.35;
   flex: 1;
+  min-width: 0;
 }
 
-.post-footer {
-  margin-top: 1.7rem;
-  padding-top: 1rem;
-  border-top: 1px solid var(--line);
+.post-right {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  gap: 1rem;
+  gap: .8rem;
+  flex-shrink: 0;
 }
 
-.post-meta {
-  font-size: .73rem;
+.post-tag {
+  font-size: .68rem;
   font-weight: 600;
   letter-spacing: .1em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--accent);
+  background: rgba(92,122,82,.08);
+  padding: .3rem .6rem;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.post-tag.seri {
+  color: var(--accent);
+  background: rgba(92,122,82,.08);
 }
 
 .post-arrow {
-  font-size: 1rem;
-  color: var(--purple);
-  transition: transform .25s ease;
-}
-
-.post-card:hover .post-arrow {
-  transform: translateX(4px);
+  font-size: .9rem;
+  color: var(--muted);
+  transition: all .2s ease;
 }
 
 /* EMPTY STATE */
@@ -387,25 +322,34 @@ footer {
   }
 }
 
-@media (max-width: 960px) {
-  .posts-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
 @media (max-width: 920px) {
   .nav-links { display: none; }
   nav { padding: 1rem 1.25rem; }
 }
 
 @media (max-width: 760px) {
-  .post-card {
-    min-height: auto;
-    padding: 1.6rem;
-  }
-
   .page-hero {
     padding: 4rem 1.25rem 3rem;
+  }
+
+  .post-link {
+    padding: .9rem 0;
+  }
+
+  .post-title {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 540px) {
+  .post-link {
+    flex-wrap: wrap;
+    gap: .5rem;
+  }
+
+  .post-right {
+    width: 100%;
+    justify-content: space-between;
   }
 }
 </style>
@@ -460,191 +404,89 @@ footer {
       </div>
     </div>
 
-    <div class="posts-grid" id="postsGrid">
+    <ul class="posts-list" id="postsList">
 
-      <a class="post-card" href="onkoloji-bilgilendirme.html" data-category="onkoloji">
-        <div class="post-top">
-          <div class="post-badges">
-            <span class="post-badge">Onkoloji</span>
-          </div>
-          <div class="post-icon" aria-hidden="true">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path d="M12 3L19 7V12C19 16.5 15.9 20.7 12 21C8.1 20.7 5 16.5 5 12V7L12 3Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
-              <path d="M9.5 12L11.2 13.7L14.8 10.1" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-        </div>
-        <h3 class="post-title">Onkoloji Bilgilendirme Yazılarına Başlarken</h3>
-        <p class="post-excerpt">
-          Kemoterapi, immünoterapi, hedefe yönelik tedaviler, yan etkiler ve sık sorulan başlıklar üzerine bu bölümün çerçevesini kuran başlangıç yazısı.
-        </p>
-        <div class="post-footer">
-          <span class="post-meta">Onkoloji</span>
-          <span class="post-arrow">→</span>
-        </div>
-      </a>
+      <li class="post-item" data-category="onkoloji">
+        <a class="post-link" href="onkoloji-bilgilendirme.html">
+          <span class="post-title">Onkoloji Bilgilendirme Yazılarına Başlarken</span>
+          <span class="post-right">
+            <span class="post-tag">Onkoloji</span>
+            <span class="post-arrow">→</span>
+          </span>
+        </a>
+      </li>
 
-      <a class="post-card" href="hasta-ve-yakinlari-icin.html" data-category="hasta">
-        <div class="post-top">
-          <div class="post-badges">
-            <span class="post-badge">Psiko-Onkoloji</span>
-          </div>
-          <div class="post-icon" aria-hidden="true">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path d="M8 13C9.10457 13 10 12.1046 10 11C10 9.89543 9.10457 9 8 9C6.89543 9 6 9.89543 6 11C6 12.1046 6.89543 13 8 13Z" stroke="currentColor" stroke-width="1.7"/>
-              <path d="M16 13C17.1046 13 18 12.1046 18 11C18 9.89543 17.1046 9 16 9C14.8954 9 14 9.89543 14 11C14 12.1046 14.8954 13 16 13Z" stroke="currentColor" stroke-width="1.7"/>
-              <path d="M3.5 18C4.2 15.9 6 15 8 15C10 15 11.8 15.9 12.5 18" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
-              <path d="M11.5 18C12.2 15.9 14 15 16 15C18 15 19.8 15.9 20.5 18" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
-            </svg>
-          </div>
-        </div>
-        <h3 class="post-title">Tedavi Sürecinde Yalnızca Hastalık Değil, Hayat da Devam Eder</h3>
-        <p class="post-excerpt">
-          Tanı ve tedavi döneminin duygusal, gündelik ve ilişkisel tarafına yer açan; bu bölümün yönünü belirleyen ilk karşılama metni.
-        </p>
-        <div class="post-footer">
-          <span class="post-meta">Psiko-Onkoloji</span>
-          <span class="post-arrow">→</span>
-        </div>
-      </a>
+      <li class="post-item" data-category="hasta">
+        <a class="post-link" href="hasta-ve-yakinlari-icin.html">
+          <span class="post-title">Tedavi Sürecinde Yalnızca Hastalık Değil, Hayat da Devam Eder</span>
+          <span class="post-right">
+            <span class="post-tag">Psiko-Onkoloji</span>
+            <span class="post-arrow">→</span>
+          </span>
+        </a>
+      </li>
 
-      <a class="post-card" href="sifaya-dogru-goc.html" data-category="hasta">
-        <div class="post-top">
-          <div class="post-badges">
-            <span class="post-badge">Psiko-Onkoloji</span>
-          </div>
-          <div class="post-icon" aria-hidden="true">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path d="M12 21C12 21 4 15.5 4 10C4 6.5 7 4 9.5 4C11 4 12 5 12 5C12 5 13 4 14.5 4C17 4 20 6.5 20 10C20 15.5 12 21 12 21Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
-            </svg>
-          </div>
-        </div>
-        <h3 class="post-title">Şifaya Doğru Göç</h3>
-        <p class="post-excerpt">
-          Bir hekimin kendi hastalık deneyimi, eşinin sarsılmaz desteği ve iyileşmenin tıbbi protokollerin ötesindeki anlamı üzerine bir anlatı.
-        </p>
-        <div class="post-footer">
-          <span class="post-meta">Psiko-Onkoloji</span>
-          <span class="post-arrow">→</span>
-        </div>
-      </a>
+      <li class="post-item" data-category="hasta">
+        <a class="post-link" href="sifaya-dogru-goc.html">
+          <span class="post-title">Şifaya Doğru Göç</span>
+          <span class="post-right">
+            <span class="post-tag">Psiko-Onkoloji</span>
+            <span class="post-arrow">→</span>
+          </span>
+        </a>
+      </li>
 
-      <a class="post-card" href="yengec-avinin-oykusu-1.html" data-category="tip-tarihi">
-        <div class="post-top">
-          <div class="post-badges">
-            <span class="post-badge">Tıp Tarihi</span>
-            <span class="post-series">Yengeç Avının Öyküsü</span>
-          </div>
-          <div class="post-icon" aria-hidden="true">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.7"/>
-              <path d="M12 7.5V12L15 13.8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-        </div>
-        <h3 class="post-title">Bölüm 1: Kemiklerin Hafızası</h3>
-        <p class="post-excerpt">
-          Kanserin tarihsel serüvenine giriş niteliğindeki bu ilk bölüm, hastalığın erken izlerini ve tıbbın başlangıçtaki bakışını ele alır.
-        </p>
-        <div class="post-footer">
-          <span class="post-meta">Tıp Tarihi · Seri Yazı</span>
-          <span class="post-arrow">→</span>
-        </div>
-      </a>
+      <li class="post-item" data-category="tip-tarihi">
+        <a class="post-link" href="yengec-avinin-oykusu-1.html">
+          <span class="post-title">Bölüm 1: Kemiklerin Hafızası</span>
+          <span class="post-right">
+            <span class="post-tag seri">Yengeç Avının Öyküsü</span>
+            <span class="post-arrow">→</span>
+          </span>
+        </a>
+      </li>
 
-      <a class="post-card" href="yengec-avinin-oykusu-2.html" data-category="tip-tarihi">
-        <div class="post-top">
-          <div class="post-badges">
-            <span class="post-badge">Tıp Tarihi</span>
-            <span class="post-series">Yengeç Avının Öyküsü</span>
-          </div>
-          <div class="post-icon" aria-hidden="true">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.7"/>
-              <path d="M12 7.5V12L15 13.8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-        </div>
-        <h3 class="post-title">Bölüm 2: Papirüsün Sessiz Çığlığı</h3>
-        <p class="post-excerpt">
-          Kanserin görünmeyen doğasını anlamaya çalışan tıbbın, gözlemden araştırmaya doğru ilerlediği ikinci bölüm.
-        </p>
-        <div class="post-footer">
-          <span class="post-meta">Tıp Tarihi · Seri Yazı</span>
-          <span class="post-arrow">→</span>
-        </div>
-      </a>
+      <li class="post-item" data-category="tip-tarihi">
+        <a class="post-link" href="yengec-avinin-oykusu-2.html">
+          <span class="post-title">Bölüm 2: Papirüsün Sessiz Çığlığı</span>
+          <span class="post-right">
+            <span class="post-tag seri">Yengeç Avının Öyküsü</span>
+            <span class="post-arrow">→</span>
+          </span>
+        </a>
+      </li>
 
-      <a class="post-card" href="yengec-avinin-oykusu-3.html" data-category="tip-tarihi">
-        <div class="post-top">
-          <div class="post-badges">
-            <span class="post-badge">Tıp Tarihi</span>
-            <span class="post-series">Yengeç Avının Öyküsü</span>
-          </div>
-          <div class="post-icon" aria-hidden="true">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.7"/>
-              <path d="M12 7.5V12L15 13.8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-        </div>
-        <h3 class="post-title">Bölüm 3: Yengeç'in İsim Babası</h3>
-        <p class="post-excerpt">
-          Modern patoloji ve hücresel düşüncenin gelişmesiyle kanserin daha yakından anlaşılmaya başlandığı üçüncü bölüm.
-        </p>
-        <div class="post-footer">
-          <span class="post-meta">Tıp Tarihi · Seri Yazı</span>
-          <span class="post-arrow">→</span>
-        </div>
-      </a>
+      <li class="post-item" data-category="tip-tarihi">
+        <a class="post-link" href="yengec-avinin-oykusu-3.html">
+          <span class="post-title">Bölüm 3: Yengeç'in İsim Babası</span>
+          <span class="post-right">
+            <span class="post-tag seri">Yengeç Avının Öyküsü</span>
+            <span class="post-arrow">→</span>
+          </span>
+        </a>
+      </li>
 
-      <a class="post-card" href="yengec-avinin-oykusu-4.html" data-category="tip-tarihi">
-        <div class="post-top">
-          <div class="post-badges">
-            <span class="post-badge">Tıp Tarihi</span>
-            <span class="post-series">Yengeç Avının Öyküsü</span>
-          </div>
-          <div class="post-icon" aria-hidden="true">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.7"/>
-              <path d="M12 7.5V12L15 13.8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-        </div>
-        <h3 class="post-title">Bölüm 4: Gecenin Ortasında Bir Bıçak</h3>
-        <p class="post-excerpt">
-          Tedavi düşüncesinin dönüşümünü, modern onkolojinin oluşumunu ve kanserle mücadelede değişen yaklaşımı izleyen dördüncü bölüm.
-        </p>
-        <div class="post-footer">
-          <span class="post-meta">Tıp Tarihi · Seri Yazı</span>
-          <span class="post-arrow">→</span>
-        </div>
-      </a>
+      <li class="post-item" data-category="tip-tarihi">
+        <a class="post-link" href="yengec-avinin-oykusu-4.html">
+          <span class="post-title">Bölüm 4: Gecenin Ortasında Bir Bıçak</span>
+          <span class="post-right">
+            <span class="post-tag seri">Yengeç Avının Öyküsü</span>
+            <span class="post-arrow">→</span>
+          </span>
+        </a>
+      </li>
 
-      <a class="post-card" href="anlatilar.html" data-category="anlatilar">
-        <div class="post-top">
-          <div class="post-badges">
-            <span class="post-badge">Sanat ve Onkoloji</span>
-          </div>
-          <div class="post-icon" aria-hidden="true">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path d="M6 5.5H18C18.6 5.5 19 5.9 19 6.5V17.5L15.5 15.2L12 17.5L8.5 15.2L5 17.5V6.5C5 5.9 5.4 5.5 6 5.5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
-              <path d="M8.5 9H15.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
-              <path d="M8.5 12H13.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
-            </svg>
-          </div>
-        </div>
-        <h3 class="post-title">Hastalığın Sessiz Bıraktığı Yerde, Sanat Konuşmaya Başlar</h3>
-        <p class="post-excerpt">
-          Sanat, hastalığın sessiz bıraktığı her şeye ses verir. Muayene odasından resim, edebiyat ve sinemaya uzanan görünmez bir köprünün yazıları.
-        </p>
-        <div class="post-footer">
-          <span class="post-meta">Sanat ve Onkoloji</span>
-          <span class="post-arrow">→</span>
-        </div>
-      </a>
+      <li class="post-item" data-category="anlatilar">
+        <a class="post-link" href="anlatilar.html">
+          <span class="post-title">Hastalığın Sessiz Bıraktığı Yerde, Sanat Konuşmaya Başlar</span>
+          <span class="post-right">
+            <span class="post-tag">Sanat ve Onkoloji</span>
+            <span class="post-arrow">→</span>
+          </span>
+        </a>
+      </li>
 
-    </div>
+    </ul>
 
     <div class="empty-state" id="emptyState">
       Bu filtre altında henüz görüntülenecek yazı bulunmuyor.
@@ -661,20 +503,20 @@ footer {
 
 <script>
   const filterButtons = document.querySelectorAll('.filter-btn');
-  const cards = document.querySelectorAll('.post-card');
+  const items = document.querySelectorAll('.post-item');
   const emptyState = document.getElementById('emptyState');
 
   function applyFilter(filter) {
     let visibleCount = 0;
 
-    cards.forEach(card => {
-      const category = card.getAttribute('data-category');
+    items.forEach(item => {
+      const category = item.getAttribute('data-category');
 
       if (filter === 'all' || category === filter) {
-        card.style.display = '';
+        item.style.display = '';
         visibleCount++;
       } else {
-        card.style.display = 'none';
+        item.style.display = 'none';
       }
     });
 
