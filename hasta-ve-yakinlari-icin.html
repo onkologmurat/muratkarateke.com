@@ -135,7 +135,7 @@ nav {
 }
 
 .section-inner {
-  max-width: 860px;
+  max-width: 920px;
   margin: 0 auto;
 }
 
@@ -212,6 +212,58 @@ nav {
   margin-bottom: 0;
 }
 
+.series-list {
+  margin-top: 1.8rem;
+  display: grid;
+  gap: .95rem;
+}
+
+.series-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 1rem 1.1rem;
+  background: rgba(255,255,255,.82);
+  transition: all .25s ease;
+}
+
+.series-link:hover {
+  border-color: rgba(129, 41, 144, 0.35);
+  background: #fff;
+  transform: translateX(4px);
+}
+
+.series-left {
+  display: flex;
+  flex-direction: column;
+  gap: .25rem;
+}
+
+.series-no {
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.series-name {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.series-arrow {
+  color: var(--purple);
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
 .note-box {
   background: var(--bg);
   border: 1px solid var(--line);
@@ -272,6 +324,7 @@ footer {
 
 @media (max-width: 700px) {
   .feature-box { padding: 1.6rem; }
+  .series-link { align-items: flex-start; }
 }
 </style>
 </head>
@@ -281,9 +334,9 @@ footer {
   <a class="nav-logo-link" href="index.html" aria-label="Ana Sayfa">
     <svg width="240" height="70" viewBox="0 0 240 70" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M 55,27 Q 120,16 185,27" stroke="#5c7a52" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-      <circle cx="85"  cy="24"   r="2.2" fill="#812990" opacity="0.8"/>  <!-- üst -->
-      <circle cx="120" cy="21.5" r="2.6" fill="#812990" opacity="0.85"/> <!-- üst (merkez) -->
-      <circle cx="155" cy="24"   r="2.2" fill="#812990" opacity="0.8"/>  <!-- üst -->
+      <circle cx="85"  cy="24"   r="2.2" fill="#812990" opacity="0.8"/>
+      <circle cx="120" cy="21.5" r="2.6" fill="#812990" opacity="0.85"/>
+      <circle cx="155" cy="24"   r="2.2" fill="#812990" opacity="0.8"/>
       <text x="120" y="52" font-family="'Dancing Script', cursive" font-size="32" font-weight="700" fill="#812990" text-anchor="middle">Murat Karateke</text>
       <text x="120" y="70" font-family="'Inter', sans-serif" font-size="9" font-weight="600" fill="#5c7a52" letter-spacing="0.25em" text-anchor="middle">TIBBİ ONKOLOG</text>
     </svg>
@@ -315,8 +368,8 @@ footer {
 
     <article class="feature-box">
       <div class="feature-meta">
-        <span class="feature-badge">İlk Yazı</span>
-        <span class="feature-date">Karşılama Metni</span>
+        <span class="feature-badge">Hasta ve Yakınları İçin</span>
+        <span class="feature-date">1 Yazı</span>
       </div>
 
       <h2 class="article-title">Tedavi Sürecinde Yalnızca Hastalık Değil, Hayat da Devam Eder</h2>
@@ -324,13 +377,17 @@ footer {
       <div class="article-content">
         <p>Kanser tanısı yalnızca tıbbi bir süreç başlatmaz; aynı zamanda gündelik hayatın ritmini, aile içi ilişkileri, zamanı algılama biçimini ve geleceğe dair düşünceleri de değiştirir. Bu nedenle hasta olmak da hasta yakını olmak da çoğu zaman yalnızca bilgiye değil, anlaşılmaya ve eşlik edilmeye ihtiyaç duyar.</p>
 
-        <p>Bu bölüm, tedavi sürecinin duygusal ve insani tarafına daha dikkatli bir yer açmak için hazırlandı. Burada yalnızca “ne yapılmalı?” sorusuna değil; “nasıl dayanılır?”, “nasıl konuşulur?”, “yakın olmak ne demektir?”, “belirsizlikle nasıl yaşanır?” gibi daha sessiz ama çok gerçek sorulara da yer verilecektir.</p>
+        <p>Bu bölüm, tedavi sürecinin duygusal ve insani tarafına daha dikkatli bir yer açmak için hazırlandı. Burada yalnızca "ne yapılmalı?" sorusuna değil; "nasıl dayanılır?", "nasıl konuşulur?", "yakın olmak ne demektir?", "belirsizlikle nasıl yaşanır?" gibi daha sessiz ama çok gerçek sorulara da yer verilecektir.</p>
+      </div>
 
-        <p>Bazen en zor olan şey, kesin bir cevap alamamaktır. Bazen yorgunluk, bazen bekleyiş, bazen de güçlü görünme zorunluluğu insanı en çok zorlayan şey olur. Bu bölümde yayımlanacak metinler, açıklamaktan çok eşlik etmeyi; öğretmekten çok insanın yaşadığı deneyimi görünür kılmayı hedefleyecek.</p>
-
-        <p>Hasta yakınları için de bu süreç çoğu zaman kendi içinde ayrı bir yüktür. Yardım etmek isterken ne söyleyeceğini bilememek, güçlü olmaya çalışırken tükenmek, sevdiği birinin yaşadığı sürece dışarıdan bakmak zorunda kalmak kolay değildir. Bu yüzden burada yalnızca hastaya değil, yakınlarına da yer açan bir dil kurulmaya çalışılacaktır.</p>
-
-        <p>Zaman içinde burada; hasta yakınlarına yönelik notlar, tedavi döneminde iletişim, günlük yaşamın yeniden düzenlenmesi, duygusal yükle baş etme ve bakım veren olmanın görünmeyen tarafları üzerine yeni yazılar bulunacaktır.</p>
+      <div class="series-list">
+        <a href="sifaya-dogru-goc.html" class="series-link">
+          <div class="series-left">
+            <span class="series-no">Yazı</span>
+            <span class="series-name">Şifaya Doğru Göç</span>
+          </div>
+          <span class="series-arrow">→</span>
+        </a>
       </div>
     </article>
   </div>
