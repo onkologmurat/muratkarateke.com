@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Pandora'nın Umudu, Merkez Efendi'nin Havanı | Murat Karateke</title>
+<meta name="description" content="Pandora'nın kutusundan Merkez Efendi'nin Mesir Macunu'na uzanan şifa arayışı. Tamamlayıcı tıbbın onkolojideki yansımalarını keşfeden 'Havan ve Neşter' serisinin ilk yazısı.">
+<meta name="author" content="Dr. Murat Karateke">
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ─── Renk Sistemi (Açık / Koyu) ─── */
+:root {
+  --white:   #ffffff;
+  --bg:      #f9f8f6;
+  --bg2:     #f3f1ee;
+  --line:    #e8e4de;
+  --text:    #2c332e;
+  --muted:   #6b6662;
+  --accent:  #5c7a52;
+  --purple:  #812990;
+  --serif:   'Playfair Display', Georgia, serif;
+  --sans:    'Inter', system-ui, sans-serif;
+  --shadow:  0 1px 3px rgba(0,0,0,.04);
+  --progress: var(--purple);
+}
+[data-theme="dark"] {
+  --white:   #1a1a1f;
+  --bg:      #111114;
+  --bg2:     #1e1e23;
+  --line:    #2a2a30;
+  --text:    #e0ddd8;
+  --muted:   #9a958f;
+  --accent:  #7fa874;
+  --purple:  #b55cc4;
+  --shadow:  0 1px 3px rgba(0,0,0,.2);
+  --progress: var(--purple);
+}
+
+/* ─── Genel ─── */
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 17px;
+  line-height: 1.9;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background .4s ease, color .4s ease;
+}
+
+/* ─── Okuma İlerleme Çubuğu ─── */
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent), var(--purple));
+  z-index: 300;
+  transition: width .1s linear;
+  border-radius: 0 2px 2px 0;
+}
+
+/* ─── NAV ─── */
+nav {
+  position: sticky;
+  top: 3px;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  background: rgba(249,248,246,.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.9rem 4rem;
+  gap: 2rem;
+  transition: background .4s ease, border-color .4s ease;
+}
+[data-theme="dark"] nav {
+  background: rgba(17,17,20,.92);
+}
+
+.nav-logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+.nav-logo-link svg {
+  height: 54px;
+  width: auto;
+  display: block;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  min-width: 0;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.25rem;
+  list-style: none;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.nav-links a {
+  font-size: .73rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color .2s ease;
+  white-space: nowrap;
+}
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--purple);
+}
+
+/* Tema Değiştirici */
+.theme-toggle {
+  background: none;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--muted);
+  transition: all .3s ease;
+  flex-shrink: 0;
+}
+.theme-toggle:hover {
+  border-color: var(--purple);
+  color: var(--purple);
+  transform: rotate(15deg);
+}
+.theme-toggle svg { width: 18px; height: 18px; }
+.icon-moon { display: block; }
+.icon-sun  { display: none; }
+[data-theme="dark"] .icon-moon { display: none; }
+[data-theme="dark"] .icon-sun  { display: block; }
+
+/* ─── Makale Ana Alanı ─── */
+.article-container {
+  max-width: 760px;
+  margin: 8.8rem auto 6rem auto;
+  padding: 0 2rem;
+}
+
+/* Üst bağlam */
+.article-breadcrumb {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin-bottom: 1.4rem;
+  color: var(--muted);
+  font-size: .76rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.article-breadcrumb a {
+  color: var(--muted);
+  text-decoration: none;
+  transition: color .2s ease;
+}
+.article-breadcrumb a:hover {
+  color: var(--purple);
+}
+.article-breadcrumb .sep {
+  opacity: .45;
+}
+
+/* Üst meta bilgi */
+.article-meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+.article-tag {
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--purple);
+  display: inline-block;
+}
+.reading-time {
+  font-size: .78rem;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+}
+.reading-time svg { width: 14px; height: 14px; opacity: .6; }
+
+/* Seri üst başlığı */
+.series-name {
+  font-family: var(--serif);
+  font-size: clamp(1.15rem, 2vw, 1.35rem);
+  font-style: italic;
+  color: var(--accent);
+  margin-bottom: .6rem;
+}
+
+/* Başlık */
+.article-title {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text);
+  margin-bottom: 3rem;
+  letter-spacing: -0.01em;
+}
+
+/* ─── İçerik Tipografisi ─── */
+.article-content p {
+  margin-bottom: 1.65rem;
+  color: var(--text);
+  word-spacing: 0.02em;
+  hanging-punctuation: first;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
+.article-content strong {
+  font-weight: 600;
+  color: var(--text);
+}
+.article-content em {
+  font-style: italic;
+  color: var(--text);
+}
+
+/* Drop Cap */
+.article-content > p:first-child::first-letter {
+  font-family: var(--serif);
+  float: left;
+  font-size: 4.2em;
+  line-height: 0.8;
+  padding-right: 0.12em;
+  padding-top: 0.06em;
+  color: var(--purple);
+  font-weight: 700;
+}
+
+/* ─── Pull Quote ─── */
+.pull-quote {
+  margin: 3rem -1rem;
+  padding: 2rem 2.5rem;
+  position: relative;
+  border-left: 3px solid var(--purple);
+  background: linear-gradient(135deg, transparent 0%, rgba(129,41,144,.03) 100%);
+  border-radius: 0 8px 8px 0;
+}
+[data-theme="dark"] .pull-quote {
+  background: linear-gradient(135deg, transparent 0%, rgba(129,41,144,.08) 100%);
+}
+.pull-quote p {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  font-style: italic;
+  line-height: 1.65;
+  color: var(--text);
+  margin-bottom: 0 !important;
+}
+.pull-quote .pq-source {
+  display: block;
+  font-family: var(--sans);
+  font-style: normal;
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-top: 0.8rem;
+  letter-spacing: 0.03em;
+}
+
+/* ─── Metin Ayırıcı ─── */
+.text-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 3.5rem auto;
+  color: var(--accent);
+  opacity: 0.4;
+}
+.text-divider::before,
+.text-divider::after {
+  content: '';
+  width: 24px;
+  height: 1.5px;
+  background: var(--accent);
+  border-radius: 2px;
+}
+.text-divider svg {
+  width: 12px;
+  height: 12px;
+}
+
+/* ─── Kaynak Alıntı Kartı ─── */
+.source-card {
+  margin: 2.5rem 0;
+  padding: 2rem 2.2rem;
+  background: var(--bg2);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  position: relative;
+  transition: background .4s ease, border-color .4s ease;
+}
+.source-card .card-label {
+  display: inline-block;
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--purple);
+  margin-bottom: 0.8rem;
+}
+.source-card .card-text {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  font-style: italic;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.65;
+}
+.source-card .card-note {
+  display: block;
+  margin-top: 0.8rem;
+  font-size: .8rem;
+  font-style: normal;
+  font-weight: 400;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* ─── Bilgi Kutusu ─── */
+.info-box {
+  margin: 2.5rem 0;
+  padding: 1.8rem 2.2rem;
+  background: var(--bg2);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  font-size: .88rem;
+  color: var(--text);
+  line-height: 1.75;
+  transition: background .4s ease, border-color .4s ease;
+}
+.info-box .box-title {
+  font-weight: 600;
+  font-size: .72rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.6rem;
+}
+
+/* ─── Fade-in Animasyonu ─── */
+.fade-section {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+.fade-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── Yazar ve Kaynakça ─── */
+.article-footer {
+  margin-top: 4.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.author-name {
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--text);
+}
+.author-title {
+  font-size: 0.82rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.references {
+  margin-top: 4rem;
+  padding: 2rem 2.2rem;
+  background-color: var(--bg2);
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  transition: background .4s ease, border-color .4s ease;
+}
+.references h4 {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  margin-bottom: 1.2rem;
+  color: var(--text);
+}
+.references p {
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin-bottom: 0.85rem;
+  line-height: 1.6;
+  padding-left: 1.5em;
+  text-indent: -1.5em;
+}
+.references p:last-child { margin-bottom: 0; }
+
+/* ─── Başa Dön Butonu ─── */
+.scroll-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 1px solid var(--line);
+  color: var(--purple);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all .3s ease;
+  box-shadow: var(--shadow);
+  z-index: 50;
+}
+.scroll-top.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+.scroll-top:hover {
+  background: var(--purple);
+  color: var(--white);
+  border-color: var(--purple);
+}
+.scroll-top svg { width: 18px; height: 18px; }
+
+/* ─── Footer ─── */
+footer {
+  padding: 3rem 4rem;
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--white);
+  transition: background .4s ease, border-color .4s ease;
+}
+.footer-left { font-size: .82rem; color: var(--muted); }
+.footer-right {
+  font-family: var(--serif);
+  font-size: .95rem;
+  color: var(--purple);
+  font-weight: 600;
+}
+
+/* ─── Baskı Stili ─── */
+@media print {
+  nav, .progress-bar, .theme-toggle, .scroll-top { display: none !important; }
+  body { font-size: 11pt; line-height: 1.7; color: #000; background: #fff; }
+  .article-container { margin: 0 auto; max-width: 100%; }
+  .article-content > p:first-child::first-letter { color: #000; }
+  .pull-quote { border-left-color: #333; }
+  .references, .source-card, .info-box { background: #f5f5f5; border: 1px solid #ccc; }
+  footer { border-top: 1px solid #ccc; }
+  a { color: #000; text-decoration: none; }
+}
+
+/* ─── Mobil Uyumluluk ─── */
+@media (max-width: 1180px) {
+  nav { padding: 0.9rem 1.5rem; }
+  .nav-links { gap: .95rem; }
+  .nav-links a {
+    font-size: .7rem;
+    letter-spacing: .1em;
+  }
+}
+
+@media (max-width: 920px) {
+  .nav-links { display: none; }
+  nav { padding: 0.9rem 1.2rem; }
+}
+
+@media (max-width: 800px) {
+  .nav-logo-link svg { height: 42px; }
+
+  .article-container {
+    margin-top: 7.6rem;
+    padding: 0 1.4rem;
+  }
+  body { font-size: 16px; line-height: 1.85; }
+
+  .article-content > p:first-child::first-letter {
+    font-size: 3.4em;
+  }
+
+  .pull-quote {
+    margin: 2.5rem -0.5rem;
+    padding: 1.5rem 1.6rem;
+  }
+  .pull-quote p { font-size: 1.1rem; }
+
+  .source-card { padding: 1.5rem 1.6rem; }
+  .info-box { padding: 1.5rem 1.6rem; }
+
+  .scroll-top { bottom: 1.2rem; right: 1.2rem; width: 38px; height: 38px; }
+
+  footer {
+    flex-direction: column;
+    gap: 0.8rem;
+    text-align: center;
+    padding: 2.5rem 1.5rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .article-title { font-size: 1.7rem; }
+  .article-container { padding: 0 1.1rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-section { opacity: 1; transform: none; transition: none; }
+  html { scroll-behavior: auto; }
+  .progress-bar { transition: none; }
+}
+
+::selection {
+  background: rgba(129,41,144,.15);
+  color: var(--text);
+}
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+
+<nav>
+  <a class="nav-logo-link" href="index.html" aria-label="Ana Sayfa">
+    <svg width="240" height="70" viewBox="0 0 240 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M 55,27 Q 120,16 185,27" stroke="#5c7a52" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+      <circle cx="85"  cy="24"   r="2.2" fill="#812990" opacity="0.8"/>
+      <circle cx="120" cy="21.5" r="2.6" fill="#812990" opacity="0.85"/>
+      <circle cx="155" cy="24"   r="2.2" fill="#812990" opacity="0.8"/>
+      <text x="120" y="52" font-family="'Dancing Script', cursive" font-size="32" font-weight="700" fill="#812990" text-anchor="middle">Murat Karateke</text>
+      <text x="120" y="70" font-family="'Inter', sans-serif" font-size="9" font-weight="600" fill="#5c7a52" letter-spacing="0.25em" text-anchor="middle">TIBBİ ONKOLOG</text>
+    </svg>
+  </a>
+
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="index.html">Ana Sayfa</a></li>
+      <li><a href="tum-yazilar.html">Tüm Yazılar</a></li>
+      <li><a href="onkoloji-bilgilendirme.html" class="active">Onkoloji</a></li>
+      <li><a href="hasta-ve-yakinlari-icin.html">Psiko-Onkoloji</a></li>
+      <li><a href="tip-tarihi.html">Tıp Tarihi</a></li>
+      <li><a href="anlatilar.html">Sanat ve Onkoloji</a></li>
+    </ul>
+
+    <button class="theme-toggle" id="themeToggle" aria-label="Tema değiştir" title="Açık / Koyu tema">
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    </button>
+  </div>
+</nav>
+
+<main class="article-container">
+
+  <div class="article-breadcrumb">
+    <a href="tum-yazilar.html">Tüm Yazılar</a>
+    <span class="sep">/</span>
+    <a href="onkoloji-bilgilendirme.html">Onkoloji</a>
+    <span class="sep">/</span>
+    <span>Havan ve Neşter</span>
+  </div>
+
+  <div class="article-meta">
+    <span class="article-tag">Bölüm 1</span>
+    <span class="reading-time">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      <span id="readTime">12 dk okuma</span>
+    </span>
+  </div>
+
+  <div class="series-name">Havan ve Neşter</div>
+  <h1 class="article-title">Pandora'nın Umudu, Merkez Efendi'nin Havanı: Şifanın Zamansız Yolculuğu</h1>
+
+  <article class="article-content">
+
+    <div class="fade-section">
+      <p>İnsan, karanlığı ilk ne zaman tanıdı bilmiyoruz ama onu tanıdığı anda yalnız kalmadığını biliyoruz.</p>
+
+      <p>Mitolojik hikâyeler ve tragedyalar, felaketle o ilk yüzleşmemizi anlatmanın en eski dilidir. İnsan, tek başına taşıyamadığı o ağır gerçekleri anlamlandırabilmek için hikâyelere sığdırır. Pandora'nın Kutusu da böyle bir masaldır; okuduğumuz şey yalnızca tozlu bir efsane değil, insanın çaresizlikle tanıştığı, ruhunun ilk kez kırıldığı o sarsıcı andır.</p>
+
+      <p>Efsane odur ki, Pandora'nın ellerine mühürlü bir kutu bırakılır ve kapağını kapalı tutması emredilir. Ama varoluşun en eski, en yenilmez duygusudur merak. Belki de bütün trajedimiz, o engellenemez dürtüyle başlar. Kapağın usulca aralandığı o kısacık anda dünyanın masumiyeti sonsuza dek bozulur; o güne dek adları bile bilinmeyen hastalık, acı, dipsiz bir korku, keder ve ölüm yeryüzüne saçılır.</p>
+
+      <p>Bu efsaneyi ölümsüz kılan, felaketlerin yeryüzüne saçılması değildir. Asıl sarsıcı olan, o andan itibaren insanın hayatla kurduğu o masum bağın kopması, bir daha asla "eskisi gibi" olamayacağı gerçeğidir. Çünkü bazı gerçekler bir kez yüzünü gösterdiğinde, zaman bir daha geriye akmaz.</p>
+    </div>
+
+    <div class="text-divider" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+    </div>
+
+    <div class="fade-section">
+      <p>Pandora dehşet içinde o kapağı kapattığında, en dipte, o zifiri karanlığın içinde dışarı sızamamış tek bir şey kalır: <strong>Umut</strong>.</p>
+
+      <p>Umut, çoğu zaman yanlış anlaşılır. Onu büyük bir ışık, güçlü bir duygu ya da her şeyi düzeltecek bir güç olarak düşünmek kolaydır. Oysa umut çoğu zaman çok daha küçük, daha sessiz ve daha inatçı bir şeydir. Gürültü yapmaz. Kendini ilan etmez. Mucizeler vaad etmez fakat en karanlık günde bile, bir yere gitmeyeceğini fısıldar.</p>
+
+      <p>Her insan, günün birinde o kapağın kendi üzerine açıldığı anla tanışır. Bu bir veda, bir hastalık ya da dudaklardan dökülen ağır bir cümle olabilir… O an, hayatın sürekliliği kırılır. Öncesi ve sonrası ayrılır. Tanıdık olan her şey bir anda yabancılaşır.</p>
+
+      <p>İşte tam o eşikte insan, devasa bir korkuyla aynı odada nefes almayı öğrenmek zorunda kalır.</p>
+    </div>
+
+    <div class="pull-quote fade-section">
+      <p>Umut, karanlığı bir anda yutmaz; ama o zifiri karanlığın içinde kör olmanızı engeller. İnsanlık tarihi boyunca şifa arayışının hiç bitmemesinin nedeni de budur. Çünkü insan sadece acıdan kaçmaz; tutunacak bir kök, inanacak bir anlam ve en önemlisi, yola devam edecek bir neden arar.</p>
+    </div>
+
+    <div class="text-divider" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+    </div>
+
+    <div class="fade-section">
+      <p>İşte kutunun dibinde kalan o inatçı umut, efsanelerin sisli dünyasından çıkıp zamanın içinde sessizce yolculuk eder. Ve gün gelir, ete kemiğe bürünerek tarihin gerçek bir sahnesinde yeniden yüzünü gösterir…</p>
+
+      <p>Yüzyıllar evvel, Anadolu'nun batısında, sırtını Spil Dağı'na yaslamış Manisa'da bir hastalık öyküsü yankılanır. Bu hikâye kâğıt üzerinde altın varaklı bir saray odasında, ipek döşeklerin arasında başlamış gibi görünür. Oysa kökleri çok daha derinlerde bir yerdedir; insanoğlunun o hiç değişmeyen, zamanı aşan "şifa" arayışından doğar.</p>
+
+      <p>Cihanı titreten Yavuz Sultan Selim'in zevcesi, yeryüzüne ihtişamıyla hükmedecek "Muhteşem" Süleyman'ın annesi Valide Hafsa Sultan hastadır.</p>
+
+      <p>Bütün o imparatorluk gücünün, yenilmez orduların ve altın taçların hükmünü yitirdiği o yatakta; o kudretli kadın, hastalık karşısında çaresizce şifa bekleyen bir insandan farksızdır. Kapıda bekleyen hekimlerin, saray muhafızlarının ve koskoca bir imparatorluğun o anki tek gerçeği, bir annenin acıyla yutkunuşuna kilitlenmiştir.</p>
+    </div>
+
+    <div class="fade-section">
+      <p>Onun kim olduğu, taşıdığı unvanlar ya da bulunduğu yer, o anın içinde anlamını yitirir. Çünkü hastalık, insanı her zaman en sade haline indirir. Beden ağırlaşır, zaman yavaşlar ve insan, kendisiyle baş başa kalır.</p>
+
+      <p>Odada yalnızca bir hasta yoktur aynı zamanda bir bekleyiş vardır. Bir şeyin değişmesini bekleyen ama neyin, nasıl değişeceğini bilmeyen bir bekleyiş…</p>
+
+      <p>Başucunda oğlu Süleyman durur. Henüz "Muhteşem" sıfatını kuşanmamış bu genç şehzadenin gözlerinde, yüzyıllardır o hastane koridorlarında hiç değişmeyen o tanıdık bakış vardır: Sevdiğinin eriyip gidişini izleyen, uğruna dünyaları yakabilecek gücü varken o yataktaki acıya karşı hiçbir şey yapamayan bir evladın çaresizliği…</p>
+    </div>
+
+    <div class="pull-quote fade-section">
+      <p>İşte tam bu sessiz kıyametin ortasında, insanın o en kadim, en inatçı refleksi uyanır: Arayış.</p>
+    </div>
+
+    <div class="text-divider" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+    </div>
+
+    <div class="fade-section">
+      <p>O arayışın cevabı olarak karanlığı yaran bir hekim çıkar ortaya; <strong>Merkez Efendi</strong>.</p>
+
+      <p>O yalnızca dönemin tıp ilmine hâkim sıradan bir tabip değil; toprağın dilini, rüzgârın fısıltısını ve nebatatın sırrını okuyabilen bir şifa bilgesidir.</p>
+
+      <p>Bu hikâyede onu efsane yapan şey ezberlediği kitaplar değil, o kapkara çaresizliğin karşısında pes etmeyişidir. Yüzünü tabiata döner. Unutulmuş köklere, kadim baharatlara, toprağın hafızasını taşıyan tohumlara ve kokulara bakar. Çünkü bilir ki yeryüzündeki her bir yaprak, binlerce yıllık bir şifa bilgisini damarlarında saklar.</p>
+
+      <p>Kırk bir farklı baharat, kırk bir farklı umut gibi yan yana gelir. Zencefilin keskinliği, tarçının sıcaklığı, çörekotunun kadim sırrı, karanfilin nefesi… Kendi başlarına doğanın mütevazı birer parçası olan bu tatlar, Merkez Efendi'nin ellerinde birleşerek devasa bir bütüne kavuşur.</p>
+    </div>
+
+    <div class="info-box fade-section">
+      <div class="box-title">Mesir Macunu — Tarihsel Bağlam</div>
+      Mesir Macunu, kırk bir farklı baharattan oluşan ve Merkez Efendi tarafından 16. yüzyılda hazırlanan geleneksel bir karışımdır. Her yıl Manisa'da Nevruz döneminde Sultan Camii'nden halka saçılarak dağıtılan bu macun, 2012 yılında UNESCO İnsanlığın Somut Olmayan Kültürel Mirası Temsili Listesi'ne alınmıştır. Gelenek, beş yüz yılı aşkın süredir kesintisiz devam etmektedir.
+    </div>
+
+    <div class="fade-section">
+      <p>Ortaya çıkan şey sadece tıbbi bir reçete değildir. Çaresizliğin ortasında insanın kendi elleriyle yaktığı bir ateştir; "Ben de bir şey yapıyorum" deme çığlığıdır.</p>
+
+      <p>Efsane odur ki, Valide Sultan iyileşir. Gel gelelim bu hikâyeyi asırlardır dilden dile taşıyan şey bu iyileşme anı değildir. Asıl efsane, onun aldığı o sarsıcı kararla başlar: Bu şifa, sadece bir sultana ayrıcalık olmayacaktır.</p>
+    </div>
+
+    <div class="text-divider" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+    </div>
+
+    <div class="fade-section">
+      <p>Tarihe "Mesir Macunu" olarak kazınacak olan bu karışım, baharın uyandığı Nevruz gününde Sultan Camii'nin kubbelerinden halkın üzerine saçılır.</p>
+
+      <p>İnsanlar ellerini gökyüzüne uzatır. Bu, sadece tatlı bir macunun dağıtımı değildir; bu, saraydan sokağa taşan umudun ve şifanın herkese eşit pay edilmesidir.</p>
+    </div>
+
+    <div class="pull-quote fade-section">
+      <p>İnsan, karanlıkta yalnız başına iyileşeceğine inanmak istemez. İyileşme, kalabalıklara karıştığında, paylaşıldığında gerçek anlamına kavuşur.</p>
+    </div>
+
+    <div class="fade-section">
+      <p>Sonra zaman akar. Yüzyıllar devrilir, saraylar eskir, insanlığın boğuştuğu hastalıkların adı değişir ama o soğuk odalarda insanın kendi çaresizliğine karşı başkaldıran sorusu hiç değişmez: <strong>"Ben ne yapabilirim?"</strong></p>
+
+      <p>Bugün bu soru başka yerlerde sorulmakta. Hastane odalarında, polikliniklerde, tedavi süreçlerinin içinde… İnsanoğlu, hâlâ aynı ihtiyacın peşinde. Yalnızca tedavi olmak değil, sürecin bir parçası olma isteği.</p>
+
+      <p>Bilim ilerledi artık hastalıklar daha iyi anlaşılmakta, tedaviler daha sistemli uygulanmakta fakat insanın içindeki o eski ihtiyaç hâlâ yerli yerinde durmakta.</p>
+
+      <p>Mesir Macunu'nun hikâyesi, bu yüzden yalnızca geçmişe ait değil. Bu hikâye, insanın şifa arayışının zamansız bir ifadesidir.</p>
+
+      <p>Çünkü insan, ne kadar değişirse değişsin gelişirse gelişsin, karanlıkla karşılaştığında aynı şeyi yapmakta: <strong>Bir yol aramakta.</strong> Ve o yolu, çoğu zaman tek başına değil, başkalarıyla birlikte yürümek istemektedir.</p>
+    </div>
+
+    <div class="text-divider" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+    </div>
+
+    <div class="fade-section">
+      <p>İşte "Havan ve Neşter" adını verdiğim bu yeni yazı dizisi, tam da bu ortak yürüyüşün, o eski "Ben ne yapabilirim?" sorusunun bugünkü klinik karşılığıdır.</p>
+    </div>
+
+    <div class="source-card fade-section">
+      <span class="card-label">Seri Tanımı — Havan ve Neşter</span>
+      <p class="card-text">
+        "Havan", insanın yüzyıllardır topraktan şifa devşirdiği o masum ve inatçı umut arayışını; "Neşter" ise modern bilimin keskin, tavizsiz ve hayat kurtaran gerçeğini temsil ediyor.
+      </p>
+      <span class="card-note">
+        Bu seri boyunca tamamlayıcı tıbbın onkolojideki yansımalarını, poliklinik kapılarında fısıldanan bitkileri, mucize vadeden kürleri, destekleyici tedavileri ve geleneksel yöntemleri ele alacağız.
+      </span>
+    </div>
+
+    <div class="fade-section">
+      <p>Amacımız hastanın doğaya uzanan o insani iyileşme arzusunu yargılamak ya da reddetmek değil; havanın içindeki o kadim umudu, neşterin bilimsel ve güvenli sınırları içinde şefkatle dengeleyebilmektir.</p>
+    </div>
+
+    <div class="pull-quote fade-section">
+      <p>Çünkü insan yol arar; ama o yolda karanlıkta kaybolmamak için, umudun olduğu kadar bilimin de pusulasına ihtiyaç duyar.</p>
+    </div>
+
+    <div class="fade-section">
+      <p>Gelecek yazımızda, bu destekleyici yollardan ilkini konuşmak üzere…</p>
+    </div>
+
+  </article>
+
+  <div class="article-footer fade-section">
+    <span class="author-name">Dr. Murat Karateke</span>
+    <span class="author-title">Tıbbi Onkoloji Uzmanı</span>
+  </div>
+
+</main>
+
+<button class="scroll-top" id="scrollTop" aria-label="Başa dön" title="Başa dön">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<footer>
+  <span class="footer-left">© 2026 Murat Karateke · Tüm hakları saklıdır.</span>
+  <span class="footer-right">Manisa Şehir Hastanesi · Tıbbi Onkoloji</span>
+</footer>
+
+<script>
+(function() {
+  'use strict';
+
+  const progressBar = document.getElementById('progressBar');
+
+  function updateProgress() {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    progressBar.style.width = progress + '%';
+    progressBar.setAttribute('aria-valuenow', Math.round(progress));
+  }
+
+  const scrollTopBtn = document.getElementById('scrollTop');
+
+  function toggleScrollBtn() {
+    scrollTopBtn.classList.toggle('show', window.scrollY > 600);
+  }
+
+  scrollTopBtn.addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  let ticking = false;
+  window.addEventListener('scroll', function() {
+    if (!ticking) {
+      requestAnimationFrame(function() {
+        updateProgress();
+        toggleScrollBtn();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.fade-section').forEach(function(el) {
+      observer.observe(el);
+    });
+  } else {
+    document.querySelectorAll('.fade-section').forEach(function(el) {
+      el.classList.add('visible');
+    });
+  }
+
+  const themeToggle = document.getElementById('themeToggle');
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'dark') {
+    document.documentElement.setAttribute('data-theme', 'dark');
+  }
+
+  themeToggle.addEventListener('click', function() {
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    if (isDark) {
+      document.documentElement.removeAttribute('data-theme');
+      localStorage.removeItem('theme');
+    } else {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      localStorage.setItem('theme', 'dark');
+    }
+  });
+
+  const articleText = document.querySelector('.article-content');
+  if (articleText) {
+    const wordCount = articleText.textContent.trim().split(/\s+/).length;
+    const minutes = Math.ceil(wordCount / 200);
+    document.getElementById('readTime').textContent = minutes + ' dk okuma';
+  }
+
+  updateProgress();
+  toggleScrollBtn();
+})();
+</script>
+
+</body>
+</html>
