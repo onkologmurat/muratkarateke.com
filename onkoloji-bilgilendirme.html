@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<meta name="description" content="Tamamlayıcı tıp, destekleyici yaklaşımlar, onkolojide sık sorulan sorular ve Havan ve Neşter serisi üzerine sade, güvenilir ve anlaşılır yazılar." />
+<meta name="description" content="Onkoloji pratiğinde sık sorulan soruları, destekleyici yaklaşımları ve tamamlayıcı tıpla ilgili başlıkları sade, güvenilir ve anlaşılır bir dille ele alan yazılar." />
 <meta name="author" content="Dr. Murat Karateke" />
 <title>Onkoloji Bilgilendirme | Murat Karateke</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -16,28 +16,25 @@
 :root {
   --white: #ffffff;
   --bg: #f9f8f6;
-  --bg-soft: #f6f4f1;
+  --bg2: #f3f1ee;
   --line: #e8e4de;
-  --line-strong: #ddd6cd;
   --text: #2c332e;
   --muted: #6b6662;
   --accent: #5c7a52;
   --purple: #812990;
   --serif: 'Playfair Display', Georgia, serif;
   --sans: 'Inter', system-ui, sans-serif;
-  --shadow: 0 10px 30px rgba(0,0,0,.04);
 }
 
 html { scroll-behavior: smooth; }
 
 body {
   font-family: var(--sans);
-  background: var(--bg-soft);
+  background: var(--white);
   color: var(--text);
-  font-size: 16px;
-  line-height: 1.8;
+  font-size: 15px;
+  line-height: 1.75;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 /* NAV */
@@ -93,161 +90,204 @@ nav {
   color: var(--purple);
 }
 
-/* PAGE */
-.category-page {
-  padding: 56px 20px 96px;
+/* HERO */
+.page-hero {
+  background: var(--bg);
+  padding: 5rem 1.5rem 4rem;
+  border-bottom: 1px solid var(--line);
 }
 
-.container {
-  max-width: 1120px;
+.page-hero-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.eyebrow {
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.2rem;
+}
+
+.page-title {
+  font-family: var(--serif);
+  font-size: clamp(2.3rem, 5vw, 3.8rem);
+  line-height: 1.12;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 1rem;
+}
+
+.page-sub {
+  max-width: 760px;
+  margin: 0 auto;
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.85;
+}
+
+/* CONTENT */
+.section {
+  padding: 5rem 1.5rem;
+}
+
+.section-inner {
+  max-width: 920px;
   margin: 0 auto;
 }
 
 .back-link {
-  display: inline-block;
-  margin-bottom: 34px;
-  color: var(--purple);
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
   text-decoration: none;
-  font-size: .95rem;
+  color: var(--purple);
+  font-size: .82rem;
   font-weight: 600;
-  letter-spacing: .06em;
+  letter-spacing: .08em;
   text-transform: uppercase;
+  margin-bottom: 2rem;
 }
 
 .back-link:hover {
-  opacity: .86;
+  text-decoration: underline;
 }
 
-.category-hero {
+.feature-box {
+  background: linear-gradient(180deg, #fff 0%, #fcfaf8 100%);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 2.2rem;
+  margin-bottom: 3rem;
   position: relative;
-  background: #fcfbf8;
-  border: 1px solid var(--line-strong);
-  border-radius: 24px;
-  padding: 48px 48px 46px;
-  box-shadow: var(--shadow);
   overflow: hidden;
 }
 
-.category-hero::before {
+.feature-box::before {
   content: "";
   position: absolute;
-  inset: 0 auto auto 0;
-  width: 100%;
-  height: 5px;
-  background: linear-gradient(90deg, var(--accent) 0%, var(--purple) 100%);
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent), var(--purple));
 }
 
-.category-top {
+.feature-meta {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  gap: 16px;
-  margin-bottom: 26px;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.2rem;
 }
 
-.category-label {
-  font-size: .95rem;
-  letter-spacing: .18em;
-  font-weight: 700;
-  color: var(--accent);
+.feature-badge,
+.feature-date {
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .12em;
   text-transform: uppercase;
 }
 
-.category-count {
-  font-size: .95rem;
-  letter-spacing: .08em;
-  font-weight: 700;
-  color: var(--muted);
-  text-transform: uppercase;
-}
+.feature-badge { color: var(--accent); }
+.feature-date { color: var(--muted); }
 
-.category-title {
+.article-title {
   font-family: var(--serif);
-  font-size: clamp(2.5rem, 5.4vw, 4.35rem);
-  line-height: 1.08;
-  letter-spacing: -.03em;
-  color: #2f3530;
-  max-width: 980px;
-  margin: 0 0 28px;
+  font-size: clamp(1.9rem, 4vw, 2.6rem);
+  line-height: 1.18;
+  font-weight: 600;
+  margin-bottom: 1.4rem;
 }
 
-.category-description {
-  max-width: 980px;
-}
-
-.category-description p {
-  font-size: 1.05rem;
+.article-content p {
+  font-size: 1rem;
   line-height: 1.95;
-  color: #3b433e;
-  margin: 0 0 22px;
+  color: var(--text);
+  margin-bottom: 1.5rem;
 }
 
-.category-post-card {
-  margin-top: 34px;
-  display: block;
-  text-decoration: none;
-  border: 1px solid var(--line-strong);
-  border-radius: 18px;
-  padding: 24px 24px;
-  background: #fffdfa;
-  transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+.article-content p:last-child {
+  margin-bottom: 0;
 }
 
-.category-post-card:hover {
-  transform: translateY(-2px);
-  border-color: #cfc5ba;
-  box-shadow: 0 12px 28px rgba(0,0,0,.05);
+.series-list {
+  margin-top: 1.8rem;
+  display: grid;
+  gap: .95rem;
 }
 
-.post-card-meta {
-  font-size: .84rem;
-  letter-spacing: .16em;
-  font-weight: 700;
-  color: var(--accent);
-  text-transform: uppercase;
-  margin-bottom: 10px;
-}
-
-.post-card-row {
+.series-link {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  gap: 18px;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 1rem 1.1rem;
+  background: rgba(255,255,255,.82);
+  transition: all .25s ease;
 }
 
-.post-card-title-wrap {
+.series-link:hover {
+  border-color: rgba(129, 41, 144, 0.35);
+  background: #fff;
+  transform: translateX(4px);
+}
+
+.series-left {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: .25rem;
 }
 
-.post-card-series {
-  font-size: .82rem;
+.series-no {
+  font-size: .68rem;
+  font-weight: 600;
   letter-spacing: .14em;
   text-transform: uppercase;
-  color: var(--purple);
-  font-weight: 700;
+  color: var(--accent);
 }
 
-.post-card-title {
-  font-size: 1.75rem;
-  line-height: 1.3;
+.series-name {
+  font-size: 1.05rem;
+  font-weight: 600;
   color: var(--text);
-  margin: 0;
-  font-weight: 700;
 }
 
-.post-card-arrow {
-  flex-shrink: 0;
-  font-size: 2rem;
+.series-arrow {
   color: var(--purple);
-  line-height: 1;
+  font-size: 1rem;
+  flex-shrink: 0;
 }
 
+.note-box {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 1.6rem;
+}
+
+.note-box h3 {
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  margin-bottom: .8rem;
+  color: var(--text);
+}
+
+.note-box p {
+  color: var(--muted);
+  line-height: 1.85;
+}
+
+/* FOOTER */
 footer {
-  padding: 2.8rem 4rem;
+  padding: 2.5rem 1.5rem;
   border-top: 1px solid var(--line);
-  background: var(--white);
+  background: var(--bg);
 }
 
 .footer-inner {
@@ -282,71 +322,9 @@ footer {
   nav { padding: 1rem 1.25rem; }
 }
 
-@media (max-width: 760px) {
-  .category-page {
-    padding: 36px 16px 72px;
-  }
-
-  .back-link {
-    margin-bottom: 24px;
-    font-size: .83rem;
-    line-height: 1.5;
-  }
-
-  .category-hero {
-    padding: 28px 22px 24px;
-    border-radius: 20px;
-  }
-
-  .category-top {
-    margin-bottom: 20px;
-  }
-
-  .category-label,
-  .category-count {
-    font-size: .8rem;
-  }
-
-  .category-title {
-    font-size: 2.25rem;
-    line-height: 1.14;
-    margin-bottom: 20px;
-  }
-
-  .category-description p {
-    font-size: 1rem;
-    line-height: 1.85;
-    margin-bottom: 18px;
-  }
-
-  .category-post-card {
-    margin-top: 24px;
-    padding: 18px 18px;
-  }
-
-  .post-card-row {
-    align-items: flex-start;
-    gap: 12px;
-  }
-
-  .post-card-title {
-    font-size: 1.2rem;
-    line-height: 1.35;
-  }
-
-  .post-card-arrow {
-    font-size: 1.6rem;
-    margin-top: 2px;
-  }
-
-  footer {
-    padding: 2.2rem 1.25rem;
-  }
-
-  .footer-inner {
-    flex-direction: column;
-    text-align: center;
-  }
+@media (max-width: 700px) {
+  .feature-box { padding: 1.6rem; }
+  .series-link { align-items: flex-start; }
 }
 </style>
 </head>
@@ -374,60 +352,46 @@ footer {
   </ul>
 </nav>
 
-<main class="category-page">
-  <div class="container">
-
-    <a href="index.html#yazilar" class="back-link">← ANA SAYFADAKİ YAZILARA DÖN</a>
-
-    <section class="category-hero">
-      <div class="category-top">
-        <span class="category-label">ONKOLOJİ BİLGİLENDİRME</span>
-        <span class="category-count">1 YAZI</span>
-      </div>
-
-      <h1 class="category-title">
-        Umudu Reddetmeden, Bilgiyi Bulandırmadan:
-        Havan ve Neşter
-      </h1>
-
-      <div class="category-description">
-        <p>
-          Kanser tedavisi süreci yalnızca ilaçların, tetkiklerin ve randevuların sıralandığı teknik bir alan değildir.
-          Aynı zamanda hastaların ve yakınlarının sık sık “Bunun bana faydası olur mu?”, “Destekleyici bir yol var mı?”,
-          “Bitkisel ürünler gerçekten işe yarar mı?”, “Neye güvenmeliyim?” diye sorduğu karmaşık bir düşünme alanıdır.
-        </p>
-
-        <p>
-          Bu bölüm, onkoloji pratiğinde sık karşılaşılan tamamlayıcı tıp başlıklarını; korku üretmeden, küçümsemeden ama
-          bilimsel sınırları da belirsiz bırakmadan ele almak için hazırlandı. Burada amaç, hastanın şifa arayışını yargılamak değil;
-          o arayışın içindeki umudu, güvenliği ve tıbbi gerçekliği aynı cümlede tutabilmektir.
-        </p>
-
-        <p>
-          Havan ve Neşter serisi; kadim iyileşme arzusuyla modern tıbbın disiplinini karşı karşıya getiren değil,
-          birbirine temas ettiren bir yerden ilerleyecek. Çünkü insan çoğu zaman yalnızca tedavi edilmek değil,
-          aynı zamanda anlamlandırmak da ister.
-        </p>
-      </div>
-
-      <a href="havan-ve-nester-1.html" class="category-post-card">
-        <div class="post-card-meta">YAZI</div>
-
-        <div class="post-card-row">
-          <div class="post-card-title-wrap">
-            <span class="post-card-series">Havan ve Neşter · Bölüm 1</span>
-            <h2 class="post-card-title">
-              Pandora'nın Umudu, Merkez Efendi'nin Havanı: Şifanın Zamansız Yolculuğu
-            </h2>
-          </div>
-
-          <span class="post-card-arrow">→</span>
-        </div>
-      </a>
-    </section>
-
+<header class="page-hero">
+  <div class="page-hero-inner">
+    <p class="eyebrow">Yazılar</p>
+    <h1 class="page-title">Onkoloji Bilgilendirme</h1>
+    <p class="page-sub">
+      Onkoloji pratiğinde sık karşılaşılan soruları, destekleyici yaklaşımları ve tamamlayıcı tıp başlıklarını; umudu küçümsemeden ama bilgiyi de belirsiz bırakmadan ele alan metinler.
+    </p>
   </div>
-</main>
+</header>
+
+<section class="section">
+  <div class="section-inner">
+    <a href="index.html#yazilar" class="back-link">← Ana Sayfadaki Yazılara Dön</a>
+
+    <article class="feature-box">
+      <div class="feature-meta">
+        <span class="feature-badge">Onkoloji Bilgilendirme</span>
+        <span class="feature-date">1 Yazı</span>
+      </div>
+
+      <h2 class="article-title">Şifa Arayışını Yargılamadan, Bilgiyi Bulandırmadan</h2>
+
+      <div class="article-content">
+        <p>Kanser tedavisi sürecinde hastalar ve yakınları çoğu zaman yalnızca mevcut tedaviyi değil, ona eşlik edebilecek başka yolları da merak eder. Bitkisel ürünler, tamamlayıcı uygulamalar, gelenekten gelen karışımlar ya da “iyi gelir” denilen pek çok öneri; umutla, kaygıyla ve çoğu zaman belirsizlikle birlikte gündeme gelir.</p>
+
+        <p>Bu bölüm, tam da bu alana daha dikkatli ve daha dürüst bir yer açmak için hazırlandı. Burada amaç; tamamlayıcı tıpla ilgili başlıkları küçümsemek ya da romantize etmek değil, hastanın şifa arayışını ciddiye alırken güvenliği ve bilimsel gerçekliği de birlikte koruyabilmektir. Çünkü insan bazen yalnızca tedavi edilmek değil, aynı zamanda anlamlandırmak da ister.</p>
+      </div>
+
+      <div class="series-list">
+        <a href="havan-ve-nester-1.html" class="series-link">
+          <div class="series-left">
+            <span class="series-no">Havan ve Neşter · Bölüm 1</span>
+            <span class="series-name">Pandora'nın Umudu, Merkez Efendi'nin Havanı</span>
+          </div>
+          <span class="series-arrow">→</span>
+        </a>
+      </div>
+    </article>
+  </div>
+</section>
 
 <footer>
   <div class="footer-inner">
