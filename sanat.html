@@ -231,6 +231,83 @@ nav {
   line-height: 1.85;
 }
 
+/* ARTICLES LIST */
+.articles-wrap {
+  margin-top: 3.5rem;
+}
+
+.articles-heading {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 1.4rem;
+  letter-spacing: -0.005em;
+}
+
+.posts-list {
+  list-style: none;
+  border-top: 1px solid var(--line);
+}
+
+.post-item {
+  border-bottom: 1px solid var(--line);
+}
+
+.post-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.1rem 0;
+  text-decoration: none;
+  color: var(--text);
+  transition: color .2s ease;
+}
+
+.post-link:hover {
+  color: var(--purple);
+}
+
+.post-link:hover .post-arrow {
+  transform: translateX(3px);
+  color: var(--purple);
+}
+
+.post-title {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1.35;
+  flex: 1;
+  min-width: 0;
+}
+
+.post-right {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  flex-shrink: 0;
+}
+
+.post-tag {
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: rgba(92,122,82,.08);
+  padding: .3rem .6rem;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.post-arrow {
+  font-size: .9rem;
+  color: var(--muted);
+  transition: all .2s ease;
+}
+
 /* FOOTER */
 footer {
   padding: 2.5rem 1.5rem;
@@ -273,6 +350,22 @@ footer {
 @media (max-width: 700px) {
   .feature-box { padding: 1.6rem; }
 }
+
+@media (max-width: 540px) {
+  .post-link {
+    flex-wrap: wrap;
+    gap: .5rem;
+  }
+
+  .post-right {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .post-title {
+    font-size: 1rem;
+  }
+}
 </style>
 </head>
 <body>
@@ -281,9 +374,9 @@ footer {
   <a class="nav-logo-link" href="index.html" aria-label="Ana Sayfa">
     <svg width="240" height="70" viewBox="0 0 240 70" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M 55,27 Q 120,16 185,27" stroke="#5c7a52" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-      <circle cx="85"  cy="24"   r="2.2" fill="#812990" opacity="0.8"/>  <!-- üst -->
-      <circle cx="120" cy="21.5" r="2.6" fill="#812990" opacity="0.85"/> <!-- üst (merkez) -->
-      <circle cx="155" cy="24"   r="2.2" fill="#812990" opacity="0.8"/>  <!-- üst -->
+      <circle cx="85"  cy="24"   r="2.2" fill="#812990" opacity="0.8"/>
+      <circle cx="120" cy="21.5" r="2.6" fill="#812990" opacity="0.85"/>
+      <circle cx="155" cy="24"   r="2.2" fill="#812990" opacity="0.8"/>
       <text x="120" y="52" font-family="'Dancing Script', cursive" font-size="32" font-weight="700" fill="#812990" text-anchor="middle">Murat Karateke</text>
       <text x="120" y="70" font-family="'Inter', sans-serif" font-size="9" font-weight="600" fill="#5c7a52" letter-spacing="0.25em" text-anchor="middle">TIBBİ ONKOLOG</text>
     </svg>
@@ -333,6 +426,22 @@ footer {
         <p>İlerleyen dönemde burada; resim, edebiyat, sinema ve diğer sanat alanlarının kanser deneyimiyle temas ettiği noktaları ele alan yazılar, yorumlar ve daha içe dönük estetik metinler yer alacaktır.</p>
       </div>
     </article>
+
+    <div class="articles-wrap">
+      <h2 class="articles-heading">Bölümler</h2>
+
+      <ul class="posts-list">
+        <li class="post-item">
+          <a class="post-link" href="komorebi.html">
+            <span class="post-title">Komorebi: "Mükemmel Günler"in Işığında Onkoloji ve Sıradanlığın İhtişamı</span>
+            <span class="post-right">
+              <span class="post-tag">Bölüm 1</span>
+              <span class="post-arrow">→</span>
+            </span>
+          </a>
+        </li>
+      </ul>
+    </div>
   </div>
 </section>
 
