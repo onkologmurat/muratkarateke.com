@@ -93,7 +93,7 @@ nav {
 /* HERO */
 .page-hero {
   background: var(--bg);
-  padding: 5rem 1.5rem 4rem;
+  padding: 2.5rem 1.5rem 2rem;
   border-bottom: 1px solid var(--line);
 }
 
@@ -114,11 +114,11 @@ nav {
 
 .page-title {
   font-family: var(--serif);
-  font-size: clamp(2.3rem, 5vw, 3.8rem);
-  line-height: 1.12;
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  line-height: 1.15;
   font-weight: 600;
   color: var(--text);
-  margin-bottom: 1rem;
+  margin-bottom: 0;
 }
 
 .page-sub {
@@ -135,7 +135,7 @@ nav {
 }
 
 .section-inner {
-  max-width: 860px;
+  max-width: 920px;
   margin: 0 auto;
 }
 
@@ -212,6 +212,58 @@ nav {
   margin-bottom: 0;
 }
 
+.series-list {
+  margin-top: 1.8rem;
+  display: grid;
+  gap: .95rem;
+}
+
+.series-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 1rem 1.1rem;
+  background: rgba(255,255,255,.82);
+  transition: all .25s ease;
+}
+
+.series-link:hover {
+  border-color: rgba(129, 41, 144, 0.35);
+  background: #fff;
+  transform: translateX(4px);
+}
+
+.series-left {
+  display: flex;
+  flex-direction: column;
+  gap: .25rem;
+}
+
+.series-no {
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.series-name {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.series-arrow {
+  color: var(--purple);
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
 .note-box {
   background: var(--bg);
   border: 1px solid var(--line);
@@ -229,83 +281,6 @@ nav {
 .note-box p {
   color: var(--muted);
   line-height: 1.85;
-}
-
-/* ARTICLES LIST */
-.articles-wrap {
-  margin-top: 3.5rem;
-}
-
-.articles-heading {
-  font-family: var(--serif);
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: var(--text);
-  margin-bottom: 1.4rem;
-  letter-spacing: -0.005em;
-}
-
-.posts-list {
-  list-style: none;
-  border-top: 1px solid var(--line);
-}
-
-.post-item {
-  border-bottom: 1px solid var(--line);
-}
-
-.post-link {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 1.1rem 0;
-  text-decoration: none;
-  color: var(--text);
-  transition: color .2s ease;
-}
-
-.post-link:hover {
-  color: var(--purple);
-}
-
-.post-link:hover .post-arrow {
-  transform: translateX(3px);
-  color: var(--purple);
-}
-
-.post-title {
-  font-family: var(--serif);
-  font-size: 1.1rem;
-  font-weight: 600;
-  line-height: 1.35;
-  flex: 1;
-  min-width: 0;
-}
-
-.post-right {
-  display: flex;
-  align-items: center;
-  gap: .8rem;
-  flex-shrink: 0;
-}
-
-.post-tag {
-  font-size: .68rem;
-  font-weight: 600;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  color: var(--accent);
-  background: rgba(92,122,82,.08);
-  padding: .3rem .6rem;
-  border-radius: 999px;
-  white-space: nowrap;
-}
-
-.post-arrow {
-  font-size: .9rem;
-  color: var(--muted);
-  transition: all .2s ease;
 }
 
 /* FOOTER */
@@ -349,22 +324,7 @@ footer {
 
 @media (max-width: 700px) {
   .feature-box { padding: 1.6rem; }
-}
-
-@media (max-width: 540px) {
-  .post-link {
-    flex-wrap: wrap;
-    gap: .5rem;
-  }
-
-  .post-right {
-    width: 100%;
-    justify-content: space-between;
-  }
-
-  .post-title {
-    font-size: 1rem;
-  }
+  .series-link { align-items: flex-start; }
 }
 </style>
 </head>
@@ -394,11 +354,7 @@ footer {
 
 <header class="page-hero">
   <div class="page-hero-inner">
-    <p class="eyebrow">Sessiz Metinler</p>
     <h1 class="page-title">Sanat ve Onkoloji</h1>
-    <p class="page-sub">
-      Sanat, hastalığın sessiz bıraktığı her şeye ses verir. Muayene odasından resim, edebiyat ve sinemaya uzanan görünmez bir köprünün yazıları.
-    </p>
   </div>
 </header>
 
@@ -407,46 +363,32 @@ footer {
     <a href="index.html#yazilar" class="back-link">← Ana Sayfadaki Yazılara Dön</a>
 
     <article class="feature-box">
-      <div class="feature-meta">
-        <span class="feature-badge">Açılış Yazısı</span>
-        <span class="feature-date">Sanat ve Onkoloji Bölümü</span>
-      </div>
-
       <h2 class="article-title">Hastalığın Sessiz Bıraktığı Yerde, Sanat Konuşmaya Başlar</h2>
 
       <div class="article-content">
         <p>Hastalık yalnızca biyolojik bir süreç değildir. İnsanın bedeniyle, zamanla, kırılganlıkla ve kendi imgesiyle kurduğu ilişkiyi de değiştirir. Bazı deneyimler vardır ki tıbbi bilgiyle açıklanabilir; ama tam olarak yalnızca bilgiyle taşınamaz. İşte sanat, tam bu noktada devreye girer: söylenemeyeni görünür kılar, susulanı sezdirir, dağınık kalan duygulara bir form verir.</p>
 
         <p>Bu bölüm, sanat ve onkoloji başlığı altında, hastalık deneyiminin sanatla temas ettiği alanlara ayrıldı. Burada yer alacak yazılar; resmi, edebiyatı, sinemayı ve estetik deneyimi yalnızca kültürel bir uğraş olarak değil, hastalığın insani yükünü anlamaya yardım eden bir düşünme ve hissetme alanı olarak ele alacak.</p>
+      </div>
 
+      <div class="series-list">
+        <a href="sanat-ve-onkoloji1.html" class="series-link">
+          <div class="series-left">
+            <span class="series-no">Bölüm 1</span>
+            <span class="series-name">Komorebi: "Mükemmel Günler"in Işığında Onkoloji ve Sıradanlığın İhtişamı</span>
+          </div>
+          <span class="series-arrow">→</span>
+        </a>
+
+        <a href="sanat-ve-onkoloji2.html" class="series-link">
+          <div class="series-left">
+            <span class="series-no">Bölüm 2</span>
+            <span class="series-name">Kıyıdaki Kafe, Eşikteki Sorular</span>
+          </div>
+          <span class="series-arrow">→</span>
+        </a>
       </div>
     </article>
-
-    <div class="articles-wrap">
-      <h2 class="articles-heading">Bölümler</h2>
-
-      <ul class="posts-list">
-        <li class="post-item">
-          <a class="post-link" href="sanat-ve-onkoloji1.html">
-            <span class="post-title">Komorebi: "Mükemmel Günler"in Işığında Onkoloji ve Sıradanlığın İhtişamı</span>
-            <span class="post-right">
-              <span class="post-tag">Bölüm 1</span>
-              <span class="post-arrow">→</span>
-            </span>
-          </a>
-        </li>
-
-        <li class="post-item">
-          <a class="post-link" href="sanat-ve-onkoloji2.html">
-            <span class="post-title">Kıyıdaki Kafe, Eşikteki Sorular</span>
-            <span class="post-right">
-              <span class="post-tag">Bölüm 2</span>
-              <span class="post-arrow">→</span>
-            </span>
-          </a>
-        </li>
-      </ul>
-    </div>
   </div>
 </section>
 
