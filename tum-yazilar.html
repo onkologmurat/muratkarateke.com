@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<meta name="description" content="Onkoloji bilgilendirme, hasta ve yakınlarına yönelik metinler, tıp tarihi yazıları ve anlatılardan oluşan tüm yazılar arşivi." />
+<meta name="description" content="Niobe'nin Defteri: Onkoloji bilgilendirme, hasta ve yakınlarına yönelik metinler, tıp tarihi yazıları ve anlatıların bir araya geldiği arşiv." />
 <meta name="author" content="Dr. Murat Karateke" />
-<title>Tüm Yazılar | Murat Karateke</title>
+<title>Tüm Yazılar — Niobe'nin Defteri | Murat Karateke</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400;1,500;1,600&family=Dancing+Script:wght@600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -23,6 +23,7 @@
   --accent:  #5c7a52;
   --purple:  #812990;
   --serif:   'Playfair Display', Georgia, serif;
+  --serif-alt: 'Cormorant Garamond', Georgia, serif;
   --sans:    'Inter', system-ui, sans-serif;
 }
 
@@ -90,43 +91,184 @@ nav {
   color: var(--purple);
 }
 
-/* HERO */
-.page-hero {
-  background: var(--bg);
+/* ─── NIOBE'NİN DEFTERİ — MANIFESTO HERO ─── */
+.niobe-hero {
+  background:
+    radial-gradient(ellipse at top, rgba(129,41,144,.04) 0%, transparent 60%),
+    linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
   border-bottom: 1px solid var(--line);
-  padding: 5rem 1.5rem 4rem;
+  padding: 6rem 1.5rem 5.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.niobe-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--purple), transparent);
+  opacity: .4;
+}
+
+.niobe-inner {
+  max-width: 720px;
+  margin: 0 auto;
   text-align: center;
+  position: relative;
 }
 
-.page-hero-inner {
-  max-width: 920px;
-  margin: 0 auto;
-}
-
-.eyebrow {
-  font-size: .72rem;
-  font-weight: 600;
-  letter-spacing: .18em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 1.2rem;
-}
-
-.page-title {
+.niobe-eyebrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .9rem;
   font-family: var(--serif);
-  font-size: clamp(2.4rem, 5vw, 4rem);
-  line-height: 1.12;
-  font-weight: 600;
-  color: var(--text);
-  margin-bottom: 1rem;
+  font-style: italic;
+  font-size: .82rem;
+  font-weight: 500;
+  color: var(--accent);
+  letter-spacing: .14em;
+  margin-bottom: 1.4rem;
+  text-transform: uppercase;
 }
 
-.page-sub {
-  max-width: 760px;
-  margin: 0 auto;
+.niobe-eyebrow::before,
+.niobe-eyebrow::after {
+  content: '';
+  width: 28px;
+  height: 1px;
+  background: var(--accent);
+  opacity: .5;
+}
+
+.niobe-title {
+  font-family: var(--serif);
+  font-size: clamp(2.4rem, 6vw, 3.8rem);
+  font-weight: 600;
+  font-style: italic;
+  color: var(--text);
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+  letter-spacing: -.012em;
+}
+
+.niobe-subtitle {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(.95rem, 2vw, 1.1rem);
   color: var(--muted);
-  font-size: 1.05rem;
-  line-height: 1.85;
+  margin-bottom: 3rem;
+  letter-spacing: .02em;
+}
+
+/* Manifesto body */
+.niobe-body {
+  text-align: left;
+  font-family: var(--serif-alt);
+  font-size: 1.18rem;
+  line-height: 1.9;
+  color: var(--text);
+}
+
+.niobe-body .stanza {
+  margin: 0 0 1.8rem;
+  font-style: italic;
+  color: var(--text);
+}
+
+.niobe-body .stanza-line {
+  display: block;
+  margin-bottom: .25rem;
+}
+
+.niobe-body .stanza-line:last-child { margin-bottom: 0; }
+
+.niobe-body p {
+  margin: 0 0 1.6rem;
+  font-style: normal;
+  color: var(--text);
+}
+
+.niobe-body .stanza-list .stanza-line {
+  padding-left: 1.4rem;
+  position: relative;
+  margin-bottom: .9rem;
+  line-height: 1.75;
+}
+
+.niobe-body .stanza-list .stanza-line::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: .85em;
+  width: .55rem;
+  height: 1px;
+  background: var(--purple);
+  opacity: .55;
+}
+
+.niobe-body .stanza-list .label {
+  color: var(--purple);
+  font-weight: 500;
+  font-style: italic;
+}
+
+.niobe-manifesto {
+  font-family: var(--serif);
+  font-size: clamp(1.25rem, 2.6vw, 1.55rem);
+  font-style: italic;
+  text-align: center;
+  color: var(--purple);
+  margin: 2.6rem 0;
+  line-height: 1.45;
+  font-weight: 500;
+  padding: 0 1rem;
+}
+
+/* Küçük süs ayırıcı */
+.niobe-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 2.5rem auto 1.6rem;
+  opacity: .55;
+}
+
+.niobe-divider::before,
+.niobe-divider::after {
+  content: '';
+  width: 36px;
+  height: 1px;
+  background: var(--accent);
+}
+
+.niobe-divider .dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--purple);
+}
+
+.niobe-divider .dot.side {
+  width: 3px;
+  height: 3px;
+  background: var(--accent);
+  opacity: .7;
+}
+
+.niobe-closing {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.18rem;
+  color: var(--accent);
+  text-align: center;
+  margin-top: 1.6rem;
+  letter-spacing: .03em;
 }
 
 /* PAGE */
@@ -328,9 +470,16 @@ footer {
 }
 
 @media (max-width: 760px) {
-  .page-hero {
-    padding: 4rem 1.25rem 3rem;
+  .niobe-hero {
+    padding: 4.5rem 1.25rem 4rem;
   }
+
+  .niobe-body {
+    font-size: 1.06rem;
+  }
+
+  .niobe-eyebrow::before,
+  .niobe-eyebrow::after { width: 18px; }
 
   .post-link {
     padding: .9rem 0;
@@ -351,6 +500,10 @@ footer {
     width: 100%;
     justify-content: space-between;
   }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
 }
 </style>
 </head>
@@ -378,19 +531,62 @@ footer {
   </ul>
 </nav>
 
-<header class="page-hero">
-  <div class="page-hero-inner">
-    <p class="eyebrow">Arşiv</p>
-    <h1 class="page-title">Tüm Yazılar</h1>
-    <p class="page-sub">
-      Onkoloji bilgilendirme yazıları, hasta ve yakınlarına yönelik metinler, tıp tarihi serileri ve anlatılar bu sayfada bir araya geliyor. Bölümlere göre filtreleyebilir, mevcut yazılara doğrudan ulaşabilirsiniz.
-    </p>
+<!-- ─── NIOBE'NİN DEFTERİ — MANIFESTO ─── -->
+<header class="niobe-hero">
+  <div class="niobe-inner">
+    <p class="niobe-eyebrow">Bir Defter Açılıyor</p>
+    <h1 class="niobe-title">Niobe'nin Defteri</h1>
+    <p class="niobe-subtitle">Sessizliğin Dilinden Bir Önsöz</p>
+
+    <div class="niobe-body">
+
+      <div class="stanza">
+        <span class="stanza-line">Bazı şeyler vardır, anlatılmaz.</span>
+        <span class="stanza-line">Bazılarıysa hiç dile gelmez.</span>
+        <span class="stanza-line">Niobe de öyleydi. Antik çağdan kalan, sadece yaşadıklarıyla değil, söyleyemedikleriyle taşlaşan bir figür…</span>
+      </div>
+
+      <div class="stanza">
+        <span class="stanza-line">Çünkü bazı duygular, dile geldiğinde eksilir.</span>
+        <span class="stanza-line">Bazı sessizlikler ise zamanla bir biçim alır; taşa dönüşür.</span>
+        <span class="stanza-line">Ama o taş hâlâ anlatır. Çünkü sessizliğin bile bir dili vardır.</span>
+      </div>
+
+      <p>İşte onkoloji koridorları, tam da o dilin konuşulduğu yerdir. Kanser sadece bir tıbbi rapor değildir; bir insanın içinde sessizce büyüyen o "ikinci hayattır."</p>
+
+      <div class="stanza stanza-list">
+        <span class="stanza-line"><span class="label">O ağır yutkunma —</span> Tanıdan hemen sonra boğazda asılı kalan ilk his.</span>
+        <span class="stanza-line"><span class="label">Saklanan korkular —</span> Kemoterapi koltuğunda, bir gülümsemenin arkasına özenle yerleştirilen o kaygı.</span>
+        <span class="stanza-line"><span class="label">Muazzam sessizlik —</span> Kelimelerin bittiği yerde, hekimle hastanın aynı nefeste buluştuğu o an.</span>
+      </div>
+
+      <p>Ancak hikâye burada bitmiyor. Çünkü o sessizliğin içinden başka sesler de yükseliyor:</p>
+
+      <div class="stanza">
+        <span class="stanza-line">Fırtına dindikten sonra gelen o dingin bilgelik.</span>
+        <span class="stanza-line">"Bitti" denilen yerden filizlenen o inatçı yaşam sevinci.</span>
+        <span class="stanza-line">Ve nihayetinde; taşlaşan bir kalbin yeniden çarpmaya, ruhun yeniden nefes almaya başladığı o iyileşme mucizesi.</span>
+      </div>
+
+      <p>Bunlar çoğu zaman dile gelmez ama yok da olmaz. İçimizde birikir, biçim değiştirir ve tıpkı Niobe gibi, susarak var olur.</p>
+
+      <p class="niobe-manifesto">Niobe'nin Defteri,<br/>tam da bu sessizliği bozmak için açılıyor.</p>
+
+      <p>Kanseri sadece bir hastalık olarak değil; insanın içinde bıraktığı izlerle, bir hikâyede, bir tabloda ya da bir film sahnesinde beraber okuyacağız. Sessizliğin dilini çözmek, o taşın altındaki cana ve umuda dokunmak için…</p>
+
+      <div class="niobe-divider" aria-hidden="true">
+        <span class="dot side"></span>
+        <span class="dot"></span>
+        <span class="dot side"></span>
+      </div>
+
+      <p class="niobe-closing">İlk sayfa açıldı.</p>
+    </div>
   </div>
 </header>
 
-<section class="section">
+<section class="section" id="yazilar">
   <div class="section-inner">
-    <a href="index.html#yazilar" class="back-link">← Ana Sayfadaki Yazılara Dön</a>
 
     <div class="filters-wrap">
       <h2 class="filters-title">Bölümlere göre göz atın</h2>
